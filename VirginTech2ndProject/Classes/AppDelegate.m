@@ -8,8 +8,8 @@
 // -----------------------------------------------------------------------
 
 #import "AppDelegate.h"
-#import "IntroScene.h"
-#import "HelloWorldScene.h"
+#import "TitleScene.h"
+#import "StageLevel_01.h"
 
 @implementation AppDelegate
 
@@ -40,7 +40,7 @@
 		// Run the fixed timestep extra fast.
 //		CCSetupFixedUpdateInterval: @(1.0/180.0),
 		// Make iPad's act like they run at a 2x content scale. (iPad retina 4x)
-//		CCSetupTabletScale2X: @(YES),
+		CCSetupTabletScale2X: @(YES),
 	}];
 	
 	return YES;
@@ -49,7 +49,7 @@
 -(CCScene *)startScene
 {
 	// This method should return the very first scene to be run when your app starts.
-	return [IntroScene scene];
+	return [TitleScene scene];
 }
 
 @end

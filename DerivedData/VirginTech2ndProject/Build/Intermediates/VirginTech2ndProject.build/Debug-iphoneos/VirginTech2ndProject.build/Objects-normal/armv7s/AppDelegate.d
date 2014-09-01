@@ -101,7 +101,7 @@ dependencies: \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/cocos2d/Support/NSThread+performBlock.h \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/cocos2d/Support/utlist.h \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/kazmath/include/kazmath/GL/matrix.h \
-  /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Classes/IntroScene.h \
+  /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Classes/TitleScene.h \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/cocos2d-ui/cocos2d-ui.h \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/cocos2d-ui/CCControl.h \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/cocos2d-ui/CCButton.h \
@@ -113,4 +113,4 @@ dependencies: \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/CCBReader/CCBReader.h \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/CCBReader/CCBAnimationManager.h \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/CCBReader/CCBLocalizationManager.h \
-  /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Classes/HelloWorldScene.h
+  /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Classes/StageLevel_01.h

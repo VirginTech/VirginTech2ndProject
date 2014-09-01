@@ -8,20 +8,20 @@
 // -----------------------------------------------------------------------
 
 // Import the interfaces
-#import "IntroScene.h"
-#import "HelloWorldScene.h"
+#import "TitleScene.h"
+#import "StageLevel_01.h"
 
 // -----------------------------------------------------------------------
 #pragma mark - IntroScene
 // -----------------------------------------------------------------------
 
-@implementation IntroScene
+@implementation TitleScene
 
 // -----------------------------------------------------------------------
 #pragma mark - Create & Destroy
 // -----------------------------------------------------------------------
 
-+ (IntroScene *)scene
++ (TitleScene *)scene
 {
 	return [[self alloc] init];
 }
@@ -39,14 +39,14 @@
     [self addChild:background];
     
     // Hello world
-    CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Chalkduster" fontSize:36.0f];
+    CCLabelTTF *label = [CCLabelTTF labelWithString:@"VirginTech 2nd Project" fontName:@"Verdana-Bold" fontSize:32.0f];
     label.positionType = CCPositionTypeNormalized;
     label.color = [CCColor redColor];
-    label.position = ccp(0.5f, 0.5f); // Middle of screen
+    label.position = ccp(0.5f, 0.6f); // Middle of screen
     [self addChild:label];
     
     // Helloworld scene button
-    CCButton *helloWorldButton = [CCButton buttonWithTitle:@"[ Start ]" fontName:@"Verdana-Bold" fontSize:18.0f];
+    CCButton *helloWorldButton = [CCButton buttonWithTitle:@"[スタート]" fontName:@"Verdana-Bold" fontSize:25.0f];
     helloWorldButton.positionType = CCPositionTypeNormalized;
     helloWorldButton.position = ccp(0.5f, 0.35f);
     [helloWorldButton setTarget:self selector:@selector(onSpinningClicked:)];
@@ -63,8 +63,8 @@
 - (void)onSpinningClicked:(id)sender
 {
     // start spinning scene with transition
-    [[CCDirector sharedDirector] replaceScene:[HelloWorldScene scene]
-                               withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:1.0f]];
+    [[CCDirector sharedDirector] replaceScene:[StageLevel_01 scene]
+                               withTransition:[CCTransition transitionCrossFadeWithDuration:1.0]];
 }
 
 // -----------------------------------------------------------------------

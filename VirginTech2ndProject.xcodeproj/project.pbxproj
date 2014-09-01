@@ -210,8 +210,8 @@
 		CF6D8B8319B3F712001C5668 /* LICENSE_Chipmunk.txt in Resources */ = {isa = PBXBuildFile; fileRef = CF6D8B8219B3F712001C5668 /* LICENSE_Chipmunk.txt */; };
 		CF6D8B8719B3F712001C5668 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6D8B8619B3F712001C5668 /* main.m */; };
 		CF6D8B8B19B3F712001C5668 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6D8B8A19B3F712001C5668 /* AppDelegate.m */; };
-		CF6D8B8E19B3F712001C5668 /* HelloWorldScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6D8B8D19B3F712001C5668 /* HelloWorldScene.m */; };
-		CF6D8B9119B3F712001C5668 /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6D8B9019B3F712001C5668 /* IntroScene.m */; };
+		CF6D8B8E19B3F712001C5668 /* StageLevel_01.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6D8B8D19B3F712001C5668 /* StageLevel_01.m */; };
+		CF6D8B9119B3F712001C5668 /* TitleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6D8B9019B3F712001C5668 /* TitleScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -649,10 +649,10 @@
 		CF6D8B8619B3F712001C5668 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
 		CF6D8B8919B3F712001C5668 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		CF6D8B8A19B3F712001C5668 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
-		CF6D8B8C19B3F712001C5668 /* HelloWorldScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HelloWorldScene.h; path = Classes/HelloWorldScene.h; sourceTree = "<group>"; };
-		CF6D8B8D19B3F712001C5668 /* HelloWorldScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HelloWorldScene.m; path = Classes/HelloWorldScene.m; sourceTree = "<group>"; };
-		CF6D8B8F19B3F712001C5668 /* IntroScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IntroScene.h; path = Classes/IntroScene.h; sourceTree = "<group>"; };
-		CF6D8B9019B3F712001C5668 /* IntroScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = IntroScene.m; path = Classes/IntroScene.m; sourceTree = "<group>"; };
+		CF6D8B8C19B3F712001C5668 /* StageLevel_01.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = StageLevel_01.h; path = Classes/StageLevel_01.h; sourceTree = "<group>"; };
+		CF6D8B8D19B3F712001C5668 /* StageLevel_01.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = StageLevel_01.m; path = Classes/StageLevel_01.m; sourceTree = "<group>"; };
+		CF6D8B8F19B3F712001C5668 /* TitleScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TitleScene.h; path = Classes/TitleScene.h; sourceTree = "<group>"; };
+		CF6D8B9019B3F712001C5668 /* TitleScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TitleScene.m; path = Classes/TitleScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1542,10 +1542,10 @@
 			children = (
 				CF6D8B8919B3F712001C5668 /* AppDelegate.h */,
 				CF6D8B8A19B3F712001C5668 /* AppDelegate.m */,
-				CF6D8B8C19B3F712001C5668 /* HelloWorldScene.h */,
-				CF6D8B8D19B3F712001C5668 /* HelloWorldScene.m */,
-				CF6D8B8F19B3F712001C5668 /* IntroScene.h */,
-				CF6D8B9019B3F712001C5668 /* IntroScene.m */,
+				CF6D8B8C19B3F712001C5668 /* StageLevel_01.h */,
+				CF6D8B8D19B3F712001C5668 /* StageLevel_01.m */,
+				CF6D8B8F19B3F712001C5668 /* TitleScene.h */,
+				CF6D8B9019B3F712001C5668 /* TitleScene.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1707,7 +1707,7 @@
 				CF6D8A4619B3F711001C5668 /* NSThread+performBlock.m in Sources */,
 				CF6D89D119B3F711001C5668 /* CCShaderCache.m in Sources */,
 				CF6D8B0E19B3F712001C5668 /* CCBSequenceProperty.m in Sources */,
-				CF6D8B9119B3F712001C5668 /* IntroScene.m in Sources */,
+				CF6D8B9119B3F712001C5668 /* TitleScene.m in Sources */,
 				CF6D8A1519B3F711001C5668 /* CCGLView.m in Sources */,
 				CF6D89D819B3F711001C5668 /* CCSprite.m in Sources */,
 				CF6D893419B3F710001C5668 /* CCActionInterval.m in Sources */,
@@ -1747,7 +1747,7 @@
 				CF6D89D419B3F711001C5668 /* ccShaders.m in Sources */,
 				CF6D8AE819B3F711001C5668 /* matrix.c in Sources */,
 				CF6D89FA19B3F711001C5668 /* CCTiledMapLayer.m in Sources */,
-				CF6D8B8E19B3F712001C5668 /* HelloWorldScene.m in Sources */,
+				CF6D8B8E19B3F712001C5668 /* StageLevel_01.m in Sources */,
 				CF6D8AEE19B3F711001C5668 /* neon_matrix_impl.c in Sources */,
 				CF6D897319B3F710001C5668 /* CCLabelTTF.m in Sources */,
 				CF6D8A2819B3F711001C5668 /* NSEvent+CC.m in Sources */,
