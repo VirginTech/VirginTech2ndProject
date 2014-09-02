@@ -15,9 +15,8 @@
 // -----------------------------------------------------------------------
 
 @implementation StageLevel_01
-{
-    CCSprite *_sprite;
-}
+
+CGSize winSize;
 
 // -----------------------------------------------------------------------
 #pragma mark - Create & Destroy
@@ -39,17 +38,22 @@
     // Enable touch handling on scene node
     self.userInteractionEnabled = YES;
     
+    winSize = [[CCDirector sharedDirector]viewSize];
+    
     // Create a colored background (Dark Grey)
     CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0.2f green:0.2f blue:0.2f alpha:1.0f]];
     [self addChild:background];
     
     // Create a back button
-    CCButton *backButton = [CCButton buttonWithTitle:@"[タイトル]" fontName:@"Verdana-Bold" fontSize:25.0f];
+    CCButton *backButton = [CCButton buttonWithTitle:@"[タイトル]" fontName:@"Verdana-Bold" fontSize:15.0f];
     backButton.positionType = CCPositionTypeNormalized;
-    backButton.position = ccp(0.85f, 0.90f); // Top Right of screen
+    backButton.position = ccp(0.90f, 0.95f); // Top Right of screen
     [backButton setTarget:self selector:@selector(onBackClicked:)];
     [self addChild:backButton];
 
+    //オブジェクト配置
+    [self schedule:@selector(createObj_Schedule:)interval:3.0];
+    
     // done
 	return self;
 }
@@ -82,6 +86,12 @@
 {
     // always call super onExit last
     [super onExit];
+}
+
+-(void)createObj_Schedule:(CCTime)dt
+{
+    CircleObject* circle=[CircleObject createCircle];
+    [self addChild:circle];
 }
 
 // -----------------------------------------------------------------------

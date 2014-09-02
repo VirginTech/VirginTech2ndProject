@@ -212,6 +212,9 @@
 		CF6D8B8B19B3F712001C5668 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6D8B8A19B3F712001C5668 /* AppDelegate.m */; };
 		CF6D8B8E19B3F712001C5668 /* StageLevel_01.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6D8B8D19B3F712001C5668 /* StageLevel_01.m */; };
 		CF6D8B9119B3F712001C5668 /* TitleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6D8B9019B3F712001C5668 /* TitleScene.m */; };
+		CFDE125019B55F81002F7D45 /* circle_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFDE124E19B55F81002F7D45 /* circle_default.plist */; };
+		CFDE125119B55F81002F7D45 /* circle_default.png in Resources */ = {isa = PBXBuildFile; fileRef = CFDE124F19B55F81002F7D45 /* circle_default.png */; };
+		CFDE125419B5601D002F7D45 /* CircleObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDE125319B5601D002F7D45 /* CircleObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -653,6 +656,10 @@
 		CF6D8B8D19B3F712001C5668 /* StageLevel_01.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = StageLevel_01.m; path = Classes/StageLevel_01.m; sourceTree = "<group>"; };
 		CF6D8B8F19B3F712001C5668 /* TitleScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TitleScene.h; path = Classes/TitleScene.h; sourceTree = "<group>"; };
 		CF6D8B9019B3F712001C5668 /* TitleScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TitleScene.m; path = Classes/TitleScene.m; sourceTree = "<group>"; };
+		CFDE124E19B55F81002F7D45 /* circle_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = circle_default.plist; sourceTree = "<group>"; };
+		CFDE124F19B55F81002F7D45 /* circle_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle_default.png; sourceTree = "<group>"; };
+		CFDE125219B5601D002F7D45 /* CircleObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleObject.h; sourceTree = "<group>"; };
+		CFDE125319B5601D002F7D45 /* CircleObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -724,6 +731,8 @@
 		CF6D88FA19B3F710001C5668 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CFDE124E19B55F81002F7D45 /* circle_default.plist */,
+				CFDE124F19B55F81002F7D45 /* circle_default.png */,
 				CF6D88FB19B3F710001C5668 /* Default.png */,
 				CF6D88FD19B3F710001C5668 /* Default@2x.png */,
 				CF6D88FF19B3F710001C5668 /* Default-568h@2x.png */,
@@ -1546,6 +1555,8 @@
 				CF6D8B8D19B3F712001C5668 /* StageLevel_01.m */,
 				CF6D8B8F19B3F712001C5668 /* TitleScene.h */,
 				CF6D8B9019B3F712001C5668 /* TitleScene.m */,
+				CFDE125219B5601D002F7D45 /* CircleObject.h */,
+				CFDE125319B5601D002F7D45 /* CircleObject.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1625,6 +1636,7 @@
 				CF6D891919B3F710001C5668 /* Icon-Small@2x.png in Resources */,
 				CF6D890B19B3F710001C5668 /* Icon-72@2x.png in Resources */,
 				CF6D88FC19B3F710001C5668 /* Default.png in Resources */,
+				CFDE125119B55F81002F7D45 /* circle_default.png in Resources */,
 				CF6D890519B3F710001C5668 /* Icon.png in Resources */,
 				CF6D891319B3F710001C5668 /* Icon-iPad-Spotlight-iOS7@2x.png in Resources */,
 				CF6D890219B3F710001C5668 /* Default-Landscape~ipad.png in Resources */,
@@ -1642,6 +1654,7 @@
 				CF6D890D19B3F710001C5668 /* Icon-76.png in Resources */,
 				CF6D8AE319B3F711001C5668 /* ChangeLog in Resources */,
 				CF6D892219B3F710001C5668 /* iTunesArtwork@2x in Resources */,
+				CFDE125019B55F81002F7D45 /* circle_default.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1774,6 +1787,7 @@
 				CF6D895B19B3F710001C5668 /* CCDrawingPrimitives.m in Sources */,
 				CF6D8A4C19B3F711001C5668 /* TGAlib.m in Sources */,
 				CF6D8A1819B3F711001C5668 /* UITouch+CC.m in Sources */,
+				CFDE125419B5601D002F7D45 /* CircleObject.m in Sources */,
 				CF6D8AF619B3F711001C5668 /* utility.c in Sources */,
 				CF6D8A5519B3F711001C5668 /* ZipUtils.m in Sources */,
 				CF6D8A6619B3F711001C5668 /* OALUtilityActions.m in Sources */,
