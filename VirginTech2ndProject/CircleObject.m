@@ -7,7 +7,7 @@
 //
 
 #import "CircleObject.h"
-
+#import "BasicMath.h"
 
 @implementation CircleObject
 
@@ -16,31 +16,45 @@ CGSize winSize;
 -(void)move_Schedule:(CCTime)dt
 {
     CGPoint nextPos;
-    nextPos=CGPointMake(velocity*cosf(startAngle),velocity*sinf(startAngle));
+    nextPos=CGPointMake(velocity*cosf(targetAngle),velocity*sinf(targetAngle));
     self.position=CGPointMake(self.position.x+nextPos.x, self.position.y+nextPos.y);
-}
-
-//========================
-// 方向(角度)を取得→(ラジアン)
-//========================
-+(float)getAngle_To_Radian:(CGPoint)sPos ePos:(CGPoint)ePos{
     
-    float angle;
-    float dx,dy;//差分距離ベクトル
-    dx = ePos.x - sPos.x;
-    dy = ePos.y - sPos.y;
-    //斜辺角度
-    angle=atanf(dy/dx);
-    
-    if(dx<0 && dy>0){//座標左上
-        angle=M_PI+angle;
-    }else if(dx<0 && dy<=0){//座標左下
-        angle=M_PI+angle;
-    }else if(dx>=0 && dy<=0){//座標右下
-        angle=M_PI*2+angle;
-    }else{//座標右上（修正なし）
+    if(self.position.y+(self.contentSize.height*scale)/2 >= winSize.height){//上限界
+        if(!startFlg){
+            if(collisFlg){
+                self.position=ccp(self.position.x, self.position.y-3);
+            }
+            targetAngle = 2*M_PI-targetAngle;
+            collisFlg=true;
+        }
+    }else if(self.position.y-(self.contentSize.height*scale)/2 <= 0){//下限界
+        if(!startFlg){
+            if(collisFlg){
+                self.position=ccp(self.position.x, self.position.y+3);
+            }
+            targetAngle = 2*M_PI-targetAngle;
+            collisFlg=true;
+        }
+    }else if(self.position.x-(self.contentSize.width*scale)/2 <= 0){//左限界
+        if(!startFlg){
+            if(collisFlg){
+                self.position=ccp(self.position.x+3, self.position.y);
+            }
+            targetAngle = 2*M_PI_2-targetAngle;
+            collisFlg=true;
+        }
+    }else if(self.position.x+(self.contentSize.width*scale)/2 >= winSize.width){//右限界
+        if(!startFlg){
+            if(collisFlg){
+                self.position=ccp(self.position.x-3, self.position.y);
+            }
+            targetAngle = 2*M_PI_2-targetAngle;
+            collisFlg=true;
+        }
+    }else{
+        collisFlg=false;
+        startFlg=false;
     }
-    return angle;
 }
 
 -(id)initWithCircle
@@ -55,6 +69,9 @@ CGSize winSize;
         scale=0.3;
         velocity=0.5;
 
+        collisFlg=false;
+        startFlg=true;
+        
         self.scale=scale;
         
         //ポジション設定
@@ -81,9 +98,10 @@ CGSize winSize;
         
         self.position = ccp(actualX,actualY);
 
-        //方角設定(中心へ)
+        //方角設定
         actualY =(arc4random()% rangeY)+ minY;
-        startAngle = [CircleObject getAngle_To_Radian:self.position ePos:ccp(winSize.width/2,actualY)];
+        targetAngle = [BasicMath getAngle_To_Radian:self.position ePos:ccp(winSize.width/2,actualY)];
+        //NSLog(@"アングル＝%f",targetAngle);
         
         [self schedule:@selector(move_Schedule:)interval:0.01];
     }

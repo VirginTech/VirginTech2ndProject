@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF264F6719B695C900CACAFD /* BasicMath.m in Sources */ = {isa = PBXBuildFile; fileRef = CF264F6619B695C900CACAFD /* BasicMath.m */; };
 		CF6D88E219B3F710001C5668 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6D88E119B3F710001C5668 /* QuartzCore.framework */; };
 		CF6D88E419B3F710001C5668 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6D88E319B3F710001C5668 /* OpenGLES.framework */; };
 		CF6D88E619B3F710001C5668 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6D88E519B3F710001C5668 /* OpenAL.framework */; };
@@ -228,6 +229,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CF264F6519B695C900CACAFD /* BasicMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicMath.h; sourceTree = "<group>"; };
+		CF264F6619B695C900CACAFD /* BasicMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicMath.m; sourceTree = "<group>"; };
 		CF6D88DE19B3F710001C5668 /* VirginTech2ndProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirginTech2ndProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF6D88E119B3F710001C5668 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CF6D88E319B3F710001C5668 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1549,6 +1552,8 @@
 		CF6D8B8819B3F712001C5668 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				CF264F6519B695C900CACAFD /* BasicMath.h */,
+				CF264F6619B695C900CACAFD /* BasicMath.m */,
 				CF6D8B8919B3F712001C5668 /* AppDelegate.h */,
 				CF6D8B8A19B3F712001C5668 /* AppDelegate.m */,
 				CF6D8B8C19B3F712001C5668 /* StageLevel_01.h */,
@@ -1751,6 +1756,7 @@
 				CF6D8A8819B3F711001C5668 /* ALListener.m in Sources */,
 				CF6D896119B3F710001C5668 /* ccFPSImages.m in Sources */,
 				CF6D8A3819B3F711001C5668 /* ccUtils.c in Sources */,
+				CF264F6719B695C900CACAFD /* BasicMath.m in Sources */,
 				CF6D89A919B3F710001C5668 /* CCPhysicsShape.m in Sources */,
 				CF6D89B119B3F710001C5668 /* CCRenderTexture.m in Sources */,
 				CF6D893719B3F710001C5668 /* CCActionManager.m in Sources */,

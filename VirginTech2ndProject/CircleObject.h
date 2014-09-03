@@ -13,7 +13,9 @@
 {
     float scale;
     float velocity;
-    float startAngle;
+    float targetAngle;
+    bool collisFlg;
+    bool startFlg;
 }
 
 +(id)createCircle;

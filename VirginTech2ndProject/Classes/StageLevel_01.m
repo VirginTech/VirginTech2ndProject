@@ -17,6 +17,7 @@
 @implementation StageLevel_01
 
 CGSize winSize;
+int objCnt;
 
 // -----------------------------------------------------------------------
 #pragma mark - Create & Destroy
@@ -52,6 +53,7 @@ CGSize winSize;
     [self addChild:backButton];
 
     //オブジェクト配置
+    objCnt=0;
     [self schedule:@selector(createObj_Schedule:)interval:3.0];
     
     // done
@@ -90,8 +92,12 @@ CGSize winSize;
 
 -(void)createObj_Schedule:(CCTime)dt
 {
+    objCnt++;
     CircleObject* circle=[CircleObject createCircle];
     [self addChild:circle];
+    if(objCnt>=5){
+        [self unschedule:@selector(createObj_Schedule:)];
+    }
 }
 
 // -----------------------------------------------------------------------
