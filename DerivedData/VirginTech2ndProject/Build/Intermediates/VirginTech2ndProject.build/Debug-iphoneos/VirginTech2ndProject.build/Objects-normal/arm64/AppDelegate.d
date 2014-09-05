@@ -114,4 +114,5 @@ dependencies: \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/CCBReader/CCBAnimationManager.h \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/CCBReader/CCBLocalizationManager.h \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Classes/StageLevel_01.h \
-  /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/CircleObject.h
+  /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/PuniObject.h \
+  /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/ParentObject.h

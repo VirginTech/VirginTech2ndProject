@@ -11,7 +11,7 @@
 @implementation BasicMath
 
 //========================
-// 当たり判定（直径とポイント）
+// 当たり判定（半径とポイント）
 //========================
 +(BOOL)RadiusContainsPoint:(CGPoint)pointA pointB:(CGPoint)pointB radius:(float)radius{
     
@@ -24,7 +24,7 @@
 }
 
 //========================
-// 当たり判定（直径と直径）
+// 当たり判定（半径と半径）
 //========================
 +(BOOL)RadiusIntersectsRadius:(CGPoint)pointA pointB:(CGPoint)pointB
                                                 radius1:(float)radius1 radius2:(float)radius2{

@@ -213,9 +213,10 @@
 		CF6D8B8B19B3F712001C5668 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6D8B8A19B3F712001C5668 /* AppDelegate.m */; };
 		CF6D8B8E19B3F712001C5668 /* StageLevel_01.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6D8B8D19B3F712001C5668 /* StageLevel_01.m */; };
 		CF6D8B9119B3F712001C5668 /* TitleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6D8B9019B3F712001C5668 /* TitleScene.m */; };
+		CFBEB09B19B85C7800E3007D /* ParentObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBEB09A19B85C7800E3007D /* ParentObject.m */; };
 		CFDE125019B55F81002F7D45 /* circle_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFDE124E19B55F81002F7D45 /* circle_default.plist */; };
 		CFDE125119B55F81002F7D45 /* circle_default.png in Resources */ = {isa = PBXBuildFile; fileRef = CFDE124F19B55F81002F7D45 /* circle_default.png */; };
-		CFDE125419B5601D002F7D45 /* CircleObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDE125319B5601D002F7D45 /* CircleObject.m */; };
+		CFDE125419B5601D002F7D45 /* PuniObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDE125319B5601D002F7D45 /* PuniObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -659,10 +660,12 @@
 		CF6D8B8D19B3F712001C5668 /* StageLevel_01.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = StageLevel_01.m; path = Classes/StageLevel_01.m; sourceTree = "<group>"; };
 		CF6D8B8F19B3F712001C5668 /* TitleScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TitleScene.h; path = Classes/TitleScene.h; sourceTree = "<group>"; };
 		CF6D8B9019B3F712001C5668 /* TitleScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TitleScene.m; path = Classes/TitleScene.m; sourceTree = "<group>"; };
+		CFBEB09919B85C7800E3007D /* ParentObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentObject.h; sourceTree = "<group>"; };
+		CFBEB09A19B85C7800E3007D /* ParentObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentObject.m; sourceTree = "<group>"; };
 		CFDE124E19B55F81002F7D45 /* circle_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = circle_default.plist; sourceTree = "<group>"; };
 		CFDE124F19B55F81002F7D45 /* circle_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle_default.png; sourceTree = "<group>"; };
-		CFDE125219B5601D002F7D45 /* CircleObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleObject.h; sourceTree = "<group>"; };
-		CFDE125319B5601D002F7D45 /* CircleObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleObject.m; sourceTree = "<group>"; };
+		CFDE125219B5601D002F7D45 /* PuniObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PuniObject.h; sourceTree = "<group>"; };
+		CFDE125319B5601D002F7D45 /* PuniObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PuniObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1560,8 +1563,10 @@
 				CF6D8B8D19B3F712001C5668 /* StageLevel_01.m */,
 				CF6D8B8F19B3F712001C5668 /* TitleScene.h */,
 				CF6D8B9019B3F712001C5668 /* TitleScene.m */,
-				CFDE125219B5601D002F7D45 /* CircleObject.h */,
-				CFDE125319B5601D002F7D45 /* CircleObject.m */,
+				CFDE125219B5601D002F7D45 /* PuniObject.h */,
+				CFDE125319B5601D002F7D45 /* PuniObject.m */,
+				CFBEB09919B85C7800E3007D /* ParentObject.h */,
+				CFBEB09A19B85C7800E3007D /* ParentObject.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1763,6 +1768,7 @@
 				CF6D89DB19B3F711001C5668 /* CCSprite9Slice.m in Sources */,
 				CF6D89ED19B3F711001C5668 /* CCTextureAtlas.m in Sources */,
 				CF6D8AAE19B3F711001C5668 /* OALAudioFile.m in Sources */,
+				CFBEB09B19B85C7800E3007D /* ParentObject.m in Sources */,
 				CF6D89D419B3F711001C5668 /* ccShaders.m in Sources */,
 				CF6D8AE819B3F711001C5668 /* matrix.c in Sources */,
 				CF6D89FA19B3F711001C5668 /* CCTiledMapLayer.m in Sources */,
@@ -1793,7 +1799,7 @@
 				CF6D895B19B3F710001C5668 /* CCDrawingPrimitives.m in Sources */,
 				CF6D8A4C19B3F711001C5668 /* TGAlib.m in Sources */,
 				CF6D8A1819B3F711001C5668 /* UITouch+CC.m in Sources */,
-				CFDE125419B5601D002F7D45 /* CircleObject.m in Sources */,
+				CFDE125419B5601D002F7D45 /* PuniObject.m in Sources */,
 				CF6D8AF619B3F711001C5668 /* utility.c in Sources */,
 				CF6D8A5519B3F711001C5668 /* ZipUtils.m in Sources */,
 				CF6D8A6619B3F711001C5668 /* OALUtilityActions.m in Sources */,
