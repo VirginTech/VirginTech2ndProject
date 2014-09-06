@@ -64,21 +64,21 @@ NSMutableArray* parentArray;
     puniCnt=0;
     [self schedule:@selector(createPuni_Schedule:)interval:3.0];
     
-    //親プニ配置
-    parent=[ParentObject createParent];
+    /*/親プニ配置
+    parent=[ParentObject createParent:1];
     [self addChild:parent];
     [parentArray addObject:parent];
     
-    parent=[ParentObject createParent];
+    parent=[ParentObject createParent:2];
     parent.position=ccp(winSize.width/2/2,winSize.height/2);
     [self addChild:parent];
     [parentArray addObject:parent];
     
-    parent=[ParentObject createParent];
+    parent=[ParentObject createParent:3];
     parent.position=ccp(winSize.width-winSize.width/2/2,winSize.height/2);
     [self addChild:parent];
     [parentArray addObject:parent];
-    
+    */
     // done
 	return self;
 }
@@ -119,7 +119,7 @@ NSMutableArray* parentArray;
 -(void)createPuni_Schedule:(CCTime)dt
 {
     puniCnt++;
-    puni=[PuniObject createPuni];
+    puni=[PuniObject createPuni:puniCnt];
     [puniArray addObject:puni];
     [self addChild:puni];
     if(puniCnt>=10){
@@ -132,7 +132,7 @@ NSMutableArray* parentArray;
     //衝突反射
     float collisSurfaceAngle;//衝突面角度
     //CGPoint nextPos;
-    
+    /*
     for(PuniObject* puni1 in puniArray){
         for(ParentObject* parent1 in parentArray){
             if([BasicMath RadiusIntersectsRadius:puni1.position
@@ -140,11 +140,13 @@ NSMutableArray* parentArray;
                                                 radius1:(puni1.contentSize.width*puni1.scale)/2.0f
                                                 radius2:(parent1.contentSize.width*parent1.scale)/2.0f])
             {
-                if(!parent1.collisFlg){
+                if(parent1.collisNum!=puni1.objNum && puni1.collisNum!=parent1.objNum){
                     //nextPos=CGPointMake(3*cosf(puni1.targetAngle),3*sinf(puni1.targetAngle));
                     //puni1.position=CGPointMake(puni1.position.x-nextPos.x, puni1.position.y-nextPos.y);
 
-                    parent1.collisFlg=true;
+                    puni1.collisNum=parent1.objNum;
+                    parent1.collisNum=puni1.objNum;
+                    
                     collisSurfaceAngle = [self getCollisSurfaceAngle:puni1.position pos2:parent1.position];
                     puni1.targetAngle = 2*collisSurfaceAngle-(puni1.targetAngle+collisSurfaceAngle);
                     
@@ -152,26 +154,45 @@ NSMutableArray* parentArray;
                     //NSLog(@"%f",puni1.targetAngle);
                 }
             }else{
-                parent1.collisFlg=false;
-            }
-        }
-    }
-    
-    /*
-    for(PuniObject* puni1 in puniArray){
-        for(PuniObject* puni2 in puniArray){
-            if([BasicMath RadiusIntersectsRadius:puni1.position
-                                                pointB:puni2.position
-                                                radius1:(puni1.contentSize.width*puni1.scale)/2.0f
-                                                radius2:(puni2.contentSize.width*puni2.scale)/2.0f])
-            {
-                if(puni1!=puni2){
-                    collisSurfaceAngle = [self getCollisSurfaceAngle:puni1.position pos2:puni2.position];
-                    puni1.targetAngle = 2*collisSurfaceAngle-puni1.targetAngle+collisSurfaceAngle;
+                if(parent1.collisNum==puni1.objNum || puni1.collisNum==parent1.objNum){
+                    parent1.collisNum=-1;
+                    puni1.collisNum=-1;
                 }
             }
         }
     }*/
+    
+    for(PuniObject* puni1 in puniArray){
+        for(PuniObject* puni2 in puniArray){
+            if([BasicMath RadiusIntersectsRadius:puni1.position
+                                                pointB:puni2.position
+                                                radius1:(puni1.contentSize.width*puni1.scale)/2.0f-1.5
+                                                radius2:(puni2.contentSize.width*puni2.scale)/2.0f-1.5])
+            {
+                if(puni1!=puni2){
+                    if(puni2.collisNum!=puni1.objNum && puni1.collisNum!=puni2.objNum){
+                    //if(puni1.collisNum!=puni2.objNum){
+
+                        puni1.collisNum=puni2.objNum;
+                        puni2.collisNum=puni1.objNum;
+                        
+                        collisSurfaceAngle = [self getCollisSurfaceAngle:puni1.position pos2:puni2.position];
+                        puni1.targetAngle = 2*collisSurfaceAngle-(puni1.targetAngle+collisSurfaceAngle);
+                        collisSurfaceAngle = [self getCollisSurfaceAngle:puni2.position pos2:puni1.position];
+                        puni2.targetAngle = 2*collisSurfaceAngle-(puni2.targetAngle+collisSurfaceAngle);
+                    }
+                }
+            }else{
+                if(puni1!=puni2){
+                    if(puni2.collisNum==puni1.objNum || puni1.collisNum==puni2.objNum){
+                    //if(puni1.collisNum==puni2.objNum){
+                        puni1.collisNum=-1;
+                        puni2.collisNum=-1;
+                    }
+                }
+            }
+        }
+    }
 }
 
 -(float)getCollisSurfaceAngle:(CGPoint)pos1 pos2:(CGPoint)pos2

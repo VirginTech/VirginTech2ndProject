@@ -11,11 +11,16 @@
 
 @interface ParentObject : CCSprite {
     
-    bool collisFlg;
+    int collisNum;
+    int objNum;
+    
+    CCLabelTTF* label;
+    CCLabelTTF* label2;
 }
 
-@property bool collisFlg;
+@property int collisNum;
+@property int objNum;
 
-+(id)createParent;
++(id)createParent:(int)objCnt;
 
 @end

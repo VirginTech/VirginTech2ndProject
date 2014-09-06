@@ -11,11 +11,12 @@
 
 @implementation ParentObject
 
-@synthesize collisFlg;
+@synthesize collisNum;
+@synthesize objNum;
 
 CGSize winSize;
 
--(id)initWithParent
+-(id)initWithParent:(int)objCnt;
 {
     //画像読み込み
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"circle_default.plist"];
@@ -27,7 +28,8 @@ CGSize winSize;
         self.scale=0.5;
         self.position=ccp(winSize.width/2,winSize.height/2);
         
-        collisFlg=false;
+        objNum=objCnt;
+        collisNum=-1;
         
         //デバッグ用ライン
         CCDrawNode* drawNode1=[CCDrawNode node];
@@ -44,14 +46,35 @@ CGSize winSize;
                             color:[CCColor whiteColor]];
         [self addChild:drawNode2];
 
-        self.rotation=45;
+        //self.rotation=45;
+        
+        //デバッグ用ラベル
+        label=[CCLabelTTF labelWithString:
+               [NSString stringWithFormat:@"%d",objNum]fontName:@"Verdana-Bold" fontSize:55];
+        label.position=ccp(self.contentSize.width/2,self.contentSize.height/2);
+        label.color=[CCColor blackColor];
+        [self addChild:label];
+        
+        label2=[CCLabelTTF labelWithString:
+                [NSString stringWithFormat:@"%d",collisNum] fontName:@"Verdana-Bold" fontSize:35];
+        label2.position=ccp(self.contentSize.width/2,self.contentSize.height/2-100);
+        label2.color=[CCColor whiteColor];
+        [self addChild:label2];
+        
+        [self schedule:@selector(test_Schedule:)interval:0.01];
+        
     }
     return self;
 }
 
-+(id)createParent
+-(void)test_Schedule:(CCTime)dt
 {
-    return [[self alloc] initWithParent];
+    label2.string=[NSString stringWithFormat:@"%d",collisNum];
+}
+
++(id)createParent:(int)objCnt;
+{
+    return [[self alloc] initWithParent:objCnt];
 }
 
 @end

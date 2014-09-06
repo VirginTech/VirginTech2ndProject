@@ -12,7 +12,8 @@
 @implementation PuniObject
 
 @synthesize targetAngle;
-@synthesize collisFlg2;
+@synthesize collisNum;
+@synthesize objNum;
 
 CGSize winSize;
 
@@ -20,7 +21,7 @@ CGSize winSize;
 {
     CGPoint nextPos;
     targetAngle=[self wallReflectionAngle];
-    label2.string=[NSString stringWithFormat:@"%f",self.targetAngle];
+    label2.string=[NSString stringWithFormat:@"%f",targetAngle];
     nextPos=CGPointMake(velocity*cosf(targetAngle),velocity*sinf(targetAngle));
     self.position=CGPointMake(self.position.x+nextPos.x, self.position.y+nextPos.y);
 }
@@ -36,7 +37,7 @@ CGSize winSize;
             }
             angle = 2*M_PI-targetAngle;
             collisFlg=true;
-            label.string=@"上";
+            //label.string=@"上";
         }
     }else if(self.position.y-(self.contentSize.height*scale)/2 <= 0){//下限界
         if(!startFlg){
@@ -45,7 +46,7 @@ CGSize winSize;
             }
             angle = 2*M_PI-targetAngle;
             collisFlg=true;
-            label.string=@"下";
+            //label.string=@"下";
         }
     }else if(self.position.x-(self.contentSize.width*scale)/2 <= 0){//左限界
         if(!startFlg){
@@ -54,7 +55,7 @@ CGSize winSize;
             }
             angle = 2*M_PI_2-targetAngle;
             collisFlg=true;
-            label.string=@"左";
+            //label.string=@"左";
         }
     }else if(self.position.x+(self.contentSize.width*scale)/2 >= winSize.width){//右限界
         if(!startFlg){
@@ -63,7 +64,7 @@ CGSize winSize;
             }
             angle = 2*M_PI_2-targetAngle;
             collisFlg=true;
-            label.string=@"右";
+            //label.string=@"右";
         }
     }else{
         collisFlg=false;
@@ -72,7 +73,7 @@ CGSize winSize;
     return angle;
 }
 
--(id)initWithPuni
+-(id)initWithPuni:(int)objCnt
 {
     //画像読み込み
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"circle_default.plist"];
@@ -84,8 +85,9 @@ CGSize winSize;
         scale=0.3;
         velocity=1.0;
 
+        objNum=objCnt;
         collisFlg=false;
-        collisFlg2=false;
+        collisNum=-1;
         startFlg=true;
         
         self.scale=scale;
@@ -120,12 +122,13 @@ CGSize winSize;
         //NSLog(@"アングル＝%f",targetAngle);
         
         //デバッグ用ラベル
-        label=[CCLabelTTF labelWithString:@"" fontName:@"Verdana-Bold" fontSize:35];
+        label=[CCLabelTTF labelWithString:
+               [NSString stringWithFormat:@"%d",objNum]fontName:@"Verdana-Bold" fontSize:35];
         label.position=ccp(self.contentSize.width/2,self.contentSize.height/2);
         label.color=[CCColor blackColor];
         [self addChild:label];
 
-        label2=[CCLabelTTF labelWithString:[NSString stringWithFormat:@"%f",self.targetAngle] fontName:@"Verdana-Bold" fontSize:25];
+        label2=[CCLabelTTF labelWithString:[NSString stringWithFormat:@"%f",targetAngle] fontName:@"Verdana-Bold" fontSize:25];
         label2.position=ccp(self.contentSize.width/2,self.contentSize.height/2-100);
         label2.color=[CCColor whiteColor];
         [self addChild:label2];
@@ -136,9 +139,9 @@ CGSize winSize;
     return self;
 }
 
-+(id)createPuni
++(id)createPuni:(int)objCnt;
 {
-    return [[self alloc] initWithPuni];
+    return [[self alloc] initWithPuni:objCnt];
 }
 
 @end

@@ -15,15 +15,17 @@
     float velocity;
     float targetAngle;
     bool collisFlg;
-    bool collisFlg2;
+    int collisNum;;
+    int objNum;
     bool startFlg;
     CCLabelTTF* label;
     CCLabelTTF* label2;
 }
 
 @property float targetAngle;
-@property bool collisFlg2;
+@property int collisNum;
+@property int objNum;
 
-+(id)createPuni;
++(id)createPuni:(int)objCnt;
 
 @end
