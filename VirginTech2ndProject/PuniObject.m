@@ -14,15 +14,48 @@
 @synthesize targetAngle;
 @synthesize collisNum;
 @synthesize objNum;
+@synthesize manualFlg;
+@synthesize posArray;
+@synthesize moveCnt;
+@synthesize routeChangeFlg;
 
 CGSize winSize;
 
 -(void)move_Schedule:(CCTime)dt
 {
     CGPoint nextPos;
+    CGPoint pt1;
+    CGPoint pt2;
+
     targetAngle=[self wallReflectionAngle];
     label2.string=[NSString stringWithFormat:@"%f",targetAngle];
     nextPos=CGPointMake(velocity*cosf(targetAngle),velocity*sinf(targetAngle));
+    
+    if(manualFlg){
+        if(posArray.count>1){
+            if(moveCnt==0){
+                pt1 = startPos;
+                pt2 = [[posArray objectAtIndex:moveCnt] CGPointValue];
+            }else{
+                pt1 = [[posArray objectAtIndex:moveCnt-1] CGPointValue];
+                pt2 = [[posArray objectAtIndex:moveCnt] CGPointValue];
+            }
+            er=sqrtf(powf(pt2.x-pt1.x,2)+powf(pt2.y-pt1.y,2));
+            targetAngle=[BasicMath getAngle_To_Radian:pt1 ePos:pt2];
+            nextPos=CGPointMake(velocity*cosf(targetAngle),velocity*sinf(targetAngle));
+            
+            dr=dr+velocity;
+            if((int)dr>=(int)er){//丸め誤差をあえて無視！（経路ズレるから）
+                moveCnt++;
+                dr=0;
+            }
+            if(posArray.count < moveCnt+1){
+                manualFlg=false;
+            }
+        }else{
+            startPos=self.position;
+        }
+    }
     self.position=CGPointMake(self.position.x+nextPos.x, self.position.y+nextPos.y);
 }
 
@@ -83,12 +116,15 @@ CGSize winSize;
         winSize = [[CCDirector sharedDirector]viewSize];
         
         scale=0.3;
-        velocity=1.0;
+        velocity=0.5;
 
         objNum=objCnt;
         collisFlg=false;
         collisNum=-1;
         startFlg=true;
+        manualFlg=false;
+        routeChangeFlg=false;
+        moveCnt=0;
         
         self.scale=scale;
         
@@ -119,7 +155,6 @@ CGSize winSize;
         //方角設定
         actualY =(arc4random()% rangeY)+ minY;
         targetAngle = [BasicMath getAngle_To_Radian:self.position ePos:ccp(winSize.width/2,actualY)];
-        //NSLog(@"アングル＝%f",targetAngle);
         
         //デバッグ用ラベル
         label=[CCLabelTTF labelWithString:
@@ -133,7 +168,6 @@ CGSize winSize;
         label2.color=[CCColor whiteColor];
         [self addChild:label2];
 
-        
         [self schedule:@selector(move_Schedule:)interval:0.01];
     }
     return self;

@@ -20,8 +20,14 @@
 CGSize winSize;
 int puniCnt;
 
+PuniObject* puni;
+ParentObject* parent;
+RouteDispLayer* routeDisp;
+
 NSMutableArray* puniArray;
 NSMutableArray* parentArray;
+
+PuniObject* touchPuni;
 
 // -----------------------------------------------------------------------
 #pragma mark - Create & Destroy
@@ -79,6 +85,7 @@ NSMutableArray* parentArray;
     [self addChild:parent];
     [parentArray addObject:parent];
     */
+    
     // done
 	return self;
 }
@@ -121,8 +128,8 @@ NSMutableArray* parentArray;
     puniCnt++;
     puni=[PuniObject createPuni:puniCnt];
     [puniArray addObject:puni];
-    [self addChild:puni];
-    if(puniCnt>=10){
+    [self addChild:puni z:2];
+    if(puniCnt>=5){
         [self unschedule:@selector(createPuni_Schedule:)];
     }
 }
@@ -178,8 +185,13 @@ NSMutableArray* parentArray;
                         
                         collisSurfaceAngle = [self getCollisSurfaceAngle:puni1.position pos2:puni2.position];
                         puni1.targetAngle = 2*collisSurfaceAngle-(puni1.targetAngle+collisSurfaceAngle);
+                        
                         collisSurfaceAngle = [self getCollisSurfaceAngle:puni2.position pos2:puni1.position];
                         puni2.targetAngle = 2*collisSurfaceAngle-(puni2.targetAngle+collisSurfaceAngle);
+                        
+                        puni1.manualFlg=false;
+                        puni2.manualFlg=false;
+                        
                     }
                 }
             }else{
@@ -201,19 +213,19 @@ NSMutableArray* parentArray;
     
     //angle = [BasicMath getAngle_To_Radian:pos1 ePos:pos2]+M_PI_2;
     //NSLog(@"入った！");
-    float inAngle=[BasicMath getAngle_To_Degree:pos2 ePos:pos1];
+    float inAngle=[BasicMath getAngle_To_Degree:pos1 ePos:pos2];
     
     if(inAngle>=315 || inAngle<45){//上
-        angle = [BasicMath getAngle_To_Radian:pos1 ePos:pos2]+M_PI_2;
+        angle = [BasicMath getAngle_To_Radian:pos1 ePos:pos2]-M_PI_2;
         //NSLog(@"上");
     }else if(inAngle>=45 && inAngle<135){//右
-        angle = [BasicMath getAngle_To_Radian:pos1 ePos:pos2]+M_PI * 2;
+        angle = [BasicMath getAngle_To_Radian:pos1 ePos:pos2]-M_PI;
         //NSLog(@"右");
     }else if(inAngle>=135 && inAngle<225){//下
-        angle = [BasicMath getAngle_To_Radian:pos1 ePos:pos2]-M_PI_2;
+        angle = [BasicMath getAngle_To_Radian:pos1 ePos:pos2]+M_PI_2;
        // NSLog(@"下");
     }else if(inAngle>=225 && inAngle<315){//左
-        angle = [BasicMath getAngle_To_Radian:pos1 ePos:pos2]-M_PI;
+        angle = [BasicMath getAngle_To_Radian:pos1 ePos:pos2]+M_PI * 2;
         //NSLog(@"左");
     }
     
@@ -235,13 +247,68 @@ NSMutableArray* parentArray;
     return angle;
 }
 
+//============================
+// タッチした球体を特定する
+//============================
+-(BOOL)isPuni:(CGPoint)touchLocation
+{
+    BOOL flg=false;
+    for(PuniObject* _puni in puniArray){
+        if([BasicMath RadiusContainsPoint:_puni.position
+                                            pointB:touchLocation
+                                            radius:(_puni.contentSize.width*_puni.scale)/2+10]){
+            touchPuni=_puni;
+            flg=true;
+        }
+    }
+    return flg;
+}
+
 // -----------------------------------------------------------------------
 #pragma mark - Touch Handler
 // -----------------------------------------------------------------------
 
--(void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+-(void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    CGPoint touchLocation = [touch locationInNode:self];
+    
+    if([self isPuni:touchLocation]){
+        touchPuni.posArray = [[NSMutableArray alloc]init];
+        touchPuni.moveCnt=0;
+        
+        if(!touchPuni.manualFlg){
+            touchPuni.manualFlg=true;
+            routeDisp=[[RouteDispLayer alloc]init];
+            routeDisp.puni=touchPuni;
+            [self addChild:routeDisp z:1];
+        }
+    }else{
+        touchPuni=nil;
+    }
+}
+
+-(void)touchMoved:(UITouch *)touch withEvent:(UIEvent *)event
 {
     
+    CGPoint touchLocation = [touch locationInNode:self];
+
+    if(touchPuni!=nil){
+        if(![BasicMath RadiusContainsPoint:touchPuni.position pointB:touchLocation
+                                                radius:(touchPuni.contentSize.width*touchPuni.scale)/2]){
+            NSValue *value = [NSValue valueWithCGPoint:touchLocation];
+            [touchPuni.posArray addObject:value];
+        }
+    }
+}
+
+-(void)touchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    if(touchPuni!=nil){
+        if(touchPuni.posArray.count<=0){
+            touchPuni.manualFlg=false;
+            touchPuni=nil;
+        }
+    }
 }
 
 // -----------------------------------------------------------------------
@@ -256,4 +323,5 @@ NSMutableArray* parentArray;
 }
 
 // -----------------------------------------------------------------------
+
 @end

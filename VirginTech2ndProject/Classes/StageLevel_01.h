@@ -12,6 +12,7 @@
 #import "cocos2d-ui.h"
 #import "PuniObject.h"
 #import "ParentObject.h"
+#import "RouteDispLayer.h"
 
 // -----------------------------------------------------------------------
 
@@ -20,8 +21,7 @@
  */
 @interface StageLevel_01 : CCScene
 {
-    PuniObject* puni;
-    ParentObject* parent;
+
 }
 // -----------------------------------------------------------------------
 
