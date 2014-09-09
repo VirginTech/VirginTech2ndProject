@@ -21,7 +21,7 @@
     CCLabelTTF* label;
     CCLabelTTF* label2;
     bool manualFlg;
-    bool routeChangeFlg;
+    bool touchFlg;
     NSMutableArray* posArray;
     float er,dr;//最終距離、補間距離(途中経過の)
     CGPoint startPos;
@@ -34,7 +34,7 @@
 @property bool manualFlg;
 @property NSMutableArray* posArray;
 @property int moveCnt;
-@property bool routeChangeFlg;
+@property bool touchFlg;
 
 +(id)createPuni:(int)objCnt;
 

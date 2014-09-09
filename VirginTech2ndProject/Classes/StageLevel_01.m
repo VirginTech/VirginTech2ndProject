@@ -17,6 +17,8 @@
 
 @implementation StageLevel_01
 
+const int puniMax=3;
+
 CGSize winSize;
 int puniCnt;
 
@@ -129,7 +131,7 @@ PuniObject* touchPuni;
     puni=[PuniObject createPuni:puniCnt];
     [puniArray addObject:puni];
     [self addChild:puni z:2];
-    if(puniCnt>=5){
+    if(puniCnt>=puniMax){
         [self unschedule:@selector(createPuni_Schedule:)];
     }
 }
@@ -189,8 +191,11 @@ PuniObject* touchPuni;
                         collisSurfaceAngle = [self getCollisSurfaceAngle:puni2.position pos2:puni1.position];
                         puni2.targetAngle = 2*collisSurfaceAngle-(puni2.targetAngle+collisSurfaceAngle);
                         
-                        puni1.manualFlg=false;
-                        puni2.manualFlg=false;
+                        puni1.posArray = [[NSMutableArray alloc]init];
+                        puni1.moveCnt=0;
+                        
+                        puni2.posArray = [[NSMutableArray alloc]init];
+                        puni2.moveCnt=0;
                         
                     }
                 }
@@ -273,11 +278,12 @@ PuniObject* touchPuni;
     CGPoint touchLocation = [touch locationInNode:self];
     
     if([self isPuni:touchLocation]){
+        
+        touchPuni.touchFlg=true;
         touchPuni.posArray = [[NSMutableArray alloc]init];
         touchPuni.moveCnt=0;
         
         if(!touchPuni.manualFlg){
-            touchPuni.manualFlg=true;
             routeDisp=[[RouteDispLayer alloc]init];
             routeDisp.puni=touchPuni;
             [self addChild:routeDisp z:1];
@@ -289,7 +295,6 @@ PuniObject* touchPuni;
 
 -(void)touchMoved:(UITouch *)touch withEvent:(UIEvent *)event
 {
-    
     CGPoint touchLocation = [touch locationInNode:self];
 
     if(touchPuni!=nil){
@@ -303,6 +308,7 @@ PuniObject* touchPuni;
 
 -(void)touchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
+    touchPuni.touchFlg=false;
     if(touchPuni!=nil){
         if(touchPuni.posArray.count<=0){
             touchPuni.manualFlg=false;

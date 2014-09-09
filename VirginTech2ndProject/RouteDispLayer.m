@@ -31,8 +31,15 @@
 
 -(void)state_Schedule:(CCTime)dt
 {
-    if(!puni.manualFlg){
-        //NSLog(@"削除！");
+    if(puni.posArray.count>1 && puni.posArray.count < puni.moveCnt+2){
+        puni.posArray=[[NSMutableArray alloc]init];
+        puni.moveCnt=0;
+        [self unschedule:@selector(state_Schedule:)];
+        [self removeFromParentAndCleanup:YES];
+    }
+    if(puni.collisNum>0){
+        puni.posArray=[[NSMutableArray alloc]init];
+        puni.moveCnt=0;
         [self unschedule:@selector(state_Schedule:)];
         [self removeFromParentAndCleanup:YES];
     }
@@ -45,16 +52,25 @@
     NSValue* value1;
     NSValue* value2;
     
-    for(int i=1;i<puni.posArray.count;i++){
+    for(int i=puni.moveCnt+1;i<puni.posArray.count;i++){
         
         value1= [puni.posArray objectAtIndex:i-1];
         value2= [puni.posArray objectAtIndex:i];
         pt1=[value1 CGPointValue];
         pt2=[value2 CGPointValue];
         
-        glLineWidth(1.5f);
-        ccDrawColor4F(1.00f, 1.00f, 1.00f, 0.50f);
-        ccDrawLine(pt1,pt2);
+        if(puni.touchFlg){
+            if(i%2==0){
+                glLineWidth(5.0f);
+                ccDrawColor4F(1.00f, 1.00f, 1.00f, 1.00f);
+                ccDrawLine(pt1,pt2);
+            }
+        }else{
+            glLineWidth(1.0f);
+            ccDrawColor4F(1.00f, 1.00f, 1.00f, 0.30f);
+            ccDrawLine(pt1,pt2);
+        }
+        
     }
 }
 

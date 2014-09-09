@@ -17,16 +17,53 @@
 @synthesize manualFlg;
 @synthesize posArray;
 @synthesize moveCnt;
-@synthesize routeChangeFlg;
+@synthesize touchFlg;
 
 CGSize winSize;
 
 -(void)move_Schedule:(CCTime)dt
 {
-    CGPoint nextPos;
-    CGPoint pt1;
-    CGPoint pt2;
+    if(posArray.count>1 && posArray.count > moveCnt+1){
+        
+        CGPoint pt1;
+        CGPoint pt2;
+        
+        manualFlg=true;
+        if(moveCnt==0){
+            pt1 = startPos;
+            pt2 = [[posArray objectAtIndex:moveCnt] CGPointValue];
+        }else{
+            pt1 = [[posArray objectAtIndex:moveCnt-1] CGPointValue];
+            pt2 = [[posArray objectAtIndex:moveCnt] CGPointValue];
+        }
+        er=sqrtf(powf(pt2.x-pt1.x,2)+powf(pt2.y-pt1.y,2));
+        targetAngle=[BasicMath getAngle_To_Radian:pt1 ePos:pt2];
+        
+        dr=dr+velocity;
+        CGPoint inpolPos = CGPointMake(dr*cosf(targetAngle),dr*sinf(targetAngle));
+        //pt1から補間分(inpolPos)を加える
+        inpolPos.x=pt1.x+inpolPos.x;
+        inpolPos.y=pt1.y+inpolPos.y;
+        self.position=CGPointMake(inpolPos.x, inpolPos.y);
+        
+        if(dr>=er){
+            moveCnt++;
+            dr=0;
+        }
+        
+    }else{
+        CGPoint nextPos;
+        dr=0;
+        manualFlg=false;
+        targetAngle=[self wallReflectionAngle];
+        nextPos=CGPointMake(velocity*cosf(targetAngle),velocity*sinf(targetAngle));
+        self.position=CGPointMake(self.position.x+nextPos.x, self.position.y+nextPos.y);
+        startPos=self.position;
+    }
+    
+    label2.string=[NSString stringWithFormat:@"%f",targetAngle];
 
+    /*
     targetAngle=[self wallReflectionAngle];
     label2.string=[NSString stringWithFormat:@"%f",targetAngle];
     nextPos=CGPointMake(velocity*cosf(targetAngle),velocity*sinf(targetAngle));
@@ -57,6 +94,7 @@ CGSize winSize;
         }
     }
     self.position=CGPointMake(self.position.x+nextPos.x, self.position.y+nextPos.y);
+    */
 }
 
 -(float)wallReflectionAngle
@@ -123,7 +161,7 @@ CGSize winSize;
         collisNum=-1;
         startFlg=true;
         manualFlg=false;
-        routeChangeFlg=false;
+        touchFlg=false;
         moveCnt=0;
         
         self.scale=scale;
