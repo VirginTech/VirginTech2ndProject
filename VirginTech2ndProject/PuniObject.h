@@ -35,7 +35,8 @@
 @property NSMutableArray* posArray;
 @property int moveCnt;
 @property bool touchFlg;
+@property bool startFlg;
 
-+(id)createPuni:(int)objCnt;
++(id)createPuni:(int)objCnt gpNum:(int)gpNum;
 
 @end

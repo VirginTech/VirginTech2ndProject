@@ -34,14 +34,14 @@
     if(puni.posArray.count>1 && puni.posArray.count < puni.moveCnt+2){
         puni.posArray=[[NSMutableArray alloc]init];
         puni.moveCnt=0;
-        [self unschedule:@selector(state_Schedule:)];
-        [self removeFromParentAndCleanup:YES];
+        //[self unschedule:@selector(state_Schedule:)];
+        //[self removeFromParentAndCleanup:YES];
     }
     if(puni.collisNum>0){
         puni.posArray=[[NSMutableArray alloc]init];
         puni.moveCnt=0;
-        [self unschedule:@selector(state_Schedule:)];
-        [self removeFromParentAndCleanup:YES];
+        //[self unschedule:@selector(state_Schedule:)];
+        //[self removeFromParentAndCleanup:YES];
     }
 }
 

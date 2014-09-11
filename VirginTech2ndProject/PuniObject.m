@@ -18,6 +18,7 @@
 @synthesize posArray;
 @synthesize moveCnt;
 @synthesize touchFlg;
+@synthesize startFlg;
 
 CGSize winSize;
 
@@ -30,11 +31,14 @@ CGSize winSize;
         
         manualFlg=true;
         if(moveCnt==0){
-            pt1 = startPos;
-            pt2 = [[posArray objectAtIndex:moveCnt] CGPointValue];
+            NSValue *value = [NSValue valueWithCGPoint:startPos];
+            [posArray insertObject:value atIndex:0];
+            //pt1 = startPos;
+            pt1 = [[posArray objectAtIndex:moveCnt] CGPointValue];
+            pt2 = [[posArray objectAtIndex:moveCnt+1] CGPointValue];
         }else{
-            pt1 = [[posArray objectAtIndex:moveCnt-1] CGPointValue];
-            pt2 = [[posArray objectAtIndex:moveCnt] CGPointValue];
+            pt1 = [[posArray objectAtIndex:moveCnt] CGPointValue];
+            pt2 = [[posArray objectAtIndex:moveCnt+1] CGPointValue];
         }
         er=sqrtf(powf(pt2.x-pt1.x,2)+powf(pt2.y-pt1.y,2));
         targetAngle=[BasicMath getAngle_To_Radian:pt1 ePos:pt2];
@@ -52,6 +56,7 @@ CGSize winSize;
         }
         
     }else{
+        
         CGPoint nextPos;
         dr=0;
         manualFlg=false;
@@ -144,17 +149,18 @@ CGSize winSize;
     return angle;
 }
 
--(id)initWithPuni:(int)objCnt
+-(id)initWithPuni:(int)objCnt gpNum:(int)gpNum;
 {
     //画像読み込み
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"circle_default.plist"];
+    NSString* gpName=[NSString stringWithFormat:@"circle%02d.png",gpNum];
     
-    if(self=[super initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"circle01.png" ]])
+    if(self=[super initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:gpName]])
     {
         winSize = [[CCDirector sharedDirector]viewSize];
         
-        scale=0.3;
-        velocity=0.5;
+        scale=0.2;
+        velocity=0.25;
 
         objNum=objCnt;
         collisFlg=false;
@@ -172,14 +178,19 @@ CGSize winSize;
         int rangeY = maxY - minY;
         int actualY =(arc4random()% rangeY)+ minY;
         
-        int minX = winSize.width - winSize.width/3;
+        //int minX = winSize.width - winSize.width/3;
+        int minX = (self.contentSize.width*scale)/2;
         int maxX = winSize.width - (self.contentSize.width*scale)/2;
         int rangeX = maxX - minX;
         int actualX =(arc4random()% rangeX)+ minX;
         
         //寄せ
         if(arc4random()%2==0){
-            actualX = winSize.width + (self.contentSize.width*scale)/2;//右
+            if(arc4random()%2==0){
+                actualX = winSize.width + (self.contentSize.width*scale)/2;//右
+            }else{
+                actualX = -(self.contentSize.width*scale)/2;//左
+            }
         }else{
             if(arc4random()%2==0){
                 actualY = winSize.height + (self.contentSize.height*scale)/2;//上
@@ -211,9 +222,9 @@ CGSize winSize;
     return self;
 }
 
-+(id)createPuni:(int)objCnt;
++(id)createPuni:(int)objCnt gpNum:(int)gpNum;
 {
-    return [[self alloc] initWithPuni:objCnt];
+    return [[self alloc] initWithPuni:objCnt gpNum:gpNum];
 }
 
 @end

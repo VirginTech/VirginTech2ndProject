@@ -214,6 +214,8 @@
 		CF6D8B8B19B3F712001C5668 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6D8B8A19B3F712001C5668 /* AppDelegate.m */; };
 		CF6D8B8E19B3F712001C5668 /* StageLevel_01.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6D8B8D19B3F712001C5668 /* StageLevel_01.m */; };
 		CF6D8B9119B3F712001C5668 /* TitleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6D8B9019B3F712001C5668 /* TitleScene.m */; };
+		CFA7EC9219C086E400576BF2 /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA7EC9119C086E400576BF2 /* GameManager.m */; };
+		CFA7EC9519C0870600576BF2 /* InitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA7EC9419C0870600576BF2 /* InitManager.m */; };
 		CFBEB09B19B85C7800E3007D /* ParentObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBEB09A19B85C7800E3007D /* ParentObject.m */; };
 		CFDE125019B55F81002F7D45 /* circle_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFDE124E19B55F81002F7D45 /* circle_default.plist */; };
 		CFDE125119B55F81002F7D45 /* circle_default.png in Resources */ = {isa = PBXBuildFile; fileRef = CFDE124F19B55F81002F7D45 /* circle_default.png */; };
@@ -663,6 +665,10 @@
 		CF6D8B8D19B3F712001C5668 /* StageLevel_01.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = StageLevel_01.m; path = Classes/StageLevel_01.m; sourceTree = "<group>"; };
 		CF6D8B8F19B3F712001C5668 /* TitleScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TitleScene.h; path = Classes/TitleScene.h; sourceTree = "<group>"; };
 		CF6D8B9019B3F712001C5668 /* TitleScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TitleScene.m; path = Classes/TitleScene.m; sourceTree = "<group>"; };
+		CFA7EC9019C086E400576BF2 /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
+		CFA7EC9119C086E400576BF2 /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
+		CFA7EC9319C0870600576BF2 /* InitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitManager.h; sourceTree = "<group>"; };
+		CFA7EC9419C0870600576BF2 /* InitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitManager.m; sourceTree = "<group>"; };
 		CFBEB09919B85C7800E3007D /* ParentObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentObject.h; sourceTree = "<group>"; };
 		CFBEB09A19B85C7800E3007D /* ParentObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentObject.m; sourceTree = "<group>"; };
 		CFDE124E19B55F81002F7D45 /* circle_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = circle_default.plist; sourceTree = "<group>"; };
@@ -1558,6 +1564,10 @@
 		CF6D8B8819B3F712001C5668 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				CFA7EC9019C086E400576BF2 /* GameManager.h */,
+				CFA7EC9119C086E400576BF2 /* GameManager.m */,
+				CFA7EC9319C0870600576BF2 /* InitManager.h */,
+				CFA7EC9419C0870600576BF2 /* InitManager.m */,
 				CF264F6519B695C900CACAFD /* BasicMath.h */,
 				CF264F6619B695C900CACAFD /* BasicMath.m */,
 				CF6D8B8919B3F712001C5668 /* AppDelegate.h */,
@@ -1702,6 +1712,7 @@
 				CF6D89F019B3F711001C5668 /* CCTextureCache.m in Sources */,
 				CF6D8A1B19B3F711001C5668 /* CCAppDelegate.m in Sources */,
 				CF6D8A1F19B3F711001C5668 /* CCDirectorMac.m in Sources */,
+				CFA7EC9219C086E400576BF2 /* GameManager.m in Sources */,
 				CF6D895319B3F710001C5668 /* ccDeprecated.m in Sources */,
 				CF6D8A8219B3F711001C5668 /* ALContext.m in Sources */,
 				CF6D895E19B3F710001C5668 /* CCDrawNode.m in Sources */,
@@ -1734,6 +1745,7 @@
 				CF6D8A7919B3F711001C5668 /* ALBuffer.m in Sources */,
 				CF6D8A4619B3F711001C5668 /* NSThread+performBlock.m in Sources */,
 				CF6D89D119B3F711001C5668 /* CCShaderCache.m in Sources */,
+				CFA7EC9519C0870600576BF2 /* InitManager.m in Sources */,
 				CF6D8B0E19B3F712001C5668 /* CCBSequenceProperty.m in Sources */,
 				CF6D8B9119B3F712001C5668 /* TitleScene.m in Sources */,
 				CF6D8A1519B3F711001C5668 /* CCGLView.m in Sources */,

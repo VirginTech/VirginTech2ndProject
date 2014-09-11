@@ -10,6 +10,8 @@
 #import "StageLevel_01.h"
 #import "TitleScene.h"
 #import "BasicMath.h"
+#import "InitManager.h"
+#import "GameManager.h"
 
 // -----------------------------------------------------------------------
 #pragma mark - HelloWorldScene
@@ -17,9 +19,9 @@
 
 @implementation StageLevel_01
 
-const int puniMax=3;
-
 CGSize winSize;
+
+int stageLevel;
 int puniCnt;
 
 PuniObject* puni;
@@ -28,6 +30,7 @@ RouteDispLayer* routeDisp;
 
 NSMutableArray* puniArray;
 NSMutableArray* parentArray;
+NSMutableArray* gpNumArray;
 
 PuniObject* touchPuni;
 
@@ -52,8 +55,10 @@ PuniObject* touchPuni;
     self.userInteractionEnabled = YES;
     
     //各種データ初期化
+    puniCnt=0;
     puniArray=[[NSMutableArray alloc]init];
     parentArray=[[NSMutableArray alloc]init];
+    gpNumArray=[[NSMutableArray alloc]init];
     
     winSize = [[CCDirector sharedDirector]viewSize];
     
@@ -68,9 +73,17 @@ PuniObject* touchPuni;
     [backButton setTarget:self selector:@selector(onBackClicked:)];
     [self addChild:backButton];
 
+    //ステージレヴェル取得
+    stageLevel=[GameManager getClearStageNum]+1;
+    
+    //ステージデータ初期化
+    [InitManager generate_Stage:stageLevel];
+    
+    //グループNO取得
+    gpNumArray=[InitManager getGpNumArray];
+    
     //プニ配置
-    puniCnt=0;
-    [self schedule:@selector(createPuni_Schedule:)interval:3.0];
+    [self schedule:@selector(createPuni_Schedule:)interval:10.0];
     
     /*/親プニ配置
     parent=[ParentObject createParent:1];
@@ -127,11 +140,24 @@ PuniObject* touchPuni;
 
 -(void)createPuni_Schedule:(CCTime)dt
 {
-    puniCnt++;
-    puni=[PuniObject createPuni:puniCnt];
-    [puniArray addObject:puni];
-    [self addChild:puni z:2];
-    if(puniCnt>=puniMax){
+    int gpNum;
+    //puniCnt++;
+    
+    for(int i=0;i<[InitManager getPuniOnceMax];i++)
+    {
+        puniCnt++;
+        
+        gpNum=arc4random()%gpNumArray.count;
+        puni=[PuniObject createPuni:puniCnt gpNum:[[gpNumArray objectAtIndex:gpNum]intValue]];
+        [puniArray addObject:puni];
+        [self addChild:puni z:2];
+        
+        routeDisp=[[RouteDispLayer alloc]init];
+        routeDisp.puni=puni;
+        [self addChild:routeDisp z:1];
+    }
+    
+    if(puniCnt>=[InitManager getPuniOnceMax]*[InitManager getPuniRepeatMax]){
         [self unschedule:@selector(createPuni_Schedule:)];
     }
 }
@@ -181,22 +207,24 @@ PuniObject* touchPuni;
                 if(puni1!=puni2){
                     if(puni2.collisNum!=puni1.objNum && puni1.collisNum!=puni2.objNum){
                     //if(puni1.collisNum!=puni2.objNum){
-
-                        puni1.collisNum=puni2.objNum;
-                        puni2.collisNum=puni1.objNum;
+                        if(!puni1.startFlg && !puni2.startFlg){
+                            
+                            puni1.collisNum=puni2.objNum;
+                            puni2.collisNum=puni1.objNum;
+                            
+                            collisSurfaceAngle = [self getCollisSurfaceAngle:puni1.position pos2:puni2.position];
+                            puni1.targetAngle = 2*collisSurfaceAngle-(puni1.targetAngle+collisSurfaceAngle);
+                            
+                            collisSurfaceAngle = [self getCollisSurfaceAngle:puni2.position pos2:puni1.position];
+                            puni2.targetAngle = 2*collisSurfaceAngle-(puni2.targetAngle+collisSurfaceAngle);
+                            
+                            puni1.posArray = [[NSMutableArray alloc]init];
+                            puni1.moveCnt=0;
+                            
+                            puni2.posArray = [[NSMutableArray alloc]init];
+                            puni2.moveCnt=0;
                         
-                        collisSurfaceAngle = [self getCollisSurfaceAngle:puni1.position pos2:puni2.position];
-                        puni1.targetAngle = 2*collisSurfaceAngle-(puni1.targetAngle+collisSurfaceAngle);
-                        
-                        collisSurfaceAngle = [self getCollisSurfaceAngle:puni2.position pos2:puni1.position];
-                        puni2.targetAngle = 2*collisSurfaceAngle-(puni2.targetAngle+collisSurfaceAngle);
-                        
-                        puni1.posArray = [[NSMutableArray alloc]init];
-                        puni1.moveCnt=0;
-                        
-                        puni2.posArray = [[NSMutableArray alloc]init];
-                        puni2.moveCnt=0;
-                        
+                        }
                     }
                 }
             }else{
@@ -283,11 +311,11 @@ PuniObject* touchPuni;
         touchPuni.posArray = [[NSMutableArray alloc]init];
         touchPuni.moveCnt=0;
         
-        if(!touchPuni.manualFlg){
+        /*if(!touchPuni.manualFlg){
             routeDisp=[[RouteDispLayer alloc]init];
             routeDisp.puni=touchPuni;
             [self addChild:routeDisp z:1];
-        }
+        }*/
     }else{
         touchPuni=nil;
     }
