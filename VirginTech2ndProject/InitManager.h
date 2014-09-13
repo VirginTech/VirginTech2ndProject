@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "cocos2d.h"
 
 @interface InitManager : NSObject
 
@@ -15,5 +16,7 @@
 +(int)getPuniOnceMax;
 +(int)getPuniRepeatMax;
 +(NSMutableArray*)getGpNumArray;
+
++(NSMutableArray*)getPattern:(int)pieces size:(float)size;
 
 @end

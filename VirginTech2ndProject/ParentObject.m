@@ -7,31 +7,41 @@
 //
 
 #import "ParentObject.h"
-
+#import "InitManager.h"
 
 @implementation ParentObject
 
 @synthesize collisNum;
 @synthesize objNum;
+@synthesize gpNum;
 
 CGSize winSize;
 
--(id)initWithParent:(int)objCnt;
+-(id)initWithParent:(int)objCnt gpNum:(int)_gpNum;
 {
+    CGPoint centerPos;
+    NSMutableArray* gpPatternArray=[[NSMutableArray alloc]init];
     //画像読み込み
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"circle_default.plist"];
+    NSString* gpName=[NSString stringWithFormat:@"circle%02d.png",_gpNum];
     
-    if(self=[super initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"circle02.png" ]])
+    if(self=[super initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:gpName]])
     {
         winSize = [[CCDirector sharedDirector]viewSize];
 
-        self.scale=0.5;
-        self.position=ccp(winSize.width/2,winSize.height/2);
+        self.scale=0.35;
+        
+        centerPos=ccp(winSize.width/2,winSize.height/2);
+        gpPatternArray=[InitManager getPattern:
+                        (int)[InitManager getGpNumArray].count size:self.contentSize.width*self.scale];
+        self.position=ccp(centerPos.x+[[gpPatternArray objectAtIndex:objCnt]CGPointValue].x,
+                          centerPos.y+[[gpPatternArray objectAtIndex:objCnt]CGPointValue].y);
         
         objNum=objCnt;
+        gpNum=_gpNum;
         collisNum=-1;
         
-        //デバッグ用ライン
+        /*/デバッグ用ライン
         CCDrawNode* drawNode1=[CCDrawNode node];
         [drawNode1 drawSegmentFrom:ccp(self.contentSize.width/2-800,self.contentSize.height/2)
                                to:ccp(self.contentSize.width/2+800,self.contentSize.height/2)
@@ -62,19 +72,20 @@ CGSize winSize;
         [self addChild:label2];
         
         [self schedule:@selector(test_Schedule:)interval:0.01];
-        
+        */
     }
     return self;
 }
 
+/*
 -(void)test_Schedule:(CCTime)dt
 {
     label2.string=[NSString stringWithFormat:@"%d",collisNum];
-}
+}*/
 
-+(id)createParent:(int)objCnt;
++(id)createParent:(int)objCnt gpNum:(int)_gpNum;
 {
-    return [[self alloc] initWithParent:objCnt];
+    return [[self alloc] initWithParent:objCnt gpNum:_gpNum];
 }
 
 @end

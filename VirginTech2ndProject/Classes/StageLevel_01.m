@@ -32,6 +32,8 @@ NSMutableArray* puniArray;
 NSMutableArray* parentArray;
 NSMutableArray* gpNumArray;
 
+NSMutableArray* removePuniArray;
+
 PuniObject* touchPuni;
 
 // -----------------------------------------------------------------------
@@ -79,27 +81,19 @@ PuniObject* touchPuni;
     //ステージデータ初期化
     [InitManager generate_Stage:stageLevel];
     
-    //グループNO取得
+    //グループ番号取得
     gpNumArray=[InitManager getGpNumArray];
     
     //プニ配置
-    [self schedule:@selector(createPuni_Schedule:)interval:10.0];
-    
-    /*/親プニ配置
-    parent=[ParentObject createParent:1];
-    [self addChild:parent];
-    [parentArray addObject:parent];
-    
-    parent=[ParentObject createParent:2];
-    parent.position=ccp(winSize.width/2/2,winSize.height/2);
-    [self addChild:parent];
-    [parentArray addObject:parent];
-    
-    parent=[ParentObject createParent:3];
-    parent.position=ccp(winSize.width-winSize.width/2/2,winSize.height/2);
-    [self addChild:parent];
-    [parentArray addObject:parent];
-    */
+    [self schedule:@selector(createPuni_Schedule:)interval:10.0
+                                                repeat:[InitManager getPuniRepeatMax]-1
+                                                delay:5.0];
+    //親プニ配置
+    for(int i=0;i<gpNumArray.count;i++){
+        parent=[ParentObject createParent:i gpNum:[[gpNumArray objectAtIndex:i]intValue]];
+        [self addChild:parent];
+        [parentArray addObject:parent];
+    }
     
     // done
 	return self;
@@ -141,14 +135,31 @@ PuniObject* touchPuni;
 -(void)createPuni_Schedule:(CCTime)dt
 {
     int gpNum;
-    //puniCnt++;
-    
+
     for(int i=0;i<[InitManager getPuniOnceMax];i++)
     {
+        bool flg=true;
         puniCnt++;
         
         gpNum=arc4random()%gpNumArray.count;
-        puni=[PuniObject createPuni:puniCnt gpNum:[[gpNumArray objectAtIndex:gpNum]intValue]];
+        //puni=[PuniObject createPuni:puniCnt gpNum:[[gpNumArray objectAtIndex:gpNum]intValue]];
+
+        //重なり防止
+        while(flg){
+            flg=false;
+            puni=[PuniObject createPuni:puniCnt gpNum:[[gpNumArray objectAtIndex:gpNum]intValue]];
+            for(PuniObject* puni1 in puniArray){
+                if([BasicMath RadiusIntersectsRadius:puni1.position
+                                                pointB:puni.position
+                                                radius1:(puni1.contentSize.width*puni1.scale)/2.0f+30.0
+                                                radius2:(puni.contentSize.width*puni.scale)/2.0f+30.0])
+                {
+                    flg=true;
+                    break;
+                }
+            }
+        }
+        
         [puniArray addObject:puni];
         [self addChild:puni z:2];
         
@@ -156,47 +167,15 @@ PuniObject* touchPuni;
         routeDisp.puni=puni;
         [self addChild:routeDisp z:1];
     }
-    
-    if(puniCnt>=[InitManager getPuniOnceMax]*[InitManager getPuniRepeatMax]){
-        [self unschedule:@selector(createPuni_Schedule:)];
-    }
 }
 
 -(void)judgement_Schedule:(CCTime)dt
 {
-    //衝突反射
-    float collisSurfaceAngle;//衝突面角度
-    //CGPoint nextPos;
-    /*
-    for(PuniObject* puni1 in puniArray){
-        for(ParentObject* parent1 in parentArray){
-            if([BasicMath RadiusIntersectsRadius:puni1.position
-                                                pointB:parent1.position
-                                                radius1:(puni1.contentSize.width*puni1.scale)/2.0f
-                                                radius2:(parent1.contentSize.width*parent1.scale)/2.0f])
-            {
-                if(parent1.collisNum!=puni1.objNum && puni1.collisNum!=parent1.objNum){
-                    //nextPos=CGPointMake(3*cosf(puni1.targetAngle),3*sinf(puni1.targetAngle));
-                    //puni1.position=CGPointMake(puni1.position.x-nextPos.x, puni1.position.y-nextPos.y);
-
-                    puni1.collisNum=parent1.objNum;
-                    parent1.collisNum=puni1.objNum;
-                    
-                    collisSurfaceAngle = [self getCollisSurfaceAngle:puni1.position pos2:parent1.position];
-                    puni1.targetAngle = 2*collisSurfaceAngle-(puni1.targetAngle+collisSurfaceAngle);
-                    
-                    //puni1.targetAngle = 2*(collisSurfaceAngle-puni1.targetAngle);
-                    //NSLog(@"%f",puni1.targetAngle);
-                }
-            }else{
-                if(parent1.collisNum==puni1.objNum || puni1.collisNum==parent1.objNum){
-                    parent1.collisNum=-1;
-                    puni1.collisNum=-1;
-                }
-            }
-        }
-    }*/
+    //初期化
+    removePuniArray=[[NSMutableArray alloc]init];
     
+    //プニ同士の衝突判定
+    float collisSurfaceAngle;//衝突面角度
     for(PuniObject* puni1 in puniArray){
         for(PuniObject* puni2 in puniArray){
             if([BasicMath RadiusIntersectsRadius:puni1.position
@@ -209,21 +188,26 @@ PuniObject* touchPuni;
                     //if(puni1.collisNum!=puni2.objNum){
                         if(!puni1.startFlg && !puni2.startFlg){
                             
+                            //めり込み監視
                             puni1.collisNum=puni2.objNum;
                             puni2.collisNum=puni1.objNum;
                             
+                            //反射角算定
                             collisSurfaceAngle = [self getCollisSurfaceAngle:puni1.position pos2:puni2.position];
                             puni1.targetAngle = 2*collisSurfaceAngle-(puni1.targetAngle+collisSurfaceAngle);
                             
                             collisSurfaceAngle = [self getCollisSurfaceAngle:puni2.position pos2:puni1.position];
                             puni2.targetAngle = 2*collisSurfaceAngle-(puni2.targetAngle+collisSurfaceAngle);
                             
+                            //マニュアルモード解除
                             puni1.posArray = [[NSMutableArray alloc]init];
                             puni1.moveCnt=0;
+                            if(puni1==touchPuni)touchPuni=nil;
                             
                             puni2.posArray = [[NSMutableArray alloc]init];
                             puni2.moveCnt=0;
-                        
+                            if(puni2==touchPuni)touchPuni=nil;
+                            
                         }
                     }
                 }
@@ -238,45 +222,66 @@ PuniObject* touchPuni;
             }
         }
     }
+    
+    //プニ　対　親プニ
+    for(PuniObject* puni1 in puniArray){
+        for(ParentObject* parent1 in parentArray){
+            if([BasicMath RadiusIntersectsRadius:puni1.position
+                                            pointB:parent1.position
+                                            radius1:(puni1.contentSize.width*puni1.scale)/2.0f-5.0
+                                            radius2:(parent1.contentSize.width*parent1.scale)/2.0f-5.0])
+            {
+                if(puni1.gpNum == parent1.gpNum)
+                {
+                    [removePuniArray addObject:puni1];
+                    puni1.posArray = [[NSMutableArray alloc]init];
+                    puni1.moveCnt=0;
+                }else{
+                    [self endGame];
+                }
+            }
+        }
+    }
+    [self removeObject];
+}
+
+-(void)endGame
+{
+    for(PuniObject* puni1 in puniArray)
+    {
+        puni1.endFlg=true;
+        puni1.posArray = [[NSMutableArray alloc]init];
+        puni1.moveCnt=0;
+        
+        self.userInteractionEnabled = NO;
+        [self unscheduleAllSelectors];//終了
+    }
+}
+
+-(void)removeObject
+{
+    for(PuniObject* puni1 in removePuniArray)
+    {
+        [puniArray removeObject:puni1];
+        [self removeChild:puni1 cleanup:YES];
+    }
 }
 
 -(float)getCollisSurfaceAngle:(CGPoint)pos1 pos2:(CGPoint)pos2
 {
     float angle;
     
-    //angle = [BasicMath getAngle_To_Radian:pos1 ePos:pos2]+M_PI_2;
-    //NSLog(@"入った！");
     float inAngle=[BasicMath getAngle_To_Degree:pos1 ePos:pos2];
     
     if(inAngle>=315 || inAngle<45){//上
         angle = [BasicMath getAngle_To_Radian:pos1 ePos:pos2]-M_PI_2;
-        //NSLog(@"上");
     }else if(inAngle>=45 && inAngle<135){//右
         angle = [BasicMath getAngle_To_Radian:pos1 ePos:pos2]-M_PI;
-        //NSLog(@"右");
     }else if(inAngle>=135 && inAngle<225){//下
         angle = [BasicMath getAngle_To_Radian:pos1 ePos:pos2]+M_PI_2;
-       // NSLog(@"下");
     }else if(inAngle>=225 && inAngle<315){//左
         angle = [BasicMath getAngle_To_Radian:pos1 ePos:pos2]+M_PI * 2;
-        //NSLog(@"左");
     }
-    
-    /*
-    if(pos1.x<=pos2.x){//左
-        if(pos1.y<=pos2.y){//下
-            angle = [BasicMath getAngle_To_Radian:pos1 ePos:pos2]-M_PI_2;
-        }else if(pos1.y>pos2.y){//上
-            angle = [BasicMath getAngle_To_Radian:pos1 ePos:pos2]+M_PI_2;
-        }
-    }else if(pos1.x>pos2.x){//右
-        if(pos1.y<=pos2.y){//下
-            angle = [BasicMath getAngle_To_Radian:pos1 ePos:pos2]-M_PI_2;
-        }else if(pos1.y>pos2.y){//上
-            angle = [BasicMath getAngle_To_Radian:pos1 ePos:pos2]+M_PI_2;
-        }
-    }
-    */
     return angle;
 }
 
@@ -311,11 +316,6 @@ PuniObject* touchPuni;
         touchPuni.posArray = [[NSMutableArray alloc]init];
         touchPuni.moveCnt=0;
         
-        /*if(!touchPuni.manualFlg){
-            routeDisp=[[RouteDispLayer alloc]init];
-            routeDisp.puni=touchPuni;
-            [self addChild:routeDisp z:1];
-        }*/
     }else{
         touchPuni=nil;
     }

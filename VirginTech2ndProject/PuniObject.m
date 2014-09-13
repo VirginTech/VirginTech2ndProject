@@ -14,59 +14,63 @@
 @synthesize targetAngle;
 @synthesize collisNum;
 @synthesize objNum;
+@synthesize gpNum;
 @synthesize manualFlg;
 @synthesize posArray;
 @synthesize moveCnt;
 @synthesize touchFlg;
 @synthesize startFlg;
+@synthesize endFlg;
 
 CGSize winSize;
 
 -(void)move_Schedule:(CCTime)dt
 {
-    if(posArray.count>1 && posArray.count > moveCnt+1){
-        
-        CGPoint pt1;
-        CGPoint pt2;
-        
-        manualFlg=true;
-        if(moveCnt==0){
-            NSValue *value = [NSValue valueWithCGPoint:startPos];
-            [posArray insertObject:value atIndex:0];
-            //pt1 = startPos;
-            pt1 = [[posArray objectAtIndex:moveCnt] CGPointValue];
-            pt2 = [[posArray objectAtIndex:moveCnt+1] CGPointValue];
+    if(!endFlg){
+        if(posArray.count>1 && posArray.count > moveCnt+1){
+            
+            CGPoint pt1;
+            CGPoint pt2;
+            
+            manualFlg=true;
+            if(moveCnt==0){
+                NSValue *value = [NSValue valueWithCGPoint:startPos];
+                [posArray insertObject:value atIndex:0];
+                //pt1 = startPos;
+                pt1 = [[posArray objectAtIndex:moveCnt] CGPointValue];
+                pt2 = [[posArray objectAtIndex:moveCnt+1] CGPointValue];
+            }else{
+                pt1 = [[posArray objectAtIndex:moveCnt] CGPointValue];
+                pt2 = [[posArray objectAtIndex:moveCnt+1] CGPointValue];
+            }
+            er=sqrtf(powf(pt2.x-pt1.x,2)+powf(pt2.y-pt1.y,2));
+            targetAngle=[BasicMath getAngle_To_Radian:pt1 ePos:pt2];
+            
+            dr=dr+velocity;
+            CGPoint inpolPos = CGPointMake(dr*cosf(targetAngle),dr*sinf(targetAngle));
+            //pt1から補間分(inpolPos)を加える
+            inpolPos.x=pt1.x+inpolPos.x;
+            inpolPos.y=pt1.y+inpolPos.y;
+            self.position=CGPointMake(inpolPos.x, inpolPos.y);
+            
+            if(dr>=er){
+                moveCnt++;
+                dr=0;
+            }
+            
         }else{
-            pt1 = [[posArray objectAtIndex:moveCnt] CGPointValue];
-            pt2 = [[posArray objectAtIndex:moveCnt+1] CGPointValue];
-        }
-        er=sqrtf(powf(pt2.x-pt1.x,2)+powf(pt2.y-pt1.y,2));
-        targetAngle=[BasicMath getAngle_To_Radian:pt1 ePos:pt2];
-        
-        dr=dr+velocity;
-        CGPoint inpolPos = CGPointMake(dr*cosf(targetAngle),dr*sinf(targetAngle));
-        //pt1から補間分(inpolPos)を加える
-        inpolPos.x=pt1.x+inpolPos.x;
-        inpolPos.y=pt1.y+inpolPos.y;
-        self.position=CGPointMake(inpolPos.x, inpolPos.y);
-        
-        if(dr>=er){
-            moveCnt++;
+            
+            CGPoint nextPos;
             dr=0;
+            manualFlg=false;
+            targetAngle=[self wallReflectionAngle];
+            nextPos=CGPointMake(velocity*cosf(targetAngle),velocity*sinf(targetAngle));
+            self.position=CGPointMake(self.position.x+nextPos.x, self.position.y+nextPos.y);
+            startPos=self.position;
         }
-        
-    }else{
-        
-        CGPoint nextPos;
-        dr=0;
-        manualFlg=false;
-        targetAngle=[self wallReflectionAngle];
-        nextPos=CGPointMake(velocity*cosf(targetAngle),velocity*sinf(targetAngle));
-        self.position=CGPointMake(self.position.x+nextPos.x, self.position.y+nextPos.y);
-        startPos=self.position;
     }
     
-    label2.string=[NSString stringWithFormat:@"%f",targetAngle];
+    //label2.string=[NSString stringWithFormat:@"%f",targetAngle];
 
     /*
     targetAngle=[self wallReflectionAngle];
@@ -149,23 +153,25 @@ CGSize winSize;
     return angle;
 }
 
--(id)initWithPuni:(int)objCnt gpNum:(int)gpNum;
+-(id)initWithPuni:(int)objCnt gpNum:(int)_gpNum;
 {
     //画像読み込み
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"circle_default.plist"];
-    NSString* gpName=[NSString stringWithFormat:@"circle%02d.png",gpNum];
+    NSString* gpName=[NSString stringWithFormat:@"circle%02d.png",_gpNum];
     
     if(self=[super initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:gpName]])
     {
         winSize = [[CCDirector sharedDirector]viewSize];
         
-        scale=0.2;
+        scale=0.25;
         velocity=0.25;
 
         objNum=objCnt;
+        gpNum=_gpNum;
         collisFlg=false;
         collisNum=-1;
         startFlg=true;
+        endFlg=false;
         manualFlg=false;
         touchFlg=false;
         moveCnt=0;
@@ -205,7 +211,7 @@ CGSize winSize;
         actualY =(arc4random()% rangeY)+ minY;
         targetAngle = [BasicMath getAngle_To_Radian:self.position ePos:ccp(winSize.width/2,actualY)];
         
-        //デバッグ用ラベル
+        /*/デバッグ用ラベル
         label=[CCLabelTTF labelWithString:
                [NSString stringWithFormat:@"%d",objNum]fontName:@"Verdana-Bold" fontSize:35];
         label.position=ccp(self.contentSize.width/2,self.contentSize.height/2);
@@ -216,15 +222,16 @@ CGSize winSize;
         label2.position=ccp(self.contentSize.width/2,self.contentSize.height/2-100);
         label2.color=[CCColor whiteColor];
         [self addChild:label2];
+        */
 
         [self schedule:@selector(move_Schedule:)interval:0.01];
     }
     return self;
 }
 
-+(id)createPuni:(int)objCnt gpNum:(int)gpNum;
++(id)createPuni:(int)objCnt gpNum:(int)_gpNum;
 {
-    return [[self alloc] initWithPuni:objCnt gpNum:gpNum];
+    return [[self alloc] initWithPuni:objCnt gpNum:_gpNum];
 }
 
 @end

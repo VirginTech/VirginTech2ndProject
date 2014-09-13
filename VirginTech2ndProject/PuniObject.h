@@ -17,9 +17,12 @@
     bool collisFlg;
     int collisNum;;
     int objNum;
+    int gpNum;
+    
     bool startFlg;
-    CCLabelTTF* label;
-    CCLabelTTF* label2;
+    bool endFlg;
+    //CCLabelTTF* label;
+    //CCLabelTTF* label2;
     bool manualFlg;
     bool touchFlg;
     NSMutableArray* posArray;
@@ -31,11 +34,13 @@
 @property float targetAngle;
 @property int collisNum;
 @property int objNum;
+@property int gpNum;
 @property bool manualFlg;
 @property NSMutableArray* posArray;
 @property int moveCnt;
 @property bool touchFlg;
 @property bool startFlg;
+@property bool endFlg;
 
 +(id)createPuni:(int)objCnt gpNum:(int)gpNum;
 

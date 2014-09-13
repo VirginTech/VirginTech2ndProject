@@ -13,14 +13,16 @@
     
     int collisNum;
     int objNum;
+    int gpNum;
     
-    CCLabelTTF* label;
-    CCLabelTTF* label2;
+    //CCLabelTTF* label;
+    //CCLabelTTF* label2;
 }
 
 @property int collisNum;
 @property int objNum;
+@property int gpNum;
 
-+(id)createParent:(int)objCnt;
++(id)createParent:(int)objCnt gpNum:(int)gpNum;
 
 @end

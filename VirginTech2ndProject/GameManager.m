@@ -10,7 +10,7 @@
 
 @implementation GameManager
 
-int clearStageNum=7;//とりあえず
+int clearStageNum=14;//とりあえず
 
 +(int)getClearStageNum
 {

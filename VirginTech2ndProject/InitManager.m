@@ -31,6 +31,51 @@ NSMutableArray* gpNumArray;
     return gpNumArray;
 }
 
++(NSMutableArray*)getPattern:(int)pieces size:(float)size
+{
+    NSMutableArray* array=[[NSMutableArray alloc]init];
+    NSValue *offsetValue;
+    
+    if(pieces==1){
+        offsetValue=[NSValue valueWithCGPoint:ccp(0.0f,0.0f)];
+        [array addObject:offsetValue];
+    }else if(pieces==2){
+        offsetValue=[NSValue valueWithCGPoint:ccp(-size/2,0.0f)];
+        [array addObject:offsetValue];
+        offsetValue=[NSValue valueWithCGPoint:ccp(size/2,0.0f)];
+        [array addObject:offsetValue];
+    }else if(pieces==3){
+        offsetValue=[NSValue valueWithCGPoint:ccp(0.0f,size/2)];
+        [array addObject:offsetValue];
+        offsetValue=[NSValue valueWithCGPoint:ccp(size/2,-size/4)];
+        [array addObject:offsetValue];
+        offsetValue=[NSValue valueWithCGPoint:ccp(-size/2,-size/4)];
+        [array addObject:offsetValue];
+    }else if(pieces==4){
+        offsetValue=[NSValue valueWithCGPoint:ccp(0.0f,size/2)];
+        [array addObject:offsetValue];
+        offsetValue=[NSValue valueWithCGPoint:ccp(size/2,-size/4)];
+        [array addObject:offsetValue];
+        offsetValue=[NSValue valueWithCGPoint:ccp(-size/2,-size/4)];
+        [array addObject:offsetValue];
+        offsetValue=[NSValue valueWithCGPoint:ccp(0.0f,-size)];
+        [array addObject:offsetValue];
+    }else if(pieces==5){
+        offsetValue=[NSValue valueWithCGPoint:ccp(0.0f,size/2)];
+        [array addObject:offsetValue];
+        offsetValue=[NSValue valueWithCGPoint:ccp(size/2,-size/4)];
+        [array addObject:offsetValue];
+        offsetValue=[NSValue valueWithCGPoint:ccp(-size/2,-size/4)];
+        [array addObject:offsetValue];
+        offsetValue=[NSValue valueWithCGPoint:ccp(0.0f,-size)];
+        [array addObject:offsetValue];
+        offsetValue=[NSValue valueWithCGPoint:ccp(size,-size)];
+        [array addObject:offsetValue];
+    }
+    
+    return array;
+}
+
 +(void)generate_Stage:(int)stageLevel
 {
     int gpMax=2;
@@ -59,7 +104,9 @@ NSMutableArray* gpNumArray;
         }
         for(int i=1;i<stageLevel;i++){
             if(i%5==0){
-                gpMax++;
+                if(gpMax<gpTotleMax){
+                    gpMax++;
+                }
             }
         }
     }
