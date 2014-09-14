@@ -10,16 +10,45 @@
 
 @implementation GameManager
 
-int clearStageNum=14;//とりあえず
+int stageNum;
 
-+(int)getClearStageNum
++(int)getStageNum
 {
-    return clearStageNum;
+    return stageNum;
+}
++(void)setStageNum:(int)num
+{
+    stageNum=num;
 }
 
-+(void)setClearStageNum:(int)num
+//=========================================
+//　クリアレヴェルの取得
+//=========================================
++(int)load_Clear_Level
 {
-    clearStageNum=num;
+    NSUserDefaults  *userDefault=[NSUserDefaults standardUserDefaults];
+    int level=[[userDefault objectForKey:@"ClearLevel"]intValue];
+    return level;
+}
+//=========================================
+//　クリアレヴェルの保存
+//=========================================
++(void)save_Clear_Level:(int)num
+{
+    NSUserDefaults  *userDefault=[NSUserDefaults standardUserDefaults];
+    NSNumber* level=[NSNumber numberWithInt:num];
+    [userDefault setObject:level forKey:@"ClearLevel"];
+}
+
++(void)initialize_Clear_Level
+{
+    NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+    NSDictionary *dict = [[NSUserDefaults standardUserDefaults] persistentDomainForName:appDomain];
+    
+    if([dict valueForKey:@"ClearLevel"]==nil){
+        [GameManager save_Clear_Level:-1];
+    }
+    
 }
 
 @end

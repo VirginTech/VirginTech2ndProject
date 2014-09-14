@@ -12,6 +12,7 @@
 #import "BasicMath.h"
 #import "InitManager.h"
 #import "GameManager.h"
+#import "InfoLayer.h"
 
 // -----------------------------------------------------------------------
 #pragma mark - HelloWorldScene
@@ -23,6 +24,7 @@ CGSize winSize;
 
 int stageLevel;
 int puniCnt;
+int pointPuniCnt;
 
 PuniObject* puni;
 ParentObject* parent;
@@ -58,6 +60,7 @@ PuniObject* touchPuni;
     
     //各種データ初期化
     puniCnt=0;
+    pointPuniCnt=0;
     puniArray=[[NSMutableArray alloc]init];
     parentArray=[[NSMutableArray alloc]init];
     gpNumArray=[[NSMutableArray alloc]init];
@@ -75,8 +78,12 @@ PuniObject* touchPuni;
     [backButton setTarget:self selector:@selector(onBackClicked:)];
     [self addChild:backButton];
 
+    //インフォレイヤー
+    InfoLayer* infoLayer=[[InfoLayer alloc]init];
+    [self addChild:infoLayer];
+    
     //ステージレヴェル取得
-    stageLevel=[GameManager getClearStageNum]+1;
+    stageLevel=[GameManager getStageNum];
     
     //ステージデータ初期化
     [InitManager generate_Stage:stageLevel];
@@ -85,7 +92,7 @@ PuniObject* touchPuni;
     gpNumArray=[InitManager getGpNumArray];
     
     //プニ配置
-    [self schedule:@selector(createPuni_Schedule:)interval:10.0
+    [self schedule:@selector(createPuni_Schedule:)interval:[InitManager getInterval]
                                                 repeat:[InitManager getPuniRepeatMax]-1
                                                 delay:5.0];
     //親プニ配置
@@ -151,8 +158,8 @@ PuniObject* touchPuni;
             for(PuniObject* puni1 in puniArray){
                 if([BasicMath RadiusIntersectsRadius:puni1.position
                                                 pointB:puni.position
-                                                radius1:(puni1.contentSize.width*puni1.scale)/2.0f+30.0
-                                                radius2:(puni.contentSize.width*puni.scale)/2.0f+30.0])
+                                                radius1:(puni1.contentSize.width*puni1.scale)/2.0f+10.0
+                                                radius2:(puni.contentSize.width*puni.scale)/2.0f+10.0])
                 {
                     flg=true;
                     break;
@@ -236,13 +243,30 @@ PuniObject* touchPuni;
                     [removePuniArray addObject:puni1];
                     puni1.posArray = [[NSMutableArray alloc]init];
                     puni1.moveCnt=0;
+                    
+                    pointPuniCnt++;
+                    if(pointPuniCnt>=[InitManager getPuniOnceMax]*[InitManager getPuniRepeatMax]){
+                        [self nextStage];
+                    }
                 }else{
                     [self endGame];
+                    [puni1 startBlink];
+                    [parent1 startBlink];
                 }
             }
         }
     }
     [self removeObject];
+}
+
+-(void)nextStage
+{
+    if([GameManager load_Clear_Level]<stageLevel){
+        [GameManager save_Clear_Level:stageLevel];
+    }
+    [GameManager setStageNum:stageLevel+1];
+    [[CCDirector sharedDirector] replaceScene:[StageLevel_01 scene]
+                               withTransition:[CCTransition transitionCrossFadeWithDuration:1.0]];
 }
 
 -(void)endGame
@@ -325,11 +349,27 @@ PuniObject* touchPuni;
 {
     CGPoint touchLocation = [touch locationInNode:self];
 
-    if(touchPuni!=nil){
-        if(![BasicMath RadiusContainsPoint:touchPuni.position pointB:touchLocation
+    //同じグループだったら経路設定終了
+    bool flg=false;;
+    for(ParentObject* parent1 in parentArray){
+        if([BasicMath RadiusContainsPoint:parent1.position pointB:touchLocation
+                                                radius:(parent1.contentSize.width*parent1.scale)/2]){
+            if(parent1.gpNum==touchPuni.gpNum){
+                flg=true;
+                touchPuni.touchFlg=false;
+                //[touchPuni.posArray removeLastObject];
+                [touchPuni.posArray addObject:[NSValue valueWithCGPoint:parent1.position]];
+                touchPuni=nil;
+            }
+        }
+    }
+    if(!flg){
+        if(touchPuni!=nil){
+            if(![BasicMath RadiusContainsPoint:touchPuni.position pointB:touchLocation
                                                 radius:(touchPuni.contentSize.width*touchPuni.scale)/2]){
-            NSValue *value = [NSValue valueWithCGPoint:touchLocation];
-            [touchPuni.posArray addObject:value];
+                NSValue *value = [NSValue valueWithCGPoint:touchLocation];
+                [touchPuni.posArray addObject:value];
+            }
         }
     }
 }

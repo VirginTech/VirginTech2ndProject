@@ -12,6 +12,7 @@
 
 const int gpTotleMax=5;
 
+float interval;
 int puniOnceMax;
 int puniRepeatMax;
 NSMutableArray* gpNumArray;
@@ -24,6 +25,11 @@ NSMutableArray* gpNumArray;
 +(int)getPuniRepeatMax
 {
     return puniRepeatMax;
+}
+
++(float)getInterval
+{
+    return interval;
 }
 
 +(NSMutableArray*)getGpNumArray
@@ -85,22 +91,26 @@ NSMutableArray* gpNumArray;
     if(stageLevel==0){
         gpMax=1;
         puniOnceMax=1;
-        puniRepeatMax=5;
+        puniRepeatMax=3;
+        interval=3.0;
     }else{
         puniOnceMax=stageLevel%5;
-        if(puniOnceMax==0){
-            puniOnceMax=5;
-        }
         if(puniOnceMax==1){
-            puniRepeatMax=10;
+            puniRepeatMax=20;
+            interval=2.0;
         }else if(puniOnceMax==2){
-            puniRepeatMax=5;
+            puniRepeatMax=10;
+            interval=4.0;
         }else if(puniOnceMax==3){
-            puniRepeatMax=4;
+            puniRepeatMax=7;
+            interval=6.0;
         }else if(puniOnceMax==4){
-            puniRepeatMax=3;
-        }else if(puniOnceMax==5){
-            puniRepeatMax=2;
+            puniRepeatMax=5;
+            interval=8.0;
+        }else if(puniOnceMax==0){
+            puniOnceMax=5;
+            puniRepeatMax=4;
+            interval=10.0;
         }
         for(int i=1;i<stageLevel;i++){
             if(i%5==0){

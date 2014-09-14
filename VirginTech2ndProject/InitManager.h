@@ -13,6 +13,7 @@
 
 +(void)generate_Stage:(int)stageLevel;
 
++(float)getInterval;
 +(int)getPuniOnceMax;
 +(int)getPuniRepeatMax;
 +(NSMutableArray*)getGpNumArray;

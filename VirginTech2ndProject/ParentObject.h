@@ -15,7 +15,7 @@
     int objNum;
     int gpNum;
     
-    //CCLabelTTF* label;
+    CCLabelTTF* label;
     //CCLabelTTF* label2;
 }
 
@@ -24,5 +24,6 @@
 @property int gpNum;
 
 +(id)createParent:(int)objCnt gpNum:(int)gpNum;
+-(void)startBlink;
 
 @end

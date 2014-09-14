@@ -217,6 +217,7 @@
 		CFA7EC9219C086E400576BF2 /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA7EC9119C086E400576BF2 /* GameManager.m */; };
 		CFA7EC9519C0870600576BF2 /* InitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA7EC9419C0870600576BF2 /* InitManager.m */; };
 		CFBEB09B19B85C7800E3007D /* ParentObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBEB09A19B85C7800E3007D /* ParentObject.m */; };
+		CFD9264D19C5B167002205B9 /* InfoLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD9264C19C5B167002205B9 /* InfoLayer.m */; };
 		CFDE125019B55F81002F7D45 /* circle_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFDE124E19B55F81002F7D45 /* circle_default.plist */; };
 		CFDE125119B55F81002F7D45 /* circle_default.png in Resources */ = {isa = PBXBuildFile; fileRef = CFDE124F19B55F81002F7D45 /* circle_default.png */; };
 		CFDE125419B5601D002F7D45 /* PuniObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDE125319B5601D002F7D45 /* PuniObject.m */; };
@@ -671,6 +672,8 @@
 		CFA7EC9419C0870600576BF2 /* InitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitManager.m; sourceTree = "<group>"; };
 		CFBEB09919B85C7800E3007D /* ParentObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentObject.h; sourceTree = "<group>"; };
 		CFBEB09A19B85C7800E3007D /* ParentObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentObject.m; sourceTree = "<group>"; };
+		CFD9264B19C5B167002205B9 /* InfoLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoLayer.h; sourceTree = "<group>"; };
+		CFD9264C19C5B167002205B9 /* InfoLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoLayer.m; sourceTree = "<group>"; };
 		CFDE124E19B55F81002F7D45 /* circle_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = circle_default.plist; sourceTree = "<group>"; };
 		CFDE124F19B55F81002F7D45 /* circle_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle_default.png; sourceTree = "<group>"; };
 		CFDE125219B5601D002F7D45 /* PuniObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PuniObject.h; sourceTree = "<group>"; };
@@ -1582,6 +1585,8 @@
 				CFBEB09A19B85C7800E3007D /* ParentObject.m */,
 				CF589EBC19BD520400CEBCBC /* RouteDispLayer.h */,
 				CF589EBD19BD520400CEBCBC /* RouteDispLayer.m */,
+				CFD9264B19C5B167002205B9 /* InfoLayer.h */,
+				CFD9264C19C5B167002205B9 /* InfoLayer.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1753,6 +1758,7 @@
 				CF6D893419B3F710001C5668 /* CCActionInterval.m in Sources */,
 				CF6D89A319B3F710001C5668 /* CCPhysicsJoint.m in Sources */,
 				CF6D898119B3F710001C5668 /* CCMotionStreak.m in Sources */,
+				CFD9264D19C5B167002205B9 /* InfoLayer.m in Sources */,
 				CF6D893119B3F710001C5668 /* CCActionInstant.m in Sources */,
 				CF6D8A2B19B3F711001C5668 /* base64.c in Sources */,
 				CF6D8A6A19B3F711001C5668 /* OALAudioTrack.m in Sources */,

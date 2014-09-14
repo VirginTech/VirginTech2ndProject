@@ -10,6 +10,8 @@
 // Import the interfaces
 #import "TitleScene.h"
 #import "StageLevel_01.h"
+#import "GameManager.h"
+#import "InfoLayer.h"
 
 // -----------------------------------------------------------------------
 #pragma mark - IntroScene
@@ -34,9 +36,17 @@
     self = [super init];
     if (!self) return(nil);
     
+    //初回データ初期値設定
+    [GameManager initialize_Clear_Level];
+    
     // Create a colored background (Dark Grey)
     CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0.2f green:0.2f blue:0.2f alpha:1.0f]];
     [self addChild:background];
+    
+    //インフォレイヤー
+    [GameManager setStageNum:[GameManager load_Clear_Level]];
+    InfoLayer* infoLayer=[[InfoLayer alloc]init];
+    [self addChild:infoLayer];
     
     // Hello world
     CCLabelTTF *label = [CCLabelTTF labelWithString:@"VirginTech 2nd Project" fontName:@"Verdana-Bold" fontSize:32.0f];
@@ -46,11 +56,17 @@
     [self addChild:label];
     
     // Helloworld scene button
-    CCButton *helloWorldButton = [CCButton buttonWithTitle:@"[スタート]" fontName:@"Verdana-Bold" fontSize:25.0f];
-    helloWorldButton.positionType = CCPositionTypeNormalized;
-    helloWorldButton.position = ccp(0.5f, 0.35f);
-    [helloWorldButton setTarget:self selector:@selector(onSpinningClicked:)];
-    [self addChild:helloWorldButton];
+    CCButton *startButton = [CCButton buttonWithTitle:@"[はじめから]" fontName:@"Verdana-Bold" fontSize:20.0f];
+    startButton.positionType = CCPositionTypeNormalized;
+    startButton.position = ccp(0.5f, 0.40f);
+    [startButton setTarget:self selector:@selector(onStartClicked:)];
+    [self addChild:startButton];
+
+    CCButton *continueButton = [CCButton buttonWithTitle:@"[コンティニュー]" fontName:@"Verdana-Bold" fontSize:20.0f];
+    continueButton.positionType = CCPositionTypeNormalized;
+    continueButton.position = ccp(0.5f, 0.30f);
+    [continueButton setTarget:self selector:@selector(onContinueClicked:)];
+    [self addChild:continueButton];
 
     // done
 	return self;
@@ -60,12 +76,22 @@
 #pragma mark - Button Callbacks
 // -----------------------------------------------------------------------
 
-- (void)onSpinningClicked:(id)sender
+- (void)onStartClicked:(id)sender
 {
-    // start spinning scene with transition
+    if([GameManager load_Clear_Level]>=0){
+        [GameManager setStageNum:1];
+    }else{
+        [GameManager setStageNum:0];
+    }
     [[CCDirector sharedDirector] replaceScene:[StageLevel_01 scene]
                                withTransition:[CCTransition transitionCrossFadeWithDuration:1.0]];
 }
 
-// -----------------------------------------------------------------------
+- (void)onContinueClicked:(id)sender
+{
+    [GameManager setStageNum:[GameManager load_Clear_Level]+1];
+    [[CCDirector sharedDirector] replaceScene:[StageLevel_01 scene]
+                               withTransition:[CCTransition transitionCrossFadeWithDuration:1.0]];
+}
+
 @end

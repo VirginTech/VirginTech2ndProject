@@ -66,8 +66,8 @@
                 ccDrawLine(pt1,pt2);
             }
         }else{
-            glLineWidth(1.0f);
-            ccDrawColor4F(1.00f, 1.00f, 1.00f, 0.30f);
+            glLineWidth(2.0f);
+            ccDrawColor4F(1.00f, 1.00f, 1.00f, 1.00f);
             ccDrawLine(pt1,pt2);
         }
         

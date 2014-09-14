@@ -17,6 +17,20 @@
 
 CGSize winSize;
 
+-(void)startBlink
+{
+    [self schedule:@selector(blink_Schedule:) interval:0.25];
+}
+
+-(void)blink_Schedule:(CCTime)dt
+{
+    if([self visible]){
+        [self setVisible:NO];
+    }else{
+        [self setVisible:YES];
+    }
+}
+
 -(id)initWithParent:(int)objCnt gpNum:(int)_gpNum;
 {
     CGPoint centerPos;
@@ -29,7 +43,7 @@ CGSize winSize;
     {
         winSize = [[CCDirector sharedDirector]viewSize];
 
-        self.scale=0.35;
+        self.scale=0.40;
         
         centerPos=ccp(winSize.width/2,winSize.height/2);
         gpPatternArray=[InitManager getPattern:
@@ -57,14 +71,14 @@ CGSize winSize;
         [self addChild:drawNode2];
 
         //self.rotation=45;
-        
+        */
         //デバッグ用ラベル
         label=[CCLabelTTF labelWithString:
-               [NSString stringWithFormat:@"%d",objNum]fontName:@"Verdana-Bold" fontSize:55];
+               [NSString stringWithFormat:@"%d",gpNum]fontName:@"Verdana-Bold" fontSize:55];
         label.position=ccp(self.contentSize.width/2,self.contentSize.height/2);
         label.color=[CCColor blackColor];
         [self addChild:label];
-        
+        /*
         label2=[CCLabelTTF labelWithString:
                 [NSString stringWithFormat:@"%d",collisNum] fontName:@"Verdana-Bold" fontSize:35];
         label2.position=ccp(self.contentSize.width/2,self.contentSize.height/2-100);

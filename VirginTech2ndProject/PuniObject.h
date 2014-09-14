@@ -21,7 +21,7 @@
     
     bool startFlg;
     bool endFlg;
-    //CCLabelTTF* label;
+    CCLabelTTF* label;
     //CCLabelTTF* label2;
     bool manualFlg;
     bool touchFlg;
@@ -43,5 +43,6 @@
 @property bool endFlg;
 
 +(id)createPuni:(int)objCnt gpNum:(int)gpNum;
+-(void)startBlink;
 
 @end

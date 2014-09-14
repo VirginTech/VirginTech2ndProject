@@ -10,7 +10,11 @@
 
 @interface GameManager : NSObject
 
-+(int)getClearStageNum;
-+(void)setClearStageNum:(int)num;
++(int)getStageNum;
++(void)setStageNum:(int)num;
+
++(int)load_Clear_Level;
++(void)save_Clear_Level:(int)num;
++(void)initialize_Clear_Level;
 
 @end

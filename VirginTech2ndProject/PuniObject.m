@@ -24,9 +24,25 @@
 
 CGSize winSize;
 
+-(void)startBlink
+{
+    [self schedule:@selector(blink_Schedule:) interval:0.25];
+}
+
+-(void)blink_Schedule:(CCTime)dt
+{
+    if([self visible]){
+        [self setVisible:NO];
+    }else{
+        [self setVisible:YES];
+    }
+}
+
 -(void)move_Schedule:(CCTime)dt
 {
-    if(!endFlg){
+    if(endFlg){
+        [self unschedule:@selector(move_Schedule:)];
+    }else{
         if(posArray.count>1 && posArray.count > moveCnt+1){
             
             CGPoint pt1;
@@ -164,7 +180,7 @@ CGSize winSize;
         winSize = [[CCDirector sharedDirector]viewSize];
         
         scale=0.25;
-        velocity=0.25;
+        velocity=0.20;
 
         objNum=objCnt;
         gpNum=_gpNum;
@@ -211,13 +227,13 @@ CGSize winSize;
         actualY =(arc4random()% rangeY)+ minY;
         targetAngle = [BasicMath getAngle_To_Radian:self.position ePos:ccp(winSize.width/2,actualY)];
         
-        /*/デバッグ用ラベル
+        //デバッグ用ラベル
         label=[CCLabelTTF labelWithString:
-               [NSString stringWithFormat:@"%d",objNum]fontName:@"Verdana-Bold" fontSize:35];
+               [NSString stringWithFormat:@"%d",gpNum]fontName:@"Verdana-Bold" fontSize:35];
         label.position=ccp(self.contentSize.width/2,self.contentSize.height/2);
         label.color=[CCColor blackColor];
         [self addChild:label];
-
+        /*
         label2=[CCLabelTTF labelWithString:[NSString stringWithFormat:@"%f",targetAngle] fontName:@"Verdana-Bold" fontSize:25];
         label2.position=ccp(self.contentSize.width/2,self.contentSize.height/2-100);
         label2.color=[CCColor whiteColor];
