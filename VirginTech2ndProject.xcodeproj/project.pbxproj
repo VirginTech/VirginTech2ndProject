@@ -1567,28 +1567,60 @@
 		CF6D8B8819B3F712001C5668 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				CF6D8B8919B3F712001C5668 /* AppDelegate.h */,
+				CF6D8B8A19B3F712001C5668 /* AppDelegate.m */,
+				CF6D8B8F19B3F712001C5668 /* TitleScene.h */,
+				CF6D8B9019B3F712001C5668 /* TitleScene.m */,
+				CF6D8B8C19B3F712001C5668 /* StageLevel_01.h */,
+				CF6D8B8D19B3F712001C5668 /* StageLevel_01.m */,
+				CFA8524E19C6F3E000D12D78 /* lib */,
+				CFA8524D19C6F3C300D12D78 /* Manager */,
+				CFA8524F19C6F40C00D12D78 /* Object */,
+				CFA8525019C6F43F00D12D78 /* Layer */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		CFA8524D19C6F3C300D12D78 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
 				CFA7EC9019C086E400576BF2 /* GameManager.h */,
 				CFA7EC9119C086E400576BF2 /* GameManager.m */,
 				CFA7EC9319C0870600576BF2 /* InitManager.h */,
 				CFA7EC9419C0870600576BF2 /* InitManager.m */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
+		CFA8524E19C6F3E000D12D78 /* lib */ = {
+			isa = PBXGroup;
+			children = (
 				CF264F6519B695C900CACAFD /* BasicMath.h */,
 				CF264F6619B695C900CACAFD /* BasicMath.m */,
-				CF6D8B8919B3F712001C5668 /* AppDelegate.h */,
-				CF6D8B8A19B3F712001C5668 /* AppDelegate.m */,
-				CF6D8B8C19B3F712001C5668 /* StageLevel_01.h */,
-				CF6D8B8D19B3F712001C5668 /* StageLevel_01.m */,
-				CF6D8B8F19B3F712001C5668 /* TitleScene.h */,
-				CF6D8B9019B3F712001C5668 /* TitleScene.m */,
+			);
+			name = lib;
+			sourceTree = "<group>";
+		};
+		CFA8524F19C6F40C00D12D78 /* Object */ = {
+			isa = PBXGroup;
+			children = (
 				CFDE125219B5601D002F7D45 /* PuniObject.h */,
 				CFDE125319B5601D002F7D45 /* PuniObject.m */,
 				CFBEB09919B85C7800E3007D /* ParentObject.h */,
 				CFBEB09A19B85C7800E3007D /* ParentObject.m */,
-				CF589EBC19BD520400CEBCBC /* RouteDispLayer.h */,
-				CF589EBD19BD520400CEBCBC /* RouteDispLayer.m */,
+			);
+			name = Object;
+			sourceTree = "<group>";
+		};
+		CFA8525019C6F43F00D12D78 /* Layer */ = {
+			isa = PBXGroup;
+			children = (
 				CFD9264B19C5B167002205B9 /* InfoLayer.h */,
 				CFD9264C19C5B167002205B9 /* InfoLayer.m */,
+				CF589EBC19BD520400CEBCBC /* RouteDispLayer.h */,
+				CF589EBD19BD520400CEBCBC /* RouteDispLayer.m */,
 			);
-			name = Classes;
+			name = Layer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

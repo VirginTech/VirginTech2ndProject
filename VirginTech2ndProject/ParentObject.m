@@ -11,7 +11,7 @@
 
 @implementation ParentObject
 
-@synthesize collisNum;
+//@synthesize collisNum;
 @synthesize objNum;
 @synthesize gpNum;
 
@@ -53,7 +53,6 @@ CGSize winSize;
         
         objNum=objCnt;
         gpNum=_gpNum;
-        collisNum=-1;
         
         /*/デバッグ用ライン
         CCDrawNode* drawNode1=[CCDrawNode node];

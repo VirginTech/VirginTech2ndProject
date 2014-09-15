@@ -14,17 +14,13 @@
 #import "GameManager.h"
 #import "InfoLayer.h"
 
-// -----------------------------------------------------------------------
-#pragma mark - HelloWorldScene
-// -----------------------------------------------------------------------
-
 @implementation StageLevel_01
 
 CGSize winSize;
 
 int stageLevel;
-int puniCnt;
-int pointPuniCnt;
+int puniCnt;//プニ個別番号
+int pointPuniCnt;//プニ成功カウント
 
 PuniObject* puni;
 ParentObject* parent;
@@ -38,16 +34,10 @@ NSMutableArray* removePuniArray;
 
 PuniObject* touchPuni;
 
-// -----------------------------------------------------------------------
-#pragma mark - Create & Destroy
-// -----------------------------------------------------------------------
-
 + (StageLevel_01 *)scene
 {
     return [[self alloc] init];
 }
-
-// -----------------------------------------------------------------------
 
 - (id)init
 {
@@ -73,8 +63,8 @@ PuniObject* touchPuni;
     
     // Create a back button
     CCButton *backButton = [CCButton buttonWithTitle:@"[タイトル]" fontName:@"Verdana-Bold" fontSize:15.0f];
-    backButton.positionType = CCPositionTypeNormalized;
-    backButton.position = ccp(0.90f, 0.95f); // Top Right of screen
+    //backButton.positionType = CCPositionTypeNormalized;
+    backButton.position = ccp(winSize.width-backButton.contentSize.width/2,backButton.contentSize.height/2);
     [backButton setTarget:self selector:@selector(onBackClicked:)];
     [self addChild:backButton];
 
@@ -106,16 +96,10 @@ PuniObject* touchPuni;
 	return self;
 }
 
-// -----------------------------------------------------------------------
-
 - (void)dealloc
 {
     // clean up code goes here
 }
-
-// -----------------------------------------------------------------------
-#pragma mark - Enter & Exit
-// -----------------------------------------------------------------------
 
 - (void)onEnter
 {
@@ -130,8 +114,6 @@ PuniObject* touchPuni;
     // Per frame update is automatically enabled, if update is overridden
     
 }
-
-// -----------------------------------------------------------------------
 
 - (void)onExit
 {
@@ -148,8 +130,8 @@ PuniObject* touchPuni;
         bool flg=true;
         puniCnt++;
         
+        //グループ番号ランダム付与
         gpNum=arc4random()%gpNumArray.count;
-        //puni=[PuniObject createPuni:puniCnt gpNum:[[gpNumArray objectAtIndex:gpNum]intValue]];
 
         //重なり防止
         while(flg){
@@ -158,8 +140,8 @@ PuniObject* touchPuni;
             for(PuniObject* puni1 in puniArray){
                 if([BasicMath RadiusIntersectsRadius:puni1.position
                                                 pointB:puni.position
-                                                radius1:(puni1.contentSize.width*puni1.scale)/2.0f+10.0
-                                                radius2:(puni.contentSize.width*puni.scale)/2.0f+10.0])
+                                                radius1:(puni1.contentSize.width*puni1.scale)/2.0f+15.0
+                                                radius2:(puni.contentSize.width*puni.scale)/2.0f+15.0])
                 {
                     flg=true;
                     break;
@@ -170,6 +152,7 @@ PuniObject* touchPuni;
         [puniArray addObject:puni];
         [self addChild:puni z:2];
         
+        //経路レイヤー生成
         routeDisp=[[RouteDispLayer alloc]init];
         routeDisp.puni=puni;
         [self addChild:routeDisp z:1];
@@ -240,15 +223,28 @@ PuniObject* touchPuni;
             {
                 if(puni1.gpNum == parent1.gpNum)
                 {
+                    //プニ削除
                     [removePuniArray addObject:puni1];
                     puni1.posArray = [[NSMutableArray alloc]init];
                     puni1.moveCnt=0;
                     
+                    //スコア更新
+                    if(stageLevel>0){
+                        [GameManager setScore:[GameManager getScore]+1];
+                        [InfoLayer update_Score];
+                    }
+                    
+                    //ステージ終了
                     pointPuniCnt++;
                     if(pointPuniCnt>=[InitManager getPuniOnceMax]*[InitManager getPuniRepeatMax]){
+                        //ハイスコア保存
+                        if([GameManager load_HighScore]<[GameManager getScore]){
+                            [GameManager save_HighScore:[GameManager getScore]];
+                        }
+                        //次ステージへ
                         [self nextStage];
                     }
-                }else{
+                }else{//ステージ失敗
                     [self endGame];
                     [puni1 startBlink];
                     [parent1 startBlink];
@@ -261,16 +257,19 @@ PuniObject* touchPuni;
 
 -(void)nextStage
 {
+    //レヴェル保存
     if([GameManager load_Clear_Level]<stageLevel){
         [GameManager save_Clear_Level:stageLevel];
     }
-    [GameManager setStageNum:stageLevel+1];
+    //次ステージへ
+    [GameManager setStageNum:stageLevel+1];//ステージレヴェル設定
     [[CCDirector sharedDirector] replaceScene:[StageLevel_01 scene]
                                withTransition:[CCTransition transitionCrossFadeWithDuration:1.0]];
 }
 
 -(void)endGame
 {
+    //全プニ停止
     for(PuniObject* puni1 in puniArray)
     {
         puni1.endFlg=true;
@@ -279,6 +278,10 @@ PuniObject* touchPuni;
         
         self.userInteractionEnabled = NO;
         [self unscheduleAllSelectors];//終了
+    }
+    //ハイスコア保存
+    if([GameManager load_HighScore]<[GameManager getScore]){
+        [GameManager save_HighScore:[GameManager getScore]];
     }
 }
 
@@ -326,10 +329,6 @@ PuniObject* touchPuni;
     return flg;
 }
 
-// -----------------------------------------------------------------------
-#pragma mark - Touch Handler
-// -----------------------------------------------------------------------
-
 -(void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
     CGPoint touchLocation = [touch locationInNode:self];
@@ -353,7 +352,7 @@ PuniObject* touchPuni;
     bool flg=false;;
     for(ParentObject* parent1 in parentArray){
         if([BasicMath RadiusContainsPoint:parent1.position pointB:touchLocation
-                                                radius:(parent1.contentSize.width*parent1.scale)/2]){
+                                                radius:(parent1.contentSize.width*parent1.scale)/2-5]){
             if(parent1.gpNum==touchPuni.gpNum){
                 flg=true;
                 touchPuni.touchFlg=false;
@@ -385,17 +384,11 @@ PuniObject* touchPuni;
     }
 }
 
-// -----------------------------------------------------------------------
-#pragma mark - Button Callbacks
-// -----------------------------------------------------------------------
-
 - (void)onBackClicked:(id)sender
 {
     // back to intro scene with transition
     [[CCDirector sharedDirector] replaceScene:[TitleScene scene]
                                withTransition:[CCTransition transitionCrossFadeWithDuration:1.0]];
 }
-
-// -----------------------------------------------------------------------
 
 @end

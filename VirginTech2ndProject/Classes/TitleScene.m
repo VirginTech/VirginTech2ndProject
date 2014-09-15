@@ -7,28 +7,17 @@
 //
 // -----------------------------------------------------------------------
 
-// Import the interfaces
 #import "TitleScene.h"
 #import "StageLevel_01.h"
 #import "GameManager.h"
 #import "InfoLayer.h"
 
-// -----------------------------------------------------------------------
-#pragma mark - IntroScene
-// -----------------------------------------------------------------------
-
 @implementation TitleScene
-
-// -----------------------------------------------------------------------
-#pragma mark - Create & Destroy
-// -----------------------------------------------------------------------
 
 + (TitleScene *)scene
 {
 	return [[self alloc] init];
 }
-
-// -----------------------------------------------------------------------
 
 - (id)init
 {
@@ -44,6 +33,7 @@
     [self addChild:background];
     
     //インフォレイヤー
+    [GameManager setScore:0];
     [GameManager setStageNum:[GameManager load_Clear_Level]];
     InfoLayer* infoLayer=[[InfoLayer alloc]init];
     [self addChild:infoLayer];
@@ -72,24 +62,28 @@
 	return self;
 }
 
-// -----------------------------------------------------------------------
-#pragma mark - Button Callbacks
-// -----------------------------------------------------------------------
-
 - (void)onStartClicked:(id)sender
 {
+    //ステージレヴェル設定
     if([GameManager load_Clear_Level]>=0){
         [GameManager setStageNum:1];
     }else{
         [GameManager setStageNum:0];
     }
+    //スコア設定
+    [GameManager setScore:0];
+    
     [[CCDirector sharedDirector] replaceScene:[StageLevel_01 scene]
                                withTransition:[CCTransition transitionCrossFadeWithDuration:1.0]];
 }
 
 - (void)onContinueClicked:(id)sender
 {
+    //ステージレヴェル設定
     [GameManager setStageNum:[GameManager load_Clear_Level]+1];
+    //スコア設定
+    [GameManager setScore:[GameManager load_HighScore]];
+    
     [[CCDirector sharedDirector] replaceScene:[StageLevel_01 scene]
                                withTransition:[CCTransition transitionCrossFadeWithDuration:1.0]];
 }

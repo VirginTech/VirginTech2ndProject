@@ -17,4 +17,9 @@
 +(void)save_Clear_Level:(int)num;
 +(void)initialize_Clear_Level;
 
++(long)load_HighScore;
++(void)save_HighScore:(long)score;
++(long)getScore;
++(void)setScore:(long)num;
+
 @end

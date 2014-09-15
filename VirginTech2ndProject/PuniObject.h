@@ -14,17 +14,20 @@
     float scale;
     float velocity;
     float targetAngle;
-    bool collisFlg;
-    int collisNum;;
-    int objNum;
-    int gpNum;
     
-    bool startFlg;
-    bool endFlg;
+    bool collisFlg;//連続壁衝突防止
+    int collisNum;;//誰と衝突したか
+    int objNum;//自分の番号
+    int gpNum;//グループ番号
+    
+    bool startFlg;//入場時判定無効化
+    bool endFlg;//終了フラグ
+    
     CCLabelTTF* label;
     //CCLabelTTF* label2;
-    bool manualFlg;
-    bool touchFlg;
+    
+    bool manualFlg;//マニュアルモードか
+    bool touchFlg;//ルート線種描画変更フラグ
     NSMutableArray* posArray;
     float er,dr;//最終距離、補間距離(途中経過の)
     CGPoint startPos;

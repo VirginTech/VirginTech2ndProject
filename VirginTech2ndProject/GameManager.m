@@ -11,6 +11,7 @@
 @implementation GameManager
 
 int stageNum;
+long score;
 
 +(int)getStageNum
 {
@@ -19,6 +20,34 @@ int stageNum;
 +(void)setStageNum:(int)num
 {
     stageNum=num;
+}
+
++(long)getScore
+{
+    return score;
+}
++(void)setScore:(long)num
+{
+    score=num;
+}
+
+//=========================================
+//　ハイスコアの取得
+//=========================================
++(long)load_HighScore
+{
+    NSUserDefaults  *userDefault=[NSUserDefaults standardUserDefaults];
+    long highScore=[[userDefault objectForKey:@"HighScore"]longValue];
+    return highScore;
+}
+//=========================================
+//　ハイスコアの保存
+//=========================================
++(void)save_HighScore:(long)score
+{
+    NSUserDefaults  *userDefault=[NSUserDefaults standardUserDefaults];
+    NSNumber* scoreNum=[NSNumber numberWithLong:score];
+    [userDefault setObject:scoreNum forKey:@"HighScore"];
 }
 
 //=========================================
@@ -39,7 +68,9 @@ int stageNum;
     NSNumber* level=[NSNumber numberWithInt:num];
     [userDefault setObject:level forKey:@"ClearLevel"];
 }
-
+//=========================================
+//　初回起動時のクリアレヴェルの設定（-1）
+//=========================================
 +(void)initialize_Clear_Level
 {
     NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];

@@ -11,15 +11,13 @@
 
 @interface ParentObject : CCSprite {
     
-    int collisNum;
-    int objNum;
-    int gpNum;
+    int objNum;//自分の番号
+    int gpNum;//グループ番号
     
     CCLabelTTF* label;
     //CCLabelTTF* label2;
 }
 
-@property int collisNum;
 @property int objNum;
 @property int gpNum;
 
