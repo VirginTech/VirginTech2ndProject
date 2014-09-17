@@ -13,6 +13,7 @@
 #import "InitManager.h"
 #import "GameManager.h"
 #import "InfoLayer.h"
+#import "NaviLayer.h"
 
 @implementation StageLevel_01
 
@@ -23,16 +24,24 @@ int puniCnt;//プニ個別番号
 int pointPuniCnt;//プニ成功カウント
 
 PuniObject* puni;
+PuniObject* touchPuni;
 ParentObject* parent;
 RouteDispLayer* routeDisp;
 
 NSMutableArray* puniArray;
 NSMutableArray* parentArray;
 NSMutableArray* gpNumArray;
-
 NSMutableArray* removePuniArray;
 
-PuniObject* touchPuni;
+NaviLayer* naviLayer;
+bool pauseFlg;
+CCButton *pauseButton;
+
+CCButton *speed2xButton;
+
+//デバッグ用ラベル
+CCLabelTTF* puniLabel;
+NSMutableArray* labelArray;
 
 + (StageLevel_01 *)scene
 {
@@ -54,23 +63,37 @@ PuniObject* touchPuni;
     puniArray=[[NSMutableArray alloc]init];
     parentArray=[[NSMutableArray alloc]init];
     gpNumArray=[[NSMutableArray alloc]init];
+    pauseFlg=false;
+    labelArray=[[NSMutableArray alloc]init];//デバッグ用
     
     winSize = [[CCDirector sharedDirector]viewSize];
     
     // Create a colored background (Dark Grey)
     CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0.2f green:0.2f blue:0.2f alpha:1.0f]];
     [self addChild:background];
-    
-    // Create a back button
-    CCButton *backButton = [CCButton buttonWithTitle:@"[タイトル]" fontName:@"Verdana-Bold" fontSize:15.0f];
-    //backButton.positionType = CCPositionTypeNormalized;
-    backButton.position = ccp(winSize.width-backButton.contentSize.width/2,backButton.contentSize.height/2);
-    [backButton setTarget:self selector:@selector(onBackClicked:)];
-    [self addChild:backButton];
 
+    //ポーズボタン
+    pauseButton = [CCButton buttonWithTitle:@"[ポーズ]" fontName:@"Verdana-Bold" fontSize:15.0f];
+    //backButton.positionType = CCPositionTypeNormalized;
+    pauseButton.position = ccp(winSize.width-pauseButton.contentSize.width/2,pauseButton.contentSize.height/2);
+    [pauseButton setTarget:self selector:@selector(onPauseClicked:)];
+    [self addChild:pauseButton z:4];
+    
+    //倍速ボタン
+    speed2xButton = [CCButton buttonWithTitle:@"[倍　速]" fontName:@"Verdana-Bold" fontSize:15.0f];
+    //backButton.positionType = CCPositionTypeNormalized;
+    speed2xButton.position = ccp(speed2xButton.contentSize.width/2+100,speed2xButton.contentSize.height/2);
+    [speed2xButton setTarget:self selector:@selector(onSpeed2xClicked:)];
+    [self addChild:speed2xButton z:4];
+    
     //インフォレイヤー
     InfoLayer* infoLayer=[[InfoLayer alloc]init];
-    [self addChild:infoLayer];
+    [self addChild:infoLayer z:0];
+    
+    //ナビレイヤー
+    naviLayer=[[NaviLayer alloc]init];
+    [self addChild:naviLayer z:3];
+    naviLayer.visible=false;
     
     //ステージレヴェル取得
     stageLevel=[GameManager getStageNum];
@@ -83,7 +106,7 @@ PuniObject* touchPuni;
     
     //プニ配置
     [self schedule:@selector(createPuni_Schedule:)interval:[InitManager getInterval]
-                                                repeat:[InitManager getPuniRepeatMax]-1
+                                                repeat:CCTimerRepeatForever
                                                 delay:5.0];
     //親プニ配置
     for(int i=0;i<gpNumArray.count;i++){
@@ -125,37 +148,50 @@ PuniObject* touchPuni;
 {
     int gpNum;
 
-    for(int i=0;i<[InitManager getPuniOnceMax];i++)
-    {
-        bool flg=true;
-        puniCnt++;
-        
-        //グループ番号ランダム付与
-        gpNum=arc4random()%gpNumArray.count;
+    if(!pauseFlg){
+        for(int i=0;i<[InitManager getPuniOnceMax];i++)
+        {
+            bool flg=true;
+            puniCnt++;
+            
+            //グループ番号ランダム付与
+            gpNum=arc4random()%gpNumArray.count;
 
-        //重なり防止
-        while(flg){
-            flg=false;
-            puni=[PuniObject createPuni:puniCnt gpNum:[[gpNumArray objectAtIndex:gpNum]intValue]];
-            for(PuniObject* puni1 in puniArray){
-                if([BasicMath RadiusIntersectsRadius:puni1.position
-                                                pointB:puni.position
-                                                radius1:(puni1.contentSize.width*puni1.scale)/2.0f+15.0
-                                                radius2:(puni.contentSize.width*puni.scale)/2.0f+15.0])
-                {
-                    flg=true;
-                    break;
+            //重なり防止
+            while(flg){
+                flg=false;
+                puni=[PuniObject createPuni:puniCnt gpNum:[[gpNumArray objectAtIndex:gpNum]intValue]];
+                for(PuniObject* puni1 in puniArray){
+                    if([BasicMath RadiusIntersectsRadius:puni1.position
+                                                    pointB:puni.position
+                                                    radius1:(puni1.contentSize.width*puni1.scale)/2.0f+15.0
+                                                    radius2:(puni.contentSize.width*puni.scale)/2.0f+15.0])
+                    {
+                        flg=true;
+                        break;
+                    }
                 }
             }
+            
+            [puniArray addObject:puni];
+            [self addChild:puni z:2];
+            
+            //デバッグ用ラベル
+            puniLabel=[CCLabelTTF labelWithString:@"ObjNo= PosX= PosY= " fontName:@"Verdana-Bold" fontSize:8];
+            puniLabel.name=[NSString stringWithFormat:@"%d",puni.objNum];
+            puniLabel.position=ccp(100,winSize.height-20-(puniCnt*10));
+            [self addChild:puniLabel z:4];
+            [labelArray addObject:puniLabel];
+            
+            //経路レイヤー生成
+            routeDisp=[[RouteDispLayer alloc]init];
+            routeDisp.puni=puni;
+            [self addChild:routeDisp z:1];
+            
+            if(puniCnt>=[InitManager getPuniOnceMax]*[InitManager getPuniRepeatMax]){
+                [self unschedule:@selector(createPuni_Schedule:)];
+            }
         }
-        
-        [puniArray addObject:puni];
-        [self addChild:puni z:2];
-        
-        //経路レイヤー生成
-        routeDisp=[[RouteDispLayer alloc]init];
-        routeDisp.puni=puni;
-        [self addChild:routeDisp z:1];
     }
 }
 
@@ -182,10 +218,11 @@ PuniObject* touchPuni;
                             puni1.collisNum=puni2.objNum;
                             puni2.collisNum=puni1.objNum;
                             
-                            //反射角算定
+                            //Puni1 反射角算定
                             collisSurfaceAngle = [self getCollisSurfaceAngle:puni1.position pos2:puni2.position];
                             puni1.targetAngle = 2*collisSurfaceAngle-(puni1.targetAngle+collisSurfaceAngle);
                             
+                            //Puni2 反射角算定
                             collisSurfaceAngle = [self getCollisSurfaceAngle:puni2.position pos2:puni1.position];
                             puni2.targetAngle = 2*collisSurfaceAngle-(puni2.targetAngle+collisSurfaceAngle);
                             
@@ -228,6 +265,15 @@ PuniObject* touchPuni;
                     puni1.posArray = [[NSMutableArray alloc]init];
                     puni1.moveCnt=0;
                     
+                    //デバッグラベル削除
+                    for(CCLabelTTF* label in labelArray){
+                        if(puni1.objNum==[label.name intValue]){
+                            label.color=[CCColor redColor];
+                            //[self removeChild:label cleanup:YES];
+                            //[labelArray removeObject:label];
+                        }
+                    }
+                    
                     //スコア更新
                     if(stageLevel>0){
                         [GameManager setScore:[GameManager getScore]+1];
@@ -252,7 +298,44 @@ PuniObject* touchPuni;
             }
         }
     }
+    
+    //枠外判定
+    [self removeOutSideFrameObject];
+    
+    //消滅オブジェクト削除
     [self removeObject];
+    
+    //デバッグ用ラベル更新
+    for(PuniObject* puni1 in puniArray){
+        for(CCLabelTTF* label in labelArray){
+            if(puni1.objNum==[label.name intValue]){
+                label.string=[NSString stringWithFormat:@"ObjNo=%02d PosX=%.3f PosY=%.3f ",
+                              puni1.objNum,puni1.position.x,puni1.position.y];
+            }
+        }
+    }
+}
+
+-(void)removeOutSideFrameObject
+{
+    for(PuniObject* puni1 in puniArray)
+    {
+        //if(!puni1.startFlg){
+            if(puni1.position.y-(puni1.contentSize.height*puni1.scale)/2 >= winSize.height){//上枠外
+                pointPuniCnt++;
+                [removePuniArray addObject:puni1];
+            }else if(puni1.position.y+(puni1.contentSize.height*puni1.scale)/2 <= 0){//下枠外
+                pointPuniCnt++;
+                [removePuniArray addObject:puni1];
+            }else if(puni1.position.x+(puni1.contentSize.width*puni1.scale)/2 <= 0){//左枠外
+                pointPuniCnt++;
+                [removePuniArray addObject:puni1];
+            }else if(puni1.position.x-(puni1.contentSize.width*puni1.scale)/2 >= winSize.width){//右枠外
+                pointPuniCnt++;
+                [removePuniArray addObject:puni1];
+            }
+        //}
+    }
 }
 
 -(void)nextStage
@@ -272,13 +355,16 @@ PuniObject* touchPuni;
     //全プニ停止
     for(PuniObject* puni1 in puniArray)
     {
-        puni1.endFlg=true;
+        puni1.stopFlg=true;
         puni1.posArray = [[NSMutableArray alloc]init];
         puni1.moveCnt=0;
-        
-        self.userInteractionEnabled = NO;
-        [self unscheduleAllSelectors];//終了
     }
+
+    self.userInteractionEnabled = NO;
+    [self unscheduleAllSelectors];//終了
+    pauseButton.visible=false;
+    naviLayer.visible=true;
+
     //ハイスコア保存
     if([GameManager load_HighScore]<[GameManager getScore]){
         [GameManager save_HighScore:[GameManager getScore]];
@@ -292,6 +378,11 @@ PuniObject* touchPuni;
         [puniArray removeObject:puni1];
         [self removeChild:puni1 cleanup:YES];
     }
+}
+
++(void)pointPuniCntAdd
+{
+    pointPuniCnt++;
 }
 
 -(float)getCollisSurfaceAngle:(CGPoint)pos1 pos2:(CGPoint)pos2
@@ -322,8 +413,10 @@ PuniObject* touchPuni;
         if([BasicMath RadiusContainsPoint:_puni.position
                                             pointB:touchLocation
                                             radius:(_puni.contentSize.width*_puni.scale)/2+10]){
-            touchPuni=_puni;
-            flg=true;
+            //if(!_puni.startFlg){//枠内であれば
+                touchPuni=_puni;
+                flg=true;
+            //}
         }
     }
     return flg;
@@ -384,11 +477,36 @@ PuniObject* touchPuni;
     }
 }
 
-- (void)onBackClicked:(id)sender
+- (void)onSpeed2xClicked:(id)sender
 {
-    // back to intro scene with transition
-    [[CCDirector sharedDirector] replaceScene:[TitleScene scene]
-                               withTransition:[CCTransition transitionCrossFadeWithDuration:1.0]];
+    
+}
+
+- (void)onPauseClicked:(id)sender
+{
+    if(!pauseFlg){//プレイ中だったら
+        //全プニ停止
+        for(PuniObject* puni1 in puniArray)
+        {
+            puni1.stopFlg=true;
+        }
+        self.userInteractionEnabled = NO;
+        pauseFlg=true;
+        pauseButton.title=@"[再 開]";
+        naviLayer.visible=true;
+
+    }else{//ポーズ中だったら
+        //全プニ再開
+        for(PuniObject* puni1 in puniArray)
+        {
+            puni1.stopFlg=false;
+        }
+        
+        self.userInteractionEnabled = YES;
+        pauseFlg=false;
+        pauseButton.title=@"[ポーズ]";
+        naviLayer.visible=false;
+    }
 }
 
 @end

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CF264F6719B695C900CACAFD /* BasicMath.m in Sources */ = {isa = PBXBuildFile; fileRef = CF264F6619B695C900CACAFD /* BasicMath.m */; };
 		CF589EBE19BD520400CEBCBC /* RouteDispLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF589EBD19BD520400CEBCBC /* RouteDispLayer.m */; };
+		CF5A314019C97DF200B901D7 /* NaviLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5A313F19C97DF200B901D7 /* NaviLayer.m */; };
 		CF6D88E219B3F710001C5668 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6D88E119B3F710001C5668 /* QuartzCore.framework */; };
 		CF6D88E419B3F710001C5668 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6D88E319B3F710001C5668 /* OpenGLES.framework */; };
 		CF6D88E619B3F710001C5668 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6D88E519B3F710001C5668 /* OpenAL.framework */; };
@@ -238,6 +239,8 @@
 		CF264F6619B695C900CACAFD /* BasicMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicMath.m; sourceTree = "<group>"; };
 		CF589EBC19BD520400CEBCBC /* RouteDispLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteDispLayer.h; sourceTree = "<group>"; };
 		CF589EBD19BD520400CEBCBC /* RouteDispLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteDispLayer.m; sourceTree = "<group>"; };
+		CF5A313E19C97DF200B901D7 /* NaviLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NaviLayer.h; sourceTree = "<group>"; };
+		CF5A313F19C97DF200B901D7 /* NaviLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NaviLayer.m; sourceTree = "<group>"; };
 		CF6D88DE19B3F710001C5668 /* VirginTech2ndProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirginTech2ndProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF6D88E119B3F710001C5668 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CF6D88E319B3F710001C5668 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1619,6 +1622,8 @@
 				CFD9264C19C5B167002205B9 /* InfoLayer.m */,
 				CF589EBC19BD520400CEBCBC /* RouteDispLayer.h */,
 				CF589EBD19BD520400CEBCBC /* RouteDispLayer.m */,
+				CF5A313E19C97DF200B901D7 /* NaviLayer.h */,
+				CF5A313F19C97DF200B901D7 /* NaviLayer.m */,
 			);
 			name = Layer;
 			sourceTree = "<group>";
@@ -1746,6 +1751,7 @@
 				CF6D89E219B3F711001C5668 /* CCSpriteFrame.m in Sources */,
 				CF6D897619B3F710001C5668 /* CCNodeColor.m in Sources */,
 				CF6D8A4F19B3F711001C5668 /* TransformUtils.m in Sources */,
+				CF5A314019C97DF200B901D7 /* NaviLayer.m in Sources */,
 				CF6D89F019B3F711001C5668 /* CCTextureCache.m in Sources */,
 				CF6D8A1B19B3F711001C5668 /* CCAppDelegate.m in Sources */,
 				CF6D8A1F19B3F711001C5668 /* CCDirectorMac.m in Sources */,

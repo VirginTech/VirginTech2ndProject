@@ -21,10 +21,10 @@
     int gpNum;//グループ番号
     
     bool startFlg;//入場時判定無効化
-    bool endFlg;//終了フラグ
+    bool stopFlg;//停止フラグ
     
     CCLabelTTF* label;
-    //CCLabelTTF* label2;
+    CCLabelTTF* label2;
     
     bool manualFlg;//マニュアルモードか
     bool touchFlg;//ルート線種描画変更フラグ
@@ -43,7 +43,7 @@
 @property int moveCnt;
 @property bool touchFlg;
 @property bool startFlg;
-@property bool endFlg;
+@property bool stopFlg;
 
 +(id)createPuni:(int)objCnt gpNum:(int)gpNum;
 -(void)startBlink;

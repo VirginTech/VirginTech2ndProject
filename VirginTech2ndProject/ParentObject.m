@@ -54,7 +54,7 @@ CGSize winSize;
         objNum=objCnt;
         gpNum=_gpNum;
         
-        /*/デバッグ用ライン
+        //デバッグ用ライン
         CCDrawNode* drawNode1=[CCDrawNode node];
         [drawNode1 drawSegmentFrom:ccp(self.contentSize.width/2-800,self.contentSize.height/2)
                                to:ccp(self.contentSize.width/2+800,self.contentSize.height/2)
@@ -70,7 +70,7 @@ CGSize winSize;
         [self addChild:drawNode2];
 
         //self.rotation=45;
-        */
+        
         //デバッグ用ラベル
         label=[CCLabelTTF labelWithString:
                [NSString stringWithFormat:@"%d",gpNum]fontName:@"Verdana-Bold" fontSize:55];

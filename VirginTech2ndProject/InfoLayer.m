@@ -66,7 +66,7 @@ CCLabelTTF* scoreLabel;
 
 +(void)update_Score
 {
-    NSLog(@"score=%ld",[GameManager getScore]);
+    //NSLog(@"score=%ld",[GameManager getScore]);
     scoreLabel.string=[NSString stringWithFormat:@"Score:%05ld",[GameManager getScore]];
 }
 

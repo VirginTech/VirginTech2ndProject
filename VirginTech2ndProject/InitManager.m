@@ -96,7 +96,7 @@ NSMutableArray* gpNumArray;
     }else{
         puniOnceMax=stageLevel%5;
         if(puniOnceMax==1){
-            puniRepeatMax=20;
+            puniRepeatMax=20;//テスト 20
             interval=2.0;
         }else if(puniOnceMax==2){
             puniRepeatMax=10;
