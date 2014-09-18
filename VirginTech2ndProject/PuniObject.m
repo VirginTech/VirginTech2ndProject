@@ -9,9 +9,11 @@
 #import "PuniObject.h"
 #import "BasicMath.h"
 #import "StageLevel_01.h"
+#import "GameManager.h"
 
 @implementation PuniObject
 
+@synthesize velocity;
 @synthesize targetAngle;
 @synthesize collisNum;
 @synthesize objNum;
@@ -208,8 +210,11 @@ CGSize winSize;
         winSize = [[CCDirector sharedDirector]viewSize];
         
         scale=0.25;
-        velocity=0.20;
-
+        if(![GameManager getSpeed]){//ノーマル
+            velocity=0.20;
+        }else{//倍速
+            velocity=0.20 * 2;
+        }
         objNum=objCnt;
         gpNum=_gpNum;
         collisFlg=false;
@@ -234,18 +239,18 @@ CGSize winSize;
         int rangeX = maxX - minX;
         int actualX =(arc4random()% rangeX)+ minX;
         
-        //寄せ
+        //寄せ 50px外まで
         if(arc4random()%2==0){
             if(arc4random()%2==0){
-                actualX = winSize.width + (self.contentSize.width*scale)/2;//右
+                actualX = winSize.width + (self.contentSize.width*scale)/2 + 50;//右
             }else{
-                actualX = -(self.contentSize.width*scale)/2;//左
+                actualX = -(self.contentSize.width*scale)/2 - 50;//左
             }
         }else{
             if(arc4random()%2==0){
-                actualY = winSize.height + (self.contentSize.height*scale)/2;//上
+                actualY = winSize.height + (self.contentSize.height*scale)/2 + 50;//上
             }else{
-                actualY = -(self.contentSize.height*scale)/2;//下
+                actualY = -(self.contentSize.height*scale)/2 - 50;//下
             }
         }
         
@@ -273,7 +278,7 @@ CGSize winSize;
     return self;
 }
 
-+(id)createPuni:(int)objCnt gpNum:(int)_gpNum;
++(id)createPuni:(int)objCnt gpNum:(int)_gpNum
 {
     return [[self alloc] initWithPuni:objCnt gpNum:_gpNum];
 }

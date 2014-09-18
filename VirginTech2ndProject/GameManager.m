@@ -12,6 +12,7 @@
 
 int stageNum;
 long score;
+bool speed2xFlg=false;
 
 +(int)getStageNum
 {
@@ -29,6 +30,15 @@ long score;
 +(void)setScore:(long)num
 {
     score=num;
+}
+
++(bool)getSpeed
+{
+    return speed2xFlg;
+}
++(void)setSpeed:(bool)flg
+{
+    speed2xFlg=flg;
 }
 
 //=========================================

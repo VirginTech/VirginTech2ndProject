@@ -96,7 +96,7 @@ CGSize winSize;
     label2.string=[NSString stringWithFormat:@"%d",collisNum];
 }*/
 
-+(id)createParent:(int)objCnt gpNum:(int)_gpNum;
++(id)createParent:(int)objCnt gpNum:(int)_gpNum
 {
     return [[self alloc] initWithParent:objCnt gpNum:_gpNum];
 }

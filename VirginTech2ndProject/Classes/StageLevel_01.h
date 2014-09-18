@@ -13,6 +13,7 @@
 #import "PuniObject.h"
 #import "ParentObject.h"
 #import "RouteDispLayer.h"
+#import "ArrowObject.h"
 
 @interface StageLevel_01 : CCScene
 {

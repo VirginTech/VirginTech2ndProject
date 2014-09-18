@@ -116,4 +116,5 @@ dependencies: \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Classes/StageLevel_01.h \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/PuniObject.h \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/ParentObject.h \
-  /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/RouteDispLayer.h
+  /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/RouteDispLayer.h \
+  /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/ArrowObject.h

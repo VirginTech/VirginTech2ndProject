@@ -34,6 +34,7 @@
     int moveCnt;
 }
 
+@property float velocity;
 @property float targetAngle;
 @property int collisNum;
 @property int objNum;

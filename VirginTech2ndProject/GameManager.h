@@ -12,6 +12,10 @@
 
 +(int)getStageNum;
 +(void)setStageNum:(int)num;
++(long)getScore;
++(void)setScore:(long)num;
++(bool)getSpeed;
++(void)setSpeed:(bool)flg;
 
 +(int)load_Clear_Level;
 +(void)save_Clear_Level:(int)num;
@@ -19,7 +23,5 @@
 
 +(long)load_HighScore;
 +(void)save_HighScore:(long)score;
-+(long)getScore;
-+(void)setScore:(long)num;
 
 @end

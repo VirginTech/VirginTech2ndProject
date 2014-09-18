@@ -217,10 +217,11 @@
 		CF6D8B9119B3F712001C5668 /* TitleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6D8B9019B3F712001C5668 /* TitleScene.m */; };
 		CFA7EC9219C086E400576BF2 /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA7EC9119C086E400576BF2 /* GameManager.m */; };
 		CFA7EC9519C0870600576BF2 /* InitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA7EC9419C0870600576BF2 /* InitManager.m */; };
+		CFA8C51119CAC65500B9D930 /* circle_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFA8C50F19CAC65500B9D930 /* circle_default.plist */; };
+		CFA8C51219CAC65500B9D930 /* circle_default.png in Resources */ = {isa = PBXBuildFile; fileRef = CFA8C51019CAC65500B9D930 /* circle_default.png */; };
+		CFA8C51519CAD77100B9D930 /* ArrowObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA8C51419CAD77100B9D930 /* ArrowObject.m */; };
 		CFBEB09B19B85C7800E3007D /* ParentObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBEB09A19B85C7800E3007D /* ParentObject.m */; };
 		CFD9264D19C5B167002205B9 /* InfoLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD9264C19C5B167002205B9 /* InfoLayer.m */; };
-		CFDE125019B55F81002F7D45 /* circle_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFDE124E19B55F81002F7D45 /* circle_default.plist */; };
-		CFDE125119B55F81002F7D45 /* circle_default.png in Resources */ = {isa = PBXBuildFile; fileRef = CFDE124F19B55F81002F7D45 /* circle_default.png */; };
 		CFDE125419B5601D002F7D45 /* PuniObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDE125319B5601D002F7D45 /* PuniObject.m */; };
 /* End PBXBuildFile section */
 
@@ -673,12 +674,14 @@
 		CFA7EC9119C086E400576BF2 /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
 		CFA7EC9319C0870600576BF2 /* InitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitManager.h; sourceTree = "<group>"; };
 		CFA7EC9419C0870600576BF2 /* InitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitManager.m; sourceTree = "<group>"; };
+		CFA8C50F19CAC65500B9D930 /* circle_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = circle_default.plist; sourceTree = "<group>"; };
+		CFA8C51019CAC65500B9D930 /* circle_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle_default.png; sourceTree = "<group>"; };
+		CFA8C51319CAD77100B9D930 /* ArrowObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrowObject.h; sourceTree = "<group>"; };
+		CFA8C51419CAD77100B9D930 /* ArrowObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrowObject.m; sourceTree = "<group>"; };
 		CFBEB09919B85C7800E3007D /* ParentObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentObject.h; sourceTree = "<group>"; };
 		CFBEB09A19B85C7800E3007D /* ParentObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentObject.m; sourceTree = "<group>"; };
 		CFD9264B19C5B167002205B9 /* InfoLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoLayer.h; sourceTree = "<group>"; };
 		CFD9264C19C5B167002205B9 /* InfoLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoLayer.m; sourceTree = "<group>"; };
-		CFDE124E19B55F81002F7D45 /* circle_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = circle_default.plist; sourceTree = "<group>"; };
-		CFDE124F19B55F81002F7D45 /* circle_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle_default.png; sourceTree = "<group>"; };
 		CFDE125219B5601D002F7D45 /* PuniObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PuniObject.h; sourceTree = "<group>"; };
 		CFDE125319B5601D002F7D45 /* PuniObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PuniObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -752,8 +755,8 @@
 		CF6D88FA19B3F710001C5668 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CFDE124E19B55F81002F7D45 /* circle_default.plist */,
-				CFDE124F19B55F81002F7D45 /* circle_default.png */,
+				CFA8C50F19CAC65500B9D930 /* circle_default.plist */,
+				CFA8C51019CAC65500B9D930 /* circle_default.png */,
 				CF6D88FB19B3F710001C5668 /* Default.png */,
 				CF6D88FD19B3F710001C5668 /* Default@2x.png */,
 				CF6D88FF19B3F710001C5668 /* Default-568h@2x.png */,
@@ -1611,6 +1614,8 @@
 				CFDE125319B5601D002F7D45 /* PuniObject.m */,
 				CFBEB09919B85C7800E3007D /* ParentObject.h */,
 				CFBEB09A19B85C7800E3007D /* ParentObject.m */,
+				CFA8C51319CAD77100B9D930 /* ArrowObject.h */,
+				CFA8C51419CAD77100B9D930 /* ArrowObject.m */,
 			);
 			name = Object;
 			sourceTree = "<group>";
@@ -1703,7 +1708,7 @@
 				CF6D891919B3F710001C5668 /* Icon-Small@2x.png in Resources */,
 				CF6D890B19B3F710001C5668 /* Icon-72@2x.png in Resources */,
 				CF6D88FC19B3F710001C5668 /* Default.png in Resources */,
-				CFDE125119B55F81002F7D45 /* circle_default.png in Resources */,
+				CFA8C51219CAC65500B9D930 /* circle_default.png in Resources */,
 				CF6D890519B3F710001C5668 /* Icon.png in Resources */,
 				CF6D891319B3F710001C5668 /* Icon-iPad-Spotlight-iOS7@2x.png in Resources */,
 				CF6D890219B3F710001C5668 /* Default-Landscape~ipad.png in Resources */,
@@ -1721,7 +1726,7 @@
 				CF6D890D19B3F710001C5668 /* Icon-76.png in Resources */,
 				CF6D8AE319B3F711001C5668 /* ChangeLog in Resources */,
 				CF6D892219B3F710001C5668 /* iTunesArtwork@2x in Resources */,
-				CFDE125019B55F81002F7D45 /* circle_default.plist in Resources */,
+				CFA8C51119CAC65500B9D930 /* circle_default.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1751,6 +1756,7 @@
 				CF6D89E219B3F711001C5668 /* CCSpriteFrame.m in Sources */,
 				CF6D897619B3F710001C5668 /* CCNodeColor.m in Sources */,
 				CF6D8A4F19B3F711001C5668 /* TransformUtils.m in Sources */,
+				CFA8C51519CAD77100B9D930 /* ArrowObject.m in Sources */,
 				CF5A314019C97DF200B901D7 /* NaviLayer.m in Sources */,
 				CF6D89F019B3F711001C5668 /* CCTextureCache.m in Sources */,
 				CF6D8A1B19B3F711001C5668 /* CCAppDelegate.m in Sources */,

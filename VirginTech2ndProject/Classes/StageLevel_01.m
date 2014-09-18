@@ -27,6 +27,7 @@ PuniObject* puni;
 PuniObject* touchPuni;
 ParentObject* parent;
 RouteDispLayer* routeDisp;
+ArrowObject* arrow;
 
 NSMutableArray* puniArray;
 NSMutableArray* parentArray;
@@ -34,14 +35,15 @@ NSMutableArray* gpNumArray;
 NSMutableArray* removePuniArray;
 
 NaviLayer* naviLayer;
+
 bool pauseFlg;
 CCButton *pauseButton;
 
 CCButton *speed2xButton;
 
 //デバッグ用ラベル
-CCLabelTTF* puniLabel;
-NSMutableArray* labelArray;
+//CCLabelTTF* puniLabel;
+//NSMutableArray* labelArray;
 
 + (StageLevel_01 *)scene
 {
@@ -64,7 +66,8 @@ NSMutableArray* labelArray;
     parentArray=[[NSMutableArray alloc]init];
     gpNumArray=[[NSMutableArray alloc]init];
     pauseFlg=false;
-    labelArray=[[NSMutableArray alloc]init];//デバッグ用
+    //[GameManager setSpeed:false];
+    //labelArray=[[NSMutableArray alloc]init];//デバッグ用
     
     winSize = [[CCDirector sharedDirector]viewSize];
     
@@ -80,7 +83,11 @@ NSMutableArray* labelArray;
     [self addChild:pauseButton z:4];
     
     //倍速ボタン
-    speed2xButton = [CCButton buttonWithTitle:@"[倍　速]" fontName:@"Verdana-Bold" fontSize:15.0f];
+    if(![GameManager getSpeed]){
+        speed2xButton = [CCButton buttonWithTitle:@"[倍 速]" fontName:@"Verdana-Bold" fontSize:15.0f];
+    }else{
+        speed2xButton = [CCButton buttonWithTitle:@"[ノーマル]" fontName:@"Verdana-Bold" fontSize:15.0f];
+    }
     //backButton.positionType = CCPositionTypeNormalized;
     speed2xButton.position = ccp(speed2xButton.contentSize.width/2+100,speed2xButton.contentSize.height/2);
     [speed2xButton setTarget:self selector:@selector(onSpeed2xClicked:)];
@@ -176,12 +183,16 @@ NSMutableArray* labelArray;
             [puniArray addObject:puni];
             [self addChild:puni z:2];
             
-            //デバッグ用ラベル
+            //矢印表示
+            arrow=[ArrowObject createArrow:puni];
+            [self addChild:arrow];
+            
+            /*/デバッグ用ラベル
             puniLabel=[CCLabelTTF labelWithString:@"ObjNo= PosX= PosY= " fontName:@"Verdana-Bold" fontSize:8];
             puniLabel.name=[NSString stringWithFormat:@"%d",puni.objNum];
             puniLabel.position=ccp(100,winSize.height-20-(puniCnt*10));
             [self addChild:puniLabel z:4];
-            [labelArray addObject:puniLabel];
+            [labelArray addObject:puniLabel];*/
             
             //経路レイヤー生成
             routeDisp=[[RouteDispLayer alloc]init];
@@ -265,14 +276,14 @@ NSMutableArray* labelArray;
                     puni1.posArray = [[NSMutableArray alloc]init];
                     puni1.moveCnt=0;
                     
-                    //デバッグラベル削除
+                    /*/デバッグラベル削除
                     for(CCLabelTTF* label in labelArray){
                         if(puni1.objNum==[label.name intValue]){
                             label.color=[CCColor redColor];
                             //[self removeChild:label cleanup:YES];
                             //[labelArray removeObject:label];
                         }
-                    }
+                    }*/
                     
                     //スコア更新
                     if(stageLevel>0){
@@ -305,7 +316,7 @@ NSMutableArray* labelArray;
     //消滅オブジェクト削除
     [self removeObject];
     
-    //デバッグ用ラベル更新
+    /*/デバッグ用ラベル更新
     for(PuniObject* puni1 in puniArray){
         for(CCLabelTTF* label in labelArray){
             if(puni1.objNum==[label.name intValue]){
@@ -313,7 +324,7 @@ NSMutableArray* labelArray;
                               puni1.objNum,puni1.position.x,puni1.position.y];
             }
         }
-    }
+    }*/
 }
 
 -(void)removeOutSideFrameObject
@@ -321,16 +332,16 @@ NSMutableArray* labelArray;
     for(PuniObject* puni1 in puniArray)
     {
         //if(!puni1.startFlg){
-            if(puni1.position.y-(puni1.contentSize.height*puni1.scale)/2 >= winSize.height){//上枠外
+            if(puni1.position.y-(puni1.contentSize.height*puni1.scale)/2 > winSize.height + 50){//上枠外
                 pointPuniCnt++;
                 [removePuniArray addObject:puni1];
-            }else if(puni1.position.y+(puni1.contentSize.height*puni1.scale)/2 <= 0){//下枠外
+            }else if(puni1.position.y+(puni1.contentSize.height*puni1.scale)/2 < 0 - 50){//下枠外
                 pointPuniCnt++;
                 [removePuniArray addObject:puni1];
-            }else if(puni1.position.x+(puni1.contentSize.width*puni1.scale)/2 <= 0){//左枠外
+            }else if(puni1.position.x+(puni1.contentSize.width*puni1.scale)/2 < 0 - 50){//左枠外
                 pointPuniCnt++;
                 [removePuniArray addObject:puni1];
-            }else if(puni1.position.x-(puni1.contentSize.width*puni1.scale)/2 >= winSize.width){//右枠外
+            }else if(puni1.position.x-(puni1.contentSize.width*puni1.scale)/2 > winSize.width + 50){//右枠外
                 pointPuniCnt++;
                 [removePuniArray addObject:puni1];
             }
@@ -479,7 +490,19 @@ NSMutableArray* labelArray;
 
 - (void)onSpeed2xClicked:(id)sender
 {
-    
+    if(![GameManager getSpeed]){//ノーマルモードだったら
+        for(PuniObject* puni1 in puniArray){
+            puni1.velocity=puni1.velocity*2;
+        }
+        speed2xButton.title=@"[ノーマル]";
+        [GameManager setSpeed:true];
+    }else{//倍速モードだったら
+        for(PuniObject* puni1 in puniArray){
+            puni1.velocity=puni1.velocity/2;
+        }
+        speed2xButton.title=@"[倍 速]";
+        [GameManager setSpeed:false];
+    }
 }
 
 - (void)onPauseClicked:(id)sender
