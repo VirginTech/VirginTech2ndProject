@@ -12,7 +12,10 @@
 
 @interface NaviLayer : CCScene {
     
+    CCButton *playbackButton;
 }
+
+@property CCButton *playbackButton;
 
 + (NaviLayer *)scene;
 - (id)init;

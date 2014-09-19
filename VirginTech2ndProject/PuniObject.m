@@ -23,28 +23,46 @@
 @synthesize moveCnt;
 @synthesize touchFlg;
 @synthesize startFlg;
-@synthesize stopFlg;
+@synthesize blinkFlg;
+@synthesize playBackReadyFlg;
+@synthesize playBackArray;
 
 CGSize winSize;
 
 -(void)startBlink
 {
+    blinkFlg=true;
     [self schedule:@selector(blink_Schedule:) interval:0.25];
 }
 
 -(void)blink_Schedule:(CCTime)dt
 {
-    if([self visible]){
-        [self setVisible:NO];
+    if(blinkFlg){
+        if([self visible]){
+            [self setVisible:NO];
+        }else{
+            [self setVisible:YES];
+        }
     }else{
         [self setVisible:YES];
+        [self unschedule:@selector(blink_Schedule:)];
     }
 }
 
 -(void)move_Schedule:(CCTime)dt
 {
-    if(stopFlg){
-        //[self unschedule:@selector(move_Schedule:)];
+    if([GameManager getPause]){
+        if([GameManager getPlayBack]){
+            if(moveCnt<playBackArray.count){
+                CGPoint pt = [[playBackArray objectAtIndex:moveCnt] CGPointValue];
+                self.position=CGPointMake(pt.x, pt.y);
+                moveCnt++;
+            }else{
+                playBackReadyFlg=true;
+                playBackArray=[[NSMutableArray alloc]init];
+                moveCnt=0;
+            }
+        }
     }else{
         if(posArray.count>1 && posArray.count > moveCnt+1){
             
@@ -114,6 +132,14 @@ CGSize winSize;
             }
             startPos=self.position;
         }
+        
+        //プレイバック配列
+        NSValue *value = [NSValue valueWithCGPoint:self.position];
+        [playBackArray insertObject:value atIndex:0];
+        if(playBackArray.count==300){
+            [playBackArray removeLastObject];
+        }
+        playBackReadyFlg=false;
     }
     
     label2.string=[NSString stringWithFormat:@"%f",targetAngle];
@@ -220,10 +246,12 @@ CGSize winSize;
         collisFlg=false;
         collisNum=-1;
         startFlg=true;
-        stopFlg=false;
+        blinkFlg=false;
         manualFlg=false;
         touchFlg=false;
         moveCnt=0;
+        playBackReadyFlg=false;
+        playBackArray=[[NSMutableArray alloc]init];
         
         self.scale=scale;
         

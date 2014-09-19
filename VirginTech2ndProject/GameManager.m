@@ -13,6 +13,8 @@
 int stageNum;
 long score;
 bool speed2xFlg=false;
+bool pauseFlg;
+bool playBackFlg;
 
 +(int)getStageNum
 {
@@ -39,6 +41,24 @@ bool speed2xFlg=false;
 +(void)setSpeed:(bool)flg
 {
     speed2xFlg=flg;
+}
+
++(bool)getPause
+{
+    return pauseFlg;
+}
++(void)setPause:(bool)flg
+{
+    pauseFlg=flg;
+}
+
++(bool)getPlayBack
+{
+    return playBackFlg;
+}
++(void)setPlayBack:(bool)flg
+{
+    playBackFlg=flg;
 }
 
 //=========================================

@@ -10,7 +10,8 @@
 
 @implementation InitManager
 
-const int gpTotleMax=5;
+const int gpTotleMax=5;//グループ出現最大値
+const int gpAllocationMax=5;//割当可能グループ数
 
 float interval;
 int puniOnceMax;
@@ -126,7 +127,7 @@ NSMutableArray* gpNumArray;
     //NSLog(@"gpMax=%d",gpMax);
     
     for(int i=0;i<gpMax;i++){
-        num = (arc4random()%gpTotleMax)+1;
+        num = (arc4random()%gpAllocationMax)+1;
         if(![gpIndex containsIndex:num]){
             [gpIndex addIndex:num];
             [gpNumArray addObject:[NSNumber numberWithInt:num]];

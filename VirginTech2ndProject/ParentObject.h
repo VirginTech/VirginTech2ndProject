@@ -13,6 +13,7 @@
     
     int objNum;//自分の番号
     int gpNum;//グループ番号
+    bool blinkFlg;
     
     CCLabelTTF* label;
     //CCLabelTTF* label2;
@@ -20,6 +21,7 @@
 
 @property int objNum;
 @property int gpNum;
+@property bool blinkFlg;
 
 +(id)createParent:(int)objCnt gpNum:(int)gpNum;
 -(void)startBlink;

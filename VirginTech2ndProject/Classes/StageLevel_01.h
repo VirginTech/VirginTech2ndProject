@@ -24,5 +24,6 @@
 - (id)init;
 
 +(void)pointPuniCntAdd;
++(void)startPlayBack;
 
 @end

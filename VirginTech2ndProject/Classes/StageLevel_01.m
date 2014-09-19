@@ -35,10 +35,7 @@ NSMutableArray* gpNumArray;
 NSMutableArray* removePuniArray;
 
 NaviLayer* naviLayer;
-
-bool pauseFlg;
 CCButton *pauseButton;
-
 CCButton *speed2xButton;
 
 //デバッグ用ラベル
@@ -65,8 +62,9 @@ CCButton *speed2xButton;
     puniArray=[[NSMutableArray alloc]init];
     parentArray=[[NSMutableArray alloc]init];
     gpNumArray=[[NSMutableArray alloc]init];
-    pauseFlg=false;
-    //[GameManager setSpeed:false];
+    [GameManager setPause:false];
+    [GameManager setPlayBack:false];
+    
     //labelArray=[[NSMutableArray alloc]init];//デバッグ用
     
     winSize = [[CCDirector sharedDirector]viewSize];
@@ -155,7 +153,7 @@ CCButton *speed2xButton;
 {
     int gpNum;
 
-    if(!pauseFlg){
+    if(![GameManager getPause]){
         for(int i=0;i<[InitManager getPuniOnceMax];i++)
         {
             bool flg=true;
@@ -171,8 +169,8 @@ CCButton *speed2xButton;
                 for(PuniObject* puni1 in puniArray){
                     if([BasicMath RadiusIntersectsRadius:puni1.position
                                                     pointB:puni.position
-                                                    radius1:(puni1.contentSize.width*puni1.scale)/2.0f+15.0
-                                                    radius2:(puni.contentSize.width*puni.scale)/2.0f+15.0])
+                                                    radius1:(puni1.contentSize.width*puni1.scale)/2.0f+30.0
+                                                    radius2:(puni.contentSize.width*puni.scale)/2.0f+30.0])
                     {
                         flg=true;
                         break;
@@ -208,123 +206,125 @@ CCButton *speed2xButton;
 
 -(void)judgement_Schedule:(CCTime)dt
 {
-    //初期化
-    removePuniArray=[[NSMutableArray alloc]init];
-    
-    //プニ同士の衝突判定
-    float collisSurfaceAngle;//衝突面角度
-    for(PuniObject* puni1 in puniArray){
-        for(PuniObject* puni2 in puniArray){
-            if([BasicMath RadiusIntersectsRadius:puni1.position
-                                                pointB:puni2.position
-                                                radius1:(puni1.contentSize.width*puni1.scale)/2.0f-1.5
-                                                radius2:(puni2.contentSize.width*puni2.scale)/2.0f-1.5])
-            {
-                if(puni1!=puni2){
-                    if(puni2.collisNum!=puni1.objNum && puni1.collisNum!=puni2.objNum){
-                    //if(puni1.collisNum!=puni2.objNum){
-                        if(!puni1.startFlg && !puni2.startFlg){
-                            
-                            //めり込み監視
-                            puni1.collisNum=puni2.objNum;
-                            puni2.collisNum=puni1.objNum;
-                            
-                            //Puni1 反射角算定
-                            collisSurfaceAngle = [self getCollisSurfaceAngle:puni1.position pos2:puni2.position];
-                            puni1.targetAngle = 2*collisSurfaceAngle-(puni1.targetAngle+collisSurfaceAngle);
-                            
-                            //Puni2 反射角算定
-                            collisSurfaceAngle = [self getCollisSurfaceAngle:puni2.position pos2:puni1.position];
-                            puni2.targetAngle = 2*collisSurfaceAngle-(puni2.targetAngle+collisSurfaceAngle);
-                            
-                            //マニュアルモード解除
-                            puni1.posArray = [[NSMutableArray alloc]init];
-                            puni1.moveCnt=0;
-                            if(puni1==touchPuni)touchPuni=nil;
-                            
-                            puni2.posArray = [[NSMutableArray alloc]init];
-                            puni2.moveCnt=0;
-                            if(puni2==touchPuni)touchPuni=nil;
-                            
-                        }
-                    }
-                }
-            }else{
-                if(puni1!=puni2){
-                    if(puni2.collisNum==puni1.objNum || puni1.collisNum==puni2.objNum){
-                    //if(puni1.collisNum==puni2.objNum){
-                        puni1.collisNum=-1;
-                        puni2.collisNum=-1;
-                    }
-                }
-            }
-        }
-    }
-    
-    //プニ　対　親プニ
-    for(PuniObject* puni1 in puniArray){
-        for(ParentObject* parent1 in parentArray){
-            if([BasicMath RadiusIntersectsRadius:puni1.position
-                                            pointB:parent1.position
-                                            radius1:(puni1.contentSize.width*puni1.scale)/2.0f-5.0
-                                            radius2:(parent1.contentSize.width*parent1.scale)/2.0f-5.0])
-            {
-                if(puni1.gpNum == parent1.gpNum)
+    if(![GameManager getPause] && ![GameManager getPlayBack]){
+        
+        //初期化
+        removePuniArray=[[NSMutableArray alloc]init];
+        
+        //プニ同士の衝突判定
+        float collisSurfaceAngle;//衝突面角度
+        for(PuniObject* puni1 in puniArray){
+            for(PuniObject* puni2 in puniArray){
+                if([BasicMath RadiusIntersectsRadius:puni1.position
+                                                    pointB:puni2.position
+                                                    radius1:(puni1.contentSize.width*puni1.scale)/2.0f-1.5
+                                                    radius2:(puni2.contentSize.width*puni2.scale)/2.0f-1.5])
                 {
-                    //プニ削除
-                    [removePuniArray addObject:puni1];
-                    puni1.posArray = [[NSMutableArray alloc]init];
-                    puni1.moveCnt=0;
-                    
-                    /*/デバッグラベル削除
-                    for(CCLabelTTF* label in labelArray){
-                        if(puni1.objNum==[label.name intValue]){
-                            label.color=[CCColor redColor];
-                            //[self removeChild:label cleanup:YES];
-                            //[labelArray removeObject:label];
+                    if(puni1!=puni2){
+                        if(puni2.collisNum!=puni1.objNum && puni1.collisNum!=puni2.objNum){
+                        //if(puni1.collisNum!=puni2.objNum){
+                            if(!puni1.startFlg && !puni2.startFlg){
+                                
+                                //めり込み監視
+                                puni1.collisNum=puni2.objNum;
+                                puni2.collisNum=puni1.objNum;
+                                
+                                //Puni1 反射角算定
+                                collisSurfaceAngle = [self getCollisSurfaceAngle:puni1.position pos2:puni2.position];
+                                puni1.targetAngle = 2*collisSurfaceAngle-(puni1.targetAngle+collisSurfaceAngle);
+                                
+                                //Puni2 反射角算定
+                                collisSurfaceAngle = [self getCollisSurfaceAngle:puni2.position pos2:puni1.position];
+                                puni2.targetAngle = 2*collisSurfaceAngle-(puni2.targetAngle+collisSurfaceAngle);
+                                
+                                //マニュアルモード解除
+                                puni1.posArray = [[NSMutableArray alloc]init];
+                                puni1.moveCnt=0;
+                                if(puni1==touchPuni)touchPuni=nil;
+                                
+                                puni2.posArray = [[NSMutableArray alloc]init];
+                                puni2.moveCnt=0;
+                                if(puni2==touchPuni)touchPuni=nil;
+                                
+                            }
                         }
-                    }*/
-                    
-                    //スコア更新
-                    if(stageLevel>0){
-                        [GameManager setScore:[GameManager getScore]+1];
-                        [InfoLayer update_Score];
                     }
-                    
-                    //ステージ終了
-                    pointPuniCnt++;
-                    if(pointPuniCnt>=[InitManager getPuniOnceMax]*[InitManager getPuniRepeatMax]){
-                        //ハイスコア保存
-                        if([GameManager load_HighScore]<[GameManager getScore]){
-                            [GameManager save_HighScore:[GameManager getScore]];
+                }else{
+                    if(puni1!=puni2){
+                        if(puni2.collisNum==puni1.objNum || puni1.collisNum==puni2.objNum){
+                        //if(puni1.collisNum==puni2.objNum){
+                            puni1.collisNum=-1;
+                            puni2.collisNum=-1;
                         }
-                        //次ステージへ
-                        [self nextStage];
                     }
-                }else{//ステージ失敗
-                    [self endGame];
-                    [puni1 startBlink];
-                    [parent1 startBlink];
                 }
             }
         }
-    }
-    
-    //枠外判定
-    [self removeOutSideFrameObject];
-    
-    //消滅オブジェクト削除
-    [self removeObject];
-    
-    /*/デバッグ用ラベル更新
-    for(PuniObject* puni1 in puniArray){
-        for(CCLabelTTF* label in labelArray){
-            if(puni1.objNum==[label.name intValue]){
-                label.string=[NSString stringWithFormat:@"ObjNo=%02d PosX=%.3f PosY=%.3f ",
-                              puni1.objNum,puni1.position.x,puni1.position.y];
+        
+        //プニ　対　親プニ
+        for(PuniObject* puni1 in puniArray){
+            for(ParentObject* parent1 in parentArray){
+                if([BasicMath RadiusIntersectsRadius:puni1.position
+                                                pointB:parent1.position
+                                                radius1:(puni1.contentSize.width*puni1.scale)/2.0f-5.0
+                                                radius2:(parent1.contentSize.width*parent1.scale)/2.0f-5.0])
+                {
+                    if(puni1.gpNum == parent1.gpNum)
+                    {
+                        //プニ削除
+                        [removePuniArray addObject:puni1];
+                        puni1.posArray = [[NSMutableArray alloc]init];
+                        puni1.moveCnt=0;
+                        
+                        /*/デバッグラベル削除
+                        for(CCLabelTTF* label in labelArray){
+                            if(puni1.objNum==[label.name intValue]){
+                                label.color=[CCColor redColor];
+                                //[self removeChild:label cleanup:YES];
+                                //[labelArray removeObject:label];
+                            }
+                        }*/
+                        
+                        //スコア更新
+                        if(stageLevel>0){
+                            [GameManager setScore:[GameManager getScore]+1];
+                            [InfoLayer update_Score];
+                        }
+                        
+                        //ステージ終了
+                        pointPuniCnt++;
+                        if(pointPuniCnt>=[InitManager getPuniOnceMax]*[InitManager getPuniRepeatMax]){
+                            //ハイスコア保存
+                            if([GameManager load_HighScore]<[GameManager getScore]){
+                                [GameManager save_HighScore:[GameManager getScore]];
+                            }
+                            //次ステージへ
+                            [self nextStage];
+                        }
+                    }else{//ステージ失敗
+                        [self endGame];
+                        [puni1 startBlink];
+                        [parent1 startBlink];
+                    }
+                }
             }
         }
-    }*/
+        //枠外判定
+        [self removeOutSideFrameObject];
+        
+        //消滅オブジェクト削除
+        [self removeObject];
+        
+        /*/デバッグ用ラベル更新
+        for(PuniObject* puni1 in puniArray){
+            for(CCLabelTTF* label in labelArray){
+                if(puni1.objNum==[label.name intValue]){
+                    label.string=[NSString stringWithFormat:@"ObjNo=%02d PosX=%.3f PosY=%.3f ",
+                                  puni1.objNum,puni1.position.x,puni1.position.y];
+                }
+            }
+        }*/
+    }
 }
 
 -(void)removeOutSideFrameObject
@@ -366,19 +366,51 @@ CCButton *speed2xButton;
     //全プニ停止
     for(PuniObject* puni1 in puniArray)
     {
-        puni1.stopFlg=true;
         puni1.posArray = [[NSMutableArray alloc]init];
         puni1.moveCnt=0;
     }
-
     self.userInteractionEnabled = NO;
-    [self unscheduleAllSelectors];//終了
+    //[self unscheduleAllSelectors];//終了
     pauseButton.visible=false;
+    [GameManager setPause:true];
+    naviLayer.playbackButton.visible=true;
     naviLayer.visible=true;
 
     //ハイスコア保存
     if([GameManager load_HighScore]<[GameManager getScore]){
         [GameManager save_HighScore:[GameManager getScore]];
+    }
+    [self schedule:@selector(playBack_state_Schedule:) interval:0.1];
+}
+
++(void)startPlayBack
+{
+    for(PuniObject* puni1 in puniArray){
+        puni1.blinkFlg=false;
+    }
+    for(ParentObject* parent1 in parentArray){
+        parent1.blinkFlg=false;
+    }
+    [GameManager setPlayBack:true];
+    naviLayer.visible=false;
+}
+
+-(void)playBack_state_Schedule:(CCTime)dt
+{
+    bool flg=false;
+    for(PuniObject* puni1 in puniArray){
+        if(!puni1.playBackReadyFlg){
+            flg=true;
+            break;
+        }
+    }
+    if(!flg){//再開
+        [GameManager setPause:false];
+        [GameManager setPlayBack:false];
+        
+        pauseButton.visible=true;
+        self.userInteractionEnabled = YES;
+        [self unschedule:@selector(playBack_state_Schedule:)];
     }
 }
 
@@ -507,26 +539,15 @@ CCButton *speed2xButton;
 
 - (void)onPauseClicked:(id)sender
 {
-    if(!pauseFlg){//プレイ中だったら
-        //全プニ停止
-        for(PuniObject* puni1 in puniArray)
-        {
-            puni1.stopFlg=true;
-        }
+    if(![GameManager getPause]){//プレイ中だったら
         self.userInteractionEnabled = NO;
-        pauseFlg=true;
+        [GameManager setPause:true];
         pauseButton.title=@"[再 開]";
         naviLayer.visible=true;
-
+        naviLayer.playbackButton.visible=false;
     }else{//ポーズ中だったら
-        //全プニ再開
-        for(PuniObject* puni1 in puniArray)
-        {
-            puni1.stopFlg=false;
-        }
-        
         self.userInteractionEnabled = YES;
-        pauseFlg=false;
+        [GameManager setPause:false];
         pauseButton.title=@"[ポーズ]";
         naviLayer.visible=false;
     }

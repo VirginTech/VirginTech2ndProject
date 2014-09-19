@@ -53,7 +53,7 @@ CGSize winSize;
     {
         winSize = [[CCDirector sharedDirector]viewSize];
 
-        self.scale=0.1;
+        self.scale=0.2;
         
         CGPoint tmpPos=puni.position;
         CGPoint nextPos=CGPointMake(5.0f*cosf(puni.targetAngle),5.0f*sinf(puni.targetAngle));

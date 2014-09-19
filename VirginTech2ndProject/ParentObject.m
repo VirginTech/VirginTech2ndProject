@@ -14,20 +14,27 @@
 //@synthesize collisNum;
 @synthesize objNum;
 @synthesize gpNum;
+@synthesize blinkFlg;
 
 CGSize winSize;
 
 -(void)startBlink
 {
+    blinkFlg=true;
     [self schedule:@selector(blink_Schedule:) interval:0.25];
 }
 
 -(void)blink_Schedule:(CCTime)dt
 {
-    if([self visible]){
-        [self setVisible:NO];
+    if(blinkFlg){
+        if([self visible]){
+            [self setVisible:NO];
+        }else{
+            [self setVisible:YES];
+        }
     }else{
         [self setVisible:YES];
+        [self unschedule:@selector(blink_Schedule:)];
     }
 }
 
@@ -53,6 +60,7 @@ CGSize winSize;
         
         objNum=objCnt;
         gpNum=_gpNum;
+        blinkFlg=false;
         
         //デバッグ用ライン
         CCDrawNode* drawNode1=[CCDrawNode node];

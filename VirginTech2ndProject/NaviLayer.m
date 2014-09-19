@@ -8,8 +8,11 @@
 
 #import "NaviLayer.h"
 #import "TitleScene.h"
+#import "StageLevel_01.h"
 
 @implementation NaviLayer
+
+@synthesize playbackButton;
 
 CGSize winSize;
 
@@ -38,7 +41,7 @@ CGSize winSize;
     [self addChild:titleButton];
 
     //プレイバック
-    CCButton *playbackButton = [CCButton buttonWithTitle:@"[プレイバック]" fontName:@"Verdana-Bold" fontSize:20.0f];
+    playbackButton = [CCButton buttonWithTitle:@"[プレイバック]" fontName:@"Verdana-Bold" fontSize:20.0f];
     playbackButton.positionType = CCPositionTypeNormalized;
     playbackButton.position = ccp(0.5f, 0.20f);
     [playbackButton setTarget:self selector:@selector(onPlaybackClicked:)];
@@ -49,7 +52,8 @@ CGSize winSize;
 
 - (void)onPlaybackClicked:(id)sender
 {
-    
+    [StageLevel_01 startPlayBack];
+    //[self removeFromParentAndCleanup:YES];
 }
 
 - (void)onTitleClicked:(id)sender

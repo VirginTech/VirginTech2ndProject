@@ -16,6 +16,10 @@
 +(void)setScore:(long)num;
 +(bool)getSpeed;
 +(void)setSpeed:(bool)flg;
++(bool)getPause;
++(void)setPause:(bool)flg;
++(bool)getPlayBack;
++(void)setPlayBack:(bool)flg;
 
 +(int)load_Clear_Level;
 +(void)save_Clear_Level:(int)num;

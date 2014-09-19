@@ -21,7 +21,7 @@
     int gpNum;//グループ番号
     
     bool startFlg;//入場時判定無効化
-    bool stopFlg;//停止フラグ
+    bool blinkFlg;
     
     CCLabelTTF* label;
     CCLabelTTF* label2;
@@ -32,6 +32,9 @@
     float er,dr;//最終距離、補間距離(途中経過の)
     CGPoint startPos;
     int moveCnt;
+    
+    bool playBackReadyFlg;
+    NSMutableArray* playBackArray;
 }
 
 @property float velocity;
@@ -44,7 +47,9 @@
 @property int moveCnt;
 @property bool touchFlg;
 @property bool startFlg;
-@property bool stopFlg;
+@property bool blinkFlg;
+@property bool playBackReadyFlg;
+@property NSMutableArray* playBackArray;
 
 +(id)createPuni:(int)objCnt gpNum:(int)gpNum;
 -(void)startBlink;
