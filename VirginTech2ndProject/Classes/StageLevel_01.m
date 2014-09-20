@@ -70,9 +70,12 @@ CCButton *speed2xButton;
     winSize = [[CCDirector sharedDirector]viewSize];
     
     // Create a colored background (Dark Grey)
-    CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0.2f green:0.2f blue:0.2f alpha:1.0f]];
-    [self addChild:background];
+    //CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0.2f green:0.2f blue:0.2f alpha:1.0f]];
+    //[self addChild:background];
 
+    //背景
+    [self setBackGround];
+    
     //ポーズボタン
     pauseButton = [CCButton buttonWithTitle:@"[ポーズ]" fontName:@"Verdana-Bold" fontSize:15.0f];
     //backButton.positionType = CCPositionTypeNormalized;
@@ -149,11 +152,40 @@ CCButton *speed2xButton;
     [super onExit];
 }
 
+-(void)setBackGround
+{
+    float offsetX;
+    float offsetY;
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"backGround_default.plist"];
+    CCSprite* frame = [CCSprite spriteWithSpriteFrame:
+                       [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"bg01.png"]];
+    CGSize frameCount = CGSizeMake(winSize.width/frame.contentSize.width+1,
+                                                winSize.height/frame.contentSize.height+1);
+    NSString* bgName=[NSString stringWithFormat:@"bg%02d.png",(arc4random()%10)+1];
+    for(int i=0;i<frameCount.width*frameCount.height;i++)
+    {
+        frame = [CCSprite spriteWithSpriteFrame:
+                 [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:bgName]];
+        if(i==0){
+            offsetX = frame.contentSize.width/2-1;
+            offsetY = frame.contentSize.height/2-1;
+        }else if(i%(int)frameCount.width==0){
+            offsetX = frame.contentSize.width/2-1;
+            offsetY = offsetY + frame.contentSize.height-1;
+        }else{
+            offsetX = offsetX + frame.contentSize.width-1;
+        }
+        frame.position = CGPointMake(offsetX,offsetY);
+        [self addChild:frame z:0];
+    }
+}
+
 -(void)createPuni_Schedule:(CCTime)dt
 {
     int gpNum;
 
-    if(![GameManager getPause]){
+    if(![GameManager getPause] && ![GameManager getPlayBack]){
+        
         for(int i=0;i<[InitManager getPuniOnceMax];i++)
         {
             bool flg=true;
@@ -183,7 +215,7 @@ CCButton *speed2xButton;
             
             //矢印表示
             arrow=[ArrowObject createArrow:puni];
-            [self addChild:arrow];
+            [self addChild:arrow z:2];
             
             /*/デバッグ用ラベル
             puniLabel=[CCLabelTTF labelWithString:@"ObjNo= PosX= PosY= " fontName:@"Verdana-Bold" fontSize:8];
@@ -392,7 +424,6 @@ CCButton *speed2xButton;
         parent1.blinkFlg=false;
     }
     [GameManager setPlayBack:true];
-    naviLayer.visible=false;
 }
 
 -(void)playBack_state_Schedule:(CCTime)dt
@@ -405,6 +436,8 @@ CCButton *speed2xButton;
         }
     }
     if(!flg){//再開
+        naviLayer.visible=false;
+        
         [GameManager setPause:false];
         [GameManager setPlayBack:false];
         

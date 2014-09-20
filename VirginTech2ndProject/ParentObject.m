@@ -43,8 +43,8 @@ CGSize winSize;
     CGPoint centerPos;
     NSMutableArray* gpPatternArray=[[NSMutableArray alloc]init];
     //画像読み込み
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"circle_default.plist"];
-    NSString* gpName=[NSString stringWithFormat:@"circle%02d.png",_gpNum];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"puniObj_default.plist"];
+    NSString* gpName=[NSString stringWithFormat:@"puni%02d.png",_gpNum];
     
     if(self=[super initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:gpName]])
     {
@@ -62,7 +62,7 @@ CGSize winSize;
         gpNum=_gpNum;
         blinkFlg=false;
         
-        //デバッグ用ライン
+        /*/デバッグ用ライン
         CCDrawNode* drawNode1=[CCDrawNode node];
         [drawNode1 drawSegmentFrom:ccp(self.contentSize.width/2-800,self.contentSize.height/2)
                                to:ccp(self.contentSize.width/2+800,self.contentSize.height/2)
@@ -75,7 +75,7 @@ CGSize winSize;
                                to:ccp(self.contentSize.width/2,self.contentSize.height/2+800)
                            radius:1.0
                             color:[CCColor whiteColor]];
-        [self addChild:drawNode2];
+        [self addChild:drawNode2];*/
 
         //self.rotation=45;
         

@@ -59,8 +59,8 @@ CGSize winSize;
                 moveCnt++;
             }else{
                 playBackReadyFlg=true;
-                playBackArray=[[NSMutableArray alloc]init];
-                moveCnt=0;
+                //playBackArray=[[NSMutableArray alloc]init];
+                //moveCnt=0;
             }
         }
     }else{
@@ -228,8 +228,8 @@ CGSize winSize;
 -(id)initWithPuni:(int)objCnt gpNum:(int)_gpNum;
 {
     //画像読み込み
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"circle_default.plist"];
-    NSString* gpName=[NSString stringWithFormat:@"circle%02d.png",_gpNum];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"puniObj_default.plist"];
+    NSString* gpName=[NSString stringWithFormat:@"puni%02d.png",_gpNum];
     
     if(self=[super initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:gpName]])
     {

@@ -112,4 +112,35 @@ bool playBackFlg;
     
 }
 
+//=========================================
+//　チケットの取得
+//=========================================
++(int)load_Ticket_Count
+{
+    NSUserDefaults  *userDefault=[NSUserDefaults standardUserDefaults];
+    int ticket=[[userDefault objectForKey:@"Ticket"]intValue];
+    return ticket;
+}
+//=========================================
+//　チケットの保存
+//=========================================
++(void)save_Ticket_Count:(int)cnt
+{
+    NSUserDefaults  *userDefault=[NSUserDefaults standardUserDefaults];
+    NSNumber* ticket=[NSNumber numberWithInt:cnt];
+    [userDefault setObject:ticket forKey:@"Ticket"];
+}
+//=========================================
+//　初回起動時のチケットの設定（5枚）
+//=========================================
++(void)initialize_Ticket_Count
+{
+    NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+    NSDictionary *dict = [[NSUserDefaults standardUserDefaults] persistentDomainForName:appDomain];
+    
+    if([dict valueForKey:@"Ticket"]==nil){
+        [GameManager save_Ticket_Count:5];
+    }
+    
+}
 @end

@@ -17,5 +17,6 @@
 - (id)init;
 
 +(void)update_Score;
++(void)update_Ticket;
 
 @end

@@ -96,17 +96,25 @@
 		<data>
 		n57qDP4tZfLD1rCS43W0B4LQjzE=
 		</data>
-		<key>circle_default.plist</key>
+		<key>backGround_default.plist</key>
 		<data>
-		u6XluvxpM2JhTx0z8PqSfnHmA2A=
+		CyQ39sh1vxiZdXMj78gEmzzZ9MA=
 		</data>
-		<key>circle_default.png</key>
+		<key>backGround_default.png</key>
 		<data>
-		Kles8qL0BVczUDBNRUrtLkFofOo=
+		00iUOkMG+Hymdf1UpkxPNrI3iN8=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
 		jfjnBco9513FSsVh2D1K/D1lvqE=
+		</data>
+		<key>etc_default.plist</key>
+		<data>
+		myY35/xRRlZnzaWS3CyMEmV25lQ=
+		</data>
+		<key>etc_default.png</key>
+		<data>
+		Mp78ZVYzTZ4gpxledtHawHOWsZk=
 		</data>
 		<key>iTunesArtwork</key>
 		<data>
@@ -115,6 +123,22 @@
 		<key>iTunesArtwork@2x</key>
 		<data>
 		4S1sBSFs9B7FxrnDbAwX8xtbbzM=
+		</data>
+		<key>puniObj_default.plist</key>
+		<data>
+		pSUOZoONjPPd1FPXg78D1SCJRDY=
+		</data>
+		<key>puniObj_default.png</key>
+		<data>
+		9emLgdIX4e46aJcf1RSRLQ912i8=
+		</data>
+		<key>scoreFont.fnt</key>
+		<data>
+		OEaIX6KzcDr9ZCpKHwr5IGTy8Es=
+		</data>
+		<key>scoreFont.png</key>
+		<data>
+		fDt/PSfDZXwSHJqxMiF8bG4tCrY=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -211,17 +235,25 @@
 		<data>
 		n57qDP4tZfLD1rCS43W0B4LQjzE=
 		</data>
-		<key>circle_default.plist</key>
+		<key>backGround_default.plist</key>
 		<data>
-		u6XluvxpM2JhTx0z8PqSfnHmA2A=
+		CyQ39sh1vxiZdXMj78gEmzzZ9MA=
 		</data>
-		<key>circle_default.png</key>
+		<key>backGround_default.png</key>
 		<data>
-		Kles8qL0BVczUDBNRUrtLkFofOo=
+		00iUOkMG+Hymdf1UpkxPNrI3iN8=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
 		jfjnBco9513FSsVh2D1K/D1lvqE=
+		</data>
+		<key>etc_default.plist</key>
+		<data>
+		myY35/xRRlZnzaWS3CyMEmV25lQ=
+		</data>
+		<key>etc_default.png</key>
+		<data>
+		Mp78ZVYzTZ4gpxledtHawHOWsZk=
 		</data>
 		<key>iTunesArtwork</key>
 		<data>
@@ -230,6 +262,22 @@
 		<key>iTunesArtwork@2x</key>
 		<data>
 		4S1sBSFs9B7FxrnDbAwX8xtbbzM=
+		</data>
+		<key>puniObj_default.plist</key>
+		<data>
+		pSUOZoONjPPd1FPXg78D1SCJRDY=
+		</data>
+		<key>puniObj_default.png</key>
+		<data>
+		9emLgdIX4e46aJcf1RSRLQ912i8=
+		</data>
+		<key>scoreFont.fnt</key>
+		<data>
+		OEaIX6KzcDr9ZCpKHwr5IGTy8Es=
+		</data>
+		<key>scoreFont.png</key>
+		<data>
+		fDt/PSfDZXwSHJqxMiF8bG4tCrY=
 		</data>
 	</dict>
 	<key>rules</key>

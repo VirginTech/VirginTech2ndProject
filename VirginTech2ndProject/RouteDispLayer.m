@@ -24,7 +24,7 @@
     self = [super init];
     if (!self) return(nil);
     
-    [self schedule:@selector(state_Schedule:)interval:0.1];
+    //[self schedule:@selector(state_Schedule:)interval:0.1];
     
     return self;
 }
@@ -61,13 +61,13 @@
         
         if(puni.touchFlg){
             if(i%2==0){
-                glLineWidth(5.0f);
+                glLineWidth(7.5f);
                 ccDrawColor4F(1.00f, 1.00f, 1.00f, 1.00f);
                 ccDrawLine(pt1,pt2);
             }
         }else{
-            glLineWidth(2.0f);
-            ccDrawColor4F(1.00f, 1.00f, 1.00f, 1.00f);
+            glLineWidth(1.5f);
+            ccDrawColor4F(1.00f, 1.00f, 1.00f, 0.75f);
             ccDrawLine(pt1,pt2);
         }
         

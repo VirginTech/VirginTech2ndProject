@@ -28,4 +28,8 @@
 +(long)load_HighScore;
 +(void)save_HighScore:(long)score;
 
++(int)load_Ticket_Count;
++(void)save_Ticket_Count:(int)cnt;
++(void)initialize_Ticket_Count;
+
 @end

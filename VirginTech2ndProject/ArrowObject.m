@@ -47,7 +47,7 @@ CGSize winSize;
 {
     _puni=puni;
     //画像読み込み
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"circle_default.plist"];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"puniObj_default.plist"];
 
     if(self=[super initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"arrow.png"]])
     {
