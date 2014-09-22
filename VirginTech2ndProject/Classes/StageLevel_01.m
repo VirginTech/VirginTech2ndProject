@@ -329,6 +329,8 @@ CCButton *speed2xButton;
                             //ハイスコア保存
                             if([GameManager load_HighScore]<[GameManager getScore]){
                                 [GameManager save_HighScore:[GameManager getScore]];
+                                //リーダーボード送信
+                                [GameManager submitScore_GameCenter:[GameManager load_HighScore]];
                             }
                             //次ステージへ
                             [self nextStage];
@@ -387,6 +389,7 @@ CCButton *speed2xButton;
     if([GameManager load_Clear_Level]<stageLevel){
         [GameManager save_Clear_Level:stageLevel];
     }
+    
     //次ステージへ
     [GameManager setStageNum:stageLevel+1];//ステージレヴェル設定
     [[CCDirector sharedDirector] replaceScene:[StageLevel_01 scene]
@@ -411,6 +414,8 @@ CCButton *speed2xButton;
     //ハイスコア保存
     if([GameManager load_HighScore]<[GameManager getScore]){
         [GameManager save_HighScore:[GameManager getScore]];
+        //リーダーボード送信
+        [GameManager submitScore_GameCenter:[GameManager load_HighScore]];
     }
     [self schedule:@selector(playBack_state_Schedule:) interval:0.1];
 }

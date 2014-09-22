@@ -4,6 +4,70 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>AppIcon29x29.png</key>
+		<data>
+		aR3Wo8Va9NtImm5s/J9UN+5JbVY=
+		</data>
+		<key>AppIcon29x29@2x.png</key>
+		<data>
+		zgNWVY1lpchSE0NOoVzlh8jlF3c=
+		</data>
+		<key>AppIcon29x29@2x~ipad.png</key>
+		<data>
+		zgNWVY1lpchSE0NOoVzlh8jlF3c=
+		</data>
+		<key>AppIcon29x29~ipad.png</key>
+		<data>
+		aR3Wo8Va9NtImm5s/J9UN+5JbVY=
+		</data>
+		<key>AppIcon40x40@2x.png</key>
+		<data>
+		FoZbTB0pUIn7Jf/v3FBGURU8NDk=
+		</data>
+		<key>AppIcon40x40@2x~ipad.png</key>
+		<data>
+		FoZbTB0pUIn7Jf/v3FBGURU8NDk=
+		</data>
+		<key>AppIcon40x40~ipad.png</key>
+		<data>
+		AlGxCRtKKYk8u3++N8HRq5C02Ko=
+		</data>
+		<key>AppIcon50x50@2x~ipad.png</key>
+		<data>
+		XoiXiIjrUE5Nni9uFdhFcTLxGxw=
+		</data>
+		<key>AppIcon50x50~ipad.png</key>
+		<data>
+		Cm760kOwZVX28J+yFoHaWHKHwPA=
+		</data>
+		<key>AppIcon57x57.png</key>
+		<data>
+		13z4eKKQIjR6hJtA46hC3NQvld8=
+		</data>
+		<key>AppIcon57x57@2x.png</key>
+		<data>
+		SbW1Qllv2yT4V5JS4G1xNQJdC1w=
+		</data>
+		<key>AppIcon60x60@2x.png</key>
+		<data>
+		E/xBG2pFpmSfZGn1WliJldk6uvs=
+		</data>
+		<key>AppIcon72x72@2x~ipad.png</key>
+		<data>
+		08EXKIqDzayRyBKM+Nkzi7B2Tt4=
+		</data>
+		<key>AppIcon72x72~ipad.png</key>
+		<data>
+		IbaB/dU9FSgdRhQFuPvA8nzVWIM=
+		</data>
+		<key>AppIcon76x76@2x~ipad.png</key>
+		<data>
+		6IPjSCHyci0a2XQBG2jnsOady4o=
+		</data>
+		<key>AppIcon76x76~ipad.png</key>
+		<data>
+		wzJEPflhktxlryr5KKKxqYDHW1U=
+		</data>
 		<key>ChangeLog</key>
 		<data>
 		/omrqzsR0+jWweLic0dUHre4LzY=
@@ -92,6 +156,30 @@
 		<data>
 		/KS8bcGsu7vSn3cxYOHl/qCeav8=
 		</data>
+		<key>LaunchImage-568h@2x.png</key>
+		<data>
+		Hg1Yi6g24tj4f6KRMlvJAfYXE6Y=
+		</data>
+		<key>LaunchImage-700-568h@2x.png</key>
+		<data>
+		Hg1Yi6g24tj4f6KRMlvJAfYXE6Y=
+		</data>
+		<key>LaunchImage-700@2x.png</key>
+		<data>
+		zgLjsDZHkHT22c73SqeED+QJURY=
+		</data>
+		<key>LaunchImage-Landscape~ipad.png</key>
+		<data>
+		Sll+vPMDB/M5DeycY8xz5SHhbXc=
+		</data>
+		<key>LaunchImage.png</key>
+		<data>
+		FGXOX6TVSGtaHzU0eid6WbZdjcM=
+		</data>
+		<key>LaunchImage@2x.png</key>
+		<data>
+		zgLjsDZHkHT22c73SqeED+QJURY=
+		</data>
 		<key>PkgInfo</key>
 		<data>
 		n57qDP4tZfLD1rCS43W0B4LQjzE=
@@ -104,17 +192,37 @@
 		<data>
 		00iUOkMG+Hymdf1UpkxPNrI3iN8=
 		</data>
+		<key>bgLayer.png</key>
+		<data>
+		vx7iCOpOEyVn1Aum1s14pPcTL1Q=
+		</data>
+		<key>button_default.plist</key>
+		<data>
+		Ra/qGG9ch/FLn/uaLAOM9oppVx4=
+		</data>
+		<key>button_default.png</key>
+		<data>
+		NeA9+2KL00Azgx9JWOngI3imDTw=
+		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
 		jfjnBco9513FSsVh2D1K/D1lvqE=
 		</data>
+		<key>en.lproj/InfoPlist.strings</key>
+		<data>
+		EAZq106sKS1Bn7UeREEXaum7Q98=
+		</data>
+		<key>en.lproj/Localizable.strings</key>
+		<data>
+		Fl1+nEVvGBN9ghq11suntZWsw4I=
+		</data>
 		<key>etc_default.plist</key>
 		<data>
-		myY35/xRRlZnzaWS3CyMEmV25lQ=
+		/G8pOxdwdkIWVGln43H5d6EINHg=
 		</data>
 		<key>etc_default.png</key>
 		<data>
-		Mp78ZVYzTZ4gpxledtHawHOWsZk=
+		K1dBdGorYfEOycakVsPuOeIlhPI=
 		</data>
 		<key>iTunesArtwork</key>
 		<data>
@@ -123,6 +231,14 @@
 		<key>iTunesArtwork@2x</key>
 		<data>
 		4S1sBSFs9B7FxrnDbAwX8xtbbzM=
+		</data>
+		<key>ja.lproj/InfoPlist.strings</key>
+		<data>
+		DUVOudxYyzJFjT420ke52v4JNFk=
+		</data>
+		<key>ja.lproj/Localizable.strings</key>
+		<data>
+		6OMgo6qaxVxzHvtbWMpTh9wRDLc=
 		</data>
 		<key>puniObj_default.plist</key>
 		<data>
@@ -139,10 +255,78 @@
 		<key>scoreFont.png</key>
 		<data>
 		fDt/PSfDZXwSHJqxMiF8bG4tCrY=
+		</data>
+		<key>virgintech.png</key>
+		<data>
+		khd9KN3EylZXFE2qLROTkW32Ytw=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>AppIcon29x29.png</key>
+		<data>
+		aR3Wo8Va9NtImm5s/J9UN+5JbVY=
+		</data>
+		<key>AppIcon29x29@2x.png</key>
+		<data>
+		zgNWVY1lpchSE0NOoVzlh8jlF3c=
+		</data>
+		<key>AppIcon29x29@2x~ipad.png</key>
+		<data>
+		zgNWVY1lpchSE0NOoVzlh8jlF3c=
+		</data>
+		<key>AppIcon29x29~ipad.png</key>
+		<data>
+		aR3Wo8Va9NtImm5s/J9UN+5JbVY=
+		</data>
+		<key>AppIcon40x40@2x.png</key>
+		<data>
+		FoZbTB0pUIn7Jf/v3FBGURU8NDk=
+		</data>
+		<key>AppIcon40x40@2x~ipad.png</key>
+		<data>
+		FoZbTB0pUIn7Jf/v3FBGURU8NDk=
+		</data>
+		<key>AppIcon40x40~ipad.png</key>
+		<data>
+		AlGxCRtKKYk8u3++N8HRq5C02Ko=
+		</data>
+		<key>AppIcon50x50@2x~ipad.png</key>
+		<data>
+		XoiXiIjrUE5Nni9uFdhFcTLxGxw=
+		</data>
+		<key>AppIcon50x50~ipad.png</key>
+		<data>
+		Cm760kOwZVX28J+yFoHaWHKHwPA=
+		</data>
+		<key>AppIcon57x57.png</key>
+		<data>
+		13z4eKKQIjR6hJtA46hC3NQvld8=
+		</data>
+		<key>AppIcon57x57@2x.png</key>
+		<data>
+		SbW1Qllv2yT4V5JS4G1xNQJdC1w=
+		</data>
+		<key>AppIcon60x60@2x.png</key>
+		<data>
+		E/xBG2pFpmSfZGn1WliJldk6uvs=
+		</data>
+		<key>AppIcon72x72@2x~ipad.png</key>
+		<data>
+		08EXKIqDzayRyBKM+Nkzi7B2Tt4=
+		</data>
+		<key>AppIcon72x72~ipad.png</key>
+		<data>
+		IbaB/dU9FSgdRhQFuPvA8nzVWIM=
+		</data>
+		<key>AppIcon76x76@2x~ipad.png</key>
+		<data>
+		6IPjSCHyci0a2XQBG2jnsOady4o=
+		</data>
+		<key>AppIcon76x76~ipad.png</key>
+		<data>
+		wzJEPflhktxlryr5KKKxqYDHW1U=
+		</data>
 		<key>ChangeLog</key>
 		<data>
 		/omrqzsR0+jWweLic0dUHre4LzY=
@@ -231,6 +415,30 @@
 		<data>
 		/KS8bcGsu7vSn3cxYOHl/qCeav8=
 		</data>
+		<key>LaunchImage-568h@2x.png</key>
+		<data>
+		Hg1Yi6g24tj4f6KRMlvJAfYXE6Y=
+		</data>
+		<key>LaunchImage-700-568h@2x.png</key>
+		<data>
+		Hg1Yi6g24tj4f6KRMlvJAfYXE6Y=
+		</data>
+		<key>LaunchImage-700@2x.png</key>
+		<data>
+		zgLjsDZHkHT22c73SqeED+QJURY=
+		</data>
+		<key>LaunchImage-Landscape~ipad.png</key>
+		<data>
+		Sll+vPMDB/M5DeycY8xz5SHhbXc=
+		</data>
+		<key>LaunchImage.png</key>
+		<data>
+		FGXOX6TVSGtaHzU0eid6WbZdjcM=
+		</data>
+		<key>LaunchImage@2x.png</key>
+		<data>
+		zgLjsDZHkHT22c73SqeED+QJURY=
+		</data>
 		<key>PkgInfo</key>
 		<data>
 		n57qDP4tZfLD1rCS43W0B4LQjzE=
@@ -243,17 +451,37 @@
 		<data>
 		00iUOkMG+Hymdf1UpkxPNrI3iN8=
 		</data>
+		<key>bgLayer.png</key>
+		<data>
+		vx7iCOpOEyVn1Aum1s14pPcTL1Q=
+		</data>
+		<key>button_default.plist</key>
+		<data>
+		Ra/qGG9ch/FLn/uaLAOM9oppVx4=
+		</data>
+		<key>button_default.png</key>
+		<data>
+		NeA9+2KL00Azgx9JWOngI3imDTw=
+		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
 		jfjnBco9513FSsVh2D1K/D1lvqE=
 		</data>
+		<key>en.lproj/InfoPlist.strings</key>
+		<data>
+		EAZq106sKS1Bn7UeREEXaum7Q98=
+		</data>
+		<key>en.lproj/Localizable.strings</key>
+		<data>
+		Fl1+nEVvGBN9ghq11suntZWsw4I=
+		</data>
 		<key>etc_default.plist</key>
 		<data>
-		myY35/xRRlZnzaWS3CyMEmV25lQ=
+		/G8pOxdwdkIWVGln43H5d6EINHg=
 		</data>
 		<key>etc_default.png</key>
 		<data>
-		Mp78ZVYzTZ4gpxledtHawHOWsZk=
+		K1dBdGorYfEOycakVsPuOeIlhPI=
 		</data>
 		<key>iTunesArtwork</key>
 		<data>
@@ -262,6 +490,14 @@
 		<key>iTunesArtwork@2x</key>
 		<data>
 		4S1sBSFs9B7FxrnDbAwX8xtbbzM=
+		</data>
+		<key>ja.lproj/InfoPlist.strings</key>
+		<data>
+		DUVOudxYyzJFjT420ke52v4JNFk=
+		</data>
+		<key>ja.lproj/Localizable.strings</key>
+		<data>
+		6OMgo6qaxVxzHvtbWMpTh9wRDLc=
 		</data>
 		<key>puniObj_default.plist</key>
 		<data>
@@ -278,20 +514,24 @@
 		<key>scoreFont.png</key>
 		<data>
 		fDt/PSfDZXwSHJqxMiF8bG4tCrY=
+		</data>
+		<key>virgintech.png</key>
+		<data>
+		khd9KN3EylZXFE2qLROTkW32Ytw=
 		</data>
 	</dict>
 	<key>rules</key>
 	<dict>
 		<key>.*</key>
 		<true/>
-		<key>Info.plist</key>
+		<key>^Info.plist$</key>
 		<dict>
 			<key>omit</key>
 			<true/>
 			<key>weight</key>
 			<real>10</real>
 		</dict>
-		<key>ResourceRules.plist</key>
+		<key>^ResourceRules.plist$</key>
 		<dict>
 			<key>omit</key>
 			<true/>
@@ -303,26 +543,26 @@
 	<dict>
 		<key>.*</key>
 		<true/>
-		<key>Info.plist</key>
-		<dict>
-			<key>omit</key>
-			<true/>
-			<key>weight</key>
-			<real>10</real>
-		</dict>
-		<key>ResourceRules.plist</key>
-		<dict>
-			<key>omit</key>
-			<true/>
-			<key>weight</key>
-			<real>100</real>
-		</dict>
 		<key>^(Frameworks|SharedFrameworks|Plugins|Plug-ins|XPCServices|Helpers|MacOS)/</key>
 		<dict>
 			<key>nested</key>
 			<true/>
 			<key>weight</key>
 			<real>0.0</real>
+		</dict>
+		<key>^Info.plist$</key>
+		<dict>
+			<key>omit</key>
+			<true/>
+			<key>weight</key>
+			<real>10</real>
+		</dict>
+		<key>^ResourceRules.plist$</key>
+		<dict>
+			<key>omit</key>
+			<true/>
+			<key>weight</key>
+			<real>100</real>
 		</dict>
 		<key>^[^/]+$</key>
 		<dict>

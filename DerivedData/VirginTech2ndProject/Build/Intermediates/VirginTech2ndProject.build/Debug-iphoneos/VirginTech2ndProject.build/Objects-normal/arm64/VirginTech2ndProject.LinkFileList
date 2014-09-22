@@ -42,6 +42,7 @@
 /Users/virgintech/Documents/Product/VirginTech2ndProject/DerivedData/VirginTech2ndProject/Build/Intermediates/VirginTech2ndProject.build/Debug-iphoneos/VirginTech2ndProject.build/Objects-normal/arm64/CCBAnimationManager.o
 /Users/virgintech/Documents/Product/VirginTech2ndProject/DerivedData/VirginTech2ndProject/Build/Intermediates/VirginTech2ndProject.build/Debug-iphoneos/VirginTech2ndProject.build/Objects-normal/arm64/mat4stack.o
 /Users/virgintech/Documents/Product/VirginTech2ndProject/DerivedData/VirginTech2ndProject/Build/Intermediates/VirginTech2ndProject.build/Debug-iphoneos/VirginTech2ndProject.build/Objects-normal/arm64/CCNode.o
+/Users/virgintech/Documents/Product/VirginTech2ndProject/DerivedData/VirginTech2ndProject/Build/Intermediates/VirginTech2ndProject.build/Debug-iphoneos/VirginTech2ndProject.build/Objects-normal/arm64/PaymentManager.o
 /Users/virgintech/Documents/Product/VirginTech2ndProject/DerivedData/VirginTech2ndProject/Build/Intermediates/VirginTech2ndProject.build/Debug-iphoneos/VirginTech2ndProject.build/Objects-normal/arm64/CCLabelBMFont.o
 /Users/virgintech/Documents/Product/VirginTech2ndProject/DerivedData/VirginTech2ndProject/Build/Intermediates/VirginTech2ndProject.build/Debug-iphoneos/VirginTech2ndProject.build/Objects-normal/arm64/CCActionEase.o
 /Users/virgintech/Documents/Product/VirginTech2ndProject/DerivedData/VirginTech2ndProject/Build/Intermediates/VirginTech2ndProject.build/Debug-iphoneos/VirginTech2ndProject.build/Objects-normal/arm64/CCActionTween.o
@@ -50,6 +51,7 @@
 /Users/virgintech/Documents/Product/VirginTech2ndProject/DerivedData/VirginTech2ndProject/Build/Intermediates/VirginTech2ndProject.build/Debug-iphoneos/VirginTech2ndProject.build/Objects-normal/arm64/CCAnimation.o
 /Users/virgintech/Documents/Product/VirginTech2ndProject/DerivedData/VirginTech2ndProject/Build/Intermediates/VirginTech2ndProject.build/Debug-iphoneos/VirginTech2ndProject.build/Objects-normal/arm64/mat3.o
 /Users/virgintech/Documents/Product/VirginTech2ndProject/DerivedData/VirginTech2ndProject/Build/Intermediates/VirginTech2ndProject.build/Debug-iphoneos/VirginTech2ndProject.build/Objects-normal/arm64/CCTiledMap.o
+/Users/virgintech/Documents/Product/VirginTech2ndProject/DerivedData/VirginTech2ndProject/Build/Intermediates/VirginTech2ndProject.build/Debug-iphoneos/VirginTech2ndProject.build/Objects-normal/arm64/Reachability.o
 /Users/virgintech/Documents/Product/VirginTech2ndProject/DerivedData/VirginTech2ndProject/Build/Intermediates/VirginTech2ndProject.build/Debug-iphoneos/VirginTech2ndProject.build/Objects-normal/arm64/CCControl.o
 /Users/virgintech/Documents/Product/VirginTech2ndProject/DerivedData/VirginTech2ndProject/Build/Intermediates/VirginTech2ndProject.build/Debug-iphoneos/VirginTech2ndProject.build/Objects-normal/arm64/CCVertex.o
 /Users/virgintech/Documents/Product/VirginTech2ndProject/DerivedData/VirginTech2ndProject/Build/Intermediates/VirginTech2ndProject.build/Debug-iphoneos/VirginTech2ndProject.build/Objects-normal/arm64/ALBuffer.o
@@ -66,6 +68,7 @@
 /Users/virgintech/Documents/Product/VirginTech2ndProject/DerivedData/VirginTech2ndProject/Build/Intermediates/VirginTech2ndProject.build/Debug-iphoneos/VirginTech2ndProject.build/Objects-normal/arm64/InfoLayer.o
 /Users/virgintech/Documents/Product/VirginTech2ndProject/DerivedData/VirginTech2ndProject/Build/Intermediates/VirginTech2ndProject.build/Debug-iphoneos/VirginTech2ndProject.build/Objects-normal/arm64/CCActionInstant.o
 /Users/virgintech/Documents/Product/VirginTech2ndProject/DerivedData/VirginTech2ndProject/Build/Intermediates/VirginTech2ndProject.build/Debug-iphoneos/VirginTech2ndProject.build/Objects-normal/arm64/base64.o
+/Users/virgintech/Documents/Product/VirginTech2ndProject/DerivedData/VirginTech2ndProject/Build/Intermediates/VirginTech2ndProject.build/Debug-iphoneos/VirginTech2ndProject.build/Objects-normal/arm64/ShopView.o
 /Users/virgintech/Documents/Product/VirginTech2ndProject/DerivedData/VirginTech2ndProject/Build/Intermediates/VirginTech2ndProject.build/Debug-iphoneos/VirginTech2ndProject.build/Objects-normal/arm64/OALAudioTrack.o
 /Users/virgintech/Documents/Product/VirginTech2ndProject/DerivedData/VirginTech2ndProject/Build/Intermediates/VirginTech2ndProject.build/Debug-iphoneos/VirginTech2ndProject.build/Objects-normal/arm64/CCProgressNode.o
 /Users/virgintech/Documents/Product/VirginTech2ndProject/DerivedData/VirginTech2ndProject/Build/Intermediates/VirginTech2ndProject.build/Debug-iphoneos/VirginTech2ndProject.build/Objects-normal/arm64/CCPhysicsBody.o
@@ -129,7 +132,9 @@
 /Users/virgintech/Documents/Product/VirginTech2ndProject/DerivedData/VirginTech2ndProject/Build/Intermediates/VirginTech2ndProject.build/Debug-iphoneos/VirginTech2ndProject.build/Objects-normal/arm64/UITouch+CC.o
 /Users/virgintech/Documents/Product/VirginTech2ndProject/DerivedData/VirginTech2ndProject/Build/Intermediates/VirginTech2ndProject.build/Debug-iphoneos/VirginTech2ndProject.build/Objects-normal/arm64/PuniObject.o
 /Users/virgintech/Documents/Product/VirginTech2ndProject/DerivedData/VirginTech2ndProject/Build/Intermediates/VirginTech2ndProject.build/Debug-iphoneos/VirginTech2ndProject.build/Objects-normal/arm64/utility.o
+/Users/virgintech/Documents/Product/VirginTech2ndProject/DerivedData/VirginTech2ndProject/Build/Intermediates/VirginTech2ndProject.build/Debug-iphoneos/VirginTech2ndProject.build/Objects-normal/arm64/LeaderboardView.o
 /Users/virgintech/Documents/Product/VirginTech2ndProject/DerivedData/VirginTech2ndProject/Build/Intermediates/VirginTech2ndProject.build/Debug-iphoneos/VirginTech2ndProject.build/Objects-normal/arm64/ZipUtils.o
+/Users/virgintech/Documents/Product/VirginTech2ndProject/DerivedData/VirginTech2ndProject/Build/Intermediates/VirginTech2ndProject.build/Debug-iphoneos/VirginTech2ndProject.build/Objects-normal/arm64/CreditLayer.o
 /Users/virgintech/Documents/Product/VirginTech2ndProject/DerivedData/VirginTech2ndProject/Build/Intermediates/VirginTech2ndProject.build/Debug-iphoneos/VirginTech2ndProject.build/Objects-normal/arm64/OALUtilityActions.o
 /Users/virgintech/Documents/Product/VirginTech2ndProject/DerivedData/VirginTech2ndProject/Build/Intermediates/VirginTech2ndProject.build/Debug-iphoneos/VirginTech2ndProject.build/Objects-normal/arm64/CCES2Renderer.o
 /Users/virgintech/Documents/Product/VirginTech2ndProject/DerivedData/VirginTech2ndProject/Build/Intermediates/VirginTech2ndProject.build/Debug-iphoneos/VirginTech2ndProject.build/Objects-normal/arm64/aabb.o

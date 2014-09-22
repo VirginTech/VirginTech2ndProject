@@ -15,6 +15,7 @@ dependencies: \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/kazmath/include/kazmath/mat4.h \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/kazmath/include/kazmath/utility.h \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/cocos2d/Platforms/iOS/../../CCResponderManager.h \
+  /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/LeaderboardView.h \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/cocos2d/CCTexture.h \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/cocos2d/Platforms/iOS/../../Platforms/CCNS.h \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/cocos2d/Support/CCFileUtils.h \

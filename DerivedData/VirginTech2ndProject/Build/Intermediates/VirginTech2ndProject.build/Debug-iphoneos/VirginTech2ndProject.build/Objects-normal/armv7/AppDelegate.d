@@ -93,6 +93,7 @@ dependencies: \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/ObjectAL/AudioTrack/OALAudioTrackNotifications.h \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/cocos2d/Platforms/iOS/CCAppDelegate.h \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/cocos2d/Platforms/iOS/CCDirectorIOS.h \
+  /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/LeaderboardView.h \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/cocos2d/Platforms/iOS/UITouch+CC.h \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/cocos2d/Support/CCFileUtils.h \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/cocos2d/Support/ccUtils.h \
@@ -117,4 +118,5 @@ dependencies: \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/PuniObject.h \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/ParentObject.h \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/RouteDispLayer.h \
-  /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/ArrowObject.h
+  /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/ArrowObject.h \
+  /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/GameManager.h

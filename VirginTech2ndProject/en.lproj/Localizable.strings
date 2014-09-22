@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  VirginTech2ndProject
+
+  Created by VirginTech LLC. on 2014/09/22.
+  Copyright (c) 2014年 VirginTech LLC. All rights reserved.
+*/
+
+//ボタン
+"Yes"="Yes";
+"No"="No";
+"OK"="OK";
+
+//アプリ内課金
+"Notnetwork" = "No network connection.";
+"Error" = "Error";
+"Completed" = "Completed";
+"InAppBillingIslimited" = "In-App Purchase is restrictions.";
+"ItemIdIsInvalid" = "Item ID is invalid.";
+"Purchase" = " Get!";
+"Restored" = "Restored ";
+"Processing" = "Purchase processing... ";

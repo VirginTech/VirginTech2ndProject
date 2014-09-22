@@ -10,6 +10,11 @@
 
 @interface GameManager : NSObject
 
++(float)getOsVersion;
++(void)setOsVersion:(float)version;
++(int)getDevice;
++(void)setDevice:(int)type;// 1:iPhone5 2:iPhone4 3:iPad2
+
 +(int)getStageNum;
 +(void)setStageNum:(int)num;
 +(long)getScore;
@@ -20,6 +25,8 @@
 +(void)setPause:(bool)flg;
 +(bool)getPlayBack;
 +(void)setPlayBack:(bool)flg;
++(int)getPlayBackCount;
++(void)setPlayBackCount:(int)cnt;
 
 +(int)load_Clear_Level;
 +(void)save_Clear_Level:(int)num;
@@ -31,5 +38,7 @@
 +(int)load_Ticket_Count;
 +(void)save_Ticket_Count:(int)cnt;
 +(void)initialize_Ticket_Count;
+
++(void)submitScore_GameCenter:(NSInteger)score;
 
 @end

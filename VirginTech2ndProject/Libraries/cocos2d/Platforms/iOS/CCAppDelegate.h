@@ -30,6 +30,8 @@
 #import <UIKit/UIKit.h>
 #import "CCDirectorIOS.h"
 
+#import "LeaderboardView.h"
+
 extern NSString* const CCSetupPixelFormat;
 extern NSString* const CCSetupScreenMode;
 extern NSString* const CCSetupScreenOrientation;
@@ -61,7 +63,8 @@ extern NSString* const CCScreenModeFixed;
 @class CCScene;
 
 
-@interface CCNavigationController : UINavigationController <CCDirectorDelegate> {
+//@interface CCNavigationController : UINavigationController <CCDirectorDelegate> {
+@interface CCNavigationController : LeaderboardView <CCDirectorDelegate> {
 }
 @end
 

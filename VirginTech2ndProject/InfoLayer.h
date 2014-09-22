@@ -18,5 +18,6 @@
 
 +(void)update_Score;
 +(void)update_Ticket;
++(void)update_PlayBack;
 
 @end

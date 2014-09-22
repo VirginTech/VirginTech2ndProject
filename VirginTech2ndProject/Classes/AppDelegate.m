@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "TitleScene.h"
 #import "StageLevel_01.h"
+#import "GameManager.h"
 
 @implementation AppDelegate
 
@@ -42,12 +43,44 @@
 		// Make iPad's act like they run at a 2x content scale. (iPad retina 4x)
 		CCSetupTabletScale2X: @(YES),
 	}];
+    
+    //GameCenterへ認証
+    if ([GameManager getOsVersion]>=6.0f)
+    {
+        LeaderboardView *lbView = (LeaderboardView *)[UIApplication sharedApplication].keyWindow.rootViewController;
+        GKLocalPlayer* localPlayer = [GKLocalPlayer localPlayer];
+        localPlayer.authenticateHandler = ^(UIViewController* viewController, NSError* error)
+        {
+            if(viewController!=nil){
+                [lbView presentViewController:viewController animated:YES completion:nil];
+            }
+        };
+    }else
+    {
+        [[GKLocalPlayer localPlayer]authenticateWithCompletionHandler:^(NSError *error){}];
+    }
+
 	
 	return YES;
 }
 
 -(CCScene *)startScene
 {
+    //OSバージョン登録
+    [GameManager setOsVersion:[[[UIDevice currentDevice]systemVersion]floatValue]];
+    
+    //デバイス登録
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
+    if(screenBounds.size.height==568){ //iPhone5 (4インチスクリーン)用のレイアウト
+        [GameManager setDevice:1];
+    }else if(screenBounds.size.height==480){ //iPhone4 (3.5インチスクリーン)用のレイアウト
+        [GameManager setDevice:2];
+    }else if(screenBounds.size.height==1024){ //iPad2 (1024px)
+        [GameManager setDevice:3];
+    }else{
+        [GameManager setDevice:0];
+    }
+    
 	// This method should return the very first scene to be run when your app starts.
 	return [TitleScene scene];
 }

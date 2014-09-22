@@ -7,14 +7,35 @@
 //
 
 #import "GameManager.h"
+#import <GameKit/GameKit.h>
 
 @implementation GameManager
+
+
+float osVersion;//OSバージョン
+int deviceType;// 1:iPhone5 2:iPhone4 3:iPad2
 
 int stageNum;
 long score;
 bool speed2xFlg=false;
 bool pauseFlg;
 bool playBackFlg;
+int playBackCount;
+
+//OSバージョン
++(void)setOsVersion:(float)version{
+    osVersion=version;
+}
++(float)getOsVersion{
+    return osVersion;
+}
+//デバイス取得／登録
++(void)setDevice:(int)type{
+    deviceType=type;
+}
++(int)getDevice{
+    return deviceType;
+}
 
 +(int)getStageNum
 {
@@ -59,6 +80,15 @@ bool playBackFlg;
 +(void)setPlayBack:(bool)flg
 {
     playBackFlg=flg;
+}
+
++(int)getPlayBackCount
+{
+    return playBackCount;
+}
++(void)setPlayBackCount:(int)cnt
+{
+    playBackCount=cnt;
 }
 
 //=========================================
@@ -143,4 +173,21 @@ bool playBackFlg;
     }
     
 }
+
+//=========================================
+//GameCenterへスコアを送信
+//=========================================
++(void)submitScore_GameCenter:(NSInteger)score
+{
+    GKScore *scoreReporter = [[GKScore alloc] initWithCategory:@"VirginTech2ndProject_Leaderboard"];
+    NSInteger scoreR = score;
+    scoreReporter.value = scoreR;
+    [scoreReporter reportScoreWithCompletionHandler:^(NSError *error) {
+        if (error != nil){
+            NSLog(@"Error in reporting score %@",error);
+        }
+    }];
+}
+
+
 @end

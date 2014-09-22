@@ -9,6 +9,8 @@
 #import "NaviLayer.h"
 #import "TitleScene.h"
 #import "StageLevel_01.h"
+#import "GameManager.h"
+#import "InfoLayer.h"
 
 @implementation NaviLayer
 
@@ -52,8 +54,21 @@ CGSize winSize;
 
 - (void)onPlaybackClicked:(id)sender
 {
-    [StageLevel_01 startPlayBack];
-    //[self removeFromParentAndCleanup:YES];
+    if([GameManager getPlayBackCount]>0){
+        //プレイバック回数セット
+        [GameManager setPlayBackCount:[GameManager getPlayBackCount]-1];
+        //プレイバック表示セット
+        [InfoLayer update_PlayBack];
+        //プレバック・スタート
+        [StageLevel_01 startPlayBack];
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"プレイバック"
+                                                        message:@"プレイバック機能は５回までです。"
+                                                        delegate:nil
+                                                        cancelButtonTitle:nil
+                                                        otherButtonTitles:@"は　い", nil];
+        [alert show];
+    }
 }
 
 - (void)onTitleClicked:(id)sender

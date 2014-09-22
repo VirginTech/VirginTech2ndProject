@@ -17,6 +17,9 @@ int stageLevel;
 CCLabelBMFont* scoreLabel;
 CCLabelBMFont* ticketLabel;
 
+CCSprite* star;
+NSMutableArray* starArray;
+
 + (InfoLayer *)scene
 {
 	return [[self alloc] init];
@@ -77,9 +80,35 @@ CCLabelBMFont* ticketLabel;
     [self addChild:ticketLabel];
 
     //プレイバックの星表示
-    
+    starArray=[[NSMutableArray alloc]init];
+    for(int i=0;i<5;i++){
+        star=[CCSprite spriteWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"star_B.png"]];
+        star.position=ccp((ticketLabel.position.x+50)+i*20,ticket.position.y);
+        star.scale=0.2;
+        [self addChild:star];
+    }
+    for(int i=0;i<[GameManager getPlayBackCount];i++){
+        star=[CCSprite spriteWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"star_G.png"]];
+        star.position=ccp((ticketLabel.position.x+50)+i*20,ticket.position.y);
+        star.scale=0.2;
+        [self addChild:star];
+        [starArray addObject:star];
+    }
     
     return self;
+}
+
++(void)update_PlayBack
+{
+    int i=0;
+    for(CCSprite* _star in starArray){
+        if(i<[GameManager getPlayBackCount]){
+            _star.visible=true;
+        }else{
+            _star.visible=false;
+        }
+        i++;
+    }
 }
 
 +(void)update_Ticket

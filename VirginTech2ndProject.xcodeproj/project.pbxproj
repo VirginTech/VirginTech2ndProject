@@ -13,8 +13,6 @@
 		CF162F5D19CD6C8B009BBD30 /* backGround_default.png in Resources */ = {isa = PBXBuildFile; fileRef = CF162F5B19CD6C8B009BBD30 /* backGround_default.png */; };
 		CF162F6419CD6D6E009BBD30 /* puniObj_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF162F6219CD6D6E009BBD30 /* puniObj_default.plist */; };
 		CF162F6519CD6D6E009BBD30 /* puniObj_default.png in Resources */ = {isa = PBXBuildFile; fileRef = CF162F6319CD6D6E009BBD30 /* puniObj_default.png */; };
-		CF162F6819CDA1CD009BBD30 /* etc_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF162F6619CDA1CD009BBD30 /* etc_default.plist */; };
-		CF162F6919CDA1CD009BBD30 /* etc_default.png in Resources */ = {isa = PBXBuildFile; fileRef = CF162F6719CDA1CD009BBD30 /* etc_default.png */; };
 		CF264F6719B695C900CACAFD /* BasicMath.m in Sources */ = {isa = PBXBuildFile; fileRef = CF264F6619B695C900CACAFD /* BasicMath.m */; };
 		CF589EBE19BD520400CEBCBC /* RouteDispLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF589EBD19BD520400CEBCBC /* RouteDispLayer.m */; };
 		CF5A314019C97DF200B901D7 /* NaviLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5A313F19C97DF200B901D7 /* NaviLayer.m */; };
@@ -223,6 +221,23 @@
 		CF6D8B8B19B3F712001C5668 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6D8B8A19B3F712001C5668 /* AppDelegate.m */; };
 		CF6D8B8E19B3F712001C5668 /* StageLevel_01.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6D8B8D19B3F712001C5668 /* StageLevel_01.m */; };
 		CF6D8B9119B3F712001C5668 /* TitleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6D8B9019B3F712001C5668 /* TitleScene.m */; };
+		CF70024D19CECCAA00799B1C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF70024C19CECCAA00799B1C /* Images.xcassets */; };
+		CF798AA619CFBE1600764B28 /* button_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF798AA419CFBE1600764B28 /* button_default.plist */; };
+		CF798AA719CFBE1600764B28 /* button_default.png in Resources */ = {isa = PBXBuildFile; fileRef = CF798AA519CFBE1600764B28 /* button_default.png */; };
+		CF798AAA19CFC73A00764B28 /* bgLayer.png in Resources */ = {isa = PBXBuildFile; fileRef = CF798AA819CFC73A00764B28 /* bgLayer.png */; };
+		CF798AAB19CFC73A00764B28 /* virgintech.png in Resources */ = {isa = PBXBuildFile; fileRef = CF798AA919CFC73A00764B28 /* virgintech.png */; };
+		CF798AAE19CFC7A500764B28 /* CreditLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF798AAD19CFC7A500764B28 /* CreditLayer.m */; };
+		CF798AB119CFE63200764B28 /* LeaderboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF798AB019CFE63200764B28 /* LeaderboardView.m */; };
+		CF798AB319CFE6A000764B28 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF798AB219CFE6A000764B28 /* GameKit.framework */; };
+		CF798AB819D012C500764B28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF798ABA19D012C500764B28 /* InfoPlist.strings */; };
+		CF798ABC19D0132B00764B28 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF798ABE19D0132B00764B28 /* Localizable.strings */; };
+		CF798AC119D0154500764B28 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF798AC019D0154500764B28 /* StoreKit.framework */; };
+		CF798AC419D0165500764B28 /* ShopView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF798AC319D0165500764B28 /* ShopView.m */; };
+		CF798AC719D0176E00764B28 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CF798AC619D0176E00764B28 /* Reachability.m */; };
+		CF798ACA19D0190C00764B28 /* PaymentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CF798AC919D0190C00764B28 /* PaymentManager.m */; };
+		CF798ACE19D01CA900764B28 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF798ACD19D01CA900764B28 /* SystemConfiguration.framework */; };
+		CF798AD119D01D5900764B28 /* etc_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF798ACF19D01D5900764B28 /* etc_default.plist */; };
+		CF798AD219D01D5900764B28 /* etc_default.png in Resources */ = {isa = PBXBuildFile; fileRef = CF798AD019D01D5900764B28 /* etc_default.png */; };
 		CFA7EC9219C086E400576BF2 /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA7EC9119C086E400576BF2 /* GameManager.m */; };
 		CFA7EC9519C0870600576BF2 /* InitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA7EC9419C0870600576BF2 /* InitManager.m */; };
 		CFA8C51519CAD77100B9D930 /* ArrowObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA8C51419CAD77100B9D930 /* ArrowObject.m */; };
@@ -248,8 +263,6 @@
 		CF162F5B19CD6C8B009BBD30 /* backGround_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backGround_default.png; sourceTree = "<group>"; };
 		CF162F6219CD6D6E009BBD30 /* puniObj_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = puniObj_default.plist; sourceTree = "<group>"; };
 		CF162F6319CD6D6E009BBD30 /* puniObj_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = puniObj_default.png; sourceTree = "<group>"; };
-		CF162F6619CDA1CD009BBD30 /* etc_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = etc_default.plist; sourceTree = "<group>"; };
-		CF162F6719CDA1CD009BBD30 /* etc_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = etc_default.png; sourceTree = "<group>"; };
 		CF264F6519B695C900CACAFD /* BasicMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicMath.h; sourceTree = "<group>"; };
 		CF264F6619B695C900CACAFD /* BasicMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicMath.m; sourceTree = "<group>"; };
 		CF589EBC19BD520400CEBCBC /* RouteDispLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteDispLayer.h; sourceTree = "<group>"; };
@@ -684,6 +697,31 @@
 		CF6D8B8D19B3F712001C5668 /* StageLevel_01.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = StageLevel_01.m; path = Classes/StageLevel_01.m; sourceTree = "<group>"; };
 		CF6D8B8F19B3F712001C5668 /* TitleScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TitleScene.h; path = Classes/TitleScene.h; sourceTree = "<group>"; };
 		CF6D8B9019B3F712001C5668 /* TitleScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TitleScene.m; path = Classes/TitleScene.m; sourceTree = "<group>"; };
+		CF70024C19CECCAA00799B1C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CF798AA419CFBE1600764B28 /* button_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = button_default.plist; sourceTree = "<group>"; };
+		CF798AA519CFBE1600764B28 /* button_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_default.png; sourceTree = "<group>"; };
+		CF798AA819CFC73A00764B28 /* bgLayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgLayer.png; sourceTree = "<group>"; };
+		CF798AA919CFC73A00764B28 /* virgintech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = virgintech.png; sourceTree = "<group>"; };
+		CF798AAC19CFC7A500764B28 /* CreditLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditLayer.h; sourceTree = "<group>"; };
+		CF798AAD19CFC7A500764B28 /* CreditLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditLayer.m; sourceTree = "<group>"; };
+		CF798AAF19CFE63200764B28 /* LeaderboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaderboardView.h; sourceTree = "<group>"; };
+		CF798AB019CFE63200764B28 /* LeaderboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaderboardView.m; sourceTree = "<group>"; };
+		CF798AB219CFE6A000764B28 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		CF798AB919D012C500764B28 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CF798ABB19D012E900764B28 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CF798ABD19D0132B00764B28 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF798ABF19D0132F00764B28 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF798AC019D0154500764B28 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		CF798AC219D0165500764B28 /* ShopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopView.h; sourceTree = "<group>"; };
+		CF798AC319D0165500764B28 /* ShopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopView.m; sourceTree = "<group>"; };
+		CF798AC519D0176E00764B28 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		CF798AC619D0176E00764B28 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		CF798AC819D0190C00764B28 /* PaymentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentManager.h; sourceTree = "<group>"; };
+		CF798AC919D0190C00764B28 /* PaymentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentManager.m; sourceTree = "<group>"; };
+		CF798ACB19D01C7900764B28 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CF798ACD19D01CA900764B28 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CF798ACF19D01D5900764B28 /* etc_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = etc_default.plist; sourceTree = "<group>"; };
+		CF798AD019D01D5900764B28 /* etc_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = etc_default.png; sourceTree = "<group>"; };
 		CFA7EC9019C086E400576BF2 /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
 		CFA7EC9119C086E400576BF2 /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
 		CFA7EC9319C0870600576BF2 /* InitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitManager.h; sourceTree = "<group>"; };
@@ -703,6 +741,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF798ACE19D01CA900764B28 /* SystemConfiguration.framework in Frameworks */,
+				CF798AC119D0154500764B28 /* StoreKit.framework in Frameworks */,
+				CF798AB319CFE6A000764B28 /* GameKit.framework in Frameworks */,
 				CF6D88F819B3F710001C5668 /* libObjectiveChipmunk.a in Frameworks */,
 				CF6D88E619B3F710001C5668 /* OpenAL.framework in Frameworks */,
 				CF6D88EC19B3F710001C5668 /* UIKit.framework in Frameworks */,
@@ -740,6 +781,10 @@
 		CF6D88E019B3F710001C5668 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CF798ACD19D01CA900764B28 /* SystemConfiguration.framework */,
+				CF798ACB19D01C7900764B28 /* Security.framework */,
+				CF798AC019D0154500764B28 /* StoreKit.framework */,
+				CF798AB219CFE6A000764B28 /* GameKit.framework */,
 				CF6D88E119B3F710001C5668 /* QuartzCore.framework */,
 				CF6D88E319B3F710001C5668 /* OpenGLES.framework */,
 				CF6D88E519B3F710001C5668 /* OpenAL.framework */,
@@ -759,6 +804,7 @@
 				CF6D88FA19B3F710001C5668 /* Resources */,
 				CF6D892319B3F710001C5668 /* Libraries */,
 				CF6D8B8819B3F712001C5668 /* Classes */,
+				CF70024C19CECCAA00799B1C /* Images.xcassets */,
 				CF6D8B8419B3F712001C5668 /* Supporting Files */,
 			);
 			path = VirginTech2ndProject;
@@ -767,8 +813,12 @@
 		CF6D88FA19B3F710001C5668 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CF162F6619CDA1CD009BBD30 /* etc_default.plist */,
-				CF162F6719CDA1CD009BBD30 /* etc_default.png */,
+				CF798ACF19D01D5900764B28 /* etc_default.plist */,
+				CF798AD019D01D5900764B28 /* etc_default.png */,
+				CF798AA819CFC73A00764B28 /* bgLayer.png */,
+				CF798AA919CFC73A00764B28 /* virgintech.png */,
+				CF798AA419CFBE1600764B28 /* button_default.plist */,
+				CF798AA519CFBE1600764B28 /* button_default.png */,
 				CF162F6219CD6D6E009BBD30 /* puniObj_default.plist */,
 				CF162F6319CD6D6E009BBD30 /* puniObj_default.png */,
 				CF162F5A19CD6C8B009BBD30 /* backGround_default.plist */,
@@ -783,6 +833,8 @@
 				CF6D891F19B3F710001C5668 /* iTunesArtwork */,
 				CF6D892119B3F710001C5668 /* iTunesArtwork@2x */,
 				CF6D890319B3F710001C5668 /* Icons */,
+				CF798ABA19D012C500764B28 /* InfoPlist.strings */,
+				CF798ABE19D0132B00764B28 /* Localizable.strings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1593,10 +1645,14 @@
 			children = (
 				CF6D8B8919B3F712001C5668 /* AppDelegate.h */,
 				CF6D8B8A19B3F712001C5668 /* AppDelegate.m */,
+				CF798AAF19CFE63200764B28 /* LeaderboardView.h */,
+				CF798AB019CFE63200764B28 /* LeaderboardView.m */,
 				CF6D8B8F19B3F712001C5668 /* TitleScene.h */,
 				CF6D8B9019B3F712001C5668 /* TitleScene.m */,
 				CF6D8B8C19B3F712001C5668 /* StageLevel_01.h */,
 				CF6D8B8D19B3F712001C5668 /* StageLevel_01.m */,
+				CF798AC219D0165500764B28 /* ShopView.h */,
+				CF798AC319D0165500764B28 /* ShopView.m */,
 				CFA8524E19C6F3E000D12D78 /* lib */,
 				CFA8524D19C6F3C300D12D78 /* Manager */,
 				CFA8524F19C6F40C00D12D78 /* Object */,
@@ -1608,6 +1664,8 @@
 		CFA8524D19C6F3C300D12D78 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				CF798AC819D0190C00764B28 /* PaymentManager.h */,
+				CF798AC919D0190C00764B28 /* PaymentManager.m */,
 				CFA7EC9019C086E400576BF2 /* GameManager.h */,
 				CFA7EC9119C086E400576BF2 /* GameManager.m */,
 				CFA7EC9319C0870600576BF2 /* InitManager.h */,
@@ -1619,6 +1677,8 @@
 		CFA8524E19C6F3E000D12D78 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				CF798AC519D0176E00764B28 /* Reachability.h */,
+				CF798AC619D0176E00764B28 /* Reachability.m */,
 				CF264F6519B695C900CACAFD /* BasicMath.h */,
 				CF264F6619B695C900CACAFD /* BasicMath.m */,
 			);
@@ -1641,6 +1701,8 @@
 		CFA8525019C6F43F00D12D78 /* Layer */ = {
 			isa = PBXGroup;
 			children = (
+				CF798AAC19CFC7A500764B28 /* CreditLayer.h */,
+				CF798AAD19CFC7A500764B28 /* CreditLayer.m */,
 				CFD9264B19C5B167002205B9 /* InfoLayer.h */,
 				CFD9264C19C5B167002205B9 /* InfoLayer.m */,
 				CF589EBC19BD520400CEBCBC /* RouteDispLayer.h */,
@@ -1693,7 +1755,7 @@
 		CF6D88D619B3F710001C5668 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "VirginTech LLC.";
 			};
 			buildConfigurationList = CF6D88D919B3F710001C5668 /* Build configuration list for PBXProject "VirginTech2ndProject" */;
@@ -1702,6 +1764,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ja,
 			);
 			mainGroup = CF6D88D519B3F710001C5668;
 			productRefGroup = CF6D88DF19B3F710001C5668 /* Products */;
@@ -1719,12 +1782,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF798AD219D01D5900764B28 /* etc_default.png in Resources */,
 				CF6D88FE19B3F710001C5668 /* Default@2x.png in Resources */,
 				CF162F6519CD6D6E009BBD30 /* puniObj_default.png in Resources */,
-				CF162F6919CDA1CD009BBD30 /* etc_default.png in Resources */,
+				CF798AAB19CFC73A00764B28 /* virgintech.png in Resources */,
 				CF6D891119B3F710001C5668 /* Icon-120.png in Resources */,
 				CF6D8B1519B3F712001C5668 /* LICENSE_CCBReader.txt in Resources */,
-				CF162F6819CDA1CD009BBD30 /* etc_default.plist in Resources */,
 				CF6D890719B3F710001C5668 /* Icon@2x.png in Resources */,
 				CF6D891919B3F710001C5668 /* Icon-Small@2x.png in Resources */,
 				CF6D890B19B3F710001C5668 /* Icon-72@2x.png in Resources */,
@@ -1734,16 +1797,23 @@
 				CF6D890219B3F710001C5668 /* Default-Landscape~ipad.png in Resources */,
 				CF162F5819CD6A46009BBD30 /* scoreFont.fnt in Resources */,
 				CF6D891719B3F710001C5668 /* Icon-Small.png in Resources */,
+				CF70024D19CECCAA00799B1C /* Images.xcassets in Resources */,
 				CF162F5919CD6A46009BBD30 /* scoreFont.png in Resources */,
 				CF6D891519B3F710001C5668 /* Icon-Small-50.png in Resources */,
 				CF6D8AFE19B3F711001C5668 /* LICENSE_Kazmath.txt in Resources */,
 				CF6D890919B3F710001C5668 /* Icon-72.png in Resources */,
+				CF798AA719CFBE1600764B28 /* button_default.png in Resources */,
+				CF798ABC19D0132B00764B28 /* Localizable.strings in Resources */,
 				CF6D8A5719B3F711001C5668 /* LICENSE_cocos2d.txt in Resources */,
 				CF6D890019B3F710001C5668 /* Default-568h@2x.png in Resources */,
+				CF798AA619CFBE1600764B28 /* button_default.plist in Resources */,
 				CF6D892019B3F710001C5668 /* iTunesArtwork in Resources */,
 				CF6D891B19B3F710001C5668 /* Icon-Spotlight-iOS7.png in Resources */,
 				CF6D890F19B3F710001C5668 /* Icon-76@2x.png in Resources */,
+				CF798AD119D01D5900764B28 /* etc_default.plist in Resources */,
 				CF162F5C19CD6C8B009BBD30 /* backGround_default.plist in Resources */,
+				CF798AB819D012C500764B28 /* InfoPlist.strings in Resources */,
+				CF798AAA19CFC73A00764B28 /* bgLayer.png in Resources */,
 				CF162F5D19CD6C8B009BBD30 /* backGround_default.png in Resources */,
 				CF6D8B8319B3F712001C5668 /* LICENSE_Chipmunk.txt in Resources */,
 				CF6D891D19B3F710001C5668 /* Icon-Spotlight-iOS7@2x.png in Resources */,
@@ -1805,6 +1875,7 @@
 				CF6D8B0219B3F712001C5668 /* CCBAnimationManager.m in Sources */,
 				CF6D8AE619B3F711001C5668 /* mat4stack.c in Sources */,
 				CF6D898519B3F710001C5668 /* CCNode.m in Sources */,
+				CF798ACA19D0190C00764B28 /* PaymentManager.m in Sources */,
 				CF6D897019B3F710001C5668 /* CCLabelBMFont.m in Sources */,
 				CF6D892E19B3F710001C5668 /* CCActionEase.m in Sources */,
 				CF6D893D19B3F710001C5668 /* CCActionTween.m in Sources */,
@@ -1813,6 +1884,7 @@
 				CF6D894119B3F710001C5668 /* CCAnimation.m in Sources */,
 				CF6D8AEA19B3F711001C5668 /* mat3.c in Sources */,
 				CF6D89F619B3F711001C5668 /* CCTiledMap.m in Sources */,
+				CF798AC719D0176E00764B28 /* Reachability.m in Sources */,
 				CF6D8ABB19B3F711001C5668 /* CCControl.m in Sources */,
 				CF6D8A3D19B3F711001C5668 /* CCVertex.m in Sources */,
 				CF6D8A7919B3F711001C5668 /* ALBuffer.m in Sources */,
@@ -1829,6 +1901,7 @@
 				CFD9264D19C5B167002205B9 /* InfoLayer.m in Sources */,
 				CF6D893119B3F710001C5668 /* CCActionInstant.m in Sources */,
 				CF6D8A2B19B3F711001C5668 /* base64.c in Sources */,
+				CF798AC419D0165500764B28 /* ShopView.m in Sources */,
 				CF6D8A6A19B3F711001C5668 /* OALAudioTrack.m in Sources */,
 				CF6D89AD19B3F710001C5668 /* CCProgressNode.m in Sources */,
 				CF6D89A019B3F710001C5668 /* CCPhysicsBody.m in Sources */,
@@ -1892,7 +1965,9 @@
 				CF6D8A1819B3F711001C5668 /* UITouch+CC.m in Sources */,
 				CFDE125419B5601D002F7D45 /* PuniObject.m in Sources */,
 				CF6D8AF619B3F711001C5668 /* utility.c in Sources */,
+				CF798AB119CFE63200764B28 /* LeaderboardView.m in Sources */,
 				CF6D8A5519B3F711001C5668 /* ZipUtils.m in Sources */,
+				CF798AAE19CFC7A500764B28 /* CreditLayer.m in Sources */,
 				CF6D8A6619B3F711001C5668 /* OALUtilityActions.m in Sources */,
 				CF6D8A1119B3F711001C5668 /* CCES2Renderer.m in Sources */,
 				CF6D8AE119B3F711001C5668 /* aabb.c in Sources */,
@@ -1961,13 +2036,41 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		CF798ABA19D012C500764B28 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF798AB919D012C500764B28 /* en */,
+				CF798ABB19D012E900764B28 /* ja */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CF798ABE19D0132B00764B28 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF798ABD19D0132B00764B28 /* en */,
+				CF798ABF19D0132F00764B28 /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		CF6D8B9219B3F712001C5668 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1976,9 +2079,14 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1987,17 +2095,28 @@
 		CF6D8B9319B3F712001C5668 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					NDEBUG,
 					"NS_BLOCK_ASSERTIONS=1",
 				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2008,7 +2127,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				EXECUTABLE_EXTENSION = a;
 				EXECUTABLE_PREFIX = lib;
@@ -2025,7 +2143,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				EXECUTABLE_EXTENSION = a;
 				EXECUTABLE_PREFIX = lib;
@@ -2042,7 +2159,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2070,7 +2188,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VirginTech2ndProject/Supporting Files/Prefix.pch";
