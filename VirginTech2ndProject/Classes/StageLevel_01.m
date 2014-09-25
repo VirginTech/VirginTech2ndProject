@@ -14,6 +14,8 @@
 #import "GameManager.h"
 #import "InfoLayer.h"
 #import "NaviLayer.h"
+#import "MsgLayer.h"
+#import "FingerObject.h"
 
 @implementation StageLevel_01
 
@@ -37,6 +39,11 @@ NSMutableArray* removePuniArray;
 NaviLayer* naviLayer;
 CCButton *pauseButton;
 CCButton *speed2xButton;
+
+//チュートリアル
+bool tutorialFlg;
+FingerObject* finger;
+NSMutableArray* drawArray;
 
 //デバッグ用ラベル
 //CCLabelTTF* puniLabel;
@@ -62,8 +69,10 @@ CCButton *speed2xButton;
     puniArray=[[NSMutableArray alloc]init];
     parentArray=[[NSMutableArray alloc]init];
     gpNumArray=[[NSMutableArray alloc]init];
+    drawArray=[[NSMutableArray alloc]init];
     [GameManager setPause:false];
     [GameManager setPlayBack:false];
+    tutorialFlg=false;
     
     //labelArray=[[NSMutableArray alloc]init];//デバッグ用
     
@@ -116,12 +125,24 @@ CCButton *speed2xButton;
     [self schedule:@selector(createPuni_Schedule:)interval:[InitManager getInterval]
                                                 repeat:CCTimerRepeatForever
                                                 delay:5.0];
+
     //親プニ配置
     for(int i=0;i<gpNumArray.count;i++){
         parent=[ParentObject createParent:i gpNum:[[gpNumArray objectAtIndex:i]intValue]];
         [self addChild:parent];
         [parentArray addObject:parent];
     }
+    
+    //開始メッセージ
+    MsgLayer* msg;
+    if(stageLevel==0){
+        msg=[[MsgLayer alloc]initWithMsg:@"Tutorial Level" nextFlg:false];
+    }else{
+        msg=[[MsgLayer alloc]initWithMsg:
+                                [NSString stringWithFormat:@"Lv.%d Start!",stageLevel]
+                                 nextFlg:false];
+    }
+    [self addChild:msg];
     
     // done
 	return self;
@@ -213,6 +234,11 @@ CCButton *speed2xButton;
             [puniArray addObject:puni];
             [self addChild:puni z:2];
             
+            //チュートリアル用フィンガー表示
+            if([GameManager getStageNum]==0){
+                puni.finger.visible=true;
+            }
+            
             //矢印表示
             arrow=[ArrowObject createArrow:puni];
             [self addChild:arrow z:2];
@@ -234,6 +260,44 @@ CCButton *speed2xButton;
             }
         }
     }
+}
+
+-(void)finger_Move_Schedule:(CCTime)dt
+{
+    tutorialFlg=true;
+    
+    CGPoint nextPos;
+    float targetAngle;
+    float targetDistance;
+    
+    CGPoint endPos=ccp(parent.position.x+(finger.contentSize.width*finger.scale)/2,
+                       parent.position.y+(finger.contentSize.height*finger.scale)/2);
+    
+    //方角セット
+    targetAngle = [BasicMath getAngle_To_Radian:finger.position ePos:endPos];
+    //総距離セット
+    targetDistance = sqrtf(powf(finger.position.x - endPos.x,2) + powf(finger.position.y - endPos.y,2));
+    //次位置セット
+    nextPos=CGPointMake(2.0*cosf(targetAngle),2.0*sinf(targetAngle));
+    finger.position=CGPointMake(finger.position.x+nextPos.x, finger.position.y+nextPos.y);
+    //線描画
+    CCDrawNode* drawNode=[CCDrawNode node];
+    [drawNode drawDot:ccp(finger.position.x-(finger.contentSize.width*finger.scale)/2,
+                          finger.position.y-(finger.contentSize.width*finger.scale)/2)
+               radius:1.5 color:[CCColor whiteColor]];
+    [self addChild:drawNode];
+    [drawArray addObject:drawNode];
+    
+    if(targetDistance < 5.0){
+        [self unschedule:@selector(finger_Move_Schedule:)];
+        for(CCDrawNode* drow_ in drawArray){
+            [self removeChild:drow_ cleanup:YES];
+        }
+        [self removeChild:finger cleanup:YES];
+        drawArray=[[NSMutableArray alloc]init];
+        tutorialFlg=false;
+    }
+
 }
 
 -(void)judgement_Schedule:(CCTime)dt
@@ -390,10 +454,13 @@ CCButton *speed2xButton;
         [GameManager save_Clear_Level:stageLevel];
     }
     
+    MsgLayer* msg=[[MsgLayer alloc]initWithMsg:@"Good Job!" nextFlg:true];
+    [self addChild:msg];
+    
     //次ステージへ
-    [GameManager setStageNum:stageLevel+1];//ステージレヴェル設定
-    [[CCDirector sharedDirector] replaceScene:[StageLevel_01 scene]
-                               withTransition:[CCTransition transitionCrossFadeWithDuration:1.0]];
+    //[GameManager setStageNum:stageLevel+1];//ステージレヴェル設定
+    //[[CCDirector sharedDirector] replaceScene:[StageLevel_01 scene]
+    //                           withTransition:[CCTransition transitionCrossFadeWithDuration:1.0]];
 }
 
 -(void)endGame
@@ -508,6 +575,21 @@ CCButton *speed2xButton;
     CGPoint touchLocation = [touch locationInNode:self];
     
     if([self isPuni:touchLocation]){
+        
+        //チュートリアル用フィンガー
+        if([GameManager getStageNum]==0){
+            if(!tutorialFlg){
+                if(touchPuni.finger.visible){
+                    touchPuni.finger.visible=false;
+                    finger=[FingerObject createFinger:false];
+                    finger.scale=0.3;
+                    finger.position=ccp(touchPuni.position.x+(finger.contentSize.width*finger.scale)/2,
+                                        touchPuni.position.y+(finger.contentSize.height*finger.scale)/2);
+                    [self addChild:finger];
+                    [self schedule:@selector(finger_Move_Schedule:)interval:0.01];
+                }
+            }
+        }
         
         touchPuni.touchFlg=true;
         touchPuni.posArray = [[NSMutableArray alloc]init];

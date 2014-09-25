@@ -26,6 +26,7 @@
 @synthesize blinkFlg;
 @synthesize playBackReadyFlg;
 @synthesize playBackArray;
+@synthesize finger;
 
 CGSize winSize;
 
@@ -287,6 +288,15 @@ CGSize winSize;
         //方角設定
         actualY =(arc4random()% rangeY)+ minY;
         targetAngle = [BasicMath getAngle_To_Radian:self.position ePos:ccp(winSize.width/2,actualY)];
+        
+        //チュートリアル用フィンガー
+        if([GameManager getStageNum]==0){//初回のみ
+            finger=[FingerObject createFinger:true];
+            finger.position=ccp(self.contentSize.width/2+(finger.contentSize.width*finger.scale)/2,
+                                self.contentSize.height/2+(finger.contentSize.height*finger.scale)/2);
+            finger.visible=false;
+            [self addChild:finger];
+        }
         
         //デバッグ用ラベル
         label=[CCLabelTTF labelWithString:

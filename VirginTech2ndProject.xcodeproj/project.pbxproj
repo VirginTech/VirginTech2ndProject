@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF0CCD2D19D3A5DF008B62CF /* MsgLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF0CCD2C19D3A5DF008B62CF /* MsgLayer.m */; };
+		CF0CCD3419D3E0CF008B62CF /* puniObj_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF0CCD3219D3E0CF008B62CF /* puniObj_default.plist */; };
+		CF0CCD3519D3E0CF008B62CF /* puniObj_default.png in Resources */ = {isa = PBXBuildFile; fileRef = CF0CCD3319D3E0CF008B62CF /* puniObj_default.png */; };
+		CF0CCD3819D3E7C4008B62CF /* FingerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CF0CCD3719D3E7C4008B62CF /* FingerObject.m */; };
+		CF0CCD4719D43B16008B62CF /* msg.fnt in Resources */ = {isa = PBXBuildFile; fileRef = CF0CCD4519D43B16008B62CF /* msg.fnt */; };
+		CF0CCD4819D43B16008B62CF /* msg.png in Resources */ = {isa = PBXBuildFile; fileRef = CF0CCD4619D43B16008B62CF /* msg.png */; };
 		CF162F5819CD6A46009BBD30 /* scoreFont.fnt in Resources */ = {isa = PBXBuildFile; fileRef = CF162F5619CD6A46009BBD30 /* scoreFont.fnt */; };
 		CF162F5919CD6A46009BBD30 /* scoreFont.png in Resources */ = {isa = PBXBuildFile; fileRef = CF162F5719CD6A46009BBD30 /* scoreFont.png */; };
 		CF162F5C19CD6C8B009BBD30 /* backGround_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF162F5A19CD6C8B009BBD30 /* backGround_default.plist */; };
 		CF162F5D19CD6C8B009BBD30 /* backGround_default.png in Resources */ = {isa = PBXBuildFile; fileRef = CF162F5B19CD6C8B009BBD30 /* backGround_default.png */; };
-		CF162F6419CD6D6E009BBD30 /* puniObj_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF162F6219CD6D6E009BBD30 /* puniObj_default.plist */; };
-		CF162F6519CD6D6E009BBD30 /* puniObj_default.png in Resources */ = {isa = PBXBuildFile; fileRef = CF162F6319CD6D6E009BBD30 /* puniObj_default.png */; };
 		CF264F6719B695C900CACAFD /* BasicMath.m in Sources */ = {isa = PBXBuildFile; fileRef = CF264F6619B695C900CACAFD /* BasicMath.m */; };
 		CF589EBE19BD520400CEBCBC /* RouteDispLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF589EBD19BD520400CEBCBC /* RouteDispLayer.m */; };
 		CF5A314019C97DF200B901D7 /* NaviLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5A313F19C97DF200B901D7 /* NaviLayer.m */; };
@@ -257,12 +261,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CF0CCD2B19D3A5DF008B62CF /* MsgLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgLayer.h; sourceTree = "<group>"; };
+		CF0CCD2C19D3A5DF008B62CF /* MsgLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgLayer.m; sourceTree = "<group>"; };
+		CF0CCD3219D3E0CF008B62CF /* puniObj_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = puniObj_default.plist; sourceTree = "<group>"; };
+		CF0CCD3319D3E0CF008B62CF /* puniObj_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = puniObj_default.png; sourceTree = "<group>"; };
+		CF0CCD3619D3E7C4008B62CF /* FingerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FingerObject.h; sourceTree = "<group>"; };
+		CF0CCD3719D3E7C4008B62CF /* FingerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FingerObject.m; sourceTree = "<group>"; };
+		CF0CCD4519D43B16008B62CF /* msg.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = msg.fnt; sourceTree = "<group>"; };
+		CF0CCD4619D43B16008B62CF /* msg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = msg.png; sourceTree = "<group>"; };
 		CF162F5619CD6A46009BBD30 /* scoreFont.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scoreFont.fnt; sourceTree = "<group>"; };
 		CF162F5719CD6A46009BBD30 /* scoreFont.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scoreFont.png; sourceTree = "<group>"; };
 		CF162F5A19CD6C8B009BBD30 /* backGround_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = backGround_default.plist; sourceTree = "<group>"; };
 		CF162F5B19CD6C8B009BBD30 /* backGround_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backGround_default.png; sourceTree = "<group>"; };
-		CF162F6219CD6D6E009BBD30 /* puniObj_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = puniObj_default.plist; sourceTree = "<group>"; };
-		CF162F6319CD6D6E009BBD30 /* puniObj_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = puniObj_default.png; sourceTree = "<group>"; };
 		CF264F6519B695C900CACAFD /* BasicMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicMath.h; sourceTree = "<group>"; };
 		CF264F6619B695C900CACAFD /* BasicMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicMath.m; sourceTree = "<group>"; };
 		CF589EBC19BD520400CEBCBC /* RouteDispLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteDispLayer.h; sourceTree = "<group>"; };
@@ -813,14 +823,16 @@
 		CF6D88FA19B3F710001C5668 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CF0CCD4519D43B16008B62CF /* msg.fnt */,
+				CF0CCD4619D43B16008B62CF /* msg.png */,
+				CF0CCD3219D3E0CF008B62CF /* puniObj_default.plist */,
+				CF0CCD3319D3E0CF008B62CF /* puniObj_default.png */,
 				CF798ACF19D01D5900764B28 /* etc_default.plist */,
 				CF798AD019D01D5900764B28 /* etc_default.png */,
 				CF798AA819CFC73A00764B28 /* bgLayer.png */,
 				CF798AA919CFC73A00764B28 /* virgintech.png */,
 				CF798AA419CFBE1600764B28 /* button_default.plist */,
 				CF798AA519CFBE1600764B28 /* button_default.png */,
-				CF162F6219CD6D6E009BBD30 /* puniObj_default.plist */,
-				CF162F6319CD6D6E009BBD30 /* puniObj_default.png */,
 				CF162F5A19CD6C8B009BBD30 /* backGround_default.plist */,
 				CF162F5B19CD6C8B009BBD30 /* backGround_default.png */,
 				CF162F5619CD6A46009BBD30 /* scoreFont.fnt */,
@@ -1694,6 +1706,8 @@
 				CFBEB09A19B85C7800E3007D /* ParentObject.m */,
 				CFA8C51319CAD77100B9D930 /* ArrowObject.h */,
 				CFA8C51419CAD77100B9D930 /* ArrowObject.m */,
+				CF0CCD3619D3E7C4008B62CF /* FingerObject.h */,
+				CF0CCD3719D3E7C4008B62CF /* FingerObject.m */,
 			);
 			name = Object;
 			sourceTree = "<group>";
@@ -1709,6 +1723,8 @@
 				CF589EBD19BD520400CEBCBC /* RouteDispLayer.m */,
 				CF5A313E19C97DF200B901D7 /* NaviLayer.h */,
 				CF5A313F19C97DF200B901D7 /* NaviLayer.m */,
+				CF0CCD2B19D3A5DF008B62CF /* MsgLayer.h */,
+				CF0CCD2C19D3A5DF008B62CF /* MsgLayer.m */,
 			);
 			name = Layer;
 			sourceTree = "<group>";
@@ -1784,10 +1800,11 @@
 			files = (
 				CF798AD219D01D5900764B28 /* etc_default.png in Resources */,
 				CF6D88FE19B3F710001C5668 /* Default@2x.png in Resources */,
-				CF162F6519CD6D6E009BBD30 /* puniObj_default.png in Resources */,
 				CF798AAB19CFC73A00764B28 /* virgintech.png in Resources */,
 				CF6D891119B3F710001C5668 /* Icon-120.png in Resources */,
+				CF0CCD4719D43B16008B62CF /* msg.fnt in Resources */,
 				CF6D8B1519B3F712001C5668 /* LICENSE_CCBReader.txt in Resources */,
+				CF0CCD4819D43B16008B62CF /* msg.png in Resources */,
 				CF6D890719B3F710001C5668 /* Icon@2x.png in Resources */,
 				CF6D891919B3F710001C5668 /* Icon-Small@2x.png in Resources */,
 				CF6D890B19B3F710001C5668 /* Icon-72@2x.png in Resources */,
@@ -1800,7 +1817,9 @@
 				CF70024D19CECCAA00799B1C /* Images.xcassets in Resources */,
 				CF162F5919CD6A46009BBD30 /* scoreFont.png in Resources */,
 				CF6D891519B3F710001C5668 /* Icon-Small-50.png in Resources */,
+				CF0CCD3519D3E0CF008B62CF /* puniObj_default.png in Resources */,
 				CF6D8AFE19B3F711001C5668 /* LICENSE_Kazmath.txt in Resources */,
+				CF0CCD3419D3E0CF008B62CF /* puniObj_default.plist in Resources */,
 				CF6D890919B3F710001C5668 /* Icon-72.png in Resources */,
 				CF798AA719CFBE1600764B28 /* button_default.png in Resources */,
 				CF798ABC19D0132B00764B28 /* Localizable.strings in Resources */,
@@ -1818,7 +1837,6 @@
 				CF6D8B8319B3F712001C5668 /* LICENSE_Chipmunk.txt in Resources */,
 				CF6D891D19B3F710001C5668 /* Icon-Spotlight-iOS7@2x.png in Resources */,
 				CF6D890D19B3F710001C5668 /* Icon-76.png in Resources */,
-				CF162F6419CD6D6E009BBD30 /* puniObj_default.plist in Resources */,
 				CF6D8AE319B3F711001C5668 /* ChangeLog in Resources */,
 				CF6D892219B3F710001C5668 /* iTunesArtwork@2x in Resources */,
 			);
@@ -1844,6 +1862,7 @@
 				CF6D895719B3F710001C5668 /* CCDirector.m in Sources */,
 				CF6D8AC219B3F711001C5668 /* CCScrollView.m in Sources */,
 				CF6D89B519B3F710001C5668 /* CCResponder.m in Sources */,
+				CF0CCD3819D3E7C4008B62CF /* FingerObject.m in Sources */,
 				CF6D894C19B3F710001C5668 /* CCClippingNode.m in Sources */,
 				CF6D89DF19B3F711001C5668 /* CCSpriteBatchNode.m in Sources */,
 				CF6D8A0319B3F711001C5668 /* CCTransition.m in Sources */,
@@ -1889,6 +1908,7 @@
 				CF6D8A3D19B3F711001C5668 /* CCVertex.m in Sources */,
 				CF6D8A7919B3F711001C5668 /* ALBuffer.m in Sources */,
 				CF6D8A4619B3F711001C5668 /* NSThread+performBlock.m in Sources */,
+				CF0CCD2D19D3A5DF008B62CF /* MsgLayer.m in Sources */,
 				CF6D89D119B3F711001C5668 /* CCShaderCache.m in Sources */,
 				CFA7EC9519C0870600576BF2 /* InitManager.m in Sources */,
 				CF6D8B0E19B3F712001C5668 /* CCBSequenceProperty.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "FingerObject.h"
 
 @interface PuniObject : CCSprite
 {
@@ -35,6 +36,8 @@
     
     bool playBackReadyFlg;
     NSMutableArray* playBackArray;
+    
+    FingerObject* finger;//チュートリアル
 }
 
 @property float velocity;
@@ -50,6 +53,7 @@
 @property bool blinkFlg;
 @property bool playBackReadyFlg;
 @property NSMutableArray* playBackArray;
+@property FingerObject* finger;
 
 +(id)createPuni:(int)objCnt gpNum:(int)gpNum;
 -(void)startBlink;
