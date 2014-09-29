@@ -20,6 +20,7 @@
 		CF264F6719B695C900CACAFD /* BasicMath.m in Sources */ = {isa = PBXBuildFile; fileRef = CF264F6619B695C900CACAFD /* BasicMath.m */; };
 		CF589EBE19BD520400CEBCBC /* RouteDispLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF589EBD19BD520400CEBCBC /* RouteDispLayer.m */; };
 		CF5A314019C97DF200B901D7 /* NaviLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5A313F19C97DF200B901D7 /* NaviLayer.m */; };
+		CF69526A19D947CC004E4721 /* PreferencesLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF69526919D947CC004E4721 /* PreferencesLayer.m */; };
 		CF6D88E219B3F710001C5668 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6D88E119B3F710001C5668 /* QuartzCore.framework */; };
 		CF6D88E419B3F710001C5668 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6D88E319B3F710001C5668 /* OpenGLES.framework */; };
 		CF6D88E619B3F710001C5668 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6D88E519B3F710001C5668 /* OpenAL.framework */; };
@@ -279,6 +280,8 @@
 		CF589EBD19BD520400CEBCBC /* RouteDispLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteDispLayer.m; sourceTree = "<group>"; };
 		CF5A313E19C97DF200B901D7 /* NaviLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NaviLayer.h; sourceTree = "<group>"; };
 		CF5A313F19C97DF200B901D7 /* NaviLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NaviLayer.m; sourceTree = "<group>"; };
+		CF69526819D947CC004E4721 /* PreferencesLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesLayer.h; sourceTree = "<group>"; };
+		CF69526919D947CC004E4721 /* PreferencesLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesLayer.m; sourceTree = "<group>"; };
 		CF6D88DE19B3F710001C5668 /* VirginTech2ndProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirginTech2ndProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF6D88E119B3F710001C5668 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CF6D88E319B3F710001C5668 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1725,6 +1728,8 @@
 				CF5A313F19C97DF200B901D7 /* NaviLayer.m */,
 				CF0CCD2B19D3A5DF008B62CF /* MsgLayer.h */,
 				CF0CCD2C19D3A5DF008B62CF /* MsgLayer.m */,
+				CF69526819D947CC004E4721 /* PreferencesLayer.h */,
+				CF69526919D947CC004E4721 /* PreferencesLayer.m */,
 			);
 			name = Layer;
 			sourceTree = "<group>";
@@ -1984,6 +1989,7 @@
 				CF6D8A4C19B3F711001C5668 /* TGAlib.m in Sources */,
 				CF6D8A1819B3F711001C5668 /* UITouch+CC.m in Sources */,
 				CFDE125419B5601D002F7D45 /* PuniObject.m in Sources */,
+				CF69526A19D947CC004E4721 /* PreferencesLayer.m in Sources */,
 				CF6D8AF619B3F711001C5668 /* utility.c in Sources */,
 				CF798AB119CFE63200764B28 /* LeaderboardView.m in Sources */,
 				CF6D8A5519B3F711001C5668 /* ZipUtils.m in Sources */,
@@ -2179,8 +2185,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2208,8 +2212,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VirginTech2ndProject/Supporting Files/Prefix.pch";

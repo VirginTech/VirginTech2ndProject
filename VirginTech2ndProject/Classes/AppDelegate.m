@@ -69,6 +69,14 @@
     //OSバージョン登録
     [GameManager setOsVersion:[[[UIDevice currentDevice]systemVersion]floatValue]];
     
+    //ロケール登録
+    NSString* locale = NSLocalizedString(@"Locale",NULL);
+    if([locale isEqualToString:@"Locale"]){
+        [GameManager setLocale:1];//英語
+    }else{
+        [GameManager setLocale:2];//日本語
+    }
+
     //デバイス登録
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
     if(screenBounds.size.height==568){ //iPhone5 (4インチスクリーン)用のレイアウト

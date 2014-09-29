@@ -11,7 +11,7 @@
 
 @implementation GameManager
 
-
+int locale;//1:英語 2:日本語
 float osVersion;//OSバージョン
 int deviceType;// 1:iPhone5 2:iPhone4 3:iPad2
 
@@ -22,6 +22,13 @@ bool pauseFlg;
 bool playBackFlg;
 int playBackCount;
 
+//ロケール登録
++(void)setLocale:(int)value{
+    locale=value;
+}
++(int)getLocale{
+    return locale;
+}
 //OSバージョン
 +(void)setOsVersion:(float)version{
     osVersion=version;

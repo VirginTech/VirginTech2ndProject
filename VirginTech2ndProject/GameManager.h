@@ -10,6 +10,8 @@
 
 @interface GameManager : NSObject
 
++(int)getLocale;
++(void)setLocale:(int)value;//1:英語 2:日本語
 +(float)getOsVersion;
 +(void)setOsVersion:(float)version;
 +(int)getDevice;

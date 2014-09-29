@@ -13,6 +13,7 @@
 #import "InfoLayer.h"
 #import "CreditLayer.h"
 #import "ShopView.h"
+#import "PreferencesLayer.h"
 
 @implementation TitleScene
 
@@ -132,7 +133,7 @@ CGSize winSize;
     //バージョン
     CCLabelTTF* versionLabel=[CCLabelTTF labelWithString:@"Version 1.0.0" fontName:@"Verdana" fontSize:13];
     versionLabel.position=ccp(versionLabel.contentSize.width/2+5,versionLabel.contentSize.height/2+5);
-    versionLabel.color=[CCColor blackColor];
+    versionLabel.color=[CCColor whiteColor];
     [self addChild:versionLabel];
     
     // done
@@ -272,7 +273,7 @@ CGSize winSize;
 
 -(void)onPreferencesButtonClicked:(id)sender
 {
-    
+    [[CCDirector sharedDirector] replaceScene:[PreferencesLayer scene]withTransition:[CCTransition transitionCrossFadeWithDuration:1.0]];
 }
 
 -(void)onCreditButtonClicked:(id)sender

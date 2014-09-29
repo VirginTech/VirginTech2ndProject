@@ -8,6 +8,7 @@
 
 #import "ParentObject.h"
 #import "InitManager.h"
+#import "CCAnimation.h"
 
 @implementation ParentObject
 
@@ -17,6 +18,9 @@
 @synthesize blinkFlg;
 
 CGSize winSize;
+
+int animeCnt;
+NSMutableArray* frame;
 
 -(void)startBlink
 {
@@ -94,15 +98,36 @@ CGSize winSize;
         
         [self schedule:@selector(test_Schedule:)interval:0.01];
         */
+        
+        //アニメーション
+        animeCnt=0;
+        frame=[[NSMutableArray alloc]init];
+        for(int i=1; i<=5; i++){
+            CCSpriteFrame *spr = [[CCSpriteFrameCache sharedSpriteFrameCache]
+                                    spriteFrameByName:[NSString stringWithFormat:@"puni%02d.png",i]];
+            [frame addObject:spr];
+        }
+        /*CCAnimation* animation=[CCAnimation animationWithSpriteFrames:frame delay:0.1];
+        CCActionAnimate *AnimAction  = [CCActionAnimate actionWithAnimation:animation];
+        CCActionRepeatForever *repAction = [CCActionRepeatForever actionWithAction:AnimAction];
+        [self runAction:repAction];*/
+        
+        //[self schedule:@selector(animation_Schedule:)interval:0.1];
     }
     return self;
 }
 
-/*
--(void)test_Schedule:(CCTime)dt
+
+-(void)animation_Schedule:(CCTime)dt
 {
-    label2.string=[NSString stringWithFormat:@"%d",collisNum];
-}*/
+    [self setSpriteFrame:[frame objectAtIndex:animeCnt]];
+    
+    animeCnt++;
+    if(animeCnt>=5){
+        animeCnt=0;
+    }
+    //label2.string=[NSString stringWithFormat:@"%d",collisNum];
+}
 
 +(id)createParent:(int)objCnt gpNum:(int)_gpNum
 {
