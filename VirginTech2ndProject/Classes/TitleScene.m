@@ -14,10 +14,14 @@
 #import "CreditLayer.h"
 #import "ShopView.h"
 #import "PreferencesLayer.h"
+#import "AdGenerLayer.h"
+#import "GameFeatLayer.h"
 
 @implementation TitleScene
 
 CGSize winSize;
+
+GameFeatLayer* gfAd;
 
 + (TitleScene *)scene
 {
@@ -51,6 +55,14 @@ CGSize winSize;
     [GameManager setStageNum:[GameManager load_Clear_Level]];
     InfoLayer* infoLayer=[[InfoLayer alloc]init];
     [self addChild:infoLayer];
+    
+    //ADG-SSPバナー
+    AdGenerLayer* adgSSP=[[AdGenerLayer alloc]init];
+    [self addChild:adgSSP];
+    
+    //GameFeat広告
+    gfAd=[[GameFeatLayer alloc]init];
+    [self addChild:gfAd];
     
     // Hello world
     CCLabelTTF *label = [CCLabelTTF labelWithString:@"ぷにぷにパニック！" fontName:@"Verdana-Bold" fontSize:40.0f];
@@ -279,6 +291,7 @@ CGSize winSize;
 -(void)onCreditButtonClicked:(id)sender
 {
     [[CCDirector sharedDirector] replaceScene:[CreditLayer scene]withTransition:[CCTransition transitionCrossFadeWithDuration:1.0]];
+    [gfAd hiddenGfIconAd];
 }
 
 @end

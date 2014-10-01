@@ -9,6 +9,7 @@
 #import "CreditLayer.h"
 #import "GameManager.h"
 #import "TitleScene.h"
+#import "ImobileSdkAds/ImobileSdkAds.h"
 
 @implementation CreditLayer
 
@@ -35,6 +36,9 @@ CCScrollView* scrollView;
     title.scale=0.5;
     [self addChild:title];*/
 
+    //バックグラウンド
+    [self setBackGround];
+    
     //BGカラー
     CCNodeColor* background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0.2f green:0.2f blue:0.2f alpha:0.8f]];
     [self addChild:background];
@@ -192,10 +196,39 @@ CCScrollView* scrollView;
 
 }
 
+-(void)setBackGround
+{
+    float offsetX;
+    float offsetY;
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"backGround_default.plist"];
+    CCSprite* frame = [CCSprite spriteWithSpriteFrame:
+                       [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"bg01.png"]];
+    CGSize frameCount = CGSizeMake(winSize.width/frame.contentSize.width+1,
+                                   winSize.height/frame.contentSize.height+1);
+    NSString* bgName=[NSString stringWithFormat:@"bg%02d.png",(arc4random()%10)+1];
+    for(int i=0;i<frameCount.width*frameCount.height;i++)
+    {
+        frame = [CCSprite spriteWithSpriteFrame:
+                 [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:bgName]];
+        if(i==0){
+            offsetX = frame.contentSize.width/2-1;
+            offsetY = frame.contentSize.height/2-1;
+        }else if(i%(int)frameCount.width==0){
+            offsetX = frame.contentSize.width/2-1;
+            offsetY = offsetY + frame.contentSize.height-1;
+        }else{
+            offsetX = offsetX + frame.contentSize.width-1;
+        }
+        frame.position = CGPointMake(offsetX,offsetY);
+        [self addChild:frame z:0];
+    }
+}
+
 -(void)onCloseClicked:(id)sender
 {
     [[CCDirector sharedDirector] replaceScene:[TitleScene scene]withTransition:
                                                     [CCTransition transitionCrossFadeWithDuration:1.0]];
+    //[ImobileSdkAds showBySpotID:@"295894"];
 }
     
 @end

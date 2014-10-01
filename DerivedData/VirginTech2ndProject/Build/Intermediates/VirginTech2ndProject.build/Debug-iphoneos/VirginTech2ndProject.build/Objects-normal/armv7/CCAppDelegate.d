@@ -45,4 +45,7 @@ dependencies: \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/ObjectAL/OpenAL/ALChannelSource.h \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/ObjectAL/OpenAL/ALSoundSourcePool.h \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/ObjectAL/AudioTrack/OALAudioTrack.h \
-  /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/ObjectAL/AudioTrack/OALAudioTrackNotifications.h
+  /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/ObjectAL/AudioTrack/OALAudioTrackNotifications.h \
+  /Users/virgintech/Documents/Library/Ad/GameFeat/GameFeatSDK_iOS_v3.3.0/GameFeatKit.framework/Headers/GFController.h \
+  /Users/virgintech/Documents/Library/Ad/GameFeat/GameFeatSDK_iOS_v3.3.0/GameFeatKit.framework/Headers/GFCommon.h \
+  /Users/virgintech/Documents/Library/Ad/GameFeat/GameFeatSDK_iOS_v3.3.0/GameFeatKit.framework/Headers/GFView.h

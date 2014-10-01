@@ -37,6 +37,8 @@
 
 #import "OALSimpleAudio.h"
 
+#import <GameFeatKit/GFController.h>
+
 NSString* const CCSetupPixelFormat = @"CCSetupPixelFormat";
 NSString* const CCSetupScreenMode = @"CCSetupScreenMode";
 NSString* const CCSetupScreenOrientation = @"CCSetupScreenOrientation";
@@ -282,18 +284,34 @@ FindPOTScale(CGFloat size, CGFloat fixedSize)
 	[[CCDirector sharedDirector] setNextDeltaTimeZero:YES];
 	if( [navController_ visibleViewController] == [CCDirector sharedDirector] )
 		[[CCDirector sharedDirector] resume];
+    
+    //ゲームフィートSDK有効化
+    [GFController activateGF:@"8161" useCustom:NO useIcon:YES usePopup:NO];
 }
 
 -(void) applicationDidEnterBackground:(UIApplication*)application
 {
 	if( [navController_ visibleViewController] == [CCDirector sharedDirector] )
 		[[CCDirector sharedDirector] stopAnimation];
+    
+    //ゲームフィートコンバージョン確認タスクの起動
+    UIDevice *device = [UIDevice currentDevice];
+    BOOL backgroundSupported = NO;
+    if ([device respondsToSelector:@selector(isMultitaskingSupported)]) {
+        backgroundSupported = device.multitaskingSupported;
+    }
+    if (backgroundSupported) {
+        [GFController backgroundTask];
+    }
 }
 
 -(void) applicationWillEnterForeground:(UIApplication*)application
 {
 	if( [navController_ visibleViewController] == [CCDirector sharedDirector] )
 		[[CCDirector sharedDirector] startAnimation];
+    
+    //ゲームフィートコンバージョン確認タスクの停止
+    [GFController conversionCheckStop];
 }
 
 // application will be killed

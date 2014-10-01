@@ -4,70 +4,6 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>AppIcon29x29.png</key>
-		<data>
-		aR3Wo8Va9NtImm5s/J9UN+5JbVY=
-		</data>
-		<key>AppIcon29x29@2x.png</key>
-		<data>
-		zgNWVY1lpchSE0NOoVzlh8jlF3c=
-		</data>
-		<key>AppIcon29x29@2x~ipad.png</key>
-		<data>
-		zgNWVY1lpchSE0NOoVzlh8jlF3c=
-		</data>
-		<key>AppIcon29x29~ipad.png</key>
-		<data>
-		aR3Wo8Va9NtImm5s/J9UN+5JbVY=
-		</data>
-		<key>AppIcon40x40@2x.png</key>
-		<data>
-		FoZbTB0pUIn7Jf/v3FBGURU8NDk=
-		</data>
-		<key>AppIcon40x40@2x~ipad.png</key>
-		<data>
-		FoZbTB0pUIn7Jf/v3FBGURU8NDk=
-		</data>
-		<key>AppIcon40x40~ipad.png</key>
-		<data>
-		AlGxCRtKKYk8u3++N8HRq5C02Ko=
-		</data>
-		<key>AppIcon50x50@2x~ipad.png</key>
-		<data>
-		XoiXiIjrUE5Nni9uFdhFcTLxGxw=
-		</data>
-		<key>AppIcon50x50~ipad.png</key>
-		<data>
-		Cm760kOwZVX28J+yFoHaWHKHwPA=
-		</data>
-		<key>AppIcon57x57.png</key>
-		<data>
-		13z4eKKQIjR6hJtA46hC3NQvld8=
-		</data>
-		<key>AppIcon57x57@2x.png</key>
-		<data>
-		SbW1Qllv2yT4V5JS4G1xNQJdC1w=
-		</data>
-		<key>AppIcon60x60@2x.png</key>
-		<data>
-		E/xBG2pFpmSfZGn1WliJldk6uvs=
-		</data>
-		<key>AppIcon72x72@2x~ipad.png</key>
-		<data>
-		08EXKIqDzayRyBKM+Nkzi7B2Tt4=
-		</data>
-		<key>AppIcon72x72~ipad.png</key>
-		<data>
-		IbaB/dU9FSgdRhQFuPvA8nzVWIM=
-		</data>
-		<key>AppIcon76x76@2x~ipad.png</key>
-		<data>
-		6IPjSCHyci0a2XQBG2jnsOady4o=
-		</data>
-		<key>AppIcon76x76~ipad.png</key>
-		<data>
-		wzJEPflhktxlryr5KKKxqYDHW1U=
-		</data>
 		<key>ChangeLog</key>
 		<data>
 		/omrqzsR0+jWweLic0dUHre4LzY=
@@ -156,34 +92,6 @@
 		<data>
 		/KS8bcGsu7vSn3cxYOHl/qCeav8=
 		</data>
-		<key>LaunchImage-568h@2x.png</key>
-		<data>
-		8pJrQeatzpW9ANz0x16NOdk7DFk=
-		</data>
-		<key>LaunchImage-700-568h@2x.png</key>
-		<data>
-		8pJrQeatzpW9ANz0x16NOdk7DFk=
-		</data>
-		<key>LaunchImage-700-Landscape~ipad.png</key>
-		<data>
-		U8Qa6ZUfytQZYrklQWlgekCsVnQ=
-		</data>
-		<key>LaunchImage-700@2x.png</key>
-		<data>
-		UoAhd+0o6djLy7cRRQ+tjMatjpg=
-		</data>
-		<key>LaunchImage-Landscape~ipad.png</key>
-		<data>
-		U8Qa6ZUfytQZYrklQWlgekCsVnQ=
-		</data>
-		<key>LaunchImage.png</key>
-		<data>
-		AHgc+ReCRv5WTRzlR9dgUyEJ8tg=
-		</data>
-		<key>LaunchImage@2x.png</key>
-		<data>
-		UoAhd+0o6djLy7cRRQ+tjMatjpg=
-		</data>
 		<key>PkgInfo</key>
 		<data>
 		n57qDP4tZfLD1rCS43W0B4LQjzE=
@@ -218,7 +126,7 @@
 		</data>
 		<key>en.lproj/Localizable.strings</key>
 		<data>
-		Fl1+nEVvGBN9ghq11suntZWsw4I=
+		cfhXc1/P//Ke8GI0kpHVAEFCQWs=
 		</data>
 		<key>etc_default.plist</key>
 		<data>
@@ -227,6 +135,222 @@
 		<key>etc_default.png</key>
 		<data>
 		K1dBdGorYfEOycakVsPuOeIlhPI=
+		</data>
+		<key>gamefeat_banner.png</key>
+		<data>
+		bwB5F5DMEEPPmIi7srXGxj8GS2o=
+		</data>
+		<key>gamefeat_bg_loading.png</key>
+		<data>
+		yIqmgGGPWh4wmRDSo0JPPi6qyZo=
+		</data>
+		<key>gamefeat_btn_back.png</key>
+		<data>
+		pCu+IcmWhACU8q08kAdGlW7j9xo=
+		</data>
+		<key>gamefeat_btn_cancel.png</key>
+		<data>
+		NOaH4zq7ju4ED0uz4u/afK95Y3Q=
+		</data>
+		<key>gamefeat_btn_download.png</key>
+		<data>
+		+eiYHASdINya31aX4oI48kZYPUA=
+		</data>
+		<key>gamefeat_btn_review.png</key>
+		<data>
+		UdUfoKI0RjAtooPXE2zVcuKiTqM=
+		</data>
+		<key>gamefeat_btn_update.png</key>
+		<data>
+		FCXBp+MKdPp8vnUuQHnH9HmtoZo=
+		</data>
+		<key>gamefeat_error.html</key>
+		<data>
+		TbDNM1P0LJ5lGMgi4av9BulDq64=
+		</data>
+		<key>gamefeat_icon_error.png</key>
+		<data>
+		gGCvi2ZVq410jBA/meul1OstLLk=
+		</data>
+		<key>gamefeat_overlay.html</key>
+		<data>
+		7zM5twDuuwOKsABZ2dmM4G55I9c=
+		</data>
+		<key>gamefeat_overlay_close.png</key>
+		<data>
+		wpMecIz8I7Pi/usDZ9cCRYv6uGw=
+		</data>
+		<key>gamefeat_overlay_l.png</key>
+		<data>
+		S46LysYr1XQnoo4U/ZRmffNvuCs=
+		</data>
+		<key>gamefeat_overlay_p.png</key>
+		<data>
+		9CkWF/vIYt9Ot9hUght7XwiW840=
+		</data>
+		<key>gamefeat_popup_bg.png</key>
+		<data>
+		lk6SAA4O6kk/45WCtNSvc7h8nsQ=
+		</data>
+		<key>gamefeat_popup_bg_A.png</key>
+		<data>
+		d9tzGJ3fVvFwwV7YBZqTDqww988=
+		</data>
+		<key>gamefeat_popup_bg_B.png</key>
+		<data>
+		ThljRCSbDtvuzlJJFYCBQHHVcpg=
+		</data>
+		<key>gamefeat_popup_bg_C.png</key>
+		<data>
+		YsuWLRGHYNrvhcWXs9+/iRq0Eq4=
+		</data>
+		<key>gamefeat_popup_bg_D.png</key>
+		<data>
+		K4+NzN5QDrzeLILvoVVyQFNHVe0=
+		</data>
+		<key>gamefeat_popup_bg_E.png</key>
+		<data>
+		RARF0zb0lFetZnTo3qgdElCZWYo=
+		</data>
+		<key>gamefeat_popup_bg_F.png</key>
+		<data>
+		KYnIZhPpQbchxUkzESz/TO0pk3I=
+		</data>
+		<key>gamefeat_popup_bg_land.png</key>
+		<data>
+		H38jVinIr4t1SuKBVU5UWTiNlLk=
+		</data>
+		<key>gamefeat_popup_bg_land_A.png</key>
+		<data>
+		gCnjNXxQQ/nPS+1gGXV1B/h79lY=
+		</data>
+		<key>gamefeat_popup_bg_land_B.png</key>
+		<data>
+		qqVDCwsewzNyKwv1i9HwdSl/CgU=
+		</data>
+		<key>gamefeat_popup_bg_land_C.png</key>
+		<data>
+		Av0fMIGR+lI0z81pZ6oz5LUxeqQ=
+		</data>
+		<key>gamefeat_popup_bg_land_D.png</key>
+		<data>
+		w9AiEPZhph/JKzRS6K7KmnHRDN0=
+		</data>
+		<key>gamefeat_popup_bg_land_E.png</key>
+		<data>
+		GGP8L4Twmi1HfsVQTZEfeOYBzVo=
+		</data>
+		<key>gamefeat_popup_close.png</key>
+		<data>
+		NIYdxLGtFi0lqWJbjvv07qSEsyM=
+		</data>
+		<key>gamefeat_popup_close_A.png</key>
+		<data>
+		Kxq4Nntkp+qTBoFehsvJKInZYU4=
+		</data>
+		<key>gamefeat_popup_close_B.png</key>
+		<data>
+		oZEF6KWEJE7F9+ZCyubq0ukxM2I=
+		</data>
+		<key>gamefeat_popup_close_C.png</key>
+		<data>
+		QjHp/4cwAOEO9sM9JVpd6MQhJ6Y=
+		</data>
+		<key>gamefeat_popup_close_D.png</key>
+		<data>
+		2PCDyeCtJv6wPQrjORYr13ajz6o=
+		</data>
+		<key>gamefeat_popup_close_E.png</key>
+		<data>
+		KNnHI3dIyp0ZbB4Dy4gsrHew+Ms=
+		</data>
+		<key>gamefeat_popup_close_F.png</key>
+		<data>
+		5JRUUrUKlD7itGEN+U1ipm/IFGw=
+		</data>
+		<key>gamefeat_popup_close_land.png</key>
+		<data>
+		AXEsBMQumA3HVfZArXQIWTvl2IU=
+		</data>
+		<key>gamefeat_popup_close_land_A.png</key>
+		<data>
+		1IbT7VvsKlFYdrQ7O3A8VbuLH68=
+		</data>
+		<key>gamefeat_popup_close_land_B.png</key>
+		<data>
+		iQ3Z4W5oXewEKJNSzx62IVnUcIU=
+		</data>
+		<key>gamefeat_popup_close_land_C.png</key>
+		<data>
+		BQhd7K2vlm72aZM78Ktqio/x2vk=
+		</data>
+		<key>gamefeat_popup_close_land_D.png</key>
+		<data>
+		i8lgErlyFTFbIjLLy4P2G/67IhM=
+		</data>
+		<key>gamefeat_popup_close_land_E.png</key>
+		<data>
+		GH2iM9FYBJaWzaka25a0hMGd4gU=
+		</data>
+		<key>gamefeat_popup_dl.png</key>
+		<data>
+		mOo7+fsDBbdBDTHD8AEieA2vCco=
+		</data>
+		<key>gamefeat_popup_dl_A.png</key>
+		<data>
+		tf4rZSLu9T1yFnbJihLb2iQu8MM=
+		</data>
+		<key>gamefeat_popup_dl_B.png</key>
+		<data>
+		/ZseoSh/9LcZuTOzHMzwpE5xF+Y=
+		</data>
+		<key>gamefeat_popup_dl_C.png</key>
+		<data>
+		URTjGlSVn70QPgXM3tmNcmqhqrs=
+		</data>
+		<key>gamefeat_popup_dl_D.png</key>
+		<data>
+		omSsOCio4iN6f81pYlYt6NRYGm0=
+		</data>
+		<key>gamefeat_popup_dl_E.png</key>
+		<data>
+		qfNTqw3VdCgbExjbF9ekjjstgk0=
+		</data>
+		<key>gamefeat_popup_dl_F.png</key>
+		<data>
+		38b0o8Dc41ZXkYjQYBrIaKbVz7A=
+		</data>
+		<key>gamefeat_popup_dl_land.png</key>
+		<data>
+		Vjlboe0ivQBQrrmyEZOMuVv1Qo4=
+		</data>
+		<key>gamefeat_popup_dl_land_A.png</key>
+		<data>
+		RhKnFSc2myqbkecagYeAUWF/SpE=
+		</data>
+		<key>gamefeat_popup_dl_land_B.png</key>
+		<data>
+		qe8J/778usa6F6Z5yt9wM8mb7ME=
+		</data>
+		<key>gamefeat_popup_dl_land_C.png</key>
+		<data>
+		QsXaY+Jc8aQu/hHrotkfYM1v3g4=
+		</data>
+		<key>gamefeat_popup_dl_land_D.png</key>
+		<data>
+		p67NhY1lMnhfaBMqF2cSlvVY78g=
+		</data>
+		<key>gamefeat_popup_dl_land_E.png</key>
+		<data>
+		SZdM1mQIi4Tq501wvf/MoGSlLM0=
+		</data>
+		<key>gamefeat_rect_banner.png</key>
+		<data>
+		rZdW5g3vPiA9/3UndZUSUjXCCbE=
+		</data>
+		<key>gamefeat_style.css</key>
+		<data>
+		uiWKDoO91S2Qk0tReqHVZ0UErsM=
 		</data>
 		<key>iTunesArtwork</key>
 		<data>
@@ -242,7 +366,7 @@
 		</data>
 		<key>ja.lproj/Localizable.strings</key>
 		<data>
-		6OMgo6qaxVxzHvtbWMpTh9wRDLc=
+		N1USW6qwTzWxGCl/V7nYBwZbjlo=
 		</data>
 		<key>msg.fnt</key>
 		<data>
@@ -275,70 +399,6 @@
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>AppIcon29x29.png</key>
-		<data>
-		aR3Wo8Va9NtImm5s/J9UN+5JbVY=
-		</data>
-		<key>AppIcon29x29@2x.png</key>
-		<data>
-		zgNWVY1lpchSE0NOoVzlh8jlF3c=
-		</data>
-		<key>AppIcon29x29@2x~ipad.png</key>
-		<data>
-		zgNWVY1lpchSE0NOoVzlh8jlF3c=
-		</data>
-		<key>AppIcon29x29~ipad.png</key>
-		<data>
-		aR3Wo8Va9NtImm5s/J9UN+5JbVY=
-		</data>
-		<key>AppIcon40x40@2x.png</key>
-		<data>
-		FoZbTB0pUIn7Jf/v3FBGURU8NDk=
-		</data>
-		<key>AppIcon40x40@2x~ipad.png</key>
-		<data>
-		FoZbTB0pUIn7Jf/v3FBGURU8NDk=
-		</data>
-		<key>AppIcon40x40~ipad.png</key>
-		<data>
-		AlGxCRtKKYk8u3++N8HRq5C02Ko=
-		</data>
-		<key>AppIcon50x50@2x~ipad.png</key>
-		<data>
-		XoiXiIjrUE5Nni9uFdhFcTLxGxw=
-		</data>
-		<key>AppIcon50x50~ipad.png</key>
-		<data>
-		Cm760kOwZVX28J+yFoHaWHKHwPA=
-		</data>
-		<key>AppIcon57x57.png</key>
-		<data>
-		13z4eKKQIjR6hJtA46hC3NQvld8=
-		</data>
-		<key>AppIcon57x57@2x.png</key>
-		<data>
-		SbW1Qllv2yT4V5JS4G1xNQJdC1w=
-		</data>
-		<key>AppIcon60x60@2x.png</key>
-		<data>
-		E/xBG2pFpmSfZGn1WliJldk6uvs=
-		</data>
-		<key>AppIcon72x72@2x~ipad.png</key>
-		<data>
-		08EXKIqDzayRyBKM+Nkzi7B2Tt4=
-		</data>
-		<key>AppIcon72x72~ipad.png</key>
-		<data>
-		IbaB/dU9FSgdRhQFuPvA8nzVWIM=
-		</data>
-		<key>AppIcon76x76@2x~ipad.png</key>
-		<data>
-		6IPjSCHyci0a2XQBG2jnsOady4o=
-		</data>
-		<key>AppIcon76x76~ipad.png</key>
-		<data>
-		wzJEPflhktxlryr5KKKxqYDHW1U=
-		</data>
 		<key>ChangeLog</key>
 		<data>
 		/omrqzsR0+jWweLic0dUHre4LzY=
@@ -427,34 +487,6 @@
 		<data>
 		/KS8bcGsu7vSn3cxYOHl/qCeav8=
 		</data>
-		<key>LaunchImage-568h@2x.png</key>
-		<data>
-		8pJrQeatzpW9ANz0x16NOdk7DFk=
-		</data>
-		<key>LaunchImage-700-568h@2x.png</key>
-		<data>
-		8pJrQeatzpW9ANz0x16NOdk7DFk=
-		</data>
-		<key>LaunchImage-700-Landscape~ipad.png</key>
-		<data>
-		U8Qa6ZUfytQZYrklQWlgekCsVnQ=
-		</data>
-		<key>LaunchImage-700@2x.png</key>
-		<data>
-		UoAhd+0o6djLy7cRRQ+tjMatjpg=
-		</data>
-		<key>LaunchImage-Landscape~ipad.png</key>
-		<data>
-		U8Qa6ZUfytQZYrklQWlgekCsVnQ=
-		</data>
-		<key>LaunchImage.png</key>
-		<data>
-		AHgc+ReCRv5WTRzlR9dgUyEJ8tg=
-		</data>
-		<key>LaunchImage@2x.png</key>
-		<data>
-		UoAhd+0o6djLy7cRRQ+tjMatjpg=
-		</data>
 		<key>PkgInfo</key>
 		<data>
 		n57qDP4tZfLD1rCS43W0B4LQjzE=
@@ -489,7 +521,7 @@
 		</data>
 		<key>en.lproj/Localizable.strings</key>
 		<data>
-		Fl1+nEVvGBN9ghq11suntZWsw4I=
+		cfhXc1/P//Ke8GI0kpHVAEFCQWs=
 		</data>
 		<key>etc_default.plist</key>
 		<data>
@@ -498,6 +530,222 @@
 		<key>etc_default.png</key>
 		<data>
 		K1dBdGorYfEOycakVsPuOeIlhPI=
+		</data>
+		<key>gamefeat_banner.png</key>
+		<data>
+		bwB5F5DMEEPPmIi7srXGxj8GS2o=
+		</data>
+		<key>gamefeat_bg_loading.png</key>
+		<data>
+		yIqmgGGPWh4wmRDSo0JPPi6qyZo=
+		</data>
+		<key>gamefeat_btn_back.png</key>
+		<data>
+		pCu+IcmWhACU8q08kAdGlW7j9xo=
+		</data>
+		<key>gamefeat_btn_cancel.png</key>
+		<data>
+		NOaH4zq7ju4ED0uz4u/afK95Y3Q=
+		</data>
+		<key>gamefeat_btn_download.png</key>
+		<data>
+		+eiYHASdINya31aX4oI48kZYPUA=
+		</data>
+		<key>gamefeat_btn_review.png</key>
+		<data>
+		UdUfoKI0RjAtooPXE2zVcuKiTqM=
+		</data>
+		<key>gamefeat_btn_update.png</key>
+		<data>
+		FCXBp+MKdPp8vnUuQHnH9HmtoZo=
+		</data>
+		<key>gamefeat_error.html</key>
+		<data>
+		TbDNM1P0LJ5lGMgi4av9BulDq64=
+		</data>
+		<key>gamefeat_icon_error.png</key>
+		<data>
+		gGCvi2ZVq410jBA/meul1OstLLk=
+		</data>
+		<key>gamefeat_overlay.html</key>
+		<data>
+		7zM5twDuuwOKsABZ2dmM4G55I9c=
+		</data>
+		<key>gamefeat_overlay_close.png</key>
+		<data>
+		wpMecIz8I7Pi/usDZ9cCRYv6uGw=
+		</data>
+		<key>gamefeat_overlay_l.png</key>
+		<data>
+		S46LysYr1XQnoo4U/ZRmffNvuCs=
+		</data>
+		<key>gamefeat_overlay_p.png</key>
+		<data>
+		9CkWF/vIYt9Ot9hUght7XwiW840=
+		</data>
+		<key>gamefeat_popup_bg.png</key>
+		<data>
+		lk6SAA4O6kk/45WCtNSvc7h8nsQ=
+		</data>
+		<key>gamefeat_popup_bg_A.png</key>
+		<data>
+		d9tzGJ3fVvFwwV7YBZqTDqww988=
+		</data>
+		<key>gamefeat_popup_bg_B.png</key>
+		<data>
+		ThljRCSbDtvuzlJJFYCBQHHVcpg=
+		</data>
+		<key>gamefeat_popup_bg_C.png</key>
+		<data>
+		YsuWLRGHYNrvhcWXs9+/iRq0Eq4=
+		</data>
+		<key>gamefeat_popup_bg_D.png</key>
+		<data>
+		K4+NzN5QDrzeLILvoVVyQFNHVe0=
+		</data>
+		<key>gamefeat_popup_bg_E.png</key>
+		<data>
+		RARF0zb0lFetZnTo3qgdElCZWYo=
+		</data>
+		<key>gamefeat_popup_bg_F.png</key>
+		<data>
+		KYnIZhPpQbchxUkzESz/TO0pk3I=
+		</data>
+		<key>gamefeat_popup_bg_land.png</key>
+		<data>
+		H38jVinIr4t1SuKBVU5UWTiNlLk=
+		</data>
+		<key>gamefeat_popup_bg_land_A.png</key>
+		<data>
+		gCnjNXxQQ/nPS+1gGXV1B/h79lY=
+		</data>
+		<key>gamefeat_popup_bg_land_B.png</key>
+		<data>
+		qqVDCwsewzNyKwv1i9HwdSl/CgU=
+		</data>
+		<key>gamefeat_popup_bg_land_C.png</key>
+		<data>
+		Av0fMIGR+lI0z81pZ6oz5LUxeqQ=
+		</data>
+		<key>gamefeat_popup_bg_land_D.png</key>
+		<data>
+		w9AiEPZhph/JKzRS6K7KmnHRDN0=
+		</data>
+		<key>gamefeat_popup_bg_land_E.png</key>
+		<data>
+		GGP8L4Twmi1HfsVQTZEfeOYBzVo=
+		</data>
+		<key>gamefeat_popup_close.png</key>
+		<data>
+		NIYdxLGtFi0lqWJbjvv07qSEsyM=
+		</data>
+		<key>gamefeat_popup_close_A.png</key>
+		<data>
+		Kxq4Nntkp+qTBoFehsvJKInZYU4=
+		</data>
+		<key>gamefeat_popup_close_B.png</key>
+		<data>
+		oZEF6KWEJE7F9+ZCyubq0ukxM2I=
+		</data>
+		<key>gamefeat_popup_close_C.png</key>
+		<data>
+		QjHp/4cwAOEO9sM9JVpd6MQhJ6Y=
+		</data>
+		<key>gamefeat_popup_close_D.png</key>
+		<data>
+		2PCDyeCtJv6wPQrjORYr13ajz6o=
+		</data>
+		<key>gamefeat_popup_close_E.png</key>
+		<data>
+		KNnHI3dIyp0ZbB4Dy4gsrHew+Ms=
+		</data>
+		<key>gamefeat_popup_close_F.png</key>
+		<data>
+		5JRUUrUKlD7itGEN+U1ipm/IFGw=
+		</data>
+		<key>gamefeat_popup_close_land.png</key>
+		<data>
+		AXEsBMQumA3HVfZArXQIWTvl2IU=
+		</data>
+		<key>gamefeat_popup_close_land_A.png</key>
+		<data>
+		1IbT7VvsKlFYdrQ7O3A8VbuLH68=
+		</data>
+		<key>gamefeat_popup_close_land_B.png</key>
+		<data>
+		iQ3Z4W5oXewEKJNSzx62IVnUcIU=
+		</data>
+		<key>gamefeat_popup_close_land_C.png</key>
+		<data>
+		BQhd7K2vlm72aZM78Ktqio/x2vk=
+		</data>
+		<key>gamefeat_popup_close_land_D.png</key>
+		<data>
+		i8lgErlyFTFbIjLLy4P2G/67IhM=
+		</data>
+		<key>gamefeat_popup_close_land_E.png</key>
+		<data>
+		GH2iM9FYBJaWzaka25a0hMGd4gU=
+		</data>
+		<key>gamefeat_popup_dl.png</key>
+		<data>
+		mOo7+fsDBbdBDTHD8AEieA2vCco=
+		</data>
+		<key>gamefeat_popup_dl_A.png</key>
+		<data>
+		tf4rZSLu9T1yFnbJihLb2iQu8MM=
+		</data>
+		<key>gamefeat_popup_dl_B.png</key>
+		<data>
+		/ZseoSh/9LcZuTOzHMzwpE5xF+Y=
+		</data>
+		<key>gamefeat_popup_dl_C.png</key>
+		<data>
+		URTjGlSVn70QPgXM3tmNcmqhqrs=
+		</data>
+		<key>gamefeat_popup_dl_D.png</key>
+		<data>
+		omSsOCio4iN6f81pYlYt6NRYGm0=
+		</data>
+		<key>gamefeat_popup_dl_E.png</key>
+		<data>
+		qfNTqw3VdCgbExjbF9ekjjstgk0=
+		</data>
+		<key>gamefeat_popup_dl_F.png</key>
+		<data>
+		38b0o8Dc41ZXkYjQYBrIaKbVz7A=
+		</data>
+		<key>gamefeat_popup_dl_land.png</key>
+		<data>
+		Vjlboe0ivQBQrrmyEZOMuVv1Qo4=
+		</data>
+		<key>gamefeat_popup_dl_land_A.png</key>
+		<data>
+		RhKnFSc2myqbkecagYeAUWF/SpE=
+		</data>
+		<key>gamefeat_popup_dl_land_B.png</key>
+		<data>
+		qe8J/778usa6F6Z5yt9wM8mb7ME=
+		</data>
+		<key>gamefeat_popup_dl_land_C.png</key>
+		<data>
+		QsXaY+Jc8aQu/hHrotkfYM1v3g4=
+		</data>
+		<key>gamefeat_popup_dl_land_D.png</key>
+		<data>
+		p67NhY1lMnhfaBMqF2cSlvVY78g=
+		</data>
+		<key>gamefeat_popup_dl_land_E.png</key>
+		<data>
+		SZdM1mQIi4Tq501wvf/MoGSlLM0=
+		</data>
+		<key>gamefeat_rect_banner.png</key>
+		<data>
+		rZdW5g3vPiA9/3UndZUSUjXCCbE=
+		</data>
+		<key>gamefeat_style.css</key>
+		<data>
+		uiWKDoO91S2Qk0tReqHVZ0UErsM=
 		</data>
 		<key>iTunesArtwork</key>
 		<data>
@@ -513,7 +761,7 @@
 		</data>
 		<key>ja.lproj/Localizable.strings</key>
 		<data>
-		6OMgo6qaxVxzHvtbWMpTh9wRDLc=
+		N1USW6qwTzWxGCl/V7nYBwZbjlo=
 		</data>
 		<key>msg.fnt</key>
 		<data>

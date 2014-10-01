@@ -11,6 +11,7 @@
 #import "TitleScene.h"
 #import "StageLevel_01.h"
 #import "GameManager.h"
+#import "ImobileSdkAds/ImobileSdkAds.h"
 
 @implementation AppDelegate
 
@@ -60,6 +61,9 @@
         [[GKLocalPlayer localPlayer]authenticateWithCompletionHandler:^(NSError *error){}];
     }
 
+    //iMobileインタースティシャル読込み (AppBankNetworkインタースティシャルと相性悪し)
+    //[ImobileSdkAds registerWithPublisherID:@"31967" MediaID:@"121860" SpotID:@"295894"];
+    //[ImobileSdkAds startBySpotID:@"295894"];
 	
 	return YES;
 }
@@ -88,7 +92,6 @@
     }else{
         [GameManager setDevice:0];
     }
-    
 	// This method should return the very first scene to be run when your app starts.
 	return [TitleScene scene];
 }

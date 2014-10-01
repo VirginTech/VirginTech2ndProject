@@ -16,6 +16,7 @@
 #import "NaviLayer.h"
 #import "MsgLayer.h"
 #import "FingerObject.h"
+#import "AdGenerLayer.h"
 
 @implementation StageLevel_01
 
@@ -44,6 +45,10 @@ CCButton *speed2xButton;
 bool tutorialFlg;
 FingerObject* finger;
 NSMutableArray* drawArray;
+
+
+//Ad
+AdGenerLayer* adgSSP;
 
 //デバッグ用ラベル
 //CCLabelTTF* puniLabel;
@@ -151,6 +156,9 @@ NSMutableArray* drawArray;
 - (void)dealloc
 {
     // clean up code goes here
+    
+    //Ad削除
+    [adgSSP removeLayer];
 }
 
 - (void)onEnter
@@ -485,6 +493,11 @@ NSMutableArray* drawArray;
         [GameManager submitScore_GameCenter:[GameManager load_HighScore]];
     }
     [self schedule:@selector(playBack_state_Schedule:) interval:0.1];
+    
+    //ADG-SSPバナー
+    adgSSP=[[AdGenerLayer alloc]init];
+    [self addChild:adgSSP];
+    
 }
 
 +(void)startPlayBack
@@ -516,6 +529,9 @@ NSMutableArray* drawArray;
         pauseButton.visible=true;
         self.userInteractionEnabled = YES;
         [self unschedule:@selector(playBack_state_Schedule:)];
+        
+        //Ad削除
+        [adgSSP removeLayer];
     }
 }
 
@@ -665,11 +681,17 @@ NSMutableArray* drawArray;
         pauseButton.title=@"[再 開]";
         naviLayer.visible=true;
         naviLayer.playbackButton.visible=false;
+        //ADG-SSPバナー
+        adgSSP=[[AdGenerLayer alloc]init];
+        [self addChild:adgSSP];
+        
     }else{//ポーズ中だったら
         self.userInteractionEnabled = YES;
         [GameManager setPause:false];
         pauseButton.title=@"[ポーズ]";
         naviLayer.visible=false;
+        //Ad削除
+        [adgSSP removeLayer];
     }
 }
 
