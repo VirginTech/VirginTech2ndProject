@@ -19,5 +19,6 @@
 +(NSMutableArray*)getGpNumArray;
 
 +(NSMutableArray*)getPattern:(int)pieces size:(float)size;
++(NSMutableArray*)getRotation:(int)pieces;
 
 @end

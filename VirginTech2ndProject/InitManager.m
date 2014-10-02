@@ -83,6 +83,35 @@ NSMutableArray* gpNumArray;
     return array;
 }
 
++(NSMutableArray*)getRotation:(int)pieces
+{
+    NSMutableArray* array=[[NSMutableArray alloc]init];
+    
+    if(pieces==1){
+        [array addObject:[NSNumber numberWithFloat:0.0]];
+    }else if(pieces==2){
+        [array addObject:[NSNumber numberWithFloat: 90.0]];
+        [array addObject:[NSNumber numberWithFloat:-90.0]];
+    }else if(pieces==3){
+        [array addObject:[NSNumber numberWithFloat:180.0]];
+        [array addObject:[NSNumber numberWithFloat:-45.0]];
+        [array addObject:[NSNumber numberWithFloat: 45.0]];
+    }else if(pieces==4){
+        [array addObject:[NSNumber numberWithFloat:180.0]];
+        [array addObject:[NSNumber numberWithFloat:-90.0]];
+        [array addObject:[NSNumber numberWithFloat: 90.0]];
+        [array addObject:[NSNumber numberWithFloat:  0.0]];
+    }else if(pieces==5){
+        [array addObject:[NSNumber numberWithFloat: 180.0]];
+        [array addObject:[NSNumber numberWithFloat:-135.0]];
+        [array addObject:[NSNumber numberWithFloat: 135.0]];
+        [array addObject:[NSNumber numberWithFloat:  45.0]];
+        [array addObject:[NSNumber numberWithFloat: -45.0]];
+    }
+    
+    return array;
+}
+
 +(void)generate_Stage:(int)stageLevel
 {
     int gpMax=2;

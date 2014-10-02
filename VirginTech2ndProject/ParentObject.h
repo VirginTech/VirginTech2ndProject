@@ -15,6 +15,9 @@
     int gpNum;//グループ番号
     bool blinkFlg;
     
+    int animeCnt;
+    NSMutableArray* frame;
+    
     CCLabelTTF* label;
     //CCLabelTTF* label2;
 }

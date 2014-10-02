@@ -362,7 +362,7 @@
 		</data>
 		<key>ja.lproj/InfoPlist.strings</key>
 		<data>
-		DUVOudxYyzJFjT420ke52v4JNFk=
+		uUEh5Z3IkG3TQWD1ui/FYc1ZgHg=
 		</data>
 		<key>ja.lproj/Localizable.strings</key>
 		<data>
@@ -375,6 +375,46 @@
 		<key>msg.png</key>
 		<data>
 		7r7uu3h+DDW40C4/xQzjZRfjouY=
+		</data>
+		<key>puni01_default.plist</key>
+		<data>
+		cJ/jyA0BNjjYmjppRpZVlJg1I1c=
+		</data>
+		<key>puni01_default.png</key>
+		<data>
+		mUj9lmf7lUznFUp+d9mB+Bd/B4M=
+		</data>
+		<key>puni02_default.plist</key>
+		<data>
+		MlObK/ZqLhcZe40V68bQsX46Ync=
+		</data>
+		<key>puni02_default.png</key>
+		<data>
+		U+/ekdTW5jt+rCH+D8P/YVjIrgE=
+		</data>
+		<key>puni03_default.plist</key>
+		<data>
+		D5zVLZ1pojXcl8Fg5e32+Bfd8lo=
+		</data>
+		<key>puni03_default.png</key>
+		<data>
+		mW2isMQlVuJM5EIftUxEvWoYiiY=
+		</data>
+		<key>puni04_default.plist</key>
+		<data>
+		sVTf3P0/I/Z0uoJlgQCRburagTQ=
+		</data>
+		<key>puni04_default.png</key>
+		<data>
+		cxJCKkj37sY+fvdu1Ufe/MBQEq0=
+		</data>
+		<key>puni05_default.plist</key>
+		<data>
+		GPwPVluZ4j34WnGoUGdrEFVQ/+0=
+		</data>
+		<key>puni05_default.png</key>
+		<data>
+		dXjC+Q0cqo7LrSbTzwcgzisKLAA=
 		</data>
 		<key>puniObj_default.plist</key>
 		<data>
@@ -757,7 +797,7 @@
 		</data>
 		<key>ja.lproj/InfoPlist.strings</key>
 		<data>
-		DUVOudxYyzJFjT420ke52v4JNFk=
+		uUEh5Z3IkG3TQWD1ui/FYc1ZgHg=
 		</data>
 		<key>ja.lproj/Localizable.strings</key>
 		<data>
@@ -770,6 +810,46 @@
 		<key>msg.png</key>
 		<data>
 		7r7uu3h+DDW40C4/xQzjZRfjouY=
+		</data>
+		<key>puni01_default.plist</key>
+		<data>
+		cJ/jyA0BNjjYmjppRpZVlJg1I1c=
+		</data>
+		<key>puni01_default.png</key>
+		<data>
+		mUj9lmf7lUznFUp+d9mB+Bd/B4M=
+		</data>
+		<key>puni02_default.plist</key>
+		<data>
+		MlObK/ZqLhcZe40V68bQsX46Ync=
+		</data>
+		<key>puni02_default.png</key>
+		<data>
+		U+/ekdTW5jt+rCH+D8P/YVjIrgE=
+		</data>
+		<key>puni03_default.plist</key>
+		<data>
+		D5zVLZ1pojXcl8Fg5e32+Bfd8lo=
+		</data>
+		<key>puni03_default.png</key>
+		<data>
+		mW2isMQlVuJM5EIftUxEvWoYiiY=
+		</data>
+		<key>puni04_default.plist</key>
+		<data>
+		sVTf3P0/I/Z0uoJlgQCRburagTQ=
+		</data>
+		<key>puni04_default.png</key>
+		<data>
+		cxJCKkj37sY+fvdu1Ufe/MBQEq0=
+		</data>
+		<key>puni05_default.plist</key>
+		<data>
+		GPwPVluZ4j34WnGoUGdrEFVQ/+0=
+		</data>
+		<key>puni05_default.png</key>
+		<data>
+		dXjC+Q0cqo7LrSbTzwcgzisKLAA=
 		</data>
 		<key>puniObj_default.plist</key>
 		<data>

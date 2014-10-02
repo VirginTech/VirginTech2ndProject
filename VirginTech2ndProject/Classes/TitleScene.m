@@ -92,7 +92,7 @@ GameFeatLayer* gfAd;
     CCButton *gameCenterButton = [CCButton buttonWithTitle:@"" spriteFrame:
                                   [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"gamecenter.png"]];
     gameCenterButton.positionType = CCPositionTypeNormalized;
-    gameCenterButton.position = ccp(0.95f, 0.15f);
+    gameCenterButton.position = ccp(0.97f, 0.10f);
     gameCenterButton.scale=0.5;
     [gameCenterButton setTarget:self selector:@selector(onGameCenterClicked:)];
     [self addChild:gameCenterButton];
@@ -101,7 +101,7 @@ GameFeatLayer* gfAd;
     CCButton *twitterButton = [CCButton buttonWithTitle:@"" spriteFrame:
                                [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"twitter.png"]];
     twitterButton.positionType = CCPositionTypeNormalized;
-    twitterButton.position = ccp(0.95f, 0.25f);
+    twitterButton.position = ccp(0.97f, 0.20f);
     twitterButton.scale=0.5;
     [twitterButton setTarget:self selector:@selector(onTwitterClicked:)];
     [self addChild:twitterButton];
@@ -110,7 +110,7 @@ GameFeatLayer* gfAd;
     CCButton *facebookButton = [CCButton buttonWithTitle:@"" spriteFrame:
                                 [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"facebook.png"]];
     facebookButton.positionType = CCPositionTypeNormalized;
-    facebookButton.position = ccp(0.95f, 0.35f);
+    facebookButton.position = ccp(0.97f, 0.30f);
     facebookButton.scale=0.5;
     [facebookButton setTarget:self selector:@selector(onFacebookClicked:)];
     [self addChild:facebookButton];
@@ -119,7 +119,7 @@ GameFeatLayer* gfAd;
     CCButton *inAppButton = [CCButton buttonWithTitle:@"" spriteFrame:
                              [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"shopBtn.png"]];
     inAppButton.positionType = CCPositionTypeNormalized;
-    inAppButton.position = ccp(0.05f, 0.15f);
+    inAppButton.position = ccp(0.03f, 0.10f);
     inAppButton.scale=0.5;
     [inAppButton setTarget:self selector:@selector(onInAppPurchaseClicked:)];
     [self addChild:inAppButton];
@@ -128,7 +128,7 @@ GameFeatLayer* gfAd;
     CCButton *preferencesButton = [CCButton buttonWithTitle:@"" spriteFrame:
                                    [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"configBtn.png"]];
     preferencesButton.positionType = CCPositionTypeNormalized;
-    preferencesButton.position = ccp(0.05f, 0.25f);
+    preferencesButton.position = ccp(0.03f, 0.20f);
     preferencesButton.scale=0.5;
     [preferencesButton setTarget:self selector:@selector(onPreferencesButtonClicked:)];
     [self addChild:preferencesButton];
@@ -137,14 +137,14 @@ GameFeatLayer* gfAd;
     CCButton *creditButton = [CCButton buttonWithTitle:@"" spriteFrame:
                               [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"creditBtn.png"]];
     creditButton.positionType = CCPositionTypeNormalized;
-    creditButton.position = ccp(0.05f, 0.35f);
+    creditButton.position = ccp(0.03f, 0.30f);
     creditButton.scale=0.5;
     [creditButton setTarget:self selector:@selector(onCreditButtonClicked:)];
     [self addChild:creditButton];
     
     //バージョン
-    CCLabelTTF* versionLabel=[CCLabelTTF labelWithString:@"Version 1.0.0" fontName:@"Verdana" fontSize:13];
-    versionLabel.position=ccp(versionLabel.contentSize.width/2+5,versionLabel.contentSize.height/2+5);
+    CCLabelTTF* versionLabel=[CCLabelTTF labelWithString:@"Version 1.0.0" fontName:@"Verdana-Bold" fontSize:13];
+    versionLabel.position=ccp(winSize.width-versionLabel.contentSize.width/2,winSize.height-40);
     versionLabel.color=[CCColor whiteColor];
     [self addChild:versionLabel];
     
@@ -159,7 +159,7 @@ GameFeatLayer* gfAd;
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"backGround_default.plist"];
     CCSprite* frame = [CCSprite spriteWithSpriteFrame:
                        [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"bg01.png"]];
-    CGSize frameCount = CGSizeMake(winSize.width/frame.contentSize.width+1,
+    CGSize frameCount = CGSizeMake(winSize.width/frame.contentSize.width+2,
                                    winSize.height/frame.contentSize.height+1);
     NSString* bgName=[NSString stringWithFormat:@"bg%02d.png",(arc4random()%10)+1];
     for(int i=0;i<frameCount.width*frameCount.height;i++)
@@ -291,7 +291,6 @@ GameFeatLayer* gfAd;
 -(void)onCreditButtonClicked:(id)sender
 {
     [[CCDirector sharedDirector] replaceScene:[CreditLayer scene]withTransition:[CCTransition transitionCrossFadeWithDuration:1.0]];
-    [gfAd hiddenGfIconAd];
 }
 
 @end

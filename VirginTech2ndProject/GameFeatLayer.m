@@ -28,38 +28,38 @@ GFIconView *iconView;
     
     //アイコン広告
     gfIconController = [[GFIconController alloc] init];
-    [gfIconController setRefreshTiming:60];
+    [gfIconController setRefreshTiming:30];
     
     if([GameManager getDevice]==3){//iPad
-        iconView = [[GFIconView alloc] initWithFrame:CGRectMake(0, (winSize.height*2)/2+50, 80, 80)];
+        iconView = [[GFIconView alloc] initWithFrame:CGRectMake(0, (winSize.height*2)/2-120, 80, 80)];
         [gfIconController addIconView:iconView];
         [[[CCDirector sharedDirector]view]addSubview:iconView];
 
-        iconView = [[GFIconView alloc] initWithFrame:CGRectMake(0, (winSize.height*2)/2-50, 80, 80)];
+        iconView = [[GFIconView alloc] initWithFrame:CGRectMake(0, (winSize.height*2)/2- 20, 80, 80)];
         [gfIconController addIconView:iconView];
         [[[CCDirector sharedDirector]view]addSubview:iconView];
 
-        iconView = [[GFIconView alloc] initWithFrame:CGRectMake((winSize.width*2)-80, (winSize.height*2)/2+50, 80, 80)];
+        iconView = [[GFIconView alloc] initWithFrame:CGRectMake((winSize.width*2)-80, (winSize.height*2)/2-120, 80, 80)];
         [gfIconController addIconView:iconView];
         [[[CCDirector sharedDirector]view]addSubview:iconView];
 
-        iconView = [[GFIconView alloc] initWithFrame:CGRectMake((winSize.width*2)-80, (winSize.height*2)/2-50, 80, 80)];
+        iconView = [[GFIconView alloc] initWithFrame:CGRectMake((winSize.width*2)-80, (winSize.height*2)/2- 20, 80, 80)];
         [gfIconController addIconView:iconView];
         [[[CCDirector sharedDirector]view]addSubview:iconView];
     }else{
-        iconView = [[GFIconView alloc] initWithFrame:CGRectMake(0, winSize.height/2+25, 50, 50)];
+        iconView = [[GFIconView alloc] initWithFrame:CGRectMake(0, winSize.height/2- 95, 50, 50)];
         [gfIconController addIconView:iconView];
         [[[CCDirector sharedDirector]view]addSubview:iconView];
 
-        iconView = [[GFIconView alloc] initWithFrame:CGRectMake(0, winSize.height/2-55, 50, 50)];
+        iconView = [[GFIconView alloc] initWithFrame:CGRectMake(0, winSize.height/2- 30, 50, 50)];
         [gfIconController addIconView:iconView];
         [[[CCDirector sharedDirector]view]addSubview:iconView];
 
-        iconView = [[GFIconView alloc] initWithFrame:CGRectMake(winSize.width-50, winSize.height/2+25, 50, 50)];
+        iconView = [[GFIconView alloc] initWithFrame:CGRectMake(winSize.width-50, winSize.height/2- 95, 50, 50)];
         [gfIconController addIconView:iconView];
         [[[CCDirector sharedDirector]view]addSubview:iconView];
 
-        iconView = [[GFIconView alloc] initWithFrame:CGRectMake(winSize.width-50, winSize.height/2-55, 50, 50)];
+        iconView = [[GFIconView alloc] initWithFrame:CGRectMake(winSize.width-50, winSize.height/2- 30, 50, 50)];
         [gfIconController addIconView:iconView];
         [[[CCDirector sharedDirector]view]addSubview:iconView];
     }
@@ -94,7 +94,7 @@ GFIconView *iconView;
     [super onEnter];
     [gfIconController loadAd:@"8161"];
     [gfIconController visibleIconAd];
-    //[gfIconController stopAd];//更新しない
+    [gfIconController stopAd];//更新が頻発するので更新しない！
 }
 
 - (void)onExit

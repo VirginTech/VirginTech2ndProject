@@ -19,9 +19,6 @@
 
 CGSize winSize;
 
-int animeCnt;
-NSMutableArray* frame;
-
 -(void)startBlink
 {
     blinkFlg=true;
@@ -46,21 +43,30 @@ NSMutableArray* frame;
 {
     CGPoint centerPos;
     NSMutableArray* gpPatternArray=[[NSMutableArray alloc]init];
-    //画像読み込み
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"puniObj_default.plist"];
-    NSString* gpName=[NSString stringWithFormat:@"puni%02d.png",_gpNum];
+    NSMutableArray* gpRotationArray=[[NSMutableArray alloc]init];
     
-    if(self=[super initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:gpName]])
+    //画像読み込み
+    [[CCSpriteFrameCache sharedSpriteFrameCache]removeSpriteFrames];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
+                            [NSString stringWithFormat:@"puni%02d_default.plist",_gpNum]];
+    
+    //NSString* gpName=[NSString stringWithFormat:@"puni%02d.png",_gpNum];
+    
+    if(self=[super initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"01.png"]])
     {
         winSize = [[CCDirector sharedDirector]viewSize];
 
         self.scale=0.40;
         
+        //ポジション設定
         centerPos=ccp(winSize.width/2,winSize.height/2);
         gpPatternArray=[InitManager getPattern:
                         (int)[InitManager getGpNumArray].count size:self.contentSize.width*self.scale];
         self.position=ccp(centerPos.x+[[gpPatternArray objectAtIndex:objCnt]CGPointValue].x,
                           centerPos.y+[[gpPatternArray objectAtIndex:objCnt]CGPointValue].y);
+        //ローティション設定
+        gpRotationArray=[InitManager getRotation:(int)[InitManager getGpNumArray].count];
+        self.rotation=[[gpRotationArray objectAtIndex:objCnt]floatValue];
         
         objNum=objCnt;
         gpNum=_gpNum;
@@ -83,13 +89,13 @@ NSMutableArray* frame;
 
         //self.rotation=45;
         
-        //デバッグ用ラベル
+        /*/デバッグ用ラベル
         label=[CCLabelTTF labelWithString:
                [NSString stringWithFormat:@"%d",gpNum]fontName:@"Verdana-Bold" fontSize:55];
         label.position=ccp(self.contentSize.width/2,self.contentSize.height/2);
         label.color=[CCColor blackColor];
         [self addChild:label];
-        /*
+        
         label2=[CCLabelTTF labelWithString:
                 [NSString stringWithFormat:@"%d",collisNum] fontName:@"Verdana-Bold" fontSize:35];
         label2.position=ccp(self.contentSize.width/2,self.contentSize.height/2-100);
@@ -102,9 +108,9 @@ NSMutableArray* frame;
         //アニメーション
         animeCnt=0;
         frame=[[NSMutableArray alloc]init];
-        for(int i=1; i<=5; i++){
+        for(int i=1; i<=10; i++){
             CCSpriteFrame *spr = [[CCSpriteFrameCache sharedSpriteFrameCache]
-                                    spriteFrameByName:[NSString stringWithFormat:@"puni%02d.png",i]];
+                                    spriteFrameByName:[NSString stringWithFormat:@"%02d.png",i]];
             [frame addObject:spr];
         }
         /*CCAnimation* animation=[CCAnimation animationWithSpriteFrames:frame delay:0.1];
@@ -112,7 +118,7 @@ NSMutableArray* frame;
         CCActionRepeatForever *repAction = [CCActionRepeatForever actionWithAction:AnimAction];
         [self runAction:repAction];*/
         
-        //[self schedule:@selector(animation_Schedule:)interval:0.1];
+        [self schedule:@selector(animation_Schedule:)interval:0.1];
     }
     return self;
 }
@@ -123,7 +129,7 @@ NSMutableArray* frame;
     [self setSpriteFrame:[frame objectAtIndex:animeCnt]];
     
     animeCnt++;
-    if(animeCnt>=5){
+    if(animeCnt>=10){
         animeCnt=0;
     }
     //label2.string=[NSString stringWithFormat:@"%d",collisNum];

@@ -141,9 +141,16 @@ CGSize winSize;
             [playBackArray removeLastObject];
         }
         playBackReadyFlg=false;
+        
+        //回転
+        if(gpNum%2==0){
+            self.rotation+=1.0;
+        }else{
+            self.rotation-=1.0;
+        }
     }
     
-    label2.string=[NSString stringWithFormat:@"%f",targetAngle];
+    //label2.string=[NSString stringWithFormat:@"%f",targetAngle];
 
     /*
     targetAngle=[self wallReflectionAngle];
@@ -229,10 +236,11 @@ CGSize winSize;
 -(id)initWithPuni:(int)objCnt gpNum:(int)_gpNum;
 {
     //画像読み込み
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"puniObj_default.plist"];
-    NSString* gpName=[NSString stringWithFormat:@"puni%02d.png",_gpNum];
+    [[CCSpriteFrameCache sharedSpriteFrameCache]removeSpriteFrames];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
+                                    [NSString stringWithFormat:@"puni%02d_default.plist",_gpNum]];
     
-    if(self=[super initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:gpName]])
+    if(self=[super initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"01.png"]])
     {
         winSize = [[CCDirector sharedDirector]viewSize];
         
@@ -298,7 +306,7 @@ CGSize winSize;
             [self addChild:finger];
         }
         
-        //デバッグ用ラベル
+        /*/デバッグ用ラベル
         label=[CCLabelTTF labelWithString:
                [NSString stringWithFormat:@"%d",objNum]fontName:@"Verdana-Bold" fontSize:35];
         label.position=ccp(self.contentSize.width/2,self.contentSize.height/2);
@@ -308,12 +316,31 @@ CGSize winSize;
         label2=[CCLabelTTF labelWithString:[NSString stringWithFormat:@"%f",targetAngle] fontName:@"Verdana-Bold" fontSize:35];
         label2.position=ccp(self.contentSize.width/2,self.contentSize.height/2-100);
         label2.color=[CCColor whiteColor];
-        [self addChild:label2];
-        
+        [self addChild:label2];*/
 
+        //アニメーション
+        animeCnt=0;
+        frame=[[NSMutableArray alloc]init];
+        for(int i=1; i<=10; i++){
+            CCSpriteFrame *spr = [[CCSpriteFrameCache sharedSpriteFrameCache]
+                                  spriteFrameByName:[NSString stringWithFormat:@"%02d.png",i]];
+            [frame addObject:spr];
+        }
+        [self schedule:@selector(animation_Schedule:)interval:0.1];
+        
+        //移動
         [self schedule:@selector(move_Schedule:)interval:0.01];
     }
     return self;
+}
+
+-(void)animation_Schedule:(CCTime)dt
+{
+    [self setSpriteFrame:[frame objectAtIndex:animeCnt]];
+    animeCnt++;
+    if(animeCnt>=10){
+        animeCnt=0;
+    }
 }
 
 +(id)createPuni:(int)objCnt gpNum:(int)_gpNum

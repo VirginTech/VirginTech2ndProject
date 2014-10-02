@@ -55,7 +55,7 @@ CGSize winSize;
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"backGround_default.plist"];
     CCSprite* frame = [CCSprite spriteWithSpriteFrame:
                        [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"bg01.png"]];
-    CGSize frameCount = CGSizeMake(winSize.width/frame.contentSize.width+1,
+    CGSize frameCount = CGSizeMake(winSize.width/frame.contentSize.width+2,
                                    winSize.height/frame.contentSize.height+1);
     NSString* bgName=[NSString stringWithFormat:@"bg%02d.png",(arc4random()%10)+1];
     for(int i=0;i<frameCount.width*frameCount.height;i++)

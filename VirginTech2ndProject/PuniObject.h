@@ -38,6 +38,9 @@
     NSMutableArray* playBackArray;
     
     FingerObject* finger;//チュートリアル
+    
+    int animeCnt;
+    NSMutableArray* frame;
 }
 
 @property float velocity;
