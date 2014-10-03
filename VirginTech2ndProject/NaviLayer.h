@@ -10,11 +10,13 @@
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
 
-@interface NaviLayer : CCScene {
-    
+@interface NaviLayer : CCScene
+{
+    CCButton *titleButton;
     CCButton *playbackButton;
 }
 
+@property CCButton *titleButton;
 @property CCButton *playbackButton;
 
 + (NaviLayer *)scene;

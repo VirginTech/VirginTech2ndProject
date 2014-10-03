@@ -14,6 +14,7 @@
 
 @implementation NaviLayer
 
+@synthesize titleButton;
 @synthesize playbackButton;
 
 CGSize winSize;
@@ -35,17 +36,36 @@ CGSize winSize;
     CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0.2f green:0.2f blue:0.2f alpha:0.5f]];
     [self addChild:background];
 
+    //画像読込み
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"button_default.plist"];
+    
     //タイトルボタン
-    CCButton *titleButton = [CCButton buttonWithTitle:@"[タイトル]" fontName:@"Verdana-Bold" fontSize:20.0f];
+    if([GameManager getLocale]==1){//英語
+        titleButton = [CCButton buttonWithTitle:@"" spriteFrame:
+                          [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"title_en.png"]];
+    }else{
+        titleButton = [CCButton buttonWithTitle:@"" spriteFrame:
+                          [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"title_jp.png"]];
+    }
     titleButton.positionType = CCPositionTypeNormalized;
-    titleButton.position = ccp(0.5f, 0.30f);
+    titleButton.position = ccp(0.425f, 0.25f);
+    titleButton.scale=0.5;
+    titleButton.rotation=-35;
     [titleButton setTarget:self selector:@selector(onTitleClicked:)];
     [self addChild:titleButton];
 
     //プレイバック
-    playbackButton = [CCButton buttonWithTitle:@"[プレイバック]" fontName:@"Verdana-Bold" fontSize:20.0f];
+    if([GameManager getLocale]==1){//英語
+        playbackButton = [CCButton buttonWithTitle:@"" spriteFrame:
+                       [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"playback_en.png"]];
+    }else{
+        playbackButton = [CCButton buttonWithTitle:@"" spriteFrame:
+                       [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"playback_jp.png"]];
+    }
     playbackButton.positionType = CCPositionTypeNormalized;
-    playbackButton.position = ccp(0.5f, 0.20f);
+    playbackButton.position = ccp(0.575f, 0.25f);
+    playbackButton.scale=0.5;
+    playbackButton.rotation=-35;
     [playbackButton setTarget:self selector:@selector(onPlaybackClicked:)];
     [self addChild:playbackButton];
 

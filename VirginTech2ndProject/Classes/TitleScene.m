@@ -16,6 +16,7 @@
 #import "PreferencesLayer.h"
 #import "AdGenerLayer.h"
 #import "GameFeatLayer.h"
+#import "PuniObject.h"
 
 @implementation TitleScene
 
@@ -75,16 +76,34 @@ GameFeatLayer* gfAd;
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"button_default.plist"];
     
     //プレイ・ボタン
-    CCButton *startButton = [CCButton buttonWithTitle:@"[はじめから]" fontName:@"Verdana-Bold" fontSize:20.0f];
+    CCButton *startButton;
+    if([GameManager getLocale]==1){//英語
+        startButton = [CCButton buttonWithTitle:@"" spriteFrame:
+                                [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"play_en.png"]];
+    }else{
+        startButton = [CCButton buttonWithTitle:@"" spriteFrame:
+                                [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"play_jp.png"]];
+    }
     startButton.positionType = CCPositionTypeNormalized;
-    startButton.position = ccp(0.5f, 0.40f);
+    startButton.position = ccp(0.425f, 0.35f);
+    startButton.scale=0.5;
+    startButton.rotation=-35;
     [startButton setTarget:self selector:@selector(onStartClicked:)];
     [self addChild:startButton];
 
     //コンティニュー・ボタン
-    CCButton *continueButton = [CCButton buttonWithTitle:@"[コンティニュー]" fontName:@"Verdana-Bold" fontSize:20.0f];
+    CCButton *continueButton;
+    if([GameManager getLocale]==1){//英語
+        continueButton = [CCButton buttonWithTitle:@"" spriteFrame:
+                                [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"continue_en.png"]];
+    }else{
+        continueButton = [CCButton buttonWithTitle:@"" spriteFrame:
+                                [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"continue_jp.png"]];
+    }
     continueButton.positionType = CCPositionTypeNormalized;
-    continueButton.position = ccp(0.5f, 0.30f);
+    continueButton.position = ccp(0.575f, 0.35f);
+    continueButton.scale=0.5;
+    continueButton.rotation=-35;
     [continueButton setTarget:self selector:@selector(onContinueClicked:)];
     [self addChild:continueButton];
     
@@ -147,6 +166,11 @@ GameFeatLayer* gfAd;
     versionLabel.position=ccp(winSize.width-versionLabel.contentSize.width/2,winSize.height-40);
     versionLabel.color=[CCColor whiteColor];
     [self addChild:versionLabel];
+    
+    //プニ登場
+    [GameManager setPause:false];
+     PuniObject* puni=[PuniObject createPuni:0 gpNum:(arc4random()%5)+1];
+    [self addChild:puni];
     
     // done
 	return self;

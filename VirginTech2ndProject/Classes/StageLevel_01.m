@@ -39,6 +39,8 @@ NSMutableArray* removePuniArray;
 
 NaviLayer* naviLayer;
 CCButton *pauseButton;
+CCButton *resumeButton;
+CCButton *speed1xButton;
 CCButton *speed2xButton;
 
 //チュートリアル
@@ -90,24 +92,58 @@ AdGenerLayer* adgSSP;
     //背景
     [self setBackGround];
     
+    //画像読込み
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"button_default.plist"];
+
     //ポーズボタン
-    pauseButton = [CCButton buttonWithTitle:@"[ポーズ]" fontName:@"Verdana-Bold" fontSize:15.0f];
-    //backButton.positionType = CCPositionTypeNormalized;
-    pauseButton.position = ccp(winSize.width-pauseButton.contentSize.width/2,pauseButton.contentSize.height/2);
+    pauseButton = [CCButton buttonWithTitle:@"" spriteFrame:
+                            [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"pause.png"]];
+    pauseButton.scale=0.5;
+    pauseButton.position = ccp(winSize.width-(pauseButton.contentSize.width*pauseButton.scale)/2,
+                               (pauseButton.contentSize.height*pauseButton.scale)/2);
     [pauseButton setTarget:self selector:@selector(onPauseClicked:)];
     [self addChild:pauseButton z:4];
+    pauseButton.visible=true;
     
-    //倍速ボタン
-    if(![GameManager getSpeed]){
-        speed2xButton = [CCButton buttonWithTitle:@"[倍 速]" fontName:@"Verdana-Bold" fontSize:15.0f];
-    }else{
-        speed2xButton = [CCButton buttonWithTitle:@"[ノーマル]" fontName:@"Verdana-Bold" fontSize:15.0f];
-    }
-    //backButton.positionType = CCPositionTypeNormalized;
-    speed2xButton.position = ccp(speed2xButton.contentSize.width/2+100,speed2xButton.contentSize.height/2);
+    //レジュームボタン
+    resumeButton = [CCButton buttonWithTitle:@"" spriteFrame:
+                            [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"resume.png"]];
+    resumeButton.scale=0.5;
+    resumeButton.position = ccp(winSize.width-(resumeButton.contentSize.width*resumeButton.scale)/2,
+                                (resumeButton.contentSize.height*resumeButton.scale)/2);
+    [resumeButton setTarget:self selector:@selector(onPauseClicked:)];
+    [self addChild:resumeButton z:4];
+    resumeButton.visible=false;
+    
+    //1xスピードボタン
+    speed1xButton = [CCButton buttonWithTitle:@"" spriteFrame:
+                            [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"normal_sp.png"]];
+    speed1xButton.scale=0.5;
+    speed1xButton.position = ccp((speed1xButton.contentSize.width*speed1xButton.scale)/2,
+                                 (speed1xButton.contentSize.height*speed1xButton.scale)/2);
+    [speed1xButton setTarget:self selector:@selector(onSpeed2xClicked:)];
+    [self addChild:speed1xButton z:4];
+    speed1xButton.visible=false;
+    
+    //2xスピードボタン
+    speed2xButton = [CCButton buttonWithTitle:@"" spriteFrame:
+                            [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"double_sp.png"]];
+    speed2xButton.scale=0.5;
+    speed2xButton.position = ccp((speed2xButton.contentSize.width*speed2xButton.scale)/2,
+                                 (speed2xButton.contentSize.height*speed2xButton.scale)/2);
     [speed2xButton setTarget:self selector:@selector(onSpeed2xClicked:)];
     [self addChild:speed2xButton z:4];
-    
+    speed2xButton.visible=false;
+
+    //倍速切り替え
+    if(![GameManager getSpeed]){
+        speed1xButton.visible=false;
+        speed2xButton.visible=true;
+    }else{
+        speed1xButton.visible=true;
+        speed2xButton.visible=false;
+    }
+
     //インフォレイヤー
     InfoLayer* infoLayer=[[InfoLayer alloc]init];
     [self addChild:infoLayer z:0];
@@ -484,6 +520,9 @@ AdGenerLayer* adgSSP;
     pauseButton.visible=false;
     [GameManager setPause:true];
     naviLayer.playbackButton.visible=true;
+    naviLayer.titleButton.positionType = CCPositionTypeNormalized;
+    naviLayer.titleButton.position = ccp(0.425f, 0.25f);
+    naviLayer.titleButton.rotation=-35;
     naviLayer.visible=true;
 
     //ハイスコア保存
@@ -525,6 +564,11 @@ AdGenerLayer* adgSSP;
         
         [GameManager setPause:false];
         [GameManager setPlayBack:false];
+        
+        //プレイバック配列初期化
+        for(PuniObject* puni1 in puniArray){
+            puni1.playBackArray=[[NSMutableArray alloc]init];
+        }
         
         pauseButton.visible=true;
         self.userInteractionEnabled = YES;
@@ -662,13 +706,15 @@ AdGenerLayer* adgSSP;
         for(PuniObject* puni1 in puniArray){
             puni1.velocity=puni1.velocity*2;
         }
-        speed2xButton.title=@"[ノーマル]";
+        speed1xButton.visible=true;
+        speed2xButton.visible=false;
         [GameManager setSpeed:true];
     }else{//倍速モードだったら
         for(PuniObject* puni1 in puniArray){
             puni1.velocity=puni1.velocity/2;
         }
-        speed2xButton.title=@"[倍 速]";
+        speed1xButton.visible=false;
+        speed2xButton.visible=true;
         [GameManager setSpeed:false];
     }
 }
@@ -678,9 +724,13 @@ AdGenerLayer* adgSSP;
     if(![GameManager getPause]){//プレイ中だったら
         self.userInteractionEnabled = NO;
         [GameManager setPause:true];
-        pauseButton.title=@"[再 開]";
+        pauseButton.visible=false;
+        resumeButton.visible=true;
         naviLayer.visible=true;
         naviLayer.playbackButton.visible=false;
+        naviLayer.titleButton.positionType = CCPositionTypeNormalized;
+        naviLayer.titleButton.position = ccp(0.5f, 0.25f);
+        naviLayer.titleButton.rotation=0;
         //ADG-SSPバナー
         adgSSP=[[AdGenerLayer alloc]init];
         [self addChild:adgSSP];
@@ -688,7 +738,8 @@ AdGenerLayer* adgSSP;
     }else{//ポーズ中だったら
         self.userInteractionEnabled = YES;
         [GameManager setPause:false];
-        pauseButton.title=@"[ポーズ]";
+        pauseButton.visible=true;
+        resumeButton.visible=false;
         naviLayer.visible=false;
         //Ad削除
         [adgSSP removeLayer];

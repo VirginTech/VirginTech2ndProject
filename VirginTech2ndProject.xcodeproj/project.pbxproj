@@ -16,6 +16,8 @@
 		CF162F5C19CD6C8B009BBD30 /* backGround_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF162F5A19CD6C8B009BBD30 /* backGround_default.plist */; };
 		CF162F5D19CD6C8B009BBD30 /* backGround_default.png in Resources */ = {isa = PBXBuildFile; fileRef = CF162F5B19CD6C8B009BBD30 /* backGround_default.png */; };
 		CF264F6719B695C900CACAFD /* BasicMath.m in Sources */ = {isa = PBXBuildFile; fileRef = CF264F6619B695C900CACAFD /* BasicMath.m */; };
+		CF48F12319DE8C050062B3DA /* button_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF48F12119DE8C050062B3DA /* button_default.plist */; };
+		CF48F12419DE8C050062B3DA /* button_default.png in Resources */ = {isa = PBXBuildFile; fileRef = CF48F12219DE8C050062B3DA /* button_default.png */; };
 		CF589EBE19BD520400CEBCBC /* RouteDispLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF589EBD19BD520400CEBCBC /* RouteDispLayer.m */; };
 		CF5A314019C97DF200B901D7 /* NaviLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5A313F19C97DF200B901D7 /* NaviLayer.m */; };
 		CF69526A19D947CC004E4721 /* PreferencesLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF69526919D947CC004E4721 /* PreferencesLayer.m */; };
@@ -225,8 +227,6 @@
 		CF6D8B8E19B3F712001C5668 /* StageLevel_01.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6D8B8D19B3F712001C5668 /* StageLevel_01.m */; };
 		CF6D8B9119B3F712001C5668 /* TitleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6D8B9019B3F712001C5668 /* TitleScene.m */; };
 		CF70024D19CECCAA00799B1C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF70024C19CECCAA00799B1C /* Images.xcassets */; };
-		CF798AA619CFBE1600764B28 /* button_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF798AA419CFBE1600764B28 /* button_default.plist */; };
-		CF798AA719CFBE1600764B28 /* button_default.png in Resources */ = {isa = PBXBuildFile; fileRef = CF798AA519CFBE1600764B28 /* button_default.png */; };
 		CF798AAA19CFC73A00764B28 /* bgLayer.png in Resources */ = {isa = PBXBuildFile; fileRef = CF798AA819CFC73A00764B28 /* bgLayer.png */; };
 		CF798AAB19CFC73A00764B28 /* virgintech.png in Resources */ = {isa = PBXBuildFile; fileRef = CF798AA919CFC73A00764B28 /* virgintech.png */; };
 		CF798AAE19CFC7A500764B28 /* CreditLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF798AAD19CFC7A500764B28 /* CreditLayer.m */; };
@@ -348,6 +348,8 @@
 		CF162F5B19CD6C8B009BBD30 /* backGround_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backGround_default.png; sourceTree = "<group>"; };
 		CF264F6519B695C900CACAFD /* BasicMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicMath.h; sourceTree = "<group>"; };
 		CF264F6619B695C900CACAFD /* BasicMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicMath.m; sourceTree = "<group>"; };
+		CF48F12119DE8C050062B3DA /* button_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = button_default.plist; sourceTree = "<group>"; };
+		CF48F12219DE8C050062B3DA /* button_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_default.png; sourceTree = "<group>"; };
 		CF589EBC19BD520400CEBCBC /* RouteDispLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteDispLayer.h; sourceTree = "<group>"; };
 		CF589EBD19BD520400CEBCBC /* RouteDispLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteDispLayer.m; sourceTree = "<group>"; };
 		CF5A313E19C97DF200B901D7 /* NaviLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NaviLayer.h; sourceTree = "<group>"; };
@@ -783,8 +785,6 @@
 		CF6D8B8F19B3F712001C5668 /* TitleScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TitleScene.h; path = Classes/TitleScene.h; sourceTree = "<group>"; };
 		CF6D8B9019B3F712001C5668 /* TitleScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TitleScene.m; path = Classes/TitleScene.m; sourceTree = "<group>"; };
 		CF70024C19CECCAA00799B1C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		CF798AA419CFBE1600764B28 /* button_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = button_default.plist; sourceTree = "<group>"; };
-		CF798AA519CFBE1600764B28 /* button_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_default.png; sourceTree = "<group>"; };
 		CF798AA819CFC73A00764B28 /* bgLayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgLayer.png; sourceTree = "<group>"; };
 		CF798AA919CFC73A00764B28 /* virgintech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = virgintech.png; sourceTree = "<group>"; };
 		CF798AAC19CFC7A500764B28 /* CreditLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditLayer.h; sourceTree = "<group>"; };
@@ -1010,6 +1010,8 @@
 		CF6D88FA19B3F710001C5668 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CF48F12119DE8C050062B3DA /* button_default.plist */,
+				CF48F12219DE8C050062B3DA /* button_default.png */,
 				CF9E251A19DC342B00928D62 /* PuniObj */,
 				CF9E24A119DBC39600928D62 /* gamefeat */,
 				CF0CCD4519D43B16008B62CF /* msg.fnt */,
@@ -1018,8 +1020,6 @@
 				CF798AD019D01D5900764B28 /* etc_default.png */,
 				CF798AA819CFC73A00764B28 /* bgLayer.png */,
 				CF798AA919CFC73A00764B28 /* virgintech.png */,
-				CF798AA419CFBE1600764B28 /* button_default.plist */,
-				CF798AA519CFBE1600764B28 /* button_default.png */,
 				CF162F5A19CD6C8B009BBD30 /* backGround_default.plist */,
 				CF162F5B19CD6C8B009BBD30 /* backGround_default.png */,
 				CF162F5619CD6A46009BBD30 /* scoreFont.fnt */,
@@ -2169,14 +2169,12 @@
 				CF9E252219DC345F00928D62 /* puni02_default.png in Resources */,
 				CF6D890919B3F710001C5668 /* Icon-72.png in Resources */,
 				CF9E24E619DBC39600928D62 /* gamefeat_overlay_p.png in Resources */,
-				CF798AA719CFBE1600764B28 /* button_default.png in Resources */,
 				CF9E24F019DBC39600928D62 /* gamefeat_popup_bg_land_B.png in Resources */,
 				CF798ABC19D0132B00764B28 /* Localizable.strings in Resources */,
 				CF6D8A5719B3F711001C5668 /* LICENSE_cocos2d.txt in Resources */,
 				CF9E250D19DBC39600928D62 /* gamefeat_popup_dl_D.png in Resources */,
 				CF6D890019B3F710001C5668 /* Default-568h@2x.png in Resources */,
 				CF9E251D19DC344C00928D62 /* puni01_default.plist in Resources */,
-				CF798AA619CFBE1600764B28 /* button_default.plist in Resources */,
 				CF6D892019B3F710001C5668 /* iTunesArtwork in Resources */,
 				CF6D891B19B3F710001C5668 /* Icon-Spotlight-iOS7.png in Resources */,
 				CF9E250A19DBC39600928D62 /* gamefeat_popup_dl_A.png in Resources */,
@@ -2210,6 +2208,8 @@
 				CF9E24E419DBC39600928D62 /* gamefeat_overlay_close.png in Resources */,
 				CF9E24DF19DBC39600928D62 /* gamefeat_btn_review.png in Resources */,
 				CF9E24F319DBC39600928D62 /* gamefeat_popup_bg_land_E.png in Resources */,
+				CF48F12419DE8C050062B3DA /* button_default.png in Resources */,
+				CF48F12319DE8C050062B3DA /* button_default.plist in Resources */,
 				CF6D891D19B3F710001C5668 /* Icon-Spotlight-iOS7@2x.png in Resources */,
 				CF9E252A19DC348800928D62 /* puni04_default.png in Resources */,
 				CF6D890D19B3F710001C5668 /* Icon-76.png in Resources */,

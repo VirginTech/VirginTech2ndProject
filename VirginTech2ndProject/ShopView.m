@@ -55,18 +55,15 @@ SKProduct* product05;
     InfoLayer* infoLayer=[[InfoLayer alloc]init];
     [self addChild:infoLayer];
     
-    // Create a back button
     //閉じるボタン
-    //[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"button_default.plist"];
-    //CCButton *closeButton = [CCButton buttonWithTitle:@"" spriteFrame:
-    //                         [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"close.png"]];
-    CCButton* closeButton=[CCButton buttonWithTitle:@"[閉じる]"];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"button_default.plist"];
+    CCButton *closeButton = [CCButton buttonWithTitle:@"" spriteFrame:
+                             [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"closeBtn.png"]];
     closeButton.positionType = CCPositionTypeNormalized;
-    closeButton.position = ccp(0.9f, 0.90f); // Top Right of screen
-    //closeButton.scale=0.3;
+    closeButton.position = ccp(0.95f, 0.90f); // Top Right of screen
+    closeButton.scale=0.3;
     [closeButton setTarget:self selector:@selector(onCloseClicked:)];
     [self addChild:closeButton];
-    
     
     return self;
 }
