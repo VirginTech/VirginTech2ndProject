@@ -176,7 +176,7 @@ int playBackCount;
     NSDictionary *dict = [[NSUserDefaults standardUserDefaults] persistentDomainForName:appDomain];
     
     if([dict valueForKey:@"Ticket"]==nil){
-        [GameManager save_Ticket_Count:5];
+        [GameManager save_Ticket_Count:10];
     }
     
 }

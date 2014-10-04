@@ -53,7 +53,7 @@ GameFeatLayer* gfAd;
     
     //インフォレイヤー
     [GameManager setScore:0];
-    [GameManager setStageNum:[GameManager load_Clear_Level]];
+    [GameManager setStageNum:99999];//プニを回転させるため
     InfoLayer* infoLayer=[[InfoLayer alloc]init];
     [self addChild:infoLayer];
     
@@ -223,22 +223,33 @@ GameFeatLayer* gfAd;
 
 - (void)onContinueClicked:(id)sender
 {
-    if([GameManager load_Ticket_Count]>0){
-        UIAlertView *alert = [[UIAlertView alloc] init];
-        //alert.tag=type;
-        alert.delegate = self;
-        alert.title = @"コンティニュー";
-        alert.message = @"チケット１枚を消費します。よろしいですか？";
-        
-        [alert addButtonWithTitle:@"いいえ"];
-        [alert addButtonWithTitle:@"は　い"];
-        [alert show];
+    if([GameManager load_Clear_Level]>0){
+        if([GameManager load_Ticket_Count]>0){
+            UIAlertView *alert = [[UIAlertView alloc] init];
+            //alert.tag=type;
+            alert.delegate = self;
+            alert.title = NSLocalizedString(@"Continue",NULL);
+            alert.message = NSLocalizedString(@"Ticket_Use",NULL);
+            
+            [alert addButtonWithTitle:NSLocalizedString(@"No",NULL)];
+            [alert addButtonWithTitle:NSLocalizedString(@"Yes",NULL)];
+            [alert show];
+        }else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Continue",NULL)
+                                                            message:NSLocalizedString(@"Ticket_Shortage",NULL)
+                                                            delegate:nil
+                                                            cancelButtonTitle:nil
+                                                            otherButtonTitles:NSLocalizedString(@"OK",NULL),
+                                                            nil];
+            [alert show];
+        }
     }else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"コンティニュー"
-                                                        message:@"チケットが足りません。"
-                                                        delegate:nil
-                                                        cancelButtonTitle:nil
-                                                        otherButtonTitles:@"は　い", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Continue",NULL)
+                                                            message:NSLocalizedString(@"NotContinue",NULL)
+                                                            delegate:nil
+                                                            cancelButtonTitle:nil
+                                                            otherButtonTitles:NSLocalizedString(@"OK",NULL),
+                                                            nil];
         [alert show];
     }
 }

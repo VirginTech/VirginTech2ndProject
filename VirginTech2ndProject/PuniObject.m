@@ -143,10 +143,12 @@ CGSize winSize;
         playBackReadyFlg=false;
         
         //回転
-        if(gpNum%2==0){
-            self.rotation+=1.0;
-        }else{
-            self.rotation-=1.0;
+        if([GameManager getStageNum]>0){
+            if(gpNum%2==0){
+                self.rotation+=1.0;
+            }else{
+                self.rotation-=1.0;
+            }
         }
     }
     

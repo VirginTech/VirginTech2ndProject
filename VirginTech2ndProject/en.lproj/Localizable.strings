@@ -23,3 +23,17 @@
 "Purchase" = " Get!";
 "Restored" = "Restored ";
 "Processing" = "Purchase processing... ";
+
+//コンティニューチケット
+"Continue"="Continue";
+"Ticket_Use"="Use a 1 ticket. Is it OK ?";
+"Ticket_Shortage"="Ticket is not enough. Can be bought at the ticket shop.";
+"NotContinue"="You can not continue.";
+
+//プレイバック
+"PlayBack"="Playback";
+"Playback_Shortage"="Playback is up to 5 times.";
+
+
+
+

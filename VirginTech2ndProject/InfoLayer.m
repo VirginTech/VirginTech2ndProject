@@ -34,10 +34,12 @@ NSMutableArray* starArray;
     winSize = [[CCDirector sharedDirector]viewSize];
     
     //ステージレヴェル取得
-    if([GameManager getStageNum]<0){//初回タイトル画面
+    if([GameManager load_Clear_Level]<0){//初期時タイトル画面
         stageLevel=0;
+    }else if([GameManager getStageNum]==99999){//タイトル画面（プニを回転させるため）
+        stageLevel=[GameManager load_Clear_Level];
     }else{
-        stageLevel=[GameManager getStageNum];
+        stageLevel=[GameManager getStageNum];//各ステージ
     }
     //ステージレベルラベル
     //NSLog(@"Stage=%d",stageLevel);

@@ -82,11 +82,12 @@ CGSize winSize;
         //プレバック・スタート
         [StageLevel_01 startPlayBack];
     }else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"プレイバック"
-                                                        message:@"プレイバック機能は５回までです。"
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"PlayBack",NULL)
+                                                        message:NSLocalizedString(@"Playback_Shortage",NULL)
                                                         delegate:nil
                                                         cancelButtonTitle:nil
-                                                        otherButtonTitles:@"は　い", nil];
+                                                        otherButtonTitles:NSLocalizedString(@"OK",NULL),
+                                                        nil];
         [alert show];
     }
 }

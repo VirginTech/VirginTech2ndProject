@@ -948,6 +948,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF4C44CC19DFC5E300164AD5 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				CF162F5619CD6A46009BBD30 /* scoreFont.fnt */,
+				CF162F5719CD6A46009BBD30 /* scoreFont.png */,
+				CF0CCD4519D43B16008B62CF /* msg.fnt */,
+				CF0CCD4619D43B16008B62CF /* msg.png */,
+			);
+			name = Font;
+			sourceTree = "<group>";
+		};
 		CF6D88D519B3F710001C5668 = {
 			isa = PBXGroup;
 			children = (
@@ -1010,20 +1021,17 @@
 		CF6D88FA19B3F710001C5668 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CF48F12119DE8C050062B3DA /* button_default.plist */,
-				CF48F12219DE8C050062B3DA /* button_default.png */,
 				CF9E251A19DC342B00928D62 /* PuniObj */,
 				CF9E24A119DBC39600928D62 /* gamefeat */,
-				CF0CCD4519D43B16008B62CF /* msg.fnt */,
-				CF0CCD4619D43B16008B62CF /* msg.png */,
+				CF4C44CC19DFC5E300164AD5 /* Font */,
 				CF798ACF19D01D5900764B28 /* etc_default.plist */,
 				CF798AD019D01D5900764B28 /* etc_default.png */,
+				CF48F12119DE8C050062B3DA /* button_default.plist */,
+				CF48F12219DE8C050062B3DA /* button_default.png */,
 				CF798AA819CFC73A00764B28 /* bgLayer.png */,
 				CF798AA919CFC73A00764B28 /* virgintech.png */,
 				CF162F5A19CD6C8B009BBD30 /* backGround_default.plist */,
 				CF162F5B19CD6C8B009BBD30 /* backGround_default.png */,
-				CF162F5619CD6A46009BBD30 /* scoreFont.fnt */,
-				CF162F5719CD6A46009BBD30 /* scoreFont.png */,
 				CF6D88FB19B3F710001C5668 /* Default.png */,
 				CF6D88FD19B3F710001C5668 /* Default@2x.png */,
 				CF6D88FF19B3F710001C5668 /* Default-568h@2x.png */,
