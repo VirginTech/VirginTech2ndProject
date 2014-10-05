@@ -23,7 +23,7 @@
 + (StageLevel_01 *)scene;
 - (id)init;
 
-+(void)pointPuniCntAdd;
+//+(void)pointPuniCntAdd;
 +(void)startPlayBack;
 
 @end

@@ -43,6 +43,8 @@ CCButton *resumeButton;
 CCButton *speed1xButton;
 CCButton *speed2xButton;
 
+CCParticleSystem* parentParticle;
+
 //チュートリアル
 bool tutorialFlg;
 FingerObject* finger;
@@ -80,6 +82,7 @@ AdGenerLayer* adgSSP;
     [GameManager setPause:false];
     [GameManager setPlayBack:false];
     tutorialFlg=false;
+    parentParticle=nil;
     
     //labelArray=[[NSMutableArray alloc]init];//デバッグ用
     
@@ -217,6 +220,9 @@ AdGenerLayer* adgSSP;
     [super onExit];
 }
 
+//============================
+// 背景描画
+//============================
 -(void)setBackGround
 {
     float offsetX;
@@ -245,6 +251,9 @@ AdGenerLayer* adgSSP;
     }
 }
 
+//============================
+// プニ生成スケジューラ
+//============================
 -(void)createPuni_Schedule:(CCTime)dt
 {
     int gpNum;
@@ -305,7 +314,9 @@ AdGenerLayer* adgSSP;
         }
     }
 }
-
+//============================
+// チュートリアル用フィンガー移動用
+//============================
 -(void)finger_Move_Schedule:(CCTime)dt
 {
     tutorialFlg=true;
@@ -344,6 +355,9 @@ AdGenerLayer* adgSSP;
 
 }
 
+//============================
+// 審判スケジューラ
+//============================
 -(void)judgement_Schedule:(CCTime)dt
 {
     if(![GameManager getPause] && ![GameManager getPlayBack]){
@@ -411,6 +425,10 @@ AdGenerLayer* adgSSP;
                 {
                     if(puni1.gpNum == parent1.gpNum)
                     {
+                        //パーティクル効果
+                        [self setParentParticle:parent1.position fileName:@"parent.plist"];
+                        [parent1 puni_Hit_Action];
+                        
                         //プニ削除
                         [removePuniArray addObject:puni1];
                         puni1.posArray = [[NSMutableArray alloc]init];
@@ -469,6 +487,9 @@ AdGenerLayer* adgSSP;
     }
 }
 
+//============================
+// 画面外プニ削除、カウント付与
+//============================
 -(void)removeOutSideFrameObject
 {
     for(PuniObject* puni1 in puniArray)
@@ -491,6 +512,9 @@ AdGenerLayer* adgSSP;
     }
 }
 
+//============================
+// メッセージ終了後、ネクストステージへ
+//============================
 -(void)nextStage
 {
     //レヴェル保存
@@ -507,6 +531,9 @@ AdGenerLayer* adgSSP;
     //                           withTransition:[CCTransition transitionCrossFadeWithDuration:1.0]];
 }
 
+//============================
+// ゲーム終了
+//============================
 -(void)endGame
 {
     //全プニ停止
@@ -538,7 +565,9 @@ AdGenerLayer* adgSSP;
     [self addChild:adgSSP];
     
 }
-
+//============================
+// プレイバック開始（後戻し）
+//============================
 +(void)startPlayBack
 {
     for(PuniObject* puni1 in puniArray){
@@ -550,6 +579,9 @@ AdGenerLayer* adgSSP;
     [GameManager setPlayBack:true];
 }
 
+//============================
+// プレイバック再開準備状況監視スケジューラ
+//============================
 -(void)playBack_state_Schedule:(CCTime)dt
 {
     bool flg=false;
@@ -579,6 +611,9 @@ AdGenerLayer* adgSSP;
     }
 }
 
+//============================
+// プニ オブジェクト削除
+//============================
 -(void)removeObject
 {
     for(PuniObject* puni1 in removePuniArray)
@@ -588,11 +623,31 @@ AdGenerLayer* adgSSP;
     }
 }
 
+//============================
+// デバッグ用
+//============================
 +(void)pointPuniCntAdd
 {
     pointPuniCnt++;
 }
 
+//============================
+// パーティクルセット(親)
+//============================
+-(void)setParentParticle:(CGPoint)pos fileName:(NSString*)fileName
+{
+    if(parentParticle!=nil){//その都度削除
+        [self removeChild:parentParticle cleanup:YES];
+    }
+    parentParticle=[[CCParticleSystem alloc]initWithFile:fileName];
+    parentParticle.position=pos;
+    parentParticle.scale=0.30;
+    [self addChild:parentParticle];
+}
+
+//============================
+// 衝突面アングル算出
+//============================
 -(float)getCollisSurfaceAngle:(CGPoint)pos1 pos2:(CGPoint)pos2
 {
     float angle;

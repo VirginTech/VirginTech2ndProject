@@ -56,7 +56,7 @@ CGSize winSize;
     {
         winSize = [[CCDirector sharedDirector]viewSize];
 
-        self.scale=0.40;
+        self.scale=0.4;
         
         //ポジション設定
         centerPos=ccp(winSize.width/2,winSize.height/2);
@@ -123,6 +123,19 @@ CGSize winSize;
     return self;
 }
 
+-(void)puni_Hit_Action
+{
+    self.scale=0.5;
+    [self schedule:@selector(puni_Hit_Schedule:) interval:0.01];
+}
+
+-(void)puni_Hit_Schedule:(CCTime)dt
+{
+    self.scale-=0.005;
+    if(self.scale<=0.4){
+        [self unschedule:@selector(puni_Hit_Schedule:)];
+    }
+}
 
 -(void)animation_Schedule:(CCTime)dt
 {

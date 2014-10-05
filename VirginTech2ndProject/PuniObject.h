@@ -32,15 +32,15 @@
     NSMutableArray* posArray;
     float er,dr;//最終距離、補間距離(途中経過の)
     CGPoint startPos;
-    int moveCnt;
+    int moveCnt;//移動カウント
     
     bool playBackReadyFlg;
     NSMutableArray* playBackArray;
     
     FingerObject* finger;//チュートリアル
     
-    int animeCnt;
-    NSMutableArray* frame;
+    int animeCnt;//アニメーションカウント
+    NSMutableArray* frame;//アニメーションフレーム格納用配列
 }
 
 @property float velocity;

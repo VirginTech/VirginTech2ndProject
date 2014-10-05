@@ -20,6 +20,9 @@
 		CF48F12419DE8C050062B3DA /* button_default.png in Resources */ = {isa = PBXBuildFile; fileRef = CF48F12219DE8C050062B3DA /* button_default.png */; };
 		CF589EBE19BD520400CEBCBC /* RouteDispLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF589EBD19BD520400CEBCBC /* RouteDispLayer.m */; };
 		CF5A314019C97DF200B901D7 /* NaviLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5A313F19C97DF200B901D7 /* NaviLayer.m */; };
+		CF5CDA9119E1278F00BCBA86 /* parent.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF5CDA8E19E1278F00BCBA86 /* parent.plist */; };
+		CF5CDA9219E1278F00BCBA86 /* particleTextureCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = CF5CDA8F19E1278F00BCBA86 /* particleTextureCircle.png */; };
+		CF5CDA9319E1278F00BCBA86 /* particleTextureStar.png in Resources */ = {isa = PBXBuildFile; fileRef = CF5CDA9019E1278F00BCBA86 /* particleTextureStar.png */; };
 		CF69526A19D947CC004E4721 /* PreferencesLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF69526919D947CC004E4721 /* PreferencesLayer.m */; };
 		CF6D88E219B3F710001C5668 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6D88E119B3F710001C5668 /* QuartzCore.framework */; };
 		CF6D88E419B3F710001C5668 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6D88E319B3F710001C5668 /* OpenGLES.framework */; };
@@ -354,6 +357,9 @@
 		CF589EBD19BD520400CEBCBC /* RouteDispLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteDispLayer.m; sourceTree = "<group>"; };
 		CF5A313E19C97DF200B901D7 /* NaviLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NaviLayer.h; sourceTree = "<group>"; };
 		CF5A313F19C97DF200B901D7 /* NaviLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NaviLayer.m; sourceTree = "<group>"; };
+		CF5CDA8E19E1278F00BCBA86 /* parent.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = parent.plist; sourceTree = "<group>"; };
+		CF5CDA8F19E1278F00BCBA86 /* particleTextureCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particleTextureCircle.png; sourceTree = "<group>"; };
+		CF5CDA9019E1278F00BCBA86 /* particleTextureStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particleTextureStar.png; sourceTree = "<group>"; };
 		CF69526819D947CC004E4721 /* PreferencesLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesLayer.h; sourceTree = "<group>"; };
 		CF69526919D947CC004E4721 /* PreferencesLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesLayer.m; sourceTree = "<group>"; };
 		CF6D88DE19B3F710001C5668 /* VirginTech2ndProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirginTech2ndProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -959,6 +965,16 @@
 			name = Font;
 			sourceTree = "<group>";
 		};
+		CF5CDA8D19E1277300BCBA86 /* Particle */ = {
+			isa = PBXGroup;
+			children = (
+				CF5CDA8E19E1278F00BCBA86 /* parent.plist */,
+				CF5CDA8F19E1278F00BCBA86 /* particleTextureCircle.png */,
+				CF5CDA9019E1278F00BCBA86 /* particleTextureStar.png */,
+			);
+			name = Particle;
+			sourceTree = "<group>";
+		};
 		CF6D88D519B3F710001C5668 = {
 			isa = PBXGroup;
 			children = (
@@ -1021,6 +1037,7 @@
 		CF6D88FA19B3F710001C5668 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CF5CDA8D19E1277300BCBA86 /* Particle */,
 				CF9E251A19DC342B00928D62 /* PuniObj */,
 				CF9E24A119DBC39600928D62 /* gamefeat */,
 				CF4C44CC19DFC5E300164AD5 /* Font */,
@@ -2162,6 +2179,7 @@
 				CF9E252E19DC349A00928D62 /* puni05_default.png in Resources */,
 				CF6D891319B3F710001C5668 /* Icon-iPad-Spotlight-iOS7@2x.png in Resources */,
 				CF9E24FC19DBC39600928D62 /* gamefeat_popup_dl_land_D.png in Resources */,
+				CF5CDA9219E1278F00BCBA86 /* particleTextureCircle.png in Resources */,
 				CF9E252919DC348800928D62 /* puni04_default.plist in Resources */,
 				CF6D890219B3F710001C5668 /* Default-Landscape~ipad.png in Resources */,
 				CF162F5819CD6A46009BBD30 /* scoreFont.fnt in Resources */,
@@ -2174,6 +2192,7 @@
 				CF9E24F419DBC39600928D62 /* gamefeat_popup_close_land_A.png in Resources */,
 				CF6D8AFE19B3F711001C5668 /* LICENSE_Kazmath.txt in Resources */,
 				CF9E24E019DBC39600928D62 /* gamefeat_btn_update.png in Resources */,
+				CF5CDA9119E1278F00BCBA86 /* parent.plist in Resources */,
 				CF9E252219DC345F00928D62 /* puni02_default.png in Resources */,
 				CF6D890919B3F710001C5668 /* Icon-72.png in Resources */,
 				CF9E24E619DBC39600928D62 /* gamefeat_overlay_p.png in Resources */,
@@ -2229,6 +2248,7 @@
 				CF9E250219DBC39600928D62 /* gamefeat_popup_bg_E.png in Resources */,
 				CF9E250319DBC39600928D62 /* gamefeat_popup_bg_F.png in Resources */,
 				CF9E252519DC347000928D62 /* puni03_default.plist in Resources */,
+				CF5CDA9319E1278F00BCBA86 /* particleTextureStar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -28,5 +28,6 @@
 
 +(id)createParent:(int)objCnt gpNum:(int)gpNum;
 -(void)startBlink;
+-(void)puni_Hit_Action;
 
 @end
