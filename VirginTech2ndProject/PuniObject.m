@@ -145,9 +145,9 @@ CGSize winSize;
         //回転
         if([GameManager getStageNum]>0){
             if(gpNum%2==0){
-                self.rotation+=1.0;
+                self.rotation+=0.5;
             }else{
-                self.rotation-=1.0;
+                self.rotation-=0.5;
             }
         }
     }
@@ -246,12 +246,23 @@ CGSize winSize;
     {
         winSize = [[CCDirector sharedDirector]viewSize];
         
-        scale=0.25;
-        if(![GameManager getSpeed]){//ノーマル
+        /*int type= arc4random()%3;
+        scale=0.20f+(type / 20.0f);//0.20, 0.25, 0.30
+        if(type==0){
+            velocity=0.25;
+        }else if(type==1){
             velocity=0.20;
-        }else{//倍速
-            velocity=0.20 * 2;
+        }else if(type==2){
+            velocity=0.15;
+        }*/
+        
+        scale=0.25f;
+        velocity=0.20f;
+        
+        if([GameManager getSpeed]){//倍速
+            velocity *= 2;
         }
+
         objNum=objCnt;
         gpNum=_gpNum;
         collisFlg=false;

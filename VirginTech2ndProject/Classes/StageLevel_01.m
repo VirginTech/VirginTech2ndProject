@@ -17,6 +17,7 @@
 #import "MsgLayer.h"
 #import "FingerObject.h"
 #import "AdGenerLayer.h"
+#import <Social/Social.h>
 
 @implementation StageLevel_01
 
@@ -169,7 +170,6 @@ AdGenerLayer* adgSSP;
     [self schedule:@selector(createPuni_Schedule:)interval:[InitManager getInterval]
                                                 repeat:CCTimerRepeatForever
                                                 delay:5.0];
-
     //親プニ配置
     for(int i=0;i<gpNumArray.count;i++){
         parent=[ParentObject createParent:i gpNum:[[gpNumArray objectAtIndex:i]intValue]];
@@ -525,6 +525,21 @@ AdGenerLayer* adgSSP;
     MsgLayer* msg=[[MsgLayer alloc]initWithMsg:@"Good Job!" nextFlg:true];
     [self addChild:msg];
     
+    //レイティング
+    if(stageLevel!=0 && stageLevel%10==0){
+        UIAlertView *alert = [[UIAlertView alloc] init];
+        alert.tag=1;
+        alert.delegate = self;
+        alert.title = NSLocalizedString(@"Rate",NULL);
+        alert.message=NSLocalizedString(@"Rate_Message",NULL);
+        [alert addButtonWithTitle:NSLocalizedString(@"NoThanks",NULL)];
+        [alert addButtonWithTitle:NSLocalizedString(@"RemindMeLater",NULL)];
+        [alert addButtonWithTitle:NSLocalizedString(@"RateItNow",NULL)];
+        [alert show];
+        
+        [[CCDirector sharedDirector]pause];
+    }
+
     //次ステージへ
     //[GameManager setStageNum:stageLevel+1];//ステージレヴェル設定
     //[[CCDirector sharedDirector] replaceScene:[StageLevel_01 scene]
@@ -564,7 +579,52 @@ AdGenerLayer* adgSSP;
     adgSSP=[[AdGenerLayer alloc]init];
     [self addChild:adgSSP];
     
+    //ソーシャル機能
+    if([GameManager getPlayBackCount]==0){
+        UIAlertView *alert = [[UIAlertView alloc] init];
+        alert.tag=2;
+        alert.delegate = self;
+        alert.title = NSLocalizedString(@"Share",NULL);
+        alert.message=NSLocalizedString(@"Social_Message",NULL);
+        [alert addButtonWithTitle:NSLocalizedString(@"Twitter",NULL)];
+        [alert addButtonWithTitle:NSLocalizedString(@"Facebook",NULL)];
+        [alert addButtonWithTitle:NSLocalizedString(@"NoThanks",NULL)];
+        [alert show];
+    }
 }
+//============================
+// レイティングメッセージ受信
+//============================
+-(void)alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSURL* url;
+    if(alertView.tag==1){
+        switch (buttonIndex){
+            case 0:
+                [[CCDirector sharedDirector]resume];
+                break;
+            case 1:
+                [[CCDirector sharedDirector]resume];
+                break;
+            case 2:
+                url = [NSURL URLWithString:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=914387804&mt=8&type=Purple+Software"];
+                [[UIApplication sharedApplication]openURL:url];
+                break;
+        }
+    }else if(alertView.tag==2){
+        switch (buttonIndex){
+            case 0:
+                [self post_Twitter];
+                break;
+            case 1:
+                [self post_Facebook];
+                break;
+            case 2:
+                break;
+        }
+    }
+}
+
 //============================
 // プレイバック開始（後戻し）
 //============================
@@ -799,6 +859,55 @@ AdGenerLayer* adgSSP;
         //Ad削除
         [adgSSP removeLayer];
     }
+}
+
+-(void)post_Twitter
+{
+    SLComposeViewController *vc = [SLComposeViewController
+                                   composeViewControllerForServiceType:SLServiceTypeTwitter];
+    [vc setInitialText:[NSString stringWithFormat:
+                        @"%@ %ld %@\n",NSLocalizedString(@"PostMessage",NULL),
+                        [GameManager load_HighScore],
+                        NSLocalizedString(@"PostEnd",NULL)]];
+    [vc addURL:[NSURL URLWithString:NSLocalizedString(@"URL",NULL)]];
+    [vc setCompletionHandler:^(SLComposeViewControllerResult result)
+     {
+         switch (result) {
+             case SLComposeViewControllerResultDone:
+                 //チケットを付与
+                 [GameManager save_Ticket_Count:[GameManager load_Ticket_Count]+1];
+                 //チケット表示更新
+                 [InfoLayer update_Ticket];
+                 break;
+             case SLComposeViewControllerResultCancelled:
+                 break;
+         }
+     }];
+    [[CCDirector sharedDirector]presentViewController:vc animated:YES completion:nil];
+}
+-(void)post_Facebook
+{
+    SLComposeViewController *vc = [SLComposeViewController
+                                   composeViewControllerForServiceType:SLServiceTypeFacebook];
+    [vc setInitialText:[NSString stringWithFormat:
+                        @"%@ %ld %@\n",NSLocalizedString(@"PostMessage",NULL),
+                        [GameManager load_HighScore],
+                        NSLocalizedString(@"PostEnd",NULL)]];
+    [vc addURL:[NSURL URLWithString:NSLocalizedString(@"URL",NULL)]];
+    [vc setCompletionHandler:^(SLComposeViewControllerResult result)
+     {
+         switch (result) {
+             case SLComposeViewControllerResultDone:
+                 //チケットを付与
+                 [GameManager save_Ticket_Count:[GameManager load_Ticket_Count]+1];
+                 //チケット表示更新
+                 [InfoLayer update_Ticket];
+                 break;
+             case SLComposeViewControllerResultCancelled:
+                 break;
+         }
+     }];
+    [[CCDirector sharedDirector]presentViewController:vc animated:YES completion:nil];
 }
 
 @end

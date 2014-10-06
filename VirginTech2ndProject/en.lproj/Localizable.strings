@@ -34,6 +34,25 @@
 "PlayBack"="Playback";
 "Playback_Shortage"="Playback is up to 5 times.";
 
+//レビュー誘導
+"Rate" = "Rate";
+"RateItNow" = "Rate It Now";
+"RemindMeLater" = "Remind Me Later";
+"NoThanks" = "No,Thanks";
+"Rate_Message"="Thank you for playing the game. Would you mind taking a moment to rate it? Thanks for your support!";
 
+//ソーシャル機能
+"Share"="Share";
+"Social_Message"="1 ”Continue-Ticket” Get! Post now!";
+"Twitter"="Tweet on Twitter";
+"Facebook"="Post to Facebook";
+
+//ソーシャル投稿メッセージ
+"PostMessage"="【Pudding Panic!】\nCongratulations! \nHighScore";
+"PostEnd"="Point achieved.";
+"URL"="https://itunes.apple.com/us/app/pudding-panic-!/id914387804?l=ja&ls=1&mt=8";
+
+//ローカル通知
+"LocalNotification"="Let's play ”Pudding Panic”!";
 
 

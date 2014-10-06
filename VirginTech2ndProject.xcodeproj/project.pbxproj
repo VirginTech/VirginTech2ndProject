@@ -18,6 +18,7 @@
 		CF264F6719B695C900CACAFD /* BasicMath.m in Sources */ = {isa = PBXBuildFile; fileRef = CF264F6619B695C900CACAFD /* BasicMath.m */; };
 		CF48F12319DE8C050062B3DA /* button_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF48F12119DE8C050062B3DA /* button_default.plist */; };
 		CF48F12419DE8C050062B3DA /* button_default.png in Resources */ = {isa = PBXBuildFile; fileRef = CF48F12219DE8C050062B3DA /* button_default.png */; };
+		CF547DE719E244400066D029 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF547DE619E244400066D029 /* Social.framework */; };
 		CF589EBE19BD520400CEBCBC /* RouteDispLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF589EBD19BD520400CEBCBC /* RouteDispLayer.m */; };
 		CF5A314019C97DF200B901D7 /* NaviLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5A313F19C97DF200B901D7 /* NaviLayer.m */; };
 		CF5CDA9119E1278F00BCBA86 /* parent.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF5CDA8E19E1278F00BCBA86 /* parent.plist */; };
@@ -353,6 +354,7 @@
 		CF264F6619B695C900CACAFD /* BasicMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicMath.m; sourceTree = "<group>"; };
 		CF48F12119DE8C050062B3DA /* button_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = button_default.plist; sourceTree = "<group>"; };
 		CF48F12219DE8C050062B3DA /* button_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_default.png; sourceTree = "<group>"; };
+		CF547DE619E244400066D029 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		CF589EBC19BD520400CEBCBC /* RouteDispLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteDispLayer.h; sourceTree = "<group>"; };
 		CF589EBD19BD520400CEBCBC /* RouteDispLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteDispLayer.m; sourceTree = "<group>"; };
 		CF5A313E19C97DF200B901D7 /* NaviLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NaviLayer.h; sourceTree = "<group>"; };
@@ -926,6 +928,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF547DE719E244400066D029 /* Social.framework in Frameworks */,
 				CF9E251919DBDF7A00928D62 /* ImobileSdkAds.framework in Frameworks */,
 				CF9E251419DBC3D900928D62 /* GameFeatKit.framework in Frameworks */,
 				CF9E24A019DBA5ED00928D62 /* CoreLocation.framework in Frameworks */,
@@ -997,6 +1000,7 @@
 		CF6D88E019B3F710001C5668 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CF547DE619E244400066D029 /* Social.framework */,
 				CF9E251819DBDF7A00928D62 /* ImobileSdkAds.framework */,
 				CF9E251319DBC3D900928D62 /* GameFeatKit.framework */,
 				CF9E249E19DBA4A800928D62 /* ImageIO.framework */,
