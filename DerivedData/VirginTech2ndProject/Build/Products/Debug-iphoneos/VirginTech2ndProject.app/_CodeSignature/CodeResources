@@ -4,6 +4,10 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>00.png</key>
+		<data>
+		pyJvM0iaIv0LeJkSfwIcAi/rQR8=
+		</data>
 		<key>ChangeLog</key>
 		<data>
 		/omrqzsR0+jWweLic0dUHre4LzY=
@@ -368,6 +372,10 @@
 		<data>
 		gaRm/cWEzwHLhCSgTaNFMyZmaAg=
 		</data>
+		<key>lockon.plist</key>
+		<data>
+		uK3WVXC8j3c2f5eik3vFrVFGXgg=
+		</data>
 		<key>msg.fnt</key>
 		<data>
 		ktZVmu199nB9+O463MoIVG0vh+Q=
@@ -387,6 +395,10 @@
 		<key>particleTextureStar.png</key>
 		<data>
 		wv5/N9Z/CCworBZYSmctgT5//4I=
+		</data>
+		<key>puni.plist</key>
+		<data>
+		73cAJKxSDcwEDKEn6FIiRvWnke0=
 		</data>
 		<key>puni01_default.plist</key>
 		<data>
@@ -436,13 +448,29 @@
 		<data>
 		fDt/PSfDZXwSHJqxMiF8bG4tCrY=
 		</data>
+		<key>title_jp.png</key>
+		<data>
+		F4pgfrPQSYjCyJFbxJoGBQr389M=
+		</data>
+		<key>titlelogo_jp.png</key>
+		<data>
+		F4pgfrPQSYjCyJFbxJoGBQr389M=
+		</data>
 		<key>virgintech.png</key>
 		<data>
 		khd9KN3EylZXFE2qLROTkW32Ytw=
+		</data>
+		<key>whitePuni.png</key>
+		<data>
+		pyJvM0iaIv0LeJkSfwIcAi/rQR8=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>00.png</key>
+		<data>
+		pyJvM0iaIv0LeJkSfwIcAi/rQR8=
+		</data>
 		<key>ChangeLog</key>
 		<data>
 		/omrqzsR0+jWweLic0dUHre4LzY=
@@ -807,6 +835,10 @@
 		<data>
 		gaRm/cWEzwHLhCSgTaNFMyZmaAg=
 		</data>
+		<key>lockon.plist</key>
+		<data>
+		uK3WVXC8j3c2f5eik3vFrVFGXgg=
+		</data>
 		<key>msg.fnt</key>
 		<data>
 		ktZVmu199nB9+O463MoIVG0vh+Q=
@@ -826,6 +858,10 @@
 		<key>particleTextureStar.png</key>
 		<data>
 		wv5/N9Z/CCworBZYSmctgT5//4I=
+		</data>
+		<key>puni.plist</key>
+		<data>
+		73cAJKxSDcwEDKEn6FIiRvWnke0=
 		</data>
 		<key>puni01_default.plist</key>
 		<data>
@@ -875,9 +911,21 @@
 		<data>
 		fDt/PSfDZXwSHJqxMiF8bG4tCrY=
 		</data>
+		<key>title_jp.png</key>
+		<data>
+		F4pgfrPQSYjCyJFbxJoGBQr389M=
+		</data>
+		<key>titlelogo_jp.png</key>
+		<data>
+		F4pgfrPQSYjCyJFbxJoGBQr389M=
+		</data>
 		<key>virgintech.png</key>
 		<data>
 		khd9KN3EylZXFE2qLROTkW32Ytw=
+		</data>
+		<key>whitePuni.png</key>
+		<data>
+		pyJvM0iaIv0LeJkSfwIcAi/rQR8=
 		</data>
 	</dict>
 	<key>rules</key>

@@ -173,7 +173,7 @@ AdGenerLayer* adgSSP;
     //親プニ配置
     for(int i=0;i<gpNumArray.count;i++){
         parent=[ParentObject createParent:i gpNum:[[gpNumArray objectAtIndex:i]intValue]];
-        [self addChild:parent];
+        [self addChild:parent z:1];
         [parentArray addObject:parent];
     }
     
@@ -186,7 +186,7 @@ AdGenerLayer* adgSSP;
                                 [NSString stringWithFormat:@"Lv.%d Start!",stageLevel]
                                  nextFlg:false];
     }
-    [self addChild:msg];
+    [self addChild:msg z:4];
     
     // done
 	return self;
@@ -285,7 +285,7 @@ AdGenerLayer* adgSSP;
             }
             
             [puniArray addObject:puni];
-            [self addChild:puni z:2];
+            [self addChild:puni z:3];
             
             //チュートリアル用フィンガー表示
             if([GameManager getStageNum]==0){
@@ -294,7 +294,7 @@ AdGenerLayer* adgSSP;
             
             //矢印表示
             arrow=[ArrowObject createArrow:puni];
-            [self addChild:arrow z:2];
+            [self addChild:arrow z:3];
             
             /*/デバッグ用ラベル
             puniLabel=[CCLabelTTF labelWithString:@"ObjNo= PosX= PosY= " fontName:@"Verdana-Bold" fontSize:8];
@@ -306,7 +306,7 @@ AdGenerLayer* adgSSP;
             //経路レイヤー生成
             routeDisp=[[RouteDispLayer alloc]init];
             routeDisp.puni=puni;
-            [self addChild:routeDisp z:1];
+            [self addChild:routeDisp z:2];
             
             if(puniCnt>=[InitManager getPuniOnceMax]*[InitManager getPuniRepeatMax]){
                 [self unschedule:@selector(createPuni_Schedule:)];
@@ -395,11 +395,12 @@ AdGenerLayer* adgSSP;
                                 puni1.posArray = [[NSMutableArray alloc]init];
                                 puni1.moveCnt=0;
                                 if(puni1==touchPuni)touchPuni=nil;
+                                puni1.lockPuni.visible=false;
                                 
                                 puni2.posArray = [[NSMutableArray alloc]init];
                                 puni2.moveCnt=0;
                                 if(puni2==touchPuni)touchPuni=nil;
-                                
+                                puni2.lockPuni.visible=false;
                             }
                         }
                     }
@@ -523,7 +524,7 @@ AdGenerLayer* adgSSP;
     }
     
     MsgLayer* msg=[[MsgLayer alloc]initWithMsg:@"Good Job!" nextFlg:true];
-    [self addChild:msg];
+    [self addChild:msg z:4];
     
     //レイティング
     if(stageLevel!=0 && stageLevel%10==0){
@@ -632,6 +633,7 @@ AdGenerLayer* adgSSP;
 {
     for(PuniObject* puni1 in puniArray){
         puni1.blinkFlg=false;
+        puni1.lockPuni.visible=false;
     }
     for(ParentObject* parent1 in parentArray){
         parent1.blinkFlg=false;
@@ -702,7 +704,7 @@ AdGenerLayer* adgSSP;
     parentParticle=[[CCParticleSystem alloc]initWithFile:fileName];
     parentParticle.position=pos;
     parentParticle.scale=0.30;
-    [self addChild:parentParticle];
+    [self addChild:parentParticle z:3];
 }
 
 //============================
@@ -769,6 +771,7 @@ AdGenerLayer* adgSSP;
         touchPuni.touchFlg=true;
         touchPuni.posArray = [[NSMutableArray alloc]init];
         touchPuni.moveCnt=0;
+        touchPuni.lockPuni.visible=false;
         
     }else{
         touchPuni=nil;
@@ -785,6 +788,14 @@ AdGenerLayer* adgSSP;
         if([BasicMath RadiusContainsPoint:parent1.position pointB:touchLocation
                                                 radius:(parent1.contentSize.width*parent1.scale)/2-5]){
             if(parent1.gpNum==touchPuni.gpNum){
+                
+                //パーティクル効果
+                [self setParentParticle:parent1.position fileName:@"lockon.plist"];
+                [parent1 puni_Hit_Action];
+                
+                //プニ変化
+                touchPuni.lockPuni.visible=true;
+                                
                 flg=true;
                 touchPuni.touchFlg=false;
                 //[touchPuni.posArray removeLastObject];

@@ -41,6 +41,8 @@
     
     int animeCnt;//アニメーションカウント
     NSMutableArray* frame;//アニメーションフレーム格納用配列
+    
+    CCSprite* lockPuni;
 }
 
 @property float velocity;
@@ -57,6 +59,7 @@
 @property bool playBackReadyFlg;
 @property NSMutableArray* playBackArray;
 @property FingerObject* finger;
+@property CCSprite* lockPuni;
 
 +(id)createPuni:(int)objCnt gpNum:(int)gpNum;
 -(void)startBlink;

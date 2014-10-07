@@ -55,7 +55,7 @@ GameFeatLayer* gfAd;
     [GameManager setScore:0];
     [GameManager setStageNum:99999];//プニを回転させるため
     InfoLayer* infoLayer=[[InfoLayer alloc]init];
-    [self addChild:infoLayer];
+    [self addChild:infoLayer z:2];
     
     //ADG-SSPバナー
     AdGenerLayer* adgSSP=[[AdGenerLayer alloc]init];
@@ -65,12 +65,23 @@ GameFeatLayer* gfAd;
     gfAd=[[GameFeatLayer alloc]init];
     [self addChild:gfAd];
     
-    // Hello world
+    /*/ Hello world
     CCLabelTTF *label = [CCLabelTTF labelWithString:@"ぷにぷにパニック！" fontName:@"Verdana-Bold" fontSize:40.0f];
     label.positionType = CCPositionTypeNormalized;
     label.color = [CCColor redColor];
     label.position = ccp(0.5f, 0.6f); // Middle of screen
-    [self addChild:label];
+    [self addChild:label];*/
+    
+    //タイトルロゴ
+    CCSprite* titleLogo;
+    if([GameManager getLocale]==1){
+        titleLogo=[CCSprite spriteWithImageNamed:@"titlelogo_jp.png"];
+    }else{
+        titleLogo=[CCSprite spriteWithImageNamed:@"titlelogo_jp.png"];
+    }
+    titleLogo.scale=0.4;
+    titleLogo.position=ccp(winSize.width/2+20,winSize.height/2+50);
+    [self addChild:titleLogo z:1];
     
     //画像読込み
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"button_default.plist"];
@@ -89,7 +100,7 @@ GameFeatLayer* gfAd;
     startButton.scale=0.5;
     startButton.rotation=-35;
     [startButton setTarget:self selector:@selector(onStartClicked:)];
-    [self addChild:startButton];
+    [self addChild:startButton z:2];
 
     //コンティニュー・ボタン
     CCButton *continueButton;
@@ -105,7 +116,7 @@ GameFeatLayer* gfAd;
     continueButton.scale=0.5;
     continueButton.rotation=-35;
     [continueButton setTarget:self selector:@selector(onContinueClicked:)];
-    [self addChild:continueButton];
+    [self addChild:continueButton z:2];
     
     // GameCenterボタン
     CCButton *gameCenterButton = [CCButton buttonWithTitle:@"" spriteFrame:
@@ -170,7 +181,7 @@ GameFeatLayer* gfAd;
     //プニ登場
     [GameManager setPause:false];
      PuniObject* puni=[PuniObject createPuni:0 gpNum:(arc4random()%5)+1];
-    [self addChild:puni];
+    [self addChild:puni z:3];
     
     // done
 	return self;

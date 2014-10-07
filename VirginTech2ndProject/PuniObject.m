@@ -27,6 +27,7 @@
 @synthesize playBackReadyFlg;
 @synthesize playBackArray;
 @synthesize finger;
+@synthesize lockPuni;
 
 CGSize winSize;
 
@@ -331,6 +332,12 @@ CGSize winSize;
         label2.color=[CCColor whiteColor];
         [self addChild:label2];*/
 
+        //プニ効果
+        lockPuni=[CCSprite spriteWithImageNamed:@"whitePuni.png"];
+        lockPuni.position=ccp(self.contentSize.width/2,self.contentSize.height/2);
+        [self addChild:lockPuni];
+        lockPuni.visible=false;
+        
         //アニメーション
         animeCnt=0;
         frame=[[NSMutableArray alloc]init];
