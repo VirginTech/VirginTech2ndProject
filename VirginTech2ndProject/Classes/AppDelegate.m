@@ -12,6 +12,7 @@
 #import "StageLevel_01.h"
 #import "GameManager.h"
 #import "ImobileSdkAds/ImobileSdkAds.h"
+#import "SoundManager.h"
 
 @implementation AppDelegate
 
@@ -70,6 +71,9 @@
 
 -(CCScene *)startScene
 {
+    //サウンド・プリロード
+    [SoundManager initSoundPreload];
+    
     //OSバージョン登録
     [GameManager setOsVersion:[[[UIDevice currentDevice]systemVersion]floatValue]];
     
@@ -92,6 +96,11 @@
     }else{
         [GameManager setDevice:0];
     }
+    
+    //初回データ初期値設定
+    [GameManager initialize_Clear_Level];
+    [GameManager initialize_Ticket_Count];
+    
 	// This method should return the very first scene to be run when your app starts.
 	return [TitleScene scene];
 }

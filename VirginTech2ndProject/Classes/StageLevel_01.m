@@ -18,6 +18,7 @@
 #import "FingerObject.h"
 #import "AdGenerLayer.h"
 #import <Social/Social.h>
+#import "SoundManager.h"
 
 @implementation StageLevel_01
 
@@ -72,6 +73,9 @@ AdGenerLayer* adgSSP;
     
     // Enable touch handling on scene node
     self.userInteractionEnabled = YES;
+    
+    //BGM
+    [SoundManager playBGM];
     
     //各種データ初期化
     puniCnt=0;
@@ -378,6 +382,9 @@ AdGenerLayer* adgSSP;
                         if(puni2.collisNum!=puni1.objNum && puni1.collisNum!=puni2.objNum){
                         //if(puni1.collisNum!=puni2.objNum){
                             if(!puni1.startFlg && !puni2.startFlg){
+                                
+                                //衝突音
+                                [SoundManager puniCollisionEffect];
                                 
                                 //めり込み監視
                                 puni1.collisNum=puni2.objNum;

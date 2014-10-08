@@ -10,6 +10,7 @@
 #import "BasicMath.h"
 #import "StageLevel_01.h"
 #import "GameManager.h"
+#import "SoundManager.h"
 
 @implementation PuniObject
 
@@ -195,6 +196,9 @@ CGSize winSize;
     
     if(self.position.y+(self.contentSize.height*scale)/2 >= winSize.height){//上限界
         if(!startFlg){
+            //衝突音
+            //[SoundManager puniCollisionEffect];
+            //NSLog(@"上限界=%d",objNum);
             if(collisFlg){
                 self.position=ccp(self.position.x, self.position.y-3);
             }
@@ -204,6 +208,9 @@ CGSize winSize;
         }
     }else if(self.position.y-(self.contentSize.height*scale)/2 <= 0){//下限界
         if(!startFlg){
+            //衝突音
+            //[SoundManager puniCollisionEffect];
+            //NSLog(@"下限界=%d",objNum);
             if(collisFlg){
                 self.position=ccp(self.position.x, self.position.y+3);
             }
@@ -213,6 +220,9 @@ CGSize winSize;
         }
     }else if(self.position.x-(self.contentSize.width*scale)/2 <= 0){//左限界
         if(!startFlg){
+            //衝突音
+            //[SoundManager puniCollisionEffect];
+            //NSLog(@"左限界=%d",objNum);
             if(collisFlg){
                 self.position=ccp(self.position.x+3, self.position.y);
             }
@@ -222,6 +232,9 @@ CGSize winSize;
         }
     }else if(self.position.x+(self.contentSize.width*scale)/2 >= winSize.width){//右限界
         if(!startFlg){
+            //衝突音
+            //[SoundManager puniCollisionEffect];
+            //NSLog(@"右限界=%d",objNum);
             if(collisFlg){
                 self.position=ccp(self.position.x-3, self.position.y);
             }

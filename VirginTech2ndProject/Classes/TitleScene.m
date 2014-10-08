@@ -17,6 +17,7 @@
 #import "AdGenerLayer.h"
 #import "GameFeatLayer.h"
 #import "PuniObject.h"
+#import "SoundManager.h"
 
 @implementation TitleScene
 
@@ -37,9 +38,8 @@ GameFeatLayer* gfAd;
     
     winSize = [[CCDirector sharedDirector]viewSize];
     
-    //初回データ初期値設定
-    [GameManager initialize_Clear_Level];
-    [GameManager initialize_Ticket_Count];
+    //オープニングBGM
+    [SoundManager playBGM];
     
     // Create a colored background (Dark Grey)
     //CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0.2f green:0.2f blue:0.2f alpha:1.0f]];
@@ -55,7 +55,7 @@ GameFeatLayer* gfAd;
     [GameManager setScore:0];
     [GameManager setStageNum:99999];//プニを回転させるため
     InfoLayer* infoLayer=[[InfoLayer alloc]init];
-    [self addChild:infoLayer z:2];
+    [self addChild:infoLayer z:1];
     
     //ADG-SSPバナー
     AdGenerLayer* adgSSP=[[AdGenerLayer alloc]init];

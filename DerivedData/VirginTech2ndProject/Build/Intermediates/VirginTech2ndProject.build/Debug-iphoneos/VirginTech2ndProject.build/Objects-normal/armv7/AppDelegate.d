@@ -121,4 +121,5 @@ dependencies: \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/RouteDispLayer.h \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/ArrowObject.h \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/GameManager.h \
-  /Users/virgintech/Documents/Library/Ad/iMobile/imobile_for_SP_app_iOS_SDK_2.0.5/lib/ImobileSdkAds.framework/Headers/ImobileSdkAds.h
+  /Users/virgintech/Documents/Library/Ad/iMobile/imobile_for_SP_app_iOS_SDK_2.0.5/lib/ImobileSdkAds.framework/Headers/ImobileSdkAds.h \
+  /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/SoundManager.h
