@@ -11,6 +11,7 @@
 #import "StageLevel_01.h"
 #import "GameManager.h"
 #import "InfoLayer.h"
+#import "SoundManager.h"
 
 @implementation NaviLayer
 
@@ -74,6 +75,9 @@ CGSize winSize;
 
 - (void)onPlaybackClicked:(id)sender
 {
+    //効果音
+    [SoundManager buttonClickEffect];
+    
     if([GameManager getPlayBackCount]>0){
         //プレイバック回数セット
         [GameManager setPlayBackCount:[GameManager getPlayBackCount]-1];
@@ -94,6 +98,9 @@ CGSize winSize;
 
 - (void)onTitleClicked:(id)sender
 {
+    //効果音
+    [SoundManager buttonClickEffect];
+    
     [[CCDirector sharedDirector] replaceScene:[TitleScene scene]
                                withTransition:[CCTransition transitionCrossFadeWithDuration:1.0]];
 

@@ -126,20 +126,20 @@ NSMutableArray* gpNumArray;
     }else{
         puniOnceMax=stageLevel%5;
         if(puniOnceMax==1){
-            puniRepeatMax=20;//テスト 20
+            puniRepeatMax=30;
             interval=2.0;
         }else if(puniOnceMax==2){
-            puniRepeatMax=10;
+            puniRepeatMax=15;
             interval=4.0;
         }else if(puniOnceMax==3){
-            puniRepeatMax=7;
+            puniRepeatMax=10;
             interval=6.0;
         }else if(puniOnceMax==4){
-            puniRepeatMax=5;
+            puniRepeatMax=8;
             interval=8.0;
         }else if(puniOnceMax==0){
             puniOnceMax=5;
-            puniRepeatMax=4;
+            puniRepeatMax=6;
             interval=10.0;
         }
         for(int i=1;i<stageLevel;i++){

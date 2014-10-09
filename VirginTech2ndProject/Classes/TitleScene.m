@@ -217,6 +217,9 @@ GameFeatLayer* gfAd;
 
 - (void)onStartClicked:(id)sender
 {
+    //効果音
+    [SoundManager buttonClickEffect];
+    
     //ステージレヴェル設定
     if([GameManager load_Clear_Level]>=0){
         [GameManager setStageNum:1];
@@ -234,6 +237,9 @@ GameFeatLayer* gfAd;
 
 - (void)onContinueClicked:(id)sender
 {
+    //効果音
+    [SoundManager buttonClickEffect];
+    
     if([GameManager load_Clear_Level]>0){
         if([GameManager load_Ticket_Count]>0){
             UIAlertView *alert = [[UIAlertView alloc] init];
@@ -311,6 +317,9 @@ GameFeatLayer* gfAd;
 
 -(void)onInAppPurchaseClicked:(id)sender
 {
+    //効果音
+    [SoundManager buttonClickEffect];
+    
     //アプリ内購入の設定チェック
     if (![SKPaymentQueue canMakePayments]){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error",NULL)
@@ -331,11 +340,17 @@ GameFeatLayer* gfAd;
 
 -(void)onPreferencesButtonClicked:(id)sender
 {
+    //効果音
+    [SoundManager buttonClickEffect];
+    
     [[CCDirector sharedDirector] replaceScene:[PreferencesLayer scene]withTransition:[CCTransition transitionCrossFadeWithDuration:1.0]];
 }
 
 -(void)onCreditButtonClicked:(id)sender
 {
+    //効果音
+    [SoundManager buttonClickEffect];
+    
     [[CCDirector sharedDirector] replaceScene:[CreditLayer scene]withTransition:[CCTransition transitionCrossFadeWithDuration:1.0]];
 }
 

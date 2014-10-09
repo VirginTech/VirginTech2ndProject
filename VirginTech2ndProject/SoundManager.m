@@ -10,6 +10,7 @@
 
 @implementation SoundManager
 
+int bgmNum;
 float bgmValue;
 float bgmMaxVolume;
 
@@ -29,7 +30,18 @@ float puniCollisionVolume;
     [[OALSimpleAudio sharedInstance]preloadBg:@"bgm05.mp3"];
     
     //エフェクト
-    [[OALSimpleAudio sharedInstance]preloadEffect:@"puni.mp3"];
+    [[OALSimpleAudio sharedInstance]preloadEffect:@"puni_Hit.mp3"];
+    [[OALSimpleAudio sharedInstance]preloadEffect:@"puni_Lock.mp3"];
+    [[OALSimpleAudio sharedInstance]preloadEffect:@"puni_Failed.mp3"];
+    [[OALSimpleAudio sharedInstance]preloadEffect:@"puni_Collision.mp3"];
+    [[OALSimpleAudio sharedInstance]preloadEffect:@"puni_Touch.mp3"];
+    
+    //ボタン
+    [[OALSimpleAudio sharedInstance]preloadEffect:@"@button_Click.mp3"];
+    
+    //BGM初期値
+    //bgmNum=arc4random()%5+1;
+    bgmNum=0;
     
     //BGM音量初期値セット
     bgmValue=0.5;
@@ -38,7 +50,6 @@ float puniCollisionVolume;
     
     //エフェクト音量初期値セット
     effectValue=0.5;
-    
     //各種エフェクト最大値
     puniCollisionVolume=1.0;
 }
@@ -48,8 +59,10 @@ float puniCollisionVolume;
 //===================
 +(void)playBGM
 {
-    int num=arc4random()%5+1;
-    NSString* name=[NSString stringWithFormat:@"bgm%02d.mp3",num];
+    bgmNum++;
+    if(bgmNum>5)bgmNum=1;
+    
+    NSString* name=[NSString stringWithFormat:@"bgm%02d.mp3",bgmNum];
     [[OALSimpleAudio sharedInstance]setBgVolume:bgmMaxVolume*bgmValue];
     [[OALSimpleAudio sharedInstance]playBg:name loop:YES];
 }
@@ -57,6 +70,18 @@ float puniCollisionVolume;
 {
     [[OALSimpleAudio sharedInstance]stopBg];
 }
++(void)pauseBGM
+{
+    [[OALSimpleAudio sharedInstance]setPaused:YES];
+}
++(void)resumeBGM
+{
+    [[OALSimpleAudio sharedInstance]setPaused:NO];
+}
+
+//===================
+// BGM音量セット
+//===================
 +(void)setBgmVolume:(float)value
 {
     bgmValue=value;
@@ -84,12 +109,42 @@ float puniCollisionVolume;
 }
 
 //===================
-// プニ衝突音
+// プニ
 //===================
 +(void)puniCollisionEffect
 {
     [[OALSimpleAudio sharedInstance]setEffectsVolume:puniCollisionVolume*effectValue];
-    [[OALSimpleAudio sharedInstance]playEffect:@"puni.mp3"];
+    [[OALSimpleAudio sharedInstance]playEffect:@"puni_Collision.mp3"];
 }
++(void)puniHitEffect
+{
+    [[OALSimpleAudio sharedInstance]setEffectsVolume:puniCollisionVolume*effectValue];
+    [[OALSimpleAudio sharedInstance]playEffect:@"puni_Hit.mp3"];
+}
++(void)puniFailedEffect
+{
+    [[OALSimpleAudio sharedInstance]setEffectsVolume:puniCollisionVolume*effectValue];
+    [[OALSimpleAudio sharedInstance]playEffect:@"puni_Failed.mp3"];
+}
++(void)puniLockEffect
+{
+    [[OALSimpleAudio sharedInstance]setEffectsVolume:puniCollisionVolume*effectValue];
+    [[OALSimpleAudio sharedInstance]playEffect:@"puni_Lock.mp3"];
+}
++(void)puniTouchEffect
+{
+    [[OALSimpleAudio sharedInstance]setEffectsVolume:puniCollisionVolume*effectValue];
+    [[OALSimpleAudio sharedInstance]playEffect:@"puni_Touch.mp3"];
+}
+
+//===================
+// UI
+//===================
++(void)buttonClickEffect
+{
+    [[OALSimpleAudio sharedInstance]setEffectsVolume:puniCollisionVolume*effectValue];
+    [[OALSimpleAudio sharedInstance]playEffect:@"button_Click.mp3"];
+}
+
 
 @end

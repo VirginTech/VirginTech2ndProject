@@ -15,6 +15,9 @@
 
 +(void)playBGM;
 +(void)stopBGM;
++(void)pauseBGM;
++(void)resumeBGM;
+
 +(void)setBgmVolume:(float)value;
 +(float)getBgmVolume;
 
@@ -22,5 +25,11 @@
 +(float)getEffectVolume;
 
 +(void)puniCollisionEffect;
++(void)puniHitEffect;
++(void)puniFailedEffect;
++(void)puniLockEffect;
++(void)puniTouchEffect;
+
++(void)buttonClickEffect;
 
 @end

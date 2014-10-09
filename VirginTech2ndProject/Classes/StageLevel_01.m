@@ -110,7 +110,7 @@ AdGenerLayer* adgSSP;
     pauseButton.position = ccp(winSize.width-(pauseButton.contentSize.width*pauseButton.scale)/2,
                                (pauseButton.contentSize.height*pauseButton.scale)/2);
     [pauseButton setTarget:self selector:@selector(onPauseClicked:)];
-    [self addChild:pauseButton z:4];
+    [self addChild:pauseButton z:5];
     pauseButton.visible=true;
     
     //レジュームボタン
@@ -120,7 +120,7 @@ AdGenerLayer* adgSSP;
     resumeButton.position = ccp(winSize.width-(resumeButton.contentSize.width*resumeButton.scale)/2,
                                 (resumeButton.contentSize.height*resumeButton.scale)/2);
     [resumeButton setTarget:self selector:@selector(onPauseClicked:)];
-    [self addChild:resumeButton z:4];
+    [self addChild:resumeButton z:5];
     resumeButton.visible=false;
     
     //1xスピードボタン
@@ -130,7 +130,7 @@ AdGenerLayer* adgSSP;
     speed1xButton.position = ccp((speed1xButton.contentSize.width*speed1xButton.scale)/2,
                                  (speed1xButton.contentSize.height*speed1xButton.scale)/2);
     [speed1xButton setTarget:self selector:@selector(onSpeed2xClicked:)];
-    [self addChild:speed1xButton z:4];
+    [self addChild:speed1xButton z:5];
     speed1xButton.visible=false;
     
     //2xスピードボタン
@@ -140,7 +140,7 @@ AdGenerLayer* adgSSP;
     speed2xButton.position = ccp((speed2xButton.contentSize.width*speed2xButton.scale)/2,
                                  (speed2xButton.contentSize.height*speed2xButton.scale)/2);
     [speed2xButton setTarget:self selector:@selector(onSpeed2xClicked:)];
-    [self addChild:speed2xButton z:4];
+    [self addChild:speed2xButton z:5];
     speed2xButton.visible=false;
 
     //倍速切り替え
@@ -158,7 +158,7 @@ AdGenerLayer* adgSSP;
     
     //ナビレイヤー
     naviLayer=[[NaviLayer alloc]init];
-    [self addChild:naviLayer z:3];
+    [self addChild:naviLayer z:4];
     naviLayer.visible=false;
     
     //ステージレヴェル取得
@@ -383,7 +383,7 @@ AdGenerLayer* adgSSP;
                         //if(puni1.collisNum!=puni2.objNum){
                             if(!puni1.startFlg && !puni2.startFlg){
                                 
-                                //衝突音
+                                //プニ衝突音
                                 [SoundManager puniCollisionEffect];
                                 
                                 //めり込み監視
@@ -437,6 +437,9 @@ AdGenerLayer* adgSSP;
                         [self setParentParticle:parent1.position fileName:@"parent.plist"];
                         [parent1 puni_Hit_Action];
                         
+                        //プニヒット効果音
+                        [SoundManager puniHitEffect];
+                        
                         //プニ削除
                         [removePuniArray addObject:puni1];
                         puni1.posArray = [[NSMutableArray alloc]init];
@@ -470,6 +473,10 @@ AdGenerLayer* adgSSP;
                             [self nextStage];
                         }
                     }else{//ステージ失敗
+                        //効果音
+                        [SoundManager pauseBGM];
+                        [SoundManager puniFailedEffect];
+                        
                         [self endGame];
                         [puni1 startBlink];
                         [parent1 startBlink];
@@ -661,6 +668,10 @@ AdGenerLayer* adgSSP;
         }
     }
     if(!flg){//再開
+        
+        //BGM開始
+        [SoundManager resumeBGM];
+        
         naviLayer.visible=false;
         
         [GameManager setPause:false];
@@ -760,6 +771,9 @@ AdGenerLayer* adgSSP;
     
     if([self isPuni:touchLocation]){
         
+        //効果音
+        [SoundManager puniTouchEffect];
+        
         //チュートリアル用フィンガー
         if([GameManager getStageNum]==0){
             if(!tutorialFlg){
@@ -795,6 +809,9 @@ AdGenerLayer* adgSSP;
         if([BasicMath RadiusContainsPoint:parent1.position pointB:touchLocation
                                                 radius:(parent1.contentSize.width*parent1.scale)/2-5]){
             if(parent1.gpNum==touchPuni.gpNum){
+                
+                //効果音
+                [SoundManager puniLockEffect];
                 
                 //パーティクル効果
                 [self setParentParticle:parent1.position fileName:@"lockon.plist"];
@@ -836,6 +853,9 @@ AdGenerLayer* adgSSP;
 - (void)onSpeed2xClicked:(id)sender
 {
     if(![GameManager getSpeed]){//ノーマルモードだったら
+        //効果音
+        [SoundManager buttonClickEffect];
+        
         for(PuniObject* puni1 in puniArray){
             puni1.velocity=puni1.velocity*2;
         }
@@ -843,6 +863,9 @@ AdGenerLayer* adgSSP;
         speed2xButton.visible=false;
         [GameManager setSpeed:true];
     }else{//倍速モードだったら
+        //効果音
+        [SoundManager buttonClickEffect];
+        
         for(PuniObject* puni1 in puniArray){
             puni1.velocity=puni1.velocity/2;
         }
@@ -855,6 +878,10 @@ AdGenerLayer* adgSSP;
 - (void)onPauseClicked:(id)sender
 {
     if(![GameManager getPause]){//プレイ中だったら
+        //効果音
+        [SoundManager buttonClickEffect];
+        [SoundManager pauseBGM];
+        
         self.userInteractionEnabled = NO;
         [GameManager setPause:true];
         pauseButton.visible=false;
@@ -869,6 +896,10 @@ AdGenerLayer* adgSSP;
         [self addChild:adgSSP];
         
     }else{//ポーズ中だったら
+        //効果音
+        [SoundManager buttonClickEffect];
+        [SoundManager resumeBGM];
+        
         self.userInteractionEnabled = YES;
         [GameManager setPause:false];
         pauseButton.visible=true;

@@ -16,6 +16,11 @@
 		CF162F5C19CD6C8B009BBD30 /* backGround_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF162F5A19CD6C8B009BBD30 /* backGround_default.plist */; };
 		CF162F5D19CD6C8B009BBD30 /* backGround_default.png in Resources */ = {isa = PBXBuildFile; fileRef = CF162F5B19CD6C8B009BBD30 /* backGround_default.png */; };
 		CF264F6719B695C900CACAFD /* BasicMath.m in Sources */ = {isa = PBXBuildFile; fileRef = CF264F6619B695C900CACAFD /* BasicMath.m */; };
+		CF4874FB19E60FF800D1FD25 /* puni_Failed.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CF4874FA19E60FF800D1FD25 /* puni_Failed.mp3 */; };
+		CF48750019E615D900D1FD25 /* puni_Hit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CF4874FE19E615D900D1FD25 /* puni_Hit.mp3 */; };
+		CF48750119E615D900D1FD25 /* puni_Lock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CF4874FF19E615D900D1FD25 /* puni_Lock.mp3 */; };
+		CF48750719E61AEB00D1FD25 /* button_Click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CF48750619E61AEB00D1FD25 /* button_Click.mp3 */; };
+		CF48751319E632BA00D1FD25 /* puni_Touch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CF48751219E632BA00D1FD25 /* puni_Touch.mp3 */; };
 		CF48F12319DE8C050062B3DA /* button_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF48F12119DE8C050062B3DA /* button_default.plist */; };
 		CF48F12419DE8C050062B3DA /* button_default.png in Resources */ = {isa = PBXBuildFile; fileRef = CF48F12219DE8C050062B3DA /* button_default.png */; };
 		CF50504919E4FB400088EC17 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CF50504819E4FB400088EC17 /* SoundManager.m */; };
@@ -24,7 +29,7 @@
 		CF50505519E522770088EC17 /* bgm03.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CF50505019E522770088EC17 /* bgm03.mp3 */; };
 		CF50505619E522770088EC17 /* bgm04.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CF50505119E522770088EC17 /* bgm04.mp3 */; };
 		CF50505719E522770088EC17 /* bgm05.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CF50505219E522770088EC17 /* bgm05.mp3 */; };
-		CF50505919E543C30088EC17 /* puni.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CF50505819E543C30088EC17 /* puni.mp3 */; };
+		CF50505919E543C30088EC17 /* puni_Collision.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CF50505819E543C30088EC17 /* puni_Collision.mp3 */; };
 		CF50505B19E5574A0088EC17 /* titlelogo_jp.png in Resources */ = {isa = PBXBuildFile; fileRef = CF50505A19E5574A0088EC17 /* titlelogo_jp.png */; };
 		CF50E9D119E3819200B571D6 /* lockon.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF50E9D019E3819200B571D6 /* lockon.plist */; };
 		CF50E9D919E3AC1C00B571D6 /* particleTextureCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = CF50E9D819E3AC1C00B571D6 /* particleTextureCircle.png */; };
@@ -362,6 +367,11 @@
 		CF162F5B19CD6C8B009BBD30 /* backGround_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backGround_default.png; sourceTree = "<group>"; };
 		CF264F6519B695C900CACAFD /* BasicMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicMath.h; sourceTree = "<group>"; };
 		CF264F6619B695C900CACAFD /* BasicMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicMath.m; sourceTree = "<group>"; };
+		CF4874FA19E60FF800D1FD25 /* puni_Failed.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = puni_Failed.mp3; sourceTree = "<group>"; };
+		CF4874FE19E615D900D1FD25 /* puni_Hit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = puni_Hit.mp3; sourceTree = "<group>"; };
+		CF4874FF19E615D900D1FD25 /* puni_Lock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = puni_Lock.mp3; sourceTree = "<group>"; };
+		CF48750619E61AEB00D1FD25 /* button_Click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = button_Click.mp3; sourceTree = "<group>"; };
+		CF48751219E632BA00D1FD25 /* puni_Touch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = puni_Touch.mp3; sourceTree = "<group>"; };
 		CF48F12119DE8C050062B3DA /* button_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = button_default.plist; sourceTree = "<group>"; };
 		CF48F12219DE8C050062B3DA /* button_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_default.png; sourceTree = "<group>"; };
 		CF50504719E4FB400088EC17 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
@@ -371,7 +381,7 @@
 		CF50505019E522770088EC17 /* bgm03.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm03.mp3; sourceTree = "<group>"; };
 		CF50505119E522770088EC17 /* bgm04.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm04.mp3; sourceTree = "<group>"; };
 		CF50505219E522770088EC17 /* bgm05.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm05.mp3; sourceTree = "<group>"; };
-		CF50505819E543C30088EC17 /* puni.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = puni.mp3; sourceTree = "<group>"; };
+		CF50505819E543C30088EC17 /* puni_Collision.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = puni_Collision.mp3; sourceTree = "<group>"; };
 		CF50505A19E5574A0088EC17 /* titlelogo_jp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titlelogo_jp.png; sourceTree = "<group>"; };
 		CF50E9D019E3819200B571D6 /* lockon.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = lockon.plist; sourceTree = "<group>"; };
 		CF50E9D819E3AC1C00B571D6 /* particleTextureCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particleTextureCircle.png; sourceTree = "<group>"; };
@@ -1014,7 +1024,11 @@
 		CF50504C19E4FB890088EC17 /* Effect */ = {
 			isa = PBXGroup;
 			children = (
-				CF50505819E543C30088EC17 /* puni.mp3 */,
+				CF48751219E632BA00D1FD25 /* puni_Touch.mp3 */,
+				CF4874FE19E615D900D1FD25 /* puni_Hit.mp3 */,
+				CF4874FF19E615D900D1FD25 /* puni_Lock.mp3 */,
+				CF4874FA19E60FF800D1FD25 /* puni_Failed.mp3 */,
+				CF50505819E543C30088EC17 /* puni_Collision.mp3 */,
 			);
 			name = Effect;
 			sourceTree = "<group>";
@@ -1022,6 +1036,7 @@
 		CF50504D19E4FB930088EC17 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				CF48750619E61AEB00D1FD25 /* button_Click.mp3 */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -2254,11 +2269,14 @@
 				CF9E250E19DBC39600928D62 /* gamefeat_popup_dl_E.png in Resources */,
 				CF9E24DB19DBC39600928D62 /* gamefeat_bg_loading.png in Resources */,
 				CF9E24F819DBC39600928D62 /* gamefeat_popup_close_land_E.png in Resources */,
+				CF48750119E615D900D1FD25 /* puni_Lock.mp3 in Resources */,
 				CF9E252E19DC349A00928D62 /* puni05_default.png in Resources */,
 				CF6D891319B3F710001C5668 /* Icon-iPad-Spotlight-iOS7@2x.png in Resources */,
 				CF9E24FC19DBC39600928D62 /* gamefeat_popup_dl_land_D.png in Resources */,
+				CF48750019E615D900D1FD25 /* puni_Hit.mp3 in Resources */,
 				CF9E252919DC348800928D62 /* puni04_default.plist in Resources */,
 				CF6D890219B3F710001C5668 /* Default-Landscape~ipad.png in Resources */,
+				CF48751319E632BA00D1FD25 /* puni_Touch.mp3 in Resources */,
 				CF162F5819CD6A46009BBD30 /* scoreFont.fnt in Resources */,
 				CF9E24FE19DBC39600928D62 /* gamefeat_popup_bg_A.png in Resources */,
 				CF6D891719B3F710001C5668 /* Icon-Small.png in Resources */,
@@ -2279,9 +2297,10 @@
 				CF798ABC19D0132B00764B28 /* Localizable.strings in Resources */,
 				CF6D8A5719B3F711001C5668 /* LICENSE_cocos2d.txt in Resources */,
 				CF9E250D19DBC39600928D62 /* gamefeat_popup_dl_D.png in Resources */,
-				CF50505919E543C30088EC17 /* puni.mp3 in Resources */,
+				CF50505919E543C30088EC17 /* puni_Collision.mp3 in Resources */,
 				CF6D890019B3F710001C5668 /* Default-568h@2x.png in Resources */,
 				CF50505419E522770088EC17 /* bgm02.mp3 in Resources */,
+				CF48750719E61AEB00D1FD25 /* button_Click.mp3 in Resources */,
 				CF9E251D19DC344C00928D62 /* puni01_default.plist in Resources */,
 				CF6D892019B3F710001C5668 /* iTunesArtwork in Resources */,
 				CF6D891B19B3F710001C5668 /* Icon-Spotlight-iOS7.png in Resources */,
@@ -2302,6 +2321,7 @@
 				CF162F5C19CD6C8B009BBD30 /* backGround_default.plist in Resources */,
 				CF798AB819D012C500764B28 /* InfoPlist.strings in Resources */,
 				CF50505519E522770088EC17 /* bgm03.mp3 in Resources */,
+				CF4874FB19E60FF800D1FD25 /* puni_Failed.mp3 in Resources */,
 				CF9E250519DBC39600928D62 /* gamefeat_popup_close_B.png in Resources */,
 				CF50505B19E5574A0088EC17 /* titlelogo_jp.png in Resources */,
 				CF798AAA19CFC73A00764B28 /* bgLayer.png in Resources */,
