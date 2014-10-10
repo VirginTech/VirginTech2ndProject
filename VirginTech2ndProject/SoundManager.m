@@ -10,6 +10,9 @@
 
 @implementation SoundManager
 
+bool bgmSwitch;
+bool effectSwitch;
+
 int bgmNum;
 float bgmValue;
 float bgmMaxVolume;
@@ -39,6 +42,13 @@ float puniCollisionVolume;
     //ボタン
     [[OALSimpleAudio sharedInstance]preloadEffect:@"@button_Click.mp3"];
     
+    //エンディング
+    [[OALSimpleAudio sharedInstance]preloadEffect:@"@ending.mp3"];
+    
+    //スイッチ
+    bgmSwitch=true;
+    effectSwitch=true;
+    
     //BGM初期値
     //bgmNum=arc4random()%5+1;
     bgmNum=0;
@@ -55,16 +65,39 @@ float puniCollisionVolume;
 }
 
 //===================
+// スイッチ
+//===================
++(void)setBgmSwitch:(bool)flg
+{
+    bgmSwitch=flg;
+}
++(bool)getBgmSwitch
+{
+    return bgmSwitch;
+}
++(void)setEffectSwitch:(bool)flg
+{
+    effectSwitch=flg;
+}
++(bool)getEffectSwitch
+{
+    return effectSwitch;
+}
+
+//===================
 // BGM
 //===================
 +(void)playBGM
 {
-    bgmNum++;
-    if(bgmNum>5)bgmNum=1;
-    
-    NSString* name=[NSString stringWithFormat:@"bgm%02d.mp3",bgmNum];
-    [[OALSimpleAudio sharedInstance]setBgVolume:bgmMaxVolume*bgmValue];
-    [[OALSimpleAudio sharedInstance]playBg:name loop:YES];
+    if(bgmSwitch){
+        
+        bgmNum++;
+        if(bgmNum>5)bgmNum=1;
+        
+        NSString* name=[NSString stringWithFormat:@"bgm%02d.mp3",bgmNum];
+        [[OALSimpleAudio sharedInstance]setBgVolume:bgmMaxVolume*bgmValue];
+        [[OALSimpleAudio sharedInstance]playBg:name loop:YES];
+    }
 }
 +(void)stopBGM
 {
@@ -113,28 +146,49 @@ float puniCollisionVolume;
 //===================
 +(void)puniCollisionEffect
 {
-    [[OALSimpleAudio sharedInstance]setEffectsVolume:puniCollisionVolume*effectValue];
-    [[OALSimpleAudio sharedInstance]playEffect:@"puni_Collision.mp3"];
+    if(effectSwitch){
+        [[OALSimpleAudio sharedInstance]setEffectsVolume:puniCollisionVolume*effectValue];
+        [[OALSimpleAudio sharedInstance]playEffect:@"puni_Collision.mp3"];
+    }
 }
 +(void)puniHitEffect
 {
-    [[OALSimpleAudio sharedInstance]setEffectsVolume:puniCollisionVolume*effectValue];
-    [[OALSimpleAudio sharedInstance]playEffect:@"puni_Hit.mp3"];
+    if(effectSwitch){
+        [[OALSimpleAudio sharedInstance]setEffectsVolume:puniCollisionVolume*effectValue];
+        [[OALSimpleAudio sharedInstance]playEffect:@"puni_Hit.mp3"];
+    }
 }
 +(void)puniFailedEffect
 {
-    [[OALSimpleAudio sharedInstance]setEffectsVolume:puniCollisionVolume*effectValue];
-    [[OALSimpleAudio sharedInstance]playEffect:@"puni_Failed.mp3"];
+    if(effectSwitch){
+        [[OALSimpleAudio sharedInstance]setEffectsVolume:puniCollisionVolume*effectValue];
+        [[OALSimpleAudio sharedInstance]playEffect:@"puni_Failed.mp3"];
+    }
 }
 +(void)puniLockEffect
 {
-    [[OALSimpleAudio sharedInstance]setEffectsVolume:puniCollisionVolume*effectValue];
-    [[OALSimpleAudio sharedInstance]playEffect:@"puni_Lock.mp3"];
+    if(effectSwitch){
+        [[OALSimpleAudio sharedInstance]setEffectsVolume:puniCollisionVolume*effectValue];
+        [[OALSimpleAudio sharedInstance]playEffect:@"puni_Lock.mp3"];
+    }
 }
 +(void)puniTouchEffect
 {
-    [[OALSimpleAudio sharedInstance]setEffectsVolume:puniCollisionVolume*effectValue];
-    [[OALSimpleAudio sharedInstance]playEffect:@"puni_Touch.mp3"];
+    if(effectSwitch){
+        [[OALSimpleAudio sharedInstance]setEffectsVolume:puniCollisionVolume*effectValue];
+        [[OALSimpleAudio sharedInstance]playEffect:@"puni_Touch.mp3"];
+    }
+}
+
+//===================
+// エンディング
+//===================
++(void)endingEffect
+{
+    if(effectSwitch){
+        [[OALSimpleAudio sharedInstance]setEffectsVolume:puniCollisionVolume*effectValue];
+        [[OALSimpleAudio sharedInstance]playEffect:@"ending.mp3"];
+    }
 }
 
 //===================
@@ -142,8 +196,10 @@ float puniCollisionVolume;
 //===================
 +(void)buttonClickEffect
 {
-    [[OALSimpleAudio sharedInstance]setEffectsVolume:puniCollisionVolume*effectValue];
-    [[OALSimpleAudio sharedInstance]playEffect:@"button_Click.mp3"];
+    if(effectSwitch){
+        [[OALSimpleAudio sharedInstance]setEffectsVolume:puniCollisionVolume*effectValue];
+        [[OALSimpleAudio sharedInstance]playEffect:@"button_Click.mp3"];
+    }
 }
 
 

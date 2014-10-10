@@ -9,6 +9,7 @@
 #import "MsgLayer.h"
 #import "GameManager.h"
 #import "StageLevel_01.h"
+#import "SoundManager.h"
 
 @implementation MsgLayer
 
@@ -52,6 +53,11 @@ bool nextFlg;
         msg.opacity-=0.05f;
     }
     cnt++;
+    
+    if(cnt==19 && nextFlg){
+        //エンディング効果音
+        [SoundManager endingEffect];
+    }
     
     if(cnt>=38){
         if(nextFlg){

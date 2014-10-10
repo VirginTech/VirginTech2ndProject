@@ -13,6 +13,11 @@
 
 +(void)initSoundPreload;
 
++(void)setBgmSwitch:(bool)flg;
++(bool)getBgmSwitch;
++(void)setEffectSwitch:(bool)flg;
++(bool)getEffectSwitch;
+
 +(void)playBGM;
 +(void)stopBGM;
 +(void)pauseBGM;
@@ -29,6 +34,8 @@
 +(void)puniFailedEffect;
 +(void)puniLockEffect;
 +(void)puniTouchEffect;
+
++(void)endingEffect;
 
 +(void)buttonClickEffect;
 

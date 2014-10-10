@@ -540,6 +540,9 @@ AdGenerLayer* adgSSP;
     MsgLayer* msg=[[MsgLayer alloc]initWithMsg:@"Good Job!" nextFlg:true];
     [self addChild:msg z:4];
     
+    //BGM停止
+    [SoundManager stopBGM];
+    
     //レイティング
     if(stageLevel!=0 && stageLevel%10==0){
         UIAlertView *alert = [[UIAlertView alloc] init];

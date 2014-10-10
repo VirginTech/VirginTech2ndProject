@@ -103,4 +103,5 @@ dependencies: \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/cocos2d/Support/NSThread+performBlock.h \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/cocos2d/Support/utlist.h \
   /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/kazmath/include/kazmath/GL/matrix.h \
-  /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/cocos2d-ui/CCControlSubclass.h
+  /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/Libraries/cocos2d-ui/CCControlSubclass.h \
+  /Users/virgintech/Documents/Product/VirginTech2ndProject/VirginTech2ndProject/SoundManager.h
