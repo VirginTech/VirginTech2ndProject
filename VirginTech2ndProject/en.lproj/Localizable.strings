@@ -55,4 +55,8 @@
 //ローカル通知
 "LocalNotification"="Let's play ”Pudding Panic”!";
 
+//ログインボーナス
+"BonusGet"="Get bonus!";
+"FirstBonus"="Thank you first login! Get, 10 ”Continue-Ticket”!";
+"DailyBonus"="”Continue-Ticket” 1 gift every day!";
 

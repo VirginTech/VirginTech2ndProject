@@ -176,9 +176,35 @@ int playBackCount;
     NSDictionary *dict = [[NSUserDefaults standardUserDefaults] persistentDomainForName:appDomain];
     
     if([dict valueForKey:@"Ticket"]==nil){
-        [GameManager save_Ticket_Count:10];
+        [GameManager save_Ticket_Count:0];//初回ログインボーナスで取得
     }
     
+}
+
+//=========================================
+//　ログイン日の取得
+//=========================================
++(NSDate*)load_Login_Date
+{
+    NSUserDefaults  *userDefault=[NSUserDefaults standardUserDefaults];
+    NSDate* date =[userDefault objectForKey:@"LoginDate"];
+    return date;
+}
+
+//=========================================
+//　ログイン日の保存
+//=========================================
++(void)save_login_Date:(NSDate*)date
+{
+    //日付のみに変換
+    NSCalendar *calen = [NSCalendar currentCalendar];
+    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
+    NSDateComponents *comps = [calen components:unitFlags fromDate:date];
+    //[comps setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];//GMTで貫く
+    NSDate *date_ = [calen dateFromComponents:comps];
+    
+    NSUserDefaults  *userDefault=[NSUserDefaults standardUserDefaults];
+    [userDefault setObject:date_ forKey:@"LoginDate"];
 }
 
 //=========================================

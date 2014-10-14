@@ -121,11 +121,12 @@ CCScrollView* scrollView;
     label.position=ccp(winSize.width/2,260);
     [bgSpLayer addChild:label];
 
-    /*
-    label=[CCLabelTTF labelWithString:@"ストックマテリアル - stockmaterial.geo.jp" fontName:@"Verdana-Bold" fontSize:10];
-    label.position=ccp(winSize.width/2,440);
+    
+    label=[CCLabelTTF labelWithString:@"イラスト素材.net - www.イラスト素材.net" fontName:@"Verdana-Bold" fontSize:10];
+    label.position=ccp(winSize.width/2,240);
     [bgSpLayer addChild:label];
 
+    /*
     label=[CCLabelTTF labelWithString:@"PHOTO CHIPS - photo-chips.com" fontName:@"Verdana-Bold" fontSize:10];
     label.position=ccp(winSize.width/2,420);
     [bgSpLayer addChild:label];
@@ -172,15 +173,15 @@ CCScrollView* scrollView;
     */
     
     label=[CCLabelTTF labelWithString:@"Sound by" fontName:@"Verdana-Italic" fontSize:12];
-    label.position=ccp(winSize.width/2,220);
+    label.position=ccp(winSize.width/2,200);
     [bgSpLayer addChild:label];
 
     label=[CCLabelTTF labelWithString:@"クリプトン・フューチャー・メディア - www.crypton.co.jp" fontName:@"Verdana-Bold" fontSize:10];
-    label.position=ccp(winSize.width/2,190);
+    label.position=ccp(winSize.width/2,170);
     [bgSpLayer addChild:label];
     
     label=[CCLabelTTF labelWithString:@"フリー効果音素材 くらげ工匠 - www.kurage-kosho.info" fontName:@"Verdana-Bold" fontSize:10];
-    label.position=ccp(winSize.width/2,170);
+    label.position=ccp(winSize.width/2,150);
     [bgSpLayer addChild:label];
     
     /*
@@ -190,11 +191,11 @@ CCScrollView* scrollView;
     */
     
     label=[CCLabelTTF labelWithString:@"Special Thanks! " fontName:@"Verdana-Italic" fontSize:20];
-    label.position=ccp(winSize.width/2,100);
+    label.position=ccp(winSize.width/2,80);
     [bgSpLayer addChild:label];
 
     label=[CCLabelTTF labelWithString:@"ありがとう! " fontName:@"Verdana-Italic" fontSize:20];
-    label.position=ccp(winSize.width/2,70);
+    label.position=ccp(winSize.width/2,50);
     [bgSpLayer addChild:label];
 
 }

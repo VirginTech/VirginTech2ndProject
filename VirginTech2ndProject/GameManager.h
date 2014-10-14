@@ -41,6 +41,9 @@
 +(void)save_Ticket_Count:(int)cnt;
 +(void)initialize_Ticket_Count;
 
++(NSDate*)load_Login_Date;
++(void)save_login_Date:(NSDate*)date;
+
 +(void)submitScore_GameCenter:(NSInteger)score;
 
 @end

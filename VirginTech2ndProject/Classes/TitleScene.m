@@ -183,6 +183,44 @@ GameFeatLayer* gfAd;
      PuniObject* puni=[PuniObject createPuni:0 gpNum:(arc4random()%5)+1];
     [self addChild:puni z:3];
     
+    //初回ログインボーナス
+    //NSDate* currentDate= [NSDate dateWithTimeIntervalSinceNow:[[NSTimeZone systemTimeZone] secondsFromGMT]];
+    NSDate* currentDate=[NSDate date];//GMTで貫く
+    NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+    NSDictionary *dict = [[NSUserDefaults standardUserDefaults] persistentDomainForName:appDomain];
+    if([dict valueForKey:@"LoginDate"]==nil){
+        [GameManager save_login_Date:currentDate];
+        
+        UIAlertView *alert = [[UIAlertView alloc] init];
+        alert.tag=1;
+        alert.delegate = self;
+        alert.title = NSLocalizedString(@"BonusGet",NULL);
+        alert.message = NSLocalizedString(@"FirstBonus",NULL);
+        [alert addButtonWithTitle:NSLocalizedString(@"OK",NULL)];
+        [alert show];
+    }
+    
+    //デイリー・ボーナス
+    NSDate* recentDate=[GameManager load_Login_Date];
+    //日付のみに変換
+    NSCalendar *calen = [NSCalendar currentCalendar];
+    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
+    NSDateComponents *comps = [calen components:unitFlags fromDate:currentDate];
+    //[comps setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];//GMTで貫く
+    currentDate = [calen dateFromComponents:comps];
+    
+    if([currentDate compare:recentDate]==NSOrderedDescending){//日付が変わってるなら「1」
+        [GameManager save_login_Date:currentDate];
+        
+        UIAlertView *alert = [[UIAlertView alloc] init];
+        alert.tag=2;
+        alert.delegate = self;
+        alert.title = NSLocalizedString(@"BonusGet",NULL);
+        alert.message = NSLocalizedString(@"DailyBonus",NULL);
+        [alert addButtonWithTitle:NSLocalizedString(@"OK",NULL)];
+        [alert show];
+    }
+    
     // done
 	return self;
 }
@@ -243,7 +281,7 @@ GameFeatLayer* gfAd;
     if([GameManager load_Clear_Level]>0){
         if([GameManager load_Ticket_Count]>0){
             UIAlertView *alert = [[UIAlertView alloc] init];
-            //alert.tag=type;
+            alert.tag=0;
             alert.delegate = self;
             alert.title = NSLocalizedString(@"Continue",NULL);
             alert.message = NSLocalizedString(@"Ticket_Use",NULL);
@@ -273,25 +311,39 @@ GameFeatLayer* gfAd;
 
 -(void)alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    switch (buttonIndex){
-        case 0:
-            break;
-        case 1:
-            //ステージレヴェル設定
-            [GameManager setStageNum:[GameManager load_Clear_Level]+1];
-            //スコア設定
-            [GameManager setScore:[GameManager load_HighScore]];
-            
-            [[CCDirector sharedDirector] replaceScene:[StageLevel_01 scene]
-                                                withTransition:[CCTransition transitionCrossFadeWithDuration:1.0]];
-            //チケットセット
-            [GameManager save_Ticket_Count:[GameManager load_Ticket_Count]-1];
-            [InfoLayer update_Ticket];
-            
-            //プレイバック回数セット
-            //[GameManager setPlayBackCount:5];
+    if(alertView.tag==0){
+        switch (buttonIndex){
+            case 0:
+                break;
+            case 1:
+                //ステージレヴェル設定
+                [GameManager setStageNum:[GameManager load_Clear_Level]+1];
+                //スコア設定
+                [GameManager setScore:[GameManager load_HighScore]];
+                
+                [[CCDirector sharedDirector] replaceScene:[StageLevel_01 scene]
+                                                    withTransition:[CCTransition transitionCrossFadeWithDuration:1.0]];
+                //チケットセット
+                [GameManager save_Ticket_Count:[GameManager load_Ticket_Count]-1];
+                [InfoLayer update_Ticket];
+                
+                //プレイバック回数セット
+                //[GameManager setPlayBackCount:5];
 
-            break;
+                break;
+        }
+    }else if(alertView.tag==1){
+        
+        //チケット付与
+        [GameManager save_Ticket_Count:[GameManager load_Ticket_Count]+10];
+        [InfoLayer update_Ticket];
+        
+    }else if(alertView.tag==2){
+        
+        //チケット付与
+        [GameManager save_Ticket_Count:[GameManager load_Ticket_Count]+ 1];
+        [InfoLayer update_Ticket];
+        
     }
 }
 
