@@ -75,7 +75,7 @@ GameFeatLayer* gfAd;
     //タイトルロゴ
     CCSprite* titleLogo;
     if([GameManager getLocale]==1){
-        titleLogo=[CCSprite spriteWithImageNamed:@"titlelogo_jp.png"];
+        titleLogo=[CCSprite spriteWithImageNamed:@"titlelogo_en.png"];
     }else{
         titleLogo=[CCSprite spriteWithImageNamed:@"titlelogo_jp.png"];
     }

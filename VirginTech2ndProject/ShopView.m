@@ -10,6 +10,7 @@
 #import "TitleScene.h"
 #import "GameManager.h"
 #import "InfoLayer.h"
+#import "ImobileSdkAds/ImobileSdkAds.h"
 
 @implementation ShopView
 
@@ -309,6 +310,8 @@ SKProduct* product05;
     }
     
     [[CCDirector sharedDirector] replaceScene:[TitleScene scene]withTransition:[CCTransition transitionCrossFadeWithDuration:1.0]];
+    
+    [ImobileSdkAds showBySpotID:@"295894"];
 }
 
 - (void)button01_Clicked:(id)sender

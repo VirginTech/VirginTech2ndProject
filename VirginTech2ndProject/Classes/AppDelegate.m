@@ -63,8 +63,8 @@
     }
 
     //iMobileインタースティシャル読込み (AppBankNetworkインタースティシャルと相性悪し)
-    //[ImobileSdkAds registerWithPublisherID:@"31967" MediaID:@"121860" SpotID:@"295894"];
-    //[ImobileSdkAds startBySpotID:@"295894"];
+    [ImobileSdkAds registerWithPublisherID:@"31967" MediaID:@"121860" SpotID:@"295894"];
+    [ImobileSdkAds startBySpotID:@"295894"];
 	
 	return YES;
 }
