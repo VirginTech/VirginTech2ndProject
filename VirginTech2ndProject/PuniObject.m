@@ -54,6 +54,7 @@ CGSize winSize;
 
 -(void)move_Schedule:(CCTime)dt
 {
+    //ポーズ＆プレイバック
     if([GameManager getPause]){
         if([GameManager getPlayBack]){
             if(moveCnt<playBackArray.count){
@@ -66,6 +67,7 @@ CGSize winSize;
                 //moveCnt=0;
             }
         }
+    //マニュアルモード
     }else{
         if(posArray.count>1 && posArray.count > moveCnt+1){
             
@@ -87,7 +89,7 @@ CGSize winSize;
             er=sqrtf(powf(pt2.x-pt1.x,2)+powf(pt2.y-pt1.y,2));
             targetAngle=[BasicMath getAngle_To_Radian:pt1 ePos:pt2];
 
-            //デバッグ用メッセージアラート
+            /*/デバッグ用メッセージアラート
             if(isnan(targetAngle)){
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"マニュアルモード・エラー"
                                             message:[NSString stringWithFormat:
@@ -100,7 +102,7 @@ CGSize winSize;
                 [self unschedule:@selector(move_Schedule:)];
                 //[StageLevel_01 pointPuniCntAdd];
                 //[self removeFromParentAndCleanup:YES];
-            }else{
+            }else{*/
                 dr=dr+velocity;
                 CGPoint inpolPos = CGPointMake(dr*cosf(targetAngle),dr*sinf(targetAngle));
                 //pt1から補間分(inpolPos)を加える
@@ -112,16 +114,17 @@ CGSize winSize;
                     moveCnt++;
                     dr=0;
                 }
-            }
-        }else{
+            //}
             
+        //オートモード
+        }else{
             CGPoint nextPos;
             dr=0;
             manualFlg=false;
             targetAngle=[self wallReflectionAngle];
             nextPos=CGPointMake(velocity*cosf(targetAngle),velocity*sinf(targetAngle));
 
-            //デバッグ用メッセージアラート
+            /*/デバッグ用メッセージアラート
             if(isnan(targetAngle)){
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"オートモード・エラー"
                                     message:[NSString stringWithFormat:@"Angle=%f",targetAngle]
@@ -130,9 +133,9 @@ CGSize winSize;
                                     otherButtonTitles:@"OK", nil];
                 [alert show];
                 [self unschedule:@selector(move_Schedule:)];
-            }else{
+            }else{*/
                 self.position=CGPointMake(self.position.x+nextPos.x, self.position.y+nextPos.y);
-            }
+            //}
             startPos=self.position;
         }
         

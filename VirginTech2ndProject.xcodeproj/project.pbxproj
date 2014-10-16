@@ -2736,7 +2736,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8ba8b5b7-5f96-4abf-b69b-e38efca03c9f";
+				PROVISIONING_PROFILE = "304e90f3-df97-4201-83a3-f0eaf7ce56b2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

@@ -4,10 +4,6 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>00.png</key>
-		<data>
-		pyJvM0iaIv0LeJkSfwIcAi/rQR8=
-		</data>
 		<key>ChangeLog</key>
 		<data>
 		/omrqzsR0+jWweLic0dUHre4LzY=
@@ -30,55 +26,55 @@
 		</data>
 		<key>Icon-120.png</key>
 		<data>
-		E/xBG2pFpmSfZGn1WliJldk6uvs=
+		ZtnNZSCiZ4xpr5mTScNDJePiwIY=
 		</data>
 		<key>Icon-72.png</key>
 		<data>
-		IbaB/dU9FSgdRhQFuPvA8nzVWIM=
+		byAl8dPXiwOx5yUqFxna13y21T0=
 		</data>
 		<key>Icon-72@2x.png</key>
 		<data>
-		08EXKIqDzayRyBKM+Nkzi7B2Tt4=
+		yC2mVdyzPfa4a3M/dGLwrsr0mEw=
 		</data>
 		<key>Icon-76.png</key>
 		<data>
-		wzJEPflhktxlryr5KKKxqYDHW1U=
+		TbxzncW8ew64hoOsf6LuKEZk0Vc=
 		</data>
 		<key>Icon-76@2x.png</key>
 		<data>
-		6IPjSCHyci0a2XQBG2jnsOady4o=
+		YxcA1cAYrwio3I3KzWxbp7k7hTM=
 		</data>
 		<key>Icon-Small-50.png</key>
 		<data>
-		Cm760kOwZVX28J+yFoHaWHKHwPA=
+		8EUbGGC7YACRAA1+ok9Ndz8puNw=
 		</data>
 		<key>Icon-Small.png</key>
 		<data>
-		aR3Wo8Va9NtImm5s/J9UN+5JbVY=
+		Ei9WjaVrIYM4+qGUjhegDio+tRA=
 		</data>
 		<key>Icon-Small@2x.png</key>
 		<data>
-		zgNWVY1lpchSE0NOoVzlh8jlF3c=
+		WJ4bVkpI0S3l3hBe0vbR8CbDTAU=
 		</data>
 		<key>Icon-Spotlight-iOS7.png</key>
 		<data>
-		AlGxCRtKKYk8u3++N8HRq5C02Ko=
+		G/I5pDS7oG7jlKsEQrgyrMCl108=
 		</data>
 		<key>Icon-Spotlight-iOS7@2x.png</key>
 		<data>
-		FoZbTB0pUIn7Jf/v3FBGURU8NDk=
+		amMlxkA8bU6uCZ3Elu1M2xSQ70Q=
 		</data>
 		<key>Icon-iPad-Spotlight-iOS7@2x.png</key>
 		<data>
-		XoiXiIjrUE5Nni9uFdhFcTLxGxw=
+		dbY/OWBuOtOKiabFq8E2dLahnM4=
 		</data>
 		<key>Icon.png</key>
 		<data>
-		13z4eKKQIjR6hJtA46hC3NQvld8=
+		sUWlMDEp6Kj9LKCv3WkkE3DqOdQ=
 		</data>
 		<key>Icon@2x.png</key>
 		<data>
-		SbW1Qllv2yT4V5JS4G1xNQJdC1w=
+		TZJssdkkvEhsmZWcdPiV/O3O3xY=
 		</data>
 		<key>LICENSE_CCBReader.txt</key>
 		<data>
@@ -146,11 +142,11 @@
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
-		jfjnBco9513FSsVh2D1K/D1lvqE=
+		XOKYf0BddMLSboegt2woWGi2714=
 		</data>
 		<key>en.lproj/InfoPlist.strings</key>
 		<data>
-		EAZq106sKS1Bn7UeREEXaum7Q98=
+		NxskvNJ2W5XP+mEnjueeP9aTRhg=
 		</data>
 		<key>en.lproj/Localizable.strings</key>
 		<data>
@@ -394,7 +390,7 @@
 		</data>
 		<key>ja.lproj/InfoPlist.strings</key>
 		<data>
-		uUEh5Z3IkG3TQWD1ui/FYc1ZgHg=
+		cGsq7ZUInC6rW+82pwYiNxVhK8s=
 		</data>
 		<key>ja.lproj/Localizable.strings</key>
 		<data>
@@ -423,14 +419,6 @@
 		<key>particleTextureStar.png</key>
 		<data>
 		wv5/N9Z/CCworBZYSmctgT5//4I=
-		</data>
-		<key>puni.mp3</key>
-		<data>
-		ckPOp7d2BerH1HQ+u3nrIJhjcsY=
-		</data>
-		<key>puni.plist</key>
-		<data>
-		73cAJKxSDcwEDKEn6FIiRvWnke0=
 		</data>
 		<key>puni01_default.plist</key>
 		<data>
@@ -499,10 +487,6 @@
 		<key>scoreFont.png</key>
 		<data>
 		fDt/PSfDZXwSHJqxMiF8bG4tCrY=
-		</data>
-		<key>title_jp.png</key>
-		<data>
-		F4pgfrPQSYjCyJFbxJoGBQr389M=
 		</data>
 		<key>titlelogo_en.png</key>
 		<data>
@@ -523,10 +507,6 @@
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>00.png</key>
-		<data>
-		pyJvM0iaIv0LeJkSfwIcAi/rQR8=
-		</data>
 		<key>ChangeLog</key>
 		<data>
 		/omrqzsR0+jWweLic0dUHre4LzY=
@@ -549,55 +529,55 @@
 		</data>
 		<key>Icon-120.png</key>
 		<data>
-		E/xBG2pFpmSfZGn1WliJldk6uvs=
+		ZtnNZSCiZ4xpr5mTScNDJePiwIY=
 		</data>
 		<key>Icon-72.png</key>
 		<data>
-		IbaB/dU9FSgdRhQFuPvA8nzVWIM=
+		byAl8dPXiwOx5yUqFxna13y21T0=
 		</data>
 		<key>Icon-72@2x.png</key>
 		<data>
-		08EXKIqDzayRyBKM+Nkzi7B2Tt4=
+		yC2mVdyzPfa4a3M/dGLwrsr0mEw=
 		</data>
 		<key>Icon-76.png</key>
 		<data>
-		wzJEPflhktxlryr5KKKxqYDHW1U=
+		TbxzncW8ew64hoOsf6LuKEZk0Vc=
 		</data>
 		<key>Icon-76@2x.png</key>
 		<data>
-		6IPjSCHyci0a2XQBG2jnsOady4o=
+		YxcA1cAYrwio3I3KzWxbp7k7hTM=
 		</data>
 		<key>Icon-Small-50.png</key>
 		<data>
-		Cm760kOwZVX28J+yFoHaWHKHwPA=
+		8EUbGGC7YACRAA1+ok9Ndz8puNw=
 		</data>
 		<key>Icon-Small.png</key>
 		<data>
-		aR3Wo8Va9NtImm5s/J9UN+5JbVY=
+		Ei9WjaVrIYM4+qGUjhegDio+tRA=
 		</data>
 		<key>Icon-Small@2x.png</key>
 		<data>
-		zgNWVY1lpchSE0NOoVzlh8jlF3c=
+		WJ4bVkpI0S3l3hBe0vbR8CbDTAU=
 		</data>
 		<key>Icon-Spotlight-iOS7.png</key>
 		<data>
-		AlGxCRtKKYk8u3++N8HRq5C02Ko=
+		G/I5pDS7oG7jlKsEQrgyrMCl108=
 		</data>
 		<key>Icon-Spotlight-iOS7@2x.png</key>
 		<data>
-		FoZbTB0pUIn7Jf/v3FBGURU8NDk=
+		amMlxkA8bU6uCZ3Elu1M2xSQ70Q=
 		</data>
 		<key>Icon-iPad-Spotlight-iOS7@2x.png</key>
 		<data>
-		XoiXiIjrUE5Nni9uFdhFcTLxGxw=
+		dbY/OWBuOtOKiabFq8E2dLahnM4=
 		</data>
 		<key>Icon.png</key>
 		<data>
-		13z4eKKQIjR6hJtA46hC3NQvld8=
+		sUWlMDEp6Kj9LKCv3WkkE3DqOdQ=
 		</data>
 		<key>Icon@2x.png</key>
 		<data>
-		SbW1Qllv2yT4V5JS4G1xNQJdC1w=
+		TZJssdkkvEhsmZWcdPiV/O3O3xY=
 		</data>
 		<key>LICENSE_CCBReader.txt</key>
 		<data>
@@ -665,11 +645,11 @@
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
-		jfjnBco9513FSsVh2D1K/D1lvqE=
+		XOKYf0BddMLSboegt2woWGi2714=
 		</data>
 		<key>en.lproj/InfoPlist.strings</key>
 		<data>
-		EAZq106sKS1Bn7UeREEXaum7Q98=
+		NxskvNJ2W5XP+mEnjueeP9aTRhg=
 		</data>
 		<key>en.lproj/Localizable.strings</key>
 		<data>
@@ -913,7 +893,7 @@
 		</data>
 		<key>ja.lproj/InfoPlist.strings</key>
 		<data>
-		uUEh5Z3IkG3TQWD1ui/FYc1ZgHg=
+		cGsq7ZUInC6rW+82pwYiNxVhK8s=
 		</data>
 		<key>ja.lproj/Localizable.strings</key>
 		<data>
@@ -942,14 +922,6 @@
 		<key>particleTextureStar.png</key>
 		<data>
 		wv5/N9Z/CCworBZYSmctgT5//4I=
-		</data>
-		<key>puni.mp3</key>
-		<data>
-		ckPOp7d2BerH1HQ+u3nrIJhjcsY=
-		</data>
-		<key>puni.plist</key>
-		<data>
-		73cAJKxSDcwEDKEn6FIiRvWnke0=
 		</data>
 		<key>puni01_default.plist</key>
 		<data>
@@ -1018,10 +990,6 @@
 		<key>scoreFont.png</key>
 		<data>
 		fDt/PSfDZXwSHJqxMiF8bG4tCrY=
-		</data>
-		<key>title_jp.png</key>
-		<data>
-		F4pgfrPQSYjCyJFbxJoGBQr389M=
 		</data>
 		<key>titlelogo_en.png</key>
 		<data>
