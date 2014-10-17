@@ -28,7 +28,7 @@ GFIconView *iconView;
     
     //アイコン広告
     gfIconController = [[GFIconController alloc] init];
-    [gfIconController setRefreshTiming:30];
+    [gfIconController setRefreshTiming:180];
     
     if([GameManager getDevice]==3){//iPad
         iconView = [[GFIconView alloc] initWithFrame:CGRectMake(0, (winSize.height*2)/2-120, 80, 80)];
@@ -94,7 +94,7 @@ GFIconView *iconView;
     [super onEnter];
     [gfIconController loadAd:@"8161"];
     [gfIconController visibleIconAd];
-    [gfIconController stopAd];//更新が頻発するので更新しない！
+    //[gfIconController stopAd];//更新が頻発するので更新しない！//しかし申請モードでエラーになる！
 }
 
 - (void)onExit
@@ -106,7 +106,7 @@ GFIconView *iconView;
 
 -(void)hiddenGfIconAd
 {
-    //[gfIconController stopAd];//エラーになる！
+    //[gfIconController stopAd];//更新されるとエラーになる！
     [gfIconController invisibleIconAd];
 }
 
