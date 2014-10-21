@@ -188,7 +188,7 @@ GameFeatLayer* gfAd;
     NSDate* currentDate=[NSDate date];//GMTで貫く
     NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
     NSDictionary *dict = [[NSUserDefaults standardUserDefaults] persistentDomainForName:appDomain];
-    if([dict valueForKey:@"LoginDate"]==nil){
+    if([dict valueForKey:@"LoginDate"]==nil){//初回なら
         [GameManager save_login_Date:currentDate];
         
         UIAlertView *alert = [[UIAlertView alloc] init];

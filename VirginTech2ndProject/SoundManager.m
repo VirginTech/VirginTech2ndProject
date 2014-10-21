@@ -40,10 +40,10 @@ float puniCollisionVolume;
     [[OALSimpleAudio sharedInstance]preloadEffect:@"puni_Touch.mp3"];
     
     //ボタン
-    [[OALSimpleAudio sharedInstance]preloadEffect:@"@button_Click.mp3"];
+    [[OALSimpleAudio sharedInstance]preloadEffect:@"button_Click.mp3"];
     
     //エンディング
-    [[OALSimpleAudio sharedInstance]preloadEffect:@"@ending.mp3"];
+    [[OALSimpleAudio sharedInstance]preloadEffect:@"ending.mp3"];
     
     //スイッチ
     bgmSwitch=true;

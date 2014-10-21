@@ -24,8 +24,8 @@
     bool startFlg;//入場時判定無効化
     bool blinkFlg;
     
-    CCLabelTTF* label;
-    CCLabelTTF* label2;
+    //CCLabelTTF* label;
+    //CCLabelTTF* label2;
     
     bool manualFlg;//マニュアルモードか
     bool touchFlg;//ルート線種描画変更フラグ

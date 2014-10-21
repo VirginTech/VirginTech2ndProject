@@ -87,16 +87,16 @@
 
     //デバイス登録
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
-    if(screenBounds.size.height==568){ //iPhone5 (4インチスクリーン)用のレイアウト
+    if(screenBounds.size.height==568 || screenBounds.size.width==568){ //iPhone5,6 (568,320px)
         [GameManager setDevice:1];
-    }else if(screenBounds.size.height==480){ //iPhone4 (3.5インチスクリーン)用のレイアウト
+    }else if(screenBounds.size.height==480 || screenBounds.size.width==480){ //iPhone4 (480,320px)
         [GameManager setDevice:2];
-    }else if(screenBounds.size.height==1024){ //iPad2 (1024px)
+    }else if(screenBounds.size.height==1024 || screenBounds.size.width==1024){ //iPad2 (1024,768px)
         [GameManager setDevice:3];
     }else{
         [GameManager setDevice:0];
     }
-    
+    //NSLog(@"W=%f H=%f",screenBounds.size.width,screenBounds.size.height);
     //初回データ初期値設定
     [GameManager initialize_Clear_Level];
     [GameManager initialize_Ticket_Count];

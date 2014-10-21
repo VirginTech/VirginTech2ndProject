@@ -370,6 +370,7 @@ AdGenerLayer* adgSSP;
         removePuniArray=[[NSMutableArray alloc]init];
         
         //プニ同士の衝突判定
+        bool ReflectFlg;//反射判定フラグ(true:する)
         float collisSurfaceAngle;//衝突面角度
         for(PuniObject* puni1 in puniArray){
             for(PuniObject* puni2 in puniArray){
@@ -383,20 +384,26 @@ AdGenerLayer* adgSSP;
                         //if(puni1.collisNum!=puni2.objNum){
                             if(!puni1.startFlg && !puni2.startFlg){
                                 
+                                ReflectFlg=true;
+                                
                                 //プニ衝突音
                                 [SoundManager puniCollisionEffect];
-                                
+
                                 //めり込み監視
                                 puni1.collisNum=puni2.objNum;
                                 puni2.collisNum=puni1.objNum;
                                 
                                 //Puni1 反射角算定
+                                float puni1angle;
                                 collisSurfaceAngle = [self getCollisSurfaceAngle:puni1.position pos2:puni2.position];
-                                puni1.targetAngle = 2*collisSurfaceAngle-(puni1.targetAngle+collisSurfaceAngle);
+                                puni1angle = 2*collisSurfaceAngle-(puni1.targetAngle+collisSurfaceAngle);
+                                puni1angle = [BasicMath getNormalize_Radian:puni1angle];
                                 
                                 //Puni2 反射角算定
+                                float puni2angle;
                                 collisSurfaceAngle = [self getCollisSurfaceAngle:puni2.position pos2:puni1.position];
-                                puni2.targetAngle = 2*collisSurfaceAngle-(puni2.targetAngle+collisSurfaceAngle);
+                                puni2angle = 2*collisSurfaceAngle-(puni2.targetAngle+collisSurfaceAngle);
+                                puni2angle = [BasicMath getNormalize_Radian:puni2angle];
                                 
                                 //マニュアルモード解除
                                 puni1.posArray = [[NSMutableArray alloc]init];
@@ -408,6 +415,45 @@ AdGenerLayer* adgSSP;
                                 puni2.moveCnt=0;
                                 if(puni2==touchPuni)touchPuni=nil;
                                 puni2.lockPuni.visible=false;
+
+                                //進入角が順行であれば
+                                if(puni1.targetAngle-puni2.targetAngle<=0.45 && puni1.targetAngle-puni2.targetAngle>=-0.45){
+                                    ReflectFlg=false;
+                                }
+                                //反射角が同一方向であれば
+                                if(puni1angle-puni2angle<=0.75 && puni1angle-puni2angle>=-0.75){
+                                    ReflectFlg=false;
+                                }
+                                if(ReflectFlg){
+                                    puni1.targetAngle = puni1angle;
+                                    puni2.targetAngle = puni2angle;
+                                }else{
+                                    puni1.targetAngle=puni2.targetAngle;
+                                }
+                                
+                                /*/進入角が順行でなければ
+                                if(puni1.targetAngle-puni2.targetAngle>=0.45 || puni1.targetAngle-puni2.targetAngle<=-0.45){
+                                    //反射角が同一方向でなければ
+                                    if(puni1angle-puni2angle>=0.75 || puni1angle-puni2angle<=-0.75){
+                                        //反射角が小さくなければ
+                                        if(puni1angle-puni1.targetAngle>=0.5 || puni1angle-puni1.targetAngle<=-0.5){
+                                            //反射角登録
+                                            puni1.targetAngle = puni1angle;
+                                        }else{
+                                            puni1.targetAngle=puni2.targetAngle;
+                                        }
+                                        if(puni2angle-puni2.targetAngle>=0.5 || puni2angle-puni2.targetAngle<=-0.5){
+                                            //反射角登録
+                                            puni2.targetAngle = puni2angle;
+                                        }else{
+                                            puni2.targetAngle=puni1.targetAngle;
+                                        }
+                                    }else{
+                                        puni1.targetAngle=puni2.targetAngle;
+                                    }
+                                }else{
+                                    puni1.targetAngle=puni2.targetAngle;
+                                }*/
                             }
                         }
                     }
@@ -746,6 +792,7 @@ AdGenerLayer* adgSSP;
     }else if(inAngle>=225 && inAngle<315){//左
         angle = [BasicMath getAngle_To_Radian:pos1 ePos:pos2]+M_PI * 2;
     }
+    angle=[BasicMath getNormalize_Radian:angle];
     return angle;
 }
 

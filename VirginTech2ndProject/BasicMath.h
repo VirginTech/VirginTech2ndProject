@@ -18,4 +18,7 @@
 +(float)getAngle_To_Degree:(CGPoint)sPos ePos:(CGPoint)ePos;
 +(float)getPosDistance:(CGPoint)pos1 pos2:(CGPoint)pos2;
 
++(float)getNormalize_Radian:(float)angle;
++(float)getNormalize_Degree:(float)angle;
+
 @end

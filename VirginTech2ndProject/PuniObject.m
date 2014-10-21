@@ -88,6 +88,7 @@ CGSize winSize;
             
             er=sqrtf(powf(pt2.x-pt1.x,2)+powf(pt2.y-pt1.y,2));
             targetAngle=[BasicMath getAngle_To_Radian:pt1 ePos:pt2];
+            targetAngle=[BasicMath getNormalize_Radian:targetAngle];
 
             /*/デバッグ用メッセージアラート
             if(isnan(targetAngle)){
@@ -157,7 +158,7 @@ CGSize winSize;
         }
     }
     
-    //label2.string=[NSString stringWithFormat:@"%f",targetAngle];
+    //label2.string=[NSString stringWithFormat:@"%f",CC_RADIANS_TO_DEGREES(targetAngle)];
 
     /*
     targetAngle=[self wallReflectionAngle];
@@ -249,6 +250,8 @@ CGSize winSize;
         collisFlg=false;
         startFlg=false;
     }
+    
+    angle=[BasicMath getNormalize_Radian:angle];
     return angle;
 }
 
@@ -343,7 +346,8 @@ CGSize winSize;
         label.color=[CCColor blackColor];
         [self addChild:label];
         
-        label2=[CCLabelTTF labelWithString:[NSString stringWithFormat:@"%f",targetAngle] fontName:@"Verdana-Bold" fontSize:35];
+        label2=[CCLabelTTF labelWithString:[NSString stringWithFormat:@"%f",targetAngle]
+                                                                fontName:@"Verdana-Bold" fontSize:35];
         label2.position=ccp(self.contentSize.width/2,self.contentSize.height/2-100);
         label2.color=[CCColor whiteColor];
         [self addChild:label2];*/

@@ -59,7 +59,22 @@
     }
     return angle;
 }
-
+//========================
+// ラジアンを正規化
+//========================
++(float)getNormalize_Radian:(float)angle
+{
+    if(angle<0){
+        while(angle<0){
+            angle += 2*M_PI;
+        }
+    }else{
+        while(angle>2*M_PI){
+            angle -= 2*M_PI;
+        }
+    }
+    return angle;
+}
 //========================
 // 方向(角度)を取得→(度で)
 //========================
@@ -89,7 +104,22 @@
     }
     return angle;
 }
-
+//========================
+// 度を正規化
+//========================
++(float)getNormalize_Degree:(float)angle
+{
+    if(angle<0){
+        while(angle<0){
+            angle += 360;
+        }
+    }else{
+        while(angle>360){
+            angle -= 360;
+        }
+    }
+    return angle;
+}
 //========================
 //　　距離を取得
 //========================
