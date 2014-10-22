@@ -183,7 +183,7 @@ GameFeatLayer* gfAd;
      PuniObject* puni=[PuniObject createPuni:0 gpNum:(arc4random()%5)+1];
     [self addChild:puni z:3];
     
-    //初回ログインボーナス
+    /*/初回ログインボーナス
     //NSDate* currentDate= [NSDate dateWithTimeIntervalSinceNow:[[NSTimeZone systemTimeZone] secondsFromGMT]];
     NSDate* currentDate=[NSDate date];//GMTで貫く
     NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
@@ -219,7 +219,7 @@ GameFeatLayer* gfAd;
         alert.message = NSLocalizedString(@"DailyBonus",NULL);
         [alert addButtonWithTitle:NSLocalizedString(@"OK",NULL)];
         [alert show];
-    }
+    }*/
     
     // done
 	return self;
@@ -332,7 +332,7 @@ GameFeatLayer* gfAd;
 
                 break;
         }
-    }else if(alertView.tag==1){
+    }/*else if(alertView.tag==1){
         
         //チケット付与
         [GameManager save_Ticket_Count:[GameManager load_Ticket_Count]+10];
@@ -344,7 +344,7 @@ GameFeatLayer* gfAd;
         [GameManager save_Ticket_Count:[GameManager load_Ticket_Count]+ 1];
         [InfoLayer update_Ticket];
         
-    }
+    }*/
 }
 
 -(void)onGameCenterClicked:(id)sender
