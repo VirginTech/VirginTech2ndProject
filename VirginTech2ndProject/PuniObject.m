@@ -90,6 +90,18 @@ CGSize winSize;
             targetAngle=[BasicMath getAngle_To_Radian:pt1 ePos:pt2];
             targetAngle=[BasicMath getNormalize_Radian:targetAngle];
 
+            dr=dr+velocity;
+            CGPoint inpolPos = CGPointMake(dr*cosf(targetAngle),dr*sinf(targetAngle));
+            //pt1から補間分(inpolPos)を加える
+            inpolPos.x=pt1.x+inpolPos.x;
+            inpolPos.y=pt1.y+inpolPos.y;
+            self.position=CGPointMake(inpolPos.x, inpolPos.y);
+            
+            if(dr>=er){
+                moveCnt++;
+                dr=0;
+            }
+
             /*/デバッグ用メッセージアラート
             if(isnan(targetAngle)){
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"マニュアルモード・エラー"
@@ -103,7 +115,7 @@ CGSize winSize;
                 [self unschedule:@selector(move_Schedule:)];
                 //[StageLevel_01 pointPuniCntAdd];
                 //[self removeFromParentAndCleanup:YES];
-            }else{*/
+            }else{
                 dr=dr+velocity;
                 CGPoint inpolPos = CGPointMake(dr*cosf(targetAngle),dr*sinf(targetAngle));
                 //pt1から補間分(inpolPos)を加える
@@ -115,7 +127,7 @@ CGSize winSize;
                     moveCnt++;
                     dr=0;
                 }
-            //}
+            }*/
             
         //オートモード
         }else{
@@ -125,6 +137,8 @@ CGSize winSize;
             targetAngle=[self wallReflectionAngle];
             nextPos=CGPointMake(velocity*cosf(targetAngle),velocity*sinf(targetAngle));
 
+            self.position=CGPointMake(self.position.x+nextPos.x, self.position.y+nextPos.y);
+            
             /*/デバッグ用メッセージアラート
             if(isnan(targetAngle)){
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"オートモード・エラー"
@@ -134,9 +148,10 @@ CGSize winSize;
                                     otherButtonTitles:@"OK", nil];
                 [alert show];
                 [self unschedule:@selector(move_Schedule:)];
-            }else{*/
+            }else{
                 self.position=CGPointMake(self.position.x+nextPos.x, self.position.y+nextPos.y);
-            //}
+            //}*/
+            
             startPos=self.position;
         }
         

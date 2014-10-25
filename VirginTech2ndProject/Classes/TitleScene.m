@@ -172,6 +172,23 @@ GameFeatLayer* gfAd;
     [creditButton setTarget:self selector:@selector(onCreditButtonClicked:)];
     [self addChild:creditButton];
     
+    //おすすめボタン
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"button_default.plist"];
+    
+    CCButton* moreAppBtn;
+    if([GameManager getLocale]==1){//英語
+        moreAppBtn=[CCButton buttonWithTitle:@"" spriteFrame:
+                    [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"gfBtn_en.png"]];
+    }else{
+        moreAppBtn=[CCButton buttonWithTitle:@"" spriteFrame:
+                    [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"gfBtn_jp.png"]];
+    }
+    moreAppBtn.positionType = CCPositionTypeNormalized;
+    moreAppBtn.position = ccp(0.5f, 0.20f);
+    moreAppBtn.scale=0.7;
+    [moreAppBtn setTarget:self selector:@selector(onMoreAppBtnClicked:)];
+    [self addChild:moreAppBtn];
+    
     //バージョン
     CCLabelTTF* versionLabel=[CCLabelTTF labelWithString:@"Version 1.0.0" fontName:@"Verdana-Bold" fontSize:13];
     versionLabel.position=ccp(winSize.width-versionLabel.contentSize.width/2,winSize.height-40);
@@ -404,6 +421,12 @@ GameFeatLayer* gfAd;
     [SoundManager buttonClickEffect];
     
     [[CCDirector sharedDirector] replaceScene:[CreditLayer scene]withTransition:[CCTransition transitionCrossFadeWithDuration:1.0]];
+}
+
+-(void)onMoreAppBtnClicked:(id)sender
+{
+    NSURL* url = [NSURL URLWithString:@"https://itunes.apple.com/jp/artist/virgintech-llc./id869207880"];
+    [[UIApplication sharedApplication]openURL:url];
 }
 
 @end

@@ -64,7 +64,7 @@ GFIconView *iconView;
         [[[CCDirector sharedDirector]view]addSubview:iconView];
     }
 
-    //ウォールボタン
+    /*/ウォールボタン
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"button_default.plist"];
 
     CCButton* moreAppBtn;
@@ -79,8 +79,8 @@ GFIconView *iconView;
     moreAppBtn.position = ccp(0.5f, 0.20f);
     moreAppBtn.scale=0.7;
     [moreAppBtn setTarget:self selector:@selector(onMoreAppBtnClicked:)];
-    [self addChild:moreAppBtn];
-
+    [self addChild:moreAppBtn];*/
+    
     return self;
 }
 
@@ -110,11 +110,14 @@ GFIconView *iconView;
     [gfIconController invisibleIconAd];
 }
 
--(void)onMoreAppBtnClicked:(id)sender
+/*-(void)onMoreAppBtnClicked:(id)sender
 {
     //CCAppDelegate *delegate = (CCAppDelegate *)[[UIApplication sharedApplication] delegate];
-    [GFController showGF:[CCDirector sharedDirector] site_id:@"8161" delegate:self];
-}
+    //[GFController showGF:[CCDirector sharedDirector] site_id:@"8161" delegate:self];
+    
+    NSURL* url = [NSURL URLWithString:@"https://itunes.apple.com/jp/artist/virgintech-llc./id869207880"];
+    [[UIApplication sharedApplication]openURL:url];
+}*/
 
 //=======================================================
 // GFViewDelegate
