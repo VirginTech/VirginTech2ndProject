@@ -45,8 +45,8 @@ CCScrollView* scrollView;
     
     //背景画像拡大
     UIImage *image = [UIImage imageNamed:@"bgLayer.png"];
-    UIGraphicsBeginImageContext(CGSizeMake(winSize.width,800));
-    [image drawInRect:CGRectMake(0, 0, winSize.width,800)];
+    UIGraphicsBeginImageContext(CGSizeMake(winSize.width,900));
+    [image drawInRect:CGRectMake(0, 0, winSize.width,900)];
     image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
@@ -68,7 +68,7 @@ CCScrollView* scrollView;
 
     //ロゴ
     CCSprite* logo=[CCSprite spriteWithImageNamed:@"virgintech.png"];
-    logo.position=ccp(winSize.width/2,650);
+    logo.position=ccp(winSize.width/2,750);
     logo.scale=0.3;
     [bgSpLayer addChild:logo];
     
@@ -76,20 +76,20 @@ CCScrollView* scrollView;
     CCLabelTTF* label;
     
     label=[CCLabelTTF labelWithString:@"Developer" fontName:@"Verdana-Italic" fontSize:12];
-    label.position=ccp(winSize.width/2,520);
+    label.position=ccp(winSize.width/2,620);
     [bgSpLayer addChild:label];
     
     label=[CCLabelTTF labelWithString:@"OOTANI,Kenji" fontName:@"Verdana-Bold" fontSize:15];
-    label.position=ccp(winSize.width/2,500);
+    label.position=ccp(winSize.width/2,600);
     [bgSpLayer addChild:label];
     
     //イラストデザイン
     label=[CCLabelTTF labelWithString:@"Illust-Designer" fontName:@"Verdana-Italic" fontSize:12];
-    label.position=ccp(winSize.width/2,420);
+    label.position=ccp(winSize.width/2,520);
     [bgSpLayer addChild:label];
     
     label=[CCLabelTTF labelWithString:@"FUKUDA,Makiko" fontName:@"Verdana-Bold" fontSize:15];
-    label.position=ccp(winSize.width/2,400);
+    label.position=ccp(winSize.width/2,500);
     [bgSpLayer addChild:label];
     
     //label=[CCLabelTTF labelWithString:@"y･omochi" fontName:@"Verdana-Bold" fontSize:15];
@@ -106,24 +106,33 @@ CCScrollView* scrollView;
     CCLabelTTF* label;
 
     label=[CCLabelTTF labelWithString:@"Material by" fontName:@"Verdana-Italic" fontSize:12];
-    label.position=ccp(winSize.width/2,330);
+    label.position=ccp(winSize.width/2,430);
     [bgSpLayer addChild:label];
     
     label=[CCLabelTTF labelWithString:@"DOTS DESIGN - dots-design.com" fontName:@"Verdana-Bold" fontSize:10];
-    label.position=ccp(winSize.width/2,300);
+    label.position=ccp(winSize.width/2,400);
     [bgSpLayer addChild:label];
     
     label=[CCLabelTTF labelWithString:@"Frame Design - frames-design.com" fontName:@"Verdana-Bold" fontSize:10];
-    label.position=ccp(winSize.width/2,280);
+    label.position=ccp(winSize.width/2,380);
     [bgSpLayer addChild:label];
     
     label=[CCLabelTTF labelWithString:@"やじるし素材天国 - yajidesign.com" fontName:@"Verdana-Bold" fontSize:10];
-    label.position=ccp(winSize.width/2,260);
+    label.position=ccp(winSize.width/2,360);
     [bgSpLayer addChild:label];
 
     
     label=[CCLabelTTF labelWithString:@"イラスト素材.net - www.イラスト素材.net" fontName:@"Verdana-Bold" fontSize:10];
-    label.position=ccp(winSize.width/2,240);
+    label.position=ccp(winSize.width/2,340);
+    [bgSpLayer addChild:label];
+
+    label=[CCLabelTTF labelWithString:@"PremiumPixels - www.premiumpixels.com" fontName:@"Verdana-Bold" fontSize:10];
+    label.position=ccp(winSize.width/2,320);
+    [bgSpLayer addChild:label];
+    
+    
+    label=[CCLabelTTF labelWithString:@"いらすとや - www.irasutoya.com" fontName:@"Verdana-Bold" fontSize:10];
+    label.position=ccp(winSize.width/2,300);
     [bgSpLayer addChild:label];
 
     /*
@@ -173,15 +182,15 @@ CCScrollView* scrollView;
     */
     
     label=[CCLabelTTF labelWithString:@"Sound by" fontName:@"Verdana-Italic" fontSize:12];
-    label.position=ccp(winSize.width/2,200);
+    label.position=ccp(winSize.width/2,260);
     [bgSpLayer addChild:label];
 
     label=[CCLabelTTF labelWithString:@"クリプトン・フューチャー・メディア - www.crypton.co.jp" fontName:@"Verdana-Bold" fontSize:10];
-    label.position=ccp(winSize.width/2,170);
+    label.position=ccp(winSize.width/2,230);
     [bgSpLayer addChild:label];
     
     label=[CCLabelTTF labelWithString:@"フリー効果音素材 くらげ工匠 - www.kurage-kosho.info" fontName:@"Verdana-Bold" fontSize:10];
-    label.position=ccp(winSize.width/2,150);
+    label.position=ccp(winSize.width/2,210);
     [bgSpLayer addChild:label];
     
     /*
@@ -191,11 +200,11 @@ CCScrollView* scrollView;
     */
     
     label=[CCLabelTTF labelWithString:@"Special Thanks! " fontName:@"Verdana-Italic" fontSize:20];
-    label.position=ccp(winSize.width/2,80);
+    label.position=ccp(winSize.width/2,140);
     [bgSpLayer addChild:label];
 
     label=[CCLabelTTF labelWithString:@"ありがとう! " fontName:@"Verdana-Italic" fontSize:20];
-    label.position=ccp(winSize.width/2,50);
+    label.position=ccp(winSize.width/2,110);
     [bgSpLayer addChild:label];
 
 }
