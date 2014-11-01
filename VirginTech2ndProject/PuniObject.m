@@ -75,6 +75,8 @@ CGSize winSize;
             CGPoint pt2;
             
             manualFlg=true;
+            [self inSideObject];//枠内に入ったか
+            
             if(moveCnt==0 && dr==0){
                 NSValue *value = [NSValue valueWithCGPoint:startPos];
                 [posArray insertObject:value atIndex:0];
@@ -207,6 +209,17 @@ CGSize winSize;
     }
     self.position=CGPointMake(self.position.x+nextPos.x, self.position.y+nextPos.y);
     */
+}
+
+-(void)inSideObject
+{
+    if(self.position.y+(self.contentSize.height*scale)/2 > winSize.height){//上枠外
+    }else if(self.position.y-(self.contentSize.height*scale)/2 < 0){//下枠外
+    }else if(self.position.x-(self.contentSize.width*scale)/2 < 0){//左枠外
+    }else if(self.position.x+(self.contentSize.width*scale)/2 > winSize.width){//右枠外
+    }else{
+        startFlg=false;//枠内
+    }
 }
 
 -(float)wallReflectionAngle
