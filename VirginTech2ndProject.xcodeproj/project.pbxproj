@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CF06017419E6A69C00D69F57 /* ending.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CF06017319E6A69C00D69F57 /* ending.mp3 */; };
+		CF0A10A91A0DDC5700F77BCF /* GameFeatKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF0A10A81A0DDC5700F77BCF /* GameFeatKit.framework */; };
+		CF0A10AC1A0DDCED00F77BCF /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = CF0A10AB1A0DDCED00F77BCF /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CF0CCD2D19D3A5DF008B62CF /* MsgLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF0CCD2C19D3A5DF008B62CF /* MsgLayer.m */; };
 		CF0CCD3819D3E7C4008B62CF /* FingerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CF0CCD3719D3E7C4008B62CF /* FingerObject.m */; };
 		CF0CCD4719D43B16008B62CF /* msg.fnt in Resources */ = {isa = PBXBuildFile; fileRef = CF0CCD4519D43B16008B62CF /* msg.fnt */; };
@@ -260,7 +262,6 @@
 		CF798ACE19D01CA900764B28 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF798ACD19D01CA900764B28 /* SystemConfiguration.framework */; };
 		CF798AD119D01D5900764B28 /* etc_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF798ACF19D01D5900764B28 /* etc_default.plist */; };
 		CF798AD219D01D5900764B28 /* etc_default.png in Resources */ = {isa = PBXBuildFile; fileRef = CF798AD019D01D5900764B28 /* etc_default.png */; };
-		CF88116819FB329D00BE0787 /* GameFeatKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF88116719FB329D00BE0787 /* GameFeatKit.framework */; };
 		CF9A478319EE680A00505136 /* titlelogo_en.png in Resources */ = {isa = PBXBuildFile; fileRef = CF9A478119EE680A00505136 /* titlelogo_en.png */; };
 		CF9A478419EE680A00505136 /* titlelogo_jp.png in Resources */ = {isa = PBXBuildFile; fileRef = CF9A478219EE680A00505136 /* titlelogo_jp.png */; };
 		CF9E245119DB991900928D62 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF9E245019DB991900928D62 /* CoreTelephony.framework */; };
@@ -325,7 +326,6 @@
 		CF9E250D19DBC39600928D62 /* gamefeat_popup_dl_D.png in Resources */ = {isa = PBXBuildFile; fileRef = CF9E24D719DBC39600928D62 /* gamefeat_popup_dl_D.png */; };
 		CF9E250E19DBC39600928D62 /* gamefeat_popup_dl_E.png in Resources */ = {isa = PBXBuildFile; fileRef = CF9E24D819DBC39600928D62 /* gamefeat_popup_dl_E.png */; };
 		CF9E250F19DBC39600928D62 /* gamefeat_popup_dl_F.png in Resources */ = {isa = PBXBuildFile; fileRef = CF9E24D919DBC39600928D62 /* gamefeat_popup_dl_F.png */; };
-		CF9E251219DBC3BC00928D62 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9E251119DBC3BC00928D62 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CF9E251719DBC74000928D62 /* GameFeatLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9E251619DBC74000928D62 /* GameFeatLayer.m */; };
 		CF9E251919DBDF7A00928D62 /* ImobileSdkAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF9E251819DBDF7A00928D62 /* ImobileSdkAds.framework */; };
 		CF9E251D19DC344C00928D62 /* puni01_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF9E251B19DC344C00928D62 /* puni01_default.plist */; };
@@ -358,6 +358,9 @@
 
 /* Begin PBXFileReference section */
 		CF06017319E6A69C00D69F57 /* ending.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ending.mp3; sourceTree = "<group>"; };
+		CF0A10A81A0DDC5700F77BCF /* GameFeatKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameFeatKit.framework; path = ../../Library/Ad/GameFeat/GameFeatSDK_iOS_v3.3.1/GameFeatKit.framework; sourceTree = "<group>"; };
+		CF0A10AA1A0DDCED00F77BCF /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		CF0A10AB1A0DDCED00F77BCF /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		CF0CCD2B19D3A5DF008B62CF /* MsgLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgLayer.h; sourceTree = "<group>"; };
 		CF0CCD2C19D3A5DF008B62CF /* MsgLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgLayer.m; sourceTree = "<group>"; };
 		CF0CCD3619D3E7C4008B62CF /* FingerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FingerObject.h; sourceTree = "<group>"; };
@@ -848,7 +851,6 @@
 		CF798ACD19D01CA900764B28 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CF798ACF19D01D5900764B28 /* etc_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = etc_default.plist; sourceTree = "<group>"; };
 		CF798AD019D01D5900764B28 /* etc_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = etc_default.png; sourceTree = "<group>"; };
-		CF88116719FB329D00BE0787 /* GameFeatKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameFeatKit.framework; path = ../../Library/Ad/GameFeat/GameFeatSDK_iOS_v3.3.0/GameFeatKit.framework; sourceTree = "<group>"; };
 		CF9A478119EE680A00505136 /* titlelogo_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titlelogo_en.png; sourceTree = "<group>"; };
 		CF9A478219EE680A00505136 /* titlelogo_jp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titlelogo_jp.png; sourceTree = "<group>"; };
 		CF9E245019DB991900928D62 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -929,8 +931,6 @@
 		CF9E24D719DBC39600928D62 /* gamefeat_popup_dl_D.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamefeat_popup_dl_D.png; sourceTree = "<group>"; };
 		CF9E24D819DBC39600928D62 /* gamefeat_popup_dl_E.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamefeat_popup_dl_E.png; sourceTree = "<group>"; };
 		CF9E24D919DBC39600928D62 /* gamefeat_popup_dl_F.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamefeat_popup_dl_F.png; sourceTree = "<group>"; };
-		CF9E251019DBC3BC00928D62 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
-		CF9E251119DBC3BC00928D62 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		CF9E251519DBC74000928D62 /* GameFeatLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameFeatLayer.h; sourceTree = "<group>"; };
 		CF9E251619DBC74000928D62 /* GameFeatLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameFeatLayer.m; sourceTree = "<group>"; };
 		CF9E251819DBDF7A00928D62 /* ImobileSdkAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImobileSdkAds.framework; path = ../../Library/Ad/iMobile/imobile_for_SP_app_iOS_SDK_2.0.5/lib/ImobileSdkAds.framework; sourceTree = "<group>"; };
@@ -963,7 +963,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF88116819FB329D00BE0787 /* GameFeatKit.framework in Frameworks */,
+				CF0A10A91A0DDC5700F77BCF /* GameFeatKit.framework in Frameworks */,
 				CF547DE719E244400066D029 /* Social.framework in Frameworks */,
 				CF9E251919DBDF7A00928D62 /* ImobileSdkAds.framework in Frameworks */,
 				CF9E24A019DBA5ED00928D62 /* CoreLocation.framework in Frameworks */,
@@ -1088,7 +1088,7 @@
 		CF6D88E019B3F710001C5668 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CF88116719FB329D00BE0787 /* GameFeatKit.framework */,
+				CF0A10A81A0DDC5700F77BCF /* GameFeatKit.framework */,
 				CF547DE619E244400066D029 /* Social.framework */,
 				CF9E251819DBDF7A00928D62 /* ImobileSdkAds.framework */,
 				CF9E249E19DBA4A800928D62 /* ImageIO.framework */,
@@ -2127,8 +2127,8 @@
 		CFA8524E19C6F3E000D12D78 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				CF9E251019DBC3BC00928D62 /* JSONKit.h */,
-				CF9E251119DBC3BC00928D62 /* JSONKit.m */,
+				CF0A10AA1A0DDCED00F77BCF /* JSONKit.h */,
+				CF0A10AB1A0DDCED00F77BCF /* JSONKit.m */,
 				CF798AC519D0176E00764B28 /* Reachability.h */,
 				CF798AC619D0176E00764B28 /* Reachability.m */,
 				CF264F6519B695C900CACAFD /* BasicMath.h */,
@@ -2383,7 +2383,6 @@
 				CF6D8A9619B3F711001C5668 /* OpenALManager.m in Sources */,
 				CF6D8AA219B3F711001C5668 /* IOSVersion.m in Sources */,
 				CF6D895719B3F710001C5668 /* CCDirector.m in Sources */,
-				CF9E251219DBC3BC00928D62 /* JSONKit.m in Sources */,
 				CF6D8AC219B3F711001C5668 /* CCScrollView.m in Sources */,
 				CF6D89B519B3F710001C5668 /* CCResponder.m in Sources */,
 				CF0CCD3819D3E7C4008B62CF /* FingerObject.m in Sources */,
@@ -2474,6 +2473,7 @@
 				CF264F6719B695C900CACAFD /* BasicMath.m in Sources */,
 				CF6D89A919B3F710001C5668 /* CCPhysicsShape.m in Sources */,
 				CF6D89B119B3F710001C5668 /* CCRenderTexture.m in Sources */,
+				CF0A10AC1A0DDCED00F77BCF /* JSONKit.m in Sources */,
 				CF6D893719B3F710001C5668 /* CCActionManager.m in Sources */,
 				CF6D89DB19B3F711001C5668 /* CCSprite9Slice.m in Sources */,
 				CF6D89ED19B3F711001C5668 /* CCTextureAtlas.m in Sources */,
@@ -2716,6 +2716,7 @@
 					/Users/virgintech/Documents/Library/Ad/GameFeat/GameFeatSDK_iOS_v3.3.0,
 					/Users/virgintech/Documents/Library/Ad/iMobile/imobile_for_SP_app_iOS_SDK_2.0.5/lib,
 					/Users/virgintech/Documents/Library/Ad/GameFeat/GameFeatSDK_iOS_v3.2.0,
+					/Users/virgintech/Documents/Library/Ad/GameFeat/GameFeatSDK_iOS_v3.3.1,
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2755,6 +2756,7 @@
 					/Users/virgintech/Documents/Library/Ad/GameFeat/GameFeatSDK_iOS_v3.3.0,
 					/Users/virgintech/Documents/Library/Ad/iMobile/imobile_for_SP_app_iOS_SDK_2.0.5/lib,
 					/Users/virgintech/Documents/Library/Ad/GameFeat/GameFeatSDK_iOS_v3.2.0,
+					/Users/virgintech/Documents/Library/Ad/GameFeat/GameFeatSDK_iOS_v3.3.1,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VirginTech2ndProject/Supporting Files/Prefix.pch";

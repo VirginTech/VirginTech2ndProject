@@ -189,15 +189,16 @@ GameFeatLayer* gfAd;
     [moreAppBtn setTarget:self selector:@selector(onMoreAppBtnClicked:)];
     [self addChild:moreAppBtn];
     
+    
     //バージョン
-    CCLabelTTF* versionLabel=[CCLabelTTF labelWithString:@"Version 1.0.0" fontName:@"Verdana-Bold" fontSize:13];
-    versionLabel.position=ccp(winSize.width-versionLabel.contentSize.width/2,winSize.height-40);
+    CCLabelTTF* versionLabel=[CCLabelTTF labelWithString:@"Version 1.0.2" fontName:@"Verdana-Bold" fontSize:13];
+    versionLabel.position=ccp(winSize.width-versionLabel.contentSize.width/2,winSize.height-35);
     versionLabel.color=[CCColor whiteColor];
     [self addChild:versionLabel];
     
     //プニ登場
     [GameManager setPause:false];
-     PuniObject* puni=[PuniObject createPuni:0 gpNum:(arc4random()%5)+1];
+    PuniObject* puni=[PuniObject createPuni:0 gpNum:(arc4random()%5)+1];
     [self addChild:puni z:3];
     
     /*/初回ログインボーナス
