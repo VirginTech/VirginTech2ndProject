@@ -51,16 +51,18 @@
     CGPoint pt2;
     NSValue* value1;
     NSValue* value2;
+    int cnt=0;
     
     for(int i=puni.moveCnt+1;i<puni.posArray.count;i++){
         
+        cnt++;
         value1= [puni.posArray objectAtIndex:i-1];
         value2= [puni.posArray objectAtIndex:i];
         pt1=[value1 CGPointValue];
         pt2=[value2 CGPointValue];
         
         if(puni.touchFlg){
-            if(i%2==0){
+            if(cnt>=1 && cnt<=7){
                 glLineWidth(7.5f);
                 ccDrawColor4F(1.00f, 1.00f, 1.00f, 1.00f);
                 ccDrawLine(pt1,pt2);
@@ -70,7 +72,7 @@
             ccDrawColor4F(1.00f, 1.00f, 1.00f, 0.75f);
             ccDrawLine(pt1,pt2);
         }
-        
+        if(cnt>=14)cnt=0;
     }
 }
 

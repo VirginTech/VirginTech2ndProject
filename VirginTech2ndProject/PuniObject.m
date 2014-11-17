@@ -77,16 +77,16 @@ CGSize winSize;
             manualFlg=true;
             [self inSideObject];//枠内に入ったか
             
-            if(moveCnt==0 && dr==0){
+            /*if(moveCnt==0 && dr==0){
                 NSValue *value = [NSValue valueWithCGPoint:startPos];
                 [posArray insertObject:value atIndex:0];
                 //pt1 = startPos;
                 pt1 = [[posArray objectAtIndex:moveCnt] CGPointValue];
                 pt2 = [[posArray objectAtIndex:moveCnt+1] CGPointValue];
-            }else{
+            }else{*/
                 pt1 = [[posArray objectAtIndex:moveCnt] CGPointValue];
                 pt2 = [[posArray objectAtIndex:moveCnt+1] CGPointValue];
-            }
+            //}
             
             er=sqrtf(powf(pt2.x-pt1.x,2)+powf(pt2.y-pt1.y,2));
             targetAngle=[BasicMath getAngle_To_Radian:pt1 ePos:pt2];

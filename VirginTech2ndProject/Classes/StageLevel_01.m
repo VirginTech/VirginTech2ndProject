@@ -19,6 +19,7 @@
 #import "AdGenerLayer.h"
 #import <Social/Social.h>
 #import "SoundManager.h"
+#import "CubicSpline.h"
 
 @implementation StageLevel_01
 
@@ -46,6 +47,10 @@ CCButton *speed1xButton;
 CCButton *speed2xButton;
 
 CCParticleSystem* parentParticle;
+
+int cnt;
+NSMutableArray* inputPoints;
+NSMutableArray* outputPoints;
 
 //チュートリアル
 bool tutorialFlg;
@@ -839,10 +844,19 @@ AdGenerLayer* adgSSP;
             }
         }
         
+        cnt=0;
         touchPuni.touchFlg=true;
-        touchPuni.posArray = [[NSMutableArray alloc]init];
+        
+        inputPoints=[[NSMutableArray alloc]init];
+        outputPoints=[[NSMutableArray alloc]init];
+        
         touchPuni.moveCnt=0;
+        touchPuni.posArray = [[NSMutableArray alloc]init];
         touchPuni.lockPuni.visible=false;
+        
+        //NSValue *value = [NSValue valueWithCGPoint:touchLocation];
+        //[inputPoints addObject:value];
+        //[outputPoints addObject:value];
         
     }else{
         touchPuni=nil;
@@ -852,7 +866,7 @@ AdGenerLayer* adgSSP;
 -(void)touchMoved:(UITouch *)touch withEvent:(UIEvent *)event
 {
     CGPoint touchLocation = [touch locationInNode:self];
-
+    
     //同じグループだったら経路設定終了
     bool flg=false;;
     for(ParentObject* parent1 in parentArray){
@@ -872,8 +886,15 @@ AdGenerLayer* adgSSP;
                                 
                 flg=true;
                 touchPuni.touchFlg=false;
+                
                 //[touchPuni.posArray removeLastObject];
-                [touchPuni.posArray addObject:[NSValue valueWithCGPoint:parent1.position]];
+                //[touchPuni.posArray addObject:[NSValue valueWithCGPoint:parent1.position]];
+                [inputPoints addObject:[NSValue valueWithCGPoint:parent1.position]];
+                if(inputPoints.count > 1){
+                    [outputPoints removeAllObjects];
+                    [CubicSpline FitGeometric:inputPoints nOutputPoints:(int)inputPoints.count*30 pout:&outputPoints];
+                    touchPuni.posArray=outputPoints;
+                }
                 touchPuni=nil;
             }
         }
@@ -882,8 +903,25 @@ AdGenerLayer* adgSSP;
         if(touchPuni!=nil){
             if(![BasicMath RadiusContainsPoint:touchPuni.position pointB:touchLocation
                                                 radius:(touchPuni.contentSize.width*touchPuni.scale)/2]){
+                if(cnt==0){
+                    NSValue *value = [NSValue valueWithCGPoint:touchPuni.position];
+                    [inputPoints insertObject:value atIndex:0];
+                    [outputPoints insertObject:value atIndex:0];
+                }
+                cnt++;
                 NSValue *value = [NSValue valueWithCGPoint:touchLocation];
-                [touchPuni.posArray addObject:value];
+                [outputPoints addObject:value];
+                
+                if(cnt%7==0){
+                    
+                    [inputPoints addObject:value];
+                    if(inputPoints.count > 1){
+                        [outputPoints removeAllObjects];
+                        [CubicSpline FitGeometric:inputPoints nOutputPoints:(int)inputPoints.count*30 pout:&outputPoints];
+                    }
+                    //[touchPuni.posArray addObject:value];
+                }
+                touchPuni.posArray=outputPoints;
             }
         }
     }

@@ -14,7 +14,7 @@
 #import "CreditLayer.h"
 #import "ShopView.h"
 #import "PreferencesLayer.h"
-#import "AdGenerLayer.h"
+#import "AdGenerLayer.h"//90分で落ちる!
 #import "GameFeatLayer.h"
 #import "PuniObject.h"
 #import "SoundManager.h"
@@ -241,6 +241,22 @@ GameFeatLayer* gfAd;
     
     // done
 	return self;
+}
+
+- (void)dealloc
+{
+    // clean up code goes here
+}
+
+-(void)onEnter
+{
+    [super onEnter];
+}
+
+- (void)onExit
+{
+    // always call super onExit last
+    [super onExit];
 }
 
 -(void)setBackGround
