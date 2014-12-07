@@ -191,7 +191,7 @@ GameFeatLayer* gfAd;
     
     
     //バージョン
-    CCLabelTTF* versionLabel=[CCLabelTTF labelWithString:@"Version 1.0.2" fontName:@"Verdana-Bold" fontSize:13];
+    CCLabelTTF* versionLabel=[CCLabelTTF labelWithString:@"Version 1.0.3" fontName:@"Verdana-Bold" fontSize:13];
     versionLabel.position=ccp(winSize.width-versionLabel.contentSize.width/2,winSize.height-35);
     versionLabel.color=[CCColor whiteColor];
     [self addChild:versionLabel];
